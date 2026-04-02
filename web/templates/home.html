@@ -1,762 +1,855 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>WebProArts — Digital Growth Agency</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          display: ['Bricolage Grotesque', 'sans-serif'],
-          body: ['Plus Jakarta Sans', 'sans-serif'],
-        },
-        colors: {
-          ink: '#0a0a0a', 'ink-2': '#111111', 'ink-3': '#1a1a1a',
-          paper: '#ffffff', 'paper-2': '#f7f7f5', 'paper-3': '#f0efec',
-          stone: '#e8e7e3', mist: '#d0cfc9', mid: '#8a8882', dim: '#5a5955',
-        },
-        letterSpacing: { tightest: '-0.05em', tighter: '-0.035em', tight: '-0.02em' },
-        animation: {
-          ticker: 'ticker 32s linear infinite',
-          float: 'float 4s ease-in-out infinite',
-          pulsedot: 'pulsedot 2s ease-in-out infinite',
-        },
-        keyframes: {
-          ticker: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
-          float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
-          pulsedot: { '0%,100%': { opacity: '1', transform: 'scale(1)' }, '50%': { opacity: '0.4', transform: 'scale(0.7)' } },
-        },
-      },
-    },
-  };
-</script>
-<style>
-  *{box-sizing:border-box}
-  body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:#0a0a0a;-webkit-font-smoothing:antialiased}
-  h1,h2,h3,h4,h5{font-family:'Bricolage Grotesque',sans-serif}
-  ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:#f0efec}::-webkit-scrollbar-thumb{background:#0a0a0a;border-radius:3px}
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
-  .reveal.in{opacity:1;transform:translateY(0)}
-  .reveal-l{opacity:0;transform:translateX(-30px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
-  .reveal-l.in{opacity:1;transform:translateX(0)}
-  .reveal-r{opacity:0;transform:translateX(30px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
-  .reveal-r.in{opacity:1;transform:translateX(0)}
-  .grid-bg{background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 85% 65% at 50% 45%,black 25%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 85% 65% at 50% 45%,black 25%,transparent 100%)}
-  #mobile-menu{display:none}#mobile-menu.open{display:flex}
-  .faq-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}
-  .faq-item.open .faq-body{max-height:240px}
-  .faq-icon{transition:transform .3s ease,background .2s,color .2s}
-  .faq-item.open .faq-icon{transform:rotate(45deg);background:#0a0a0a;color:#fff}
-  .crd{border:1.5px solid #e8e7e3;transition:border-color .22s,box-shadow .22s,transform .22s}
-  .crd:hover{border-color:#0a0a0a;box-shadow:0 8px 40px rgba(0,0,0,.10);transform:translateY(-5px)}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebProArts — Mumbai's Elite Digital Growth Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { display: ['Bricolage Grotesque', 'sans-serif'], body: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: { 
+                        brand: { 400: '#22d3ee', 500: '#0ea5e9', 600: '#0369a1' },
+                        navy: { 900: '#071e2b', 950: '#04131a' },
+                        saas: { black: '#0a0a0a', card: '#111111' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(14, 165, 233, 0.1); }
+        .brand-gradient { background: linear-gradient(135deg, #22d3ee 0%, #0369a1 100%); }
+        .text-gradient { background: linear-gradient(90deg, #22d3ee, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .blueprint-bg { background-image: radial-gradient(#0ea5e9 0.5px, transparent 0.5px); background-size: 30px 30px; opacity: 0.05; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+    </style>
 </head>
-<body class="overflow-x-hidden">
+<body class="font-body text-slate-900 bg-white selection:bg-brand-400 selection:text-navy-950">
 
-<!-- NAV -->
-<header id="nav" class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-xl border-b border-stone/60 transition-all">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 h-16 flex items-center justify-between gap-6">
-    <a href="#" class="flex items-center gap-2.5 shrink-0">
-      <div class="w-8 h-8 bg-ink rounded-lg flex items-center justify-center">
-        <span class="font-display font-black text-white text-sm leading-none">W</span>
-      </div>
-      <span class="font-display font-bold text-ink text-[17px] tracking-tight">WebPro<span class="opacity-40">Arts</span></span>
-    </a>
-    <nav class="hidden md:flex items-center gap-7">
-      <a href="#services" class="text-[13.5px] font-medium text-dim hover:text-ink transition-colors">Services</a>
-      <a href="#work" class="text-[13.5px] font-medium text-dim hover:text-ink transition-colors">Work</a>
-      <a href="#about" class="text-[13.5px] font-medium text-dim hover:text-ink transition-colors">About</a>
-      <a href="#pricing" class="text-[13.5px] font-medium text-dim hover:text-ink transition-colors">Pricing</a>
-      <a href="#contact" class="text-[13.5px] font-medium text-dim hover:text-ink transition-colors">Contact</a>
-    </nav>
-    <div class="hidden md:flex items-center gap-3">
-      <a href="tel:+91" class="text-[13px] font-medium text-dim hover:text-ink border border-stone hover:border-ink px-4 py-2 rounded-full transition-all">Call Us</a>
-      <a href="#contact" class="text-[13px] font-semibold text-white bg-ink hover:bg-ink-3 px-5 py-2 rounded-full transition-all">Free Audit →</a>
+
+<header class="w-full bg-white border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+        
+        <a href="/" class="flex items-center">
+            <img src="{% static 'img/logo-webproarts.png' %}" alt="WebProArts" class="h-12 lg:h-16 w-auto object-contain">
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-10">
+            
+            <div class="relative group">
+                <button class="flex items-center gap-2 text-[15px] font-bold text-slate-700 group-hover:text-[#28b8d9] transition-colors py-8">
+                    Services 
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+                
+                <div class="absolute top-full left-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100]">
+                    <div class="bg-white border border-slate-100 shadow-2xl rounded-3xl w-[600px] p-6 grid grid-cols-2 gap-4 mt-2">
+                        
+                        <a href="#digital-marketing" class="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
+                            <img src="https://cdn-icons-png.flaticon.com/512/11521/11521404.png" class="w-12 h-12 object-contain" alt="Marketing">
+                            <div>
+                                <p class="font-bold text-navy-950 text-sm">Digital Marketing</p>
+                                <p class="text-[12px] text-slate-500">SEO & Ads Management</p>
+                            </div>
+                        </a>
+
+                        <a href="#website-design" class="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
+                            <img src="https://cdn-icons-png.flaticon.com/512/13191/13191295.png" class="w-12 h-12 object-contain" alt="Web Design">
+                            <div>
+                                <p class="font-bold text-navy-950 text-sm">Website Design</p>
+                                <p class="text-[12px] text-slate-500">UI/UX & Development</p>
+                            </div>
+                        </a>
+
+                        <a href="#social-media" class="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" class="w-12 h-12 object-contain" alt="Social Media">
+                            <div>
+                                <p class="font-bold text-navy-950 text-sm">Social Media</p>
+                                <p class="text-[12px] text-slate-500">Growth & Management</p>
+                            </div>
+                        </a>
+
+                        <a href="#video-editing" class="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4406/4406124.png" class="w-12 h-12 object-contain" alt="Video Editing">
+                            <div>
+                                <p class="font-bold text-navy-950 text-sm">Video Editing</p>
+                                <p class="text-[12px] text-slate-500">Reels & Ads Production</p>
+                            </div>
+                        </a>
+
+                        <a href="#graphic-design" class="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100 col-span-2">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2970/2970785.png" class="w-12 h-12 object-contain" alt="Graphic Design">
+                            <div>
+                                <p class="font-bold text-navy-950 text-sm">Graphic Design</p>
+                                <p class="text-[12px] text-slate-500">Professional branding and high-end digital visuals.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#work" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">Case Studies</a>
+            <a href="#" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">About Us</a>
+
+            <a href="#contact" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all">
+                Contact Now
+            </a>
+        </nav>
+
+        <button class="lg:hidden p-2 text-[#16598a]" onclick="toggleMenu()">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round"></path></svg>
+        </button>
     </div>
-    <button onclick="toggleMobile()" class="md:hidden p-2 rounded-lg hover:bg-paper-2 transition-colors">
-      <svg id="h-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <svg id="h-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
-    </button>
-  </div>
-  <div id="mobile-menu" class="md:hidden flex-col bg-white border-t border-stone px-5 pb-6 pt-4 gap-1">
-    <a href="#services" onclick="toggleMobile()" class="block px-3 py-2.5 text-[15px] font-medium text-ink hover:bg-paper-2 rounded-xl transition-colors">Services</a>
-    <a href="#work" onclick="toggleMobile()" class="block px-3 py-2.5 text-[15px] font-medium text-ink hover:bg-paper-2 rounded-xl transition-colors">Work</a>
-    <a href="#about" onclick="toggleMobile()" class="block px-3 py-2.5 text-[15px] font-medium text-ink hover:bg-paper-2 rounded-xl transition-colors">About</a>
-    <a href="#pricing" onclick="toggleMobile()" class="block px-3 py-2.5 text-[15px] font-medium text-ink hover:bg-paper-2 rounded-xl transition-colors">Pricing</a>
-    <a href="#contact" onclick="toggleMobile()" class="block px-3 py-2.5 text-[15px] font-medium text-ink hover:bg-paper-2 rounded-xl transition-colors">Contact</a>
-    <div class="mt-4 pt-4 border-t border-stone flex flex-col gap-2">
-      <a href="tel:+91" class="text-center text-[14px] font-medium border border-stone px-4 py-3 rounded-xl">Call Us</a>
-      <a href="#contact" onclick="toggleMobile()" class="text-center text-[14px] font-semibold text-white bg-ink px-4 py-3 rounded-xl">Get Free Audit →</a>
+
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 p-6 space-y-4">
+        <a href="#digital-marketing" class="block font-bold text-slate-700">Digital Marketing</a>
+        <a href="#website-design" class="block font-bold text-slate-700">Website Design</a>
+        <a href="#social-media" class="block font-bold text-slate-700">Social Media</a>
+        <a href="#graphic-design" class="block font-bold text-slate-700">Graphic Design</a>
+        <a href="#video-editing" class="block font-bold text-slate-700">Video Editing</a>
+        <a href="#contact" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold">Get Started</a>
     </div>
-  </div>
 </header>
 
-<!-- HERO -->
-<section class="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-white" id="home">
-  <div class="grid-bg absolute inset-0 pointer-events-none"></div>
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-      <div>
-        <div class="inline-flex items-center gap-2 bg-paper-2 border border-stone rounded-full px-3.5 py-1.5 mb-8">
-          <span class="w-1.5 h-1.5 bg-ink rounded-full animate-pulsedot"></span>
-          <span class="text-[11px] font-bold text-ink tracking-widest uppercase">#1 Agency · Vasai-Virar & Mumbai</span>
-        </div>
-        <h1 class="font-display font-extrabold text-ink leading-[0.94] tracking-tightest text-[52px] sm:text-[68px] lg:text-[80px] mb-7">
-          We Build<br/>
-          <span class="relative inline-block">Brands<svg class="absolute -bottom-2 left-0 w-full h-[10px]" viewBox="0 0 320 10" fill="none" preserveAspectRatio="none"><path d="M2 7.5C80 2 200 1 318 7.5" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"/></svg></span><br/>
-          That Grow.
-        </h1>
-        <p class="text-[16.5px] font-light leading-relaxed text-dim max-w-[440px] mb-9">Full-stack digital marketing for ambitious businesses in Mumbai. Websites, Google Ads, SEO, social media — everything to scale your brand.</p>
-        <div class="flex flex-wrap items-center gap-4 mb-12">
-          <a href="#contact" class="inline-flex items-center gap-2 bg-ink text-white font-semibold text-[14.5px] px-7 py-3.5 rounded-full hover:bg-ink-3 transition-all">
-            Start Growing <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#work" class="inline-flex items-center gap-2 text-[14.5px] font-medium text-dim hover:text-ink border border-stone hover:border-ink px-7 py-3.5 rounded-full transition-all">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> View Our Work
-          </a>
-        </div>
-        <div class="flex flex-wrap items-center gap-8">
-          <div>
-            <div class="font-display font-black text-[38px] leading-none tracking-tightest text-ink mb-1">200<span class="text-mid text-[26px]">+</span></div>
-            <div class="text-[12px] font-medium text-mid uppercase tracking-wider">Brands Scaled</div>
-          </div>
-          <div class="w-px h-12 bg-stone hidden sm:block"></div>
-          <div>
-            <div class="font-display font-black text-[38px] leading-none tracking-tightest text-ink mb-1">5<span class="text-mid text-[26px]">×</span></div>
-            <div class="text-[12px] font-medium text-mid uppercase tracking-wider">Avg. ROI</div>
-          </div>
-          <div class="w-px h-12 bg-stone hidden sm:block"></div>
-          <div>
-            <div class="font-display font-black text-[38px] leading-none tracking-tightest text-ink mb-1">98<span class="text-mid text-[26px]">%</span></div>
-            <div class="text-[12px] font-medium text-mid uppercase tracking-wider">Client Retention</div>
-          </div>
-        </div>
-      </div>
-      <!-- Hero Visual -->
-      <div class="relative grid grid-cols-2 gap-4 h-[400px] sm:h-[460px]">
-        <div class="bg-ink rounded-2xl p-7 flex flex-col justify-between">
-          <div>
-            <div class="text-[11px] font-semibold text-white/40 uppercase tracking-widest mb-4">Monthly Traffic</div>
-            <div class="font-display font-black text-white text-[42px] leading-none tracking-tightest mb-1.5">+347<span class="text-[22px]">%</span></div>
-            <div class="text-white/45 text-[12px] font-light">Organic growth · Q1</div>
-          </div>
-          <div class="flex items-end gap-1 h-10">
-            <div class="flex-1 bg-white/10 rounded-sm" style="height:35%"></div>
-            <div class="flex-1 bg-white/10 rounded-sm" style="height:50%"></div>
-            <div class="flex-1 bg-white/10 rounded-sm" style="height:45%"></div>
-            <div class="flex-1 bg-white/10 rounded-sm" style="height:65%"></div>
-            <div class="flex-1 bg-white/10 rounded-sm" style="height:55%"></div>
-            <div class="flex-1 bg-white/90 rounded-sm" style="height:90%"></div>
-          </div>
-        </div>
-        <div class="bg-paper-2 border border-stone rounded-2xl p-6 flex flex-col justify-between row-span-2">
-          <div>
-            <div class="text-[11px] font-semibold text-mid uppercase tracking-widest mb-4">Google Ads ROAS</div>
-            <div class="font-display font-black text-ink text-[44px] leading-none tracking-tightest mb-1.5">6.2<span class="text-[22px]">×</span></div>
-            <div class="text-mid text-[12px] font-light">Return on ad spend</div>
-          </div>
-          <div class="space-y-3">
-            <div class="bg-white border border-stone rounded-xl p-4">
-              <div class="text-[11px] text-mid font-medium mb-1">Conversion Rate</div>
-              <div class="font-display font-bold text-[22px] text-ink tracking-tight">8.4%</div>
-              <div class="text-[11px] text-mid mt-0.5">↑ vs 2.1% industry avg</div>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    }
+</script>
+
+
+
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+<style>
+    /* Custom Brand Styles */
+    .font-display { font-family: 'Bricolage Grotesque', sans-serif; }
+    .typed-cursor { color: #28b8d9; font-size: 1em; margin-left: 4px; }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(3px); }
+        50% { transform: translateY(-20px) rotate(1px); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+</style>
+
+<section class="relative pt-12 pb-20 overflow-hidden bg-white">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#28b8d9]/10 rounded-full blur-[120px] -z-10 translate-x-1/4 -translate-y-1/4"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#16598a]/10 rounded-full blur-[100px] -z-10 -translate-x-1/4 translate-y-1/4"></div>
+
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div class="reveal">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#16598a]/5 border border-[#16598a]/10 text-[#16598a] text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute h-full w-full rounded-full bg-[#28b8d9] opacity-75"></span>
+                    <span class="relative rounded-full h-2 w-2 bg-[#28b8d9]"></span>
+                </span>
+                Scale Your Brand in 2026
             </div>
-            <div class="bg-ink rounded-xl p-4">
-              <div class="text-[11px] text-white/45 font-medium mb-1">Client Rating</div>
-              <div class="font-display font-bold text-[22px] text-white tracking-tight">4.9/5</div>
-              <div class="text-[11px] text-white/35 mt-0.5">200+ verified reviews</div>
+
+            <h1 class="font-display text-5xl md:text-7xl font-extrabold text-[#04131a] leading-[1.05] mb-4 tracking-tighter min-h-[140px] md:min-h-[160px]">
+                Scale your Impact <br>
+                through <span id="typed-text" class="text-transparent bg-clip-text bg-gradient-to-r from-[#16598a] to-[#28b8d9]"></span>
+            </h1>
+
+            <p class="text-lg text-slate-500 mb-8 max-w-lg font-medium leading-relaxed">
+                Move beyond vanity metrics. We deploy <span class="text-[#04131a] font-bold">growth-first systems</span> and elite design to turn your brand into a 24/7 revenue engine.
+            </p>
+
+            <div class="flex flex-wrap gap-8 mb-10 py-4 border-y border-slate-100">
+                <div>
+                    <p class="text-2xl font-black text-[#04131a]">350%</p>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Avg Growth</p>
+                </div>
+                <div class="w-px h-10 bg-slate-100 hidden sm:block"></div>
+                <div>
+                    <p class="text-2xl font-black text-[#04131a]">200+</p>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Success Stories</p>
+                </div>
+                <div class="w-px h-10 bg-slate-100 hidden sm:block"></div>
+                <div>
+                    <p class="text-2xl font-black text-[#28b8d9]">#1</p>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Virar-Vasai Agency</p>
+                </div>
             </div>
-          </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-6">
+                <button onclick="toggleModal(true)" class="w-full sm:w-auto px-10 py-5 bg-[#16598a] text-white font-bold rounded-2xl shadow-xl shadow-[#16598a]/20 hover:bg-[#28b8d9] hover:-translate-y-1 transition-all duration-300 transform active:scale-95">
+                    Get Free Audit
+                </button>
+                <div class="flex items-center gap-3">
+                    <div class="flex -space-x-3">
+                        <img src="https://ui-avatars.com/api/?background=16598a&color=fff&name=W" class="w-10 h-10 rounded-full border-4 border-white shadow-sm">
+                        <img src="https://ui-avatars.com/api/?background=28b8d9&color=fff&name=P" class="w-10 h-10 rounded-full border-4 border-white shadow-sm">
+                        <img src="https://ui-avatars.com/api/?background=04131a&color=fff&name=A" class="w-10 h-10 rounded-full border-4 border-white shadow-sm">
+                    </div>
+                    <span class="text-[13px] font-bold text-slate-400 italic">"The Growth Partner you need."</span>
+                </div>
+            </div>
         </div>
-        <div class="bg-paper-3 border border-stone rounded-2xl p-5 flex items-center gap-3">
-          <div class="w-10 h-10 bg-ink rounded-xl flex items-center justify-center shrink-0">
-            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-          </div>
-          <div>
-            <div class="font-display font-bold text-ink text-[20px] tracking-tight leading-none mb-0.5">#1 Agency</div>
-            <div class="text-[11px] text-mid">Vasai-Virar region</div>
-          </div>
+
+        <div class="relative flex items-center justify-center lg:justify-end">
+            <div class="relative z-10 w-full max-w-[500px] animate-float">
+                <img src="https://img.freepik.com/free-vector/abstract-3d-rendering-data-flow-background_23-2148873760.jpg" 
+                     class="rounded-[40px] shadow-2xl border border-white/20 transform rotate-3" 
+                     alt="3D Growth Flow">
+                
+                <div class="absolute -bottom-6 -right-6 bg-white/90 backdrop-blur-xl p-5 rounded-3xl shadow-xl border border-slate-100 flex items-center gap-4">
+                    <div class="w-12 h-12 bg-green-500 text-white rounded-xl flex items-center justify-center text-xl font-bold shadow-lg shadow-green-500/20">↑</div>
+                    <div>
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Conversion</p>
+                        <p class="text-xl font-black text-[#04131a]">+84%</p>
+                    </div>
+                </div>
+            </div>
+
+            <img src="https://cdn-icons-png.flaticon.com/512/10473/10473619.png" class="absolute top-10 right-10 w-24 h-24 z-20 animate-pulse hidden lg:block" alt="SEO 3D Icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/11496/11496730.png" class="absolute bottom-10 left-10 w-32 h-32 z-20 hidden lg:block" alt="Growth Chart 3D Icon">
         </div>
-        <div class="absolute -bottom-5 -left-4 bg-white border border-stone rounded-2xl px-4 py-3 flex items-center gap-3 hidden sm:flex" style="box-shadow:0 8px 40px rgba(0,0,0,.10)">
-          <div class="w-8 h-8 bg-paper-2 border border-stone rounded-full flex items-center justify-center text-sm">🚀</div>
-          <div>
-            <div class="text-[12px] font-semibold text-ink">New inquiry · Mumbai</div>
-            <div class="text-[11px] text-mid">Just now · Google Ads lead</div>
-          </div>
-          <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse ml-1 shrink-0"></div>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- TICKER -->
-<div class="bg-ink py-4 overflow-hidden border-y border-white/5">
-  <div class="flex animate-ticker w-max">
-    <div class="flex shrink-0">
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">Website Design</strong> · Custom & Mobile-Ready</span>
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">SEO</strong> · Rank #1 on Google</span>
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">Google Ads</strong> · High-ROI Campaigns</span>
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">Social Media</strong> · Loyal Audiences</span>
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">Graphic Design</strong> · Stunning Visuals</span>
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">Video Editing</strong> · Engaging Content</span>
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">Top Agency</strong> · Vasai-Virar & Mumbai</span>
+<div id="enquireModal" class="fixed inset-0 z-[250] hidden flex items-center justify-center px-4 transition-all duration-300">
+    <div onclick="toggleModal(false)" class="absolute inset-0 bg-[#04131a]/40 backdrop-blur-sm"></div>
+    
+    <div class="relative bg-white w-full max-w-[440px] rounded-[32px] shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="modalBox">
+        <button onclick="toggleModal(false)" class="absolute top-5 right-5 text-slate-300 hover:text-[#04131a] transition-colors z-10">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="3"></path></svg>
+        </button>
+
+        <div class="p-10">
+            <div class="mb-6">
+                <h3 class="font-display text-2xl font-bold text-[#04131a] mb-1 text-center">Enquire Now</h3>
+                <p class="text-sm text-slate-400 font-medium text-center italic">"We connect your thoughts."</p>
+            </div>
+
+            <form class="space-y-3">
+                <div class="grid grid-cols-2 gap-3">
+                    <input type="text" placeholder="First Name" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-[#28b8d9] font-medium transition-all">
+                    <input type="text" placeholder="Last Name" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-[#28b8d9] font-medium transition-all">
+                </div>
+                <input type="text" placeholder="Subject" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-[#28b8d9] font-medium transition-all">
+                <textarea rows="4" placeholder="How can we help your brand grow?" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-[#28b8d9] font-medium resize-none transition-all"></textarea>
+                
+                <button type="submit" class="w-full bg-[#16598a] text-white font-bold py-5 rounded-xl shadow-lg shadow-[#16598a]/20 hover:bg-[#28b8d9] transition-all mt-4 transform active:scale-95">
+                    Send Message →
+                </button>
+            </form>
+        </div>
     </div>
-    <div class="flex shrink-0">
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">Website Design</strong> · Custom & Mobile-Ready</span>
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">SEO</strong> · Rank #1 on Google</span>
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">Google Ads</strong> · High-ROI Campaigns</span>
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">Social Media</strong> · Loyal Audiences</span>
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">Graphic Design</strong> · Stunning Visuals</span>
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">Video Editing</strong> · Engaging Content</span>
-      <span class="flex items-center gap-3 px-8 text-[12.5px] font-medium text-white/40 whitespace-nowrap"><span class="w-1 h-1 bg-white/25 rounded-full"></span><strong class="text-white/75 font-semibold">Top Agency</strong> · Vasai-Virar & Mumbai</span>
-    </div>
-  </div>
 </div>
 
-<!-- TRUST -->
-<section class="py-12 bg-paper-2 border-b border-stone">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <p class="text-center text-[11.5px] font-bold text-mid uppercase tracking-widest mb-8">Trusted by businesses across Mumbai & Vasai-Virar</p>
-    <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
-      <span class="font-display font-bold text-[18px] text-stone tracking-tight hover:text-mid transition-colors cursor-default">RetailPro</span>
-      <span class="font-display font-bold text-[18px] text-stone tracking-tight hover:text-mid transition-colors cursor-default">BuildCo</span>
-      <span class="font-display font-bold text-[18px] text-stone tracking-tight hover:text-mid transition-colors cursor-default">MedPlus</span>
-      <span class="font-display font-bold text-[18px] text-stone tracking-tight hover:text-mid transition-colors cursor-default">UrbanNest</span>
-      <span class="font-display font-bold text-[18px] text-stone tracking-tight hover:text-mid transition-colors cursor-default">EduSpark</span>
-      <span class="font-display font-bold text-[18px] text-stone tracking-tight hover:text-mid transition-colors cursor-default">TasteHub</span>
-      <span class="font-display font-bold text-[18px] text-stone tracking-tight hover:text-mid transition-colors cursor-default">FashionX</span>
+<script>
+    // Initialize Typing Effect once the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        if (document.getElementById('typed-text')) {
+            new Typed('#typed-text', {
+                strings: [
+                    'Digital Marketing.', 
+                    'Website Design.', 
+                    'Social Media.', 
+                    'Video Editing.', 
+                    'Graphic Design.'
+                ],
+                typeSpeed: 60,
+                backSpeed: 40,
+                backDelay: 2000,
+                loop: true,
+                cursorChar: '|'
+            });
+        }
+    });
+
+    // Modal Opening/Closing Function
+    function toggleModal(show) {
+        const modal = document.getElementById('enquireModal');
+        const box = document.getElementById('modalBox');
+        const body = document.body;
+
+        if (show) {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                box.classList.remove('scale-95', 'opacity-0');
+                box.classList.add('scale-100', 'opacity-100');
+            }, 20);
+            body.style.overflow = 'hidden';
+        } else {
+            box.classList.replace('scale-100', 'scale-95');
+            box.classList.replace('opacity-100', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+            body.style.overflow = 'auto';
+        }
+    }
+
+    // Escape key to close modal
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') toggleModal(false);
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+<style>
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    .animate-marquee-infinite {
+        display: flex;
+        width: max-content;
+        animation: marquee 40s linear infinite;
+    }
+    /* Pause on hover for better UX */
+    .animate-marquee-infinite:hover {
+        animation-play-state: paused;
+    }
+    /* Grayscale to Color Transition */
+    .partner-logo {
+        filter: grayscale(100%);
+        opacity: 0.4;
+        transition: all 0.5s ease;
+    }
+    .partner-card:hover .partner-logo {
+        filter: grayscale(0%);
+        opacity: 1;
+        transform: scale(1.1);
+    }
+</style>
+
+<div class="bg-[#04131a] py-16 border-y border-white/5 overflow-hidden relative group">
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at center, rgba(40, 184, 217, 0.05) 0%, transparent 70%);"></div>
+
+    <div class="animate-marquee-infinite flex items-center">
+        <div class="flex items-center shrink-0">
+            
+            <div class="partner-card flex items-center gap-4 mx-16">
+                <img src="https://cdn-icons-png.flaticon.com/512/2991/2991147.png" class="partner-logo w-10 h-10 object-contain" alt="Google">
+                <span class="text-2xl font-display font-extrabold text-white/20 uppercase tracking-tighter">Google Ads Partner</span>
+            </div>
+
+            <div class="w-1.5 h-1.5 rounded-full bg-[#28b8d9]/30"></div>
+
+            <div class="partner-card flex items-center gap-4 mx-16">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" class="partner-logo w-10 h-10 object-contain" alt="Meta">
+                <span class="text-2xl font-display font-extrabold text-white/20 uppercase tracking-tighter">Meta Certified</span>
+            </div>
+
+            <div class="w-1.5 h-1.5 rounded-full bg-[#28b8d9]/30"></div>
+
+            <div class="partner-card flex items-center gap-4 mx-16">
+                <img src="https://cdn-icons-png.flaticon.com/512/919/919851.png" class="partner-logo w-10 h-10 object-contain" alt="React">
+                <span class="text-2xl font-display font-extrabold text-white/20 uppercase tracking-tighter">SaaS Built with React</span>
+            </div>
+
+            <div class="w-1.5 h-1.5 rounded-full bg-[#28b8d9]/30"></div>
+
+            <div class="partner-card flex items-center gap-4 mx-16">
+                <img src="https://cdn-icons-png.flaticon.com/512/11496/11496730.png" class="partner-logo w-10 h-10 object-contain" alt="SEO">
+                <span class="text-2xl font-display font-extrabold text-white/20 uppercase tracking-tighter">SEO Authority</span>
+            </div>
+
+            <div class="w-1.5 h-1.5 rounded-full bg-[#28b8d9]/30"></div>
+
+            <div class="partner-card flex items-center gap-4 mx-16">
+                <img src="https://cdn-icons-png.flaticon.com/512/814/814513.png" class="partner-logo w-10 h-10 object-contain" alt="Mumbai">
+                <span class="text-2xl font-display font-extrabold text-white/20 uppercase tracking-tighter">Vasai-Virar Growth</span>
+            </div>
+
+            <div class="w-1.5 h-1.5 rounded-full bg-[#28b8d9]/30"></div>
+        </div>
+
+        <div class="flex items-center shrink-0">
+            <div class="partner-card flex items-center gap-4 mx-16">
+                <img src="https://cdn-icons-png.flaticon.com/512/2991/2991147.png" class="partner-logo w-10 h-10 object-contain" alt="Google">
+                <span class="text-2xl font-display font-extrabold text-white/20 uppercase tracking-tighter">Google Ads Partner</span>
+            </div>
+            <div class="w-1.5 h-1.5 rounded-full bg-[#28b8d9]/30"></div>
+            <div class="partner-card flex items-center gap-4 mx-16">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" class="partner-logo w-10 h-10 object-contain" alt="Meta">
+                <span class="text-2xl font-display font-extrabold text-white/20 uppercase tracking-tighter">Meta Certified</span>
+            </div>
+            <div class="w-1.5 h-1.5 rounded-full bg-[#28b8d9]/30"></div>
+            <div class="partner-card flex items-center gap-4 mx-16">
+                <img src="https://cdn-icons-png.flaticon.com/512/919/919851.png" class="partner-logo w-10 h-10 object-contain" alt="React">
+                <span class="text-2xl font-display font-extrabold text-white/20 uppercase tracking-tighter">SaaS Built with React</span>
+            </div>
+            <div class="w-1.5 h-1.5 rounded-full bg-[#28b8d9]/30"></div>
+            <div class="partner-card flex items-center gap-4 mx-16">
+                <img src="https://cdn-icons-png.flaticon.com/512/11496/11496730.png" class="partner-logo w-10 h-10 object-contain" alt="SEO">
+                <span class="text-2xl font-display font-extrabold text-white/20 uppercase tracking-tighter">SEO Authority</span>
+            </div>
+            <div class="w-1.5 h-1.5 rounded-full bg-[#28b8d9]/30"></div>
+            <div class="partner-card flex items-center gap-4 mx-16">
+                <img src="https://cdn-icons-png.flaticon.com/512/814/814513.png" class="partner-logo w-10 h-10 object-contain" alt="Mumbai">
+                <span class="text-2xl font-display font-extrabold text-white/20 uppercase tracking-tighter">Vasai-Virar Growth</span>
+            </div>
+            <div class="w-1.5 h-1.5 rounded-full bg-[#28b8d9]/30"></div>
+        </div>
     </div>
-  </div>
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<style>
+    /* Custom Slider Navigation Colors */
+    .swiper-button-next, .swiper-button-prev {
+        color: #16598a !important;
+        background: white;
+        width: 50px !important;
+        height: 50px !important;
+        border-radius: 50%;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        border: 1px solid #f1f5f9;
+    }
+    .swiper-button-next:after, .swiper-button-prev:after { font-size: 18px !important; font-weight: bold; }
+    .swiper-pagination-bullet-active { background: #28b8d9 !important; width: 30px; border-radius: 10px; transition: all 0.3s; }
+</style>
+
+<section id="services" class="py-24 bg-slate-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div class="max-w-xl">
+                <div class="text-[#28b8d9] font-black text-[10px] uppercase tracking-[0.2em] mb-4">Expertise</div>
+                <h2 class="font-display text-4xl md:text-5xl font-extrabold text-navy-950 leading-tight">
+                    Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#16598a] to-[#28b8d9]">Core Services</span>
+                </h2>
+            </div>
+            <div class="hidden md:flex gap-4 mb-2">
+                <div class="srv-prev swiper-button-prev !static !m-0 transition-all hover:bg-[#16598a] hover:text-white"></div>
+                <div class="srv-next swiper-button-next !static !m-0 transition-all hover:bg-[#16598a] hover:text-white"></div>
+            </div>
+        </div>
+
+        <div class="swiper serviceSwiper !pb-20 !px-4">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide h-auto">
+                    <div class="bg-white p-10 rounded-[3rem] border border-slate-100 h-full flex flex-col hover:border-[#28b8d9] transition-all group shadow-sm hover:shadow-2xl hover:shadow-cyan-500/10">
+                        <div class="w-20 h-20 mb-8 rounded-3xl bg-slate-50 p-4 group-hover:scale-110 transition-transform duration-500">
+                            <img src="https://cdn-icons-png.flaticon.com/512/13191/13191295.png" class="w-full h-full object-contain" alt="Web Design">
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-navy-950 mb-4 tracking-tight">Website Design</h3>
+                        <p class="text-slate-500 leading-relaxed mb-8 flex-grow">Custom UI/UX and SaaS platforms built with Next.js & React for high-speed performance.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2 text-xs font-bold text-slate-400"><div class="w-1.5 h-1.5 bg-[#28b8d9] rounded-full"></div> RESPONSIVE DESIGN</li>
+                            <li class="flex items-center gap-2 text-xs font-bold text-slate-400"><div class="w-1.5 h-1.5 bg-[#28b8d9] rounded-full"></div> FAST LOAD TIMES</li>
+                        </ul>
+                        <a href="#contact" class="text-[#16598a] font-black text-xs tracking-widest uppercase border-b-2 border-[#16598a]/20 pb-1 w-fit group-hover:border-[#16598a] transition-all">Enquire Now →</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide h-auto">
+                    <div class="bg-navy-950 p-10 rounded-[3rem] shadow-2xl h-full flex flex-col relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-[#28b8d9]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="w-20 h-20 mb-8 rounded-3xl bg-white/5 p-4 relative z-10">
+                            <img src="https://cdn-icons-png.flaticon.com/512/11521/11521404.png" class="w-full h-full object-contain" alt="Marketing">
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-4 tracking-tight relative z-10">Digital Marketing</h3>
+                        <p class="text-slate-400 leading-relaxed mb-8 flex-grow relative z-10">SEO mastery and ROI-focused Google Ads to rank your brand where the customers are.</p>
+                        <div class="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-black text-[#28b8d9] uppercase tracking-widest w-fit mb-8 relative z-10">High ROAS</div>
+                        <a href="#contact" class="text-white font-black text-xs tracking-widest uppercase border-b-2 border-white/20 pb-1 w-fit hover:border-white transition-all relative z-10">Claim Audit →</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide h-auto">
+                    <div class="bg-white p-10 rounded-[3rem] border border-slate-100 h-full flex flex-col hover:border-[#28b8d9] transition-all group shadow-sm">
+                        <div class="w-20 h-20 mb-8 rounded-3xl bg-slate-50 p-4 group-hover:scale-110">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" class="w-full h-full object-contain" alt="Social Media">
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-navy-950 mb-4 tracking-tight">Social Media</h3>
+                        <p class="text-slate-500 leading-relaxed mb-8 flex-grow">Viral content strategy and management across all platforms to build your community.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2 text-xs font-bold text-slate-400"><div class="w-1.5 h-1.5 bg-[#28b8d9] rounded-full"></div> INSTAGRAM GROWTH</li>
+                            <li class="flex items-center gap-2 text-xs font-bold text-slate-400"><div class="w-1.5 h-1.5 bg-[#28b8d9] rounded-full"></div> CONTENT ENGINE</li>
+                        </ul>
+                        <a href="#contact" class="text-[#16598a] font-black text-xs tracking-widest uppercase border-b-2 border-[#16598a]/20 pb-1 w-fit group-hover:border-[#16598a] transition-all">Enquire Now →</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide h-auto">
+                    <div class="bg-white p-10 rounded-[3rem] border border-slate-100 h-full flex flex-col hover:border-[#28b8d9] transition-all group shadow-sm">
+                        <div class="w-20 h-20 mb-8 rounded-3xl bg-slate-50 p-4 group-hover:scale-110">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4406/4406124.png" class="w-full h-full object-contain" alt="Video">
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-navy-950 mb-4 tracking-tight">Video Editing</h3>
+                        <p class="text-slate-500 leading-relaxed mb-8 flex-grow">Professional cinematic storytelling, Reels, and ads that stop the scroll instantly.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2 text-xs font-bold text-slate-400"><div class="w-1.5 h-1.5 bg-[#28b8d9] rounded-full"></div> ADS PRODUCTION</li>
+                            <li class="flex items-center gap-2 text-xs font-bold text-slate-400"><div class="w-1.5 h-1.5 bg-[#28b8d9] rounded-full"></div> REEL STRATEGY</li>
+                        </ul>
+                        <a href="#contact" class="text-[#16598a] font-black text-xs tracking-widest uppercase border-b-2 border-[#16598a]/20 pb-1 w-fit group-hover:border-[#16598a] transition-all">Enquire Now →</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide h-auto">
+                    <div class="bg-white p-10 rounded-[3rem] border border-slate-100 h-full flex flex-col hover:border-[#28b8d9] transition-all group shadow-sm">
+                        <div class="w-20 h-20 mb-8 rounded-3xl bg-slate-50 p-4 group-hover:scale-110">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2970/2970785.png" class="w-full h-full object-contain" alt="Graphics">
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-navy-950 mb-4 tracking-tight">Graphic Design</h3>
+                        <p class="text-slate-500 leading-relaxed mb-8 flex-grow">Complete brand identity systems, logos, and premium visuals for digital dominance.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2 text-xs font-bold text-slate-400"><div class="w-1.5 h-1.5 bg-[#28b8d9] rounded-full"></div> LOGO BRANDING</li>
+                            <li class="flex items-center gap-2 text-xs font-bold text-slate-400"><div class="w-1.5 h-1.5 bg-[#28b8d9] rounded-full"></div> VISUAL ART</li>
+                        </ul>
+                        <a href="#contact" class="text-[#16598a] font-black text-xs tracking-widest uppercase border-b-2 border-[#16598a]/20 pb-1 w-fit group-hover:border-[#16598a] transition-all">Enquire Now →</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination !bottom-4"></div>
+        </div>
+    </div>
 </section>
 
-<!-- SERVICES -->
-<section class="py-24 lg:py-32 bg-white" id="services">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="max-w-xl mb-16 reveal">
-      <div class="flex items-center gap-2 mb-4"><span class="w-5 h-px bg-ink"></span><span class="text-[11.5px] font-bold text-ink uppercase tracking-widest">What We Do</span></div>
-      <h2 class="font-display font-extrabold text-[38px] sm:text-[48px] lg:text-[56px] tracking-tightest text-ink leading-[1.02] mb-5">Full-Stack Digital<br/>Marketing Services</h2>
-      <p class="text-[16px] font-light text-dim leading-relaxed">Everything your brand needs to dominate online — design, performance marketing, and content under one roof.</p>
-    </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <div class="crd rounded-2xl p-8 reveal" style="transition-delay:.05s">
-        <div class="w-11 h-11 bg-paper-2 border border-stone rounded-xl flex items-center justify-center mb-6 text-xl">🌐</div>
-        <h3 class="font-display font-bold text-[20px] tracking-tight text-ink mb-3">Website Design & Dev</h3>
-        <p class="text-[14px] font-light text-dim leading-relaxed mb-5">Custom, mobile-first websites built to convert. Beautiful, fast, and SEO-ready from day one.</p>
-        <div class="flex flex-wrap gap-2"><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">Custom Design</span><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">Mobile-First</span><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">CMS</span></div>
-      </div>
-      <div class="crd rounded-2xl p-8 bg-ink border-ink reveal" style="transition-delay:.10s">
-        <div class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center mb-6 text-xl">📣</div>
-        <h3 class="font-display font-bold text-[20px] tracking-tight text-white mb-3">Google Ads Campaigns</h3>
-        <p class="text-[14px] font-light text-white/55 leading-relaxed mb-5">Targeted, data-driven campaigns. Put your business in front of the right people and maximize every rupee.</p>
-        <div class="flex flex-wrap gap-2"><span class="text-[11.5px] font-medium text-white/50 bg-white/10 px-3 py-1 rounded-full">PPC</span><span class="text-[11.5px] font-medium text-white/50 bg-white/10 px-3 py-1 rounded-full">Display Ads</span><span class="text-[11.5px] font-medium text-white/50 bg-white/10 px-3 py-1 rounded-full">Remarketing</span></div>
-      </div>
-      <div class="crd rounded-2xl p-8 reveal" style="transition-delay:.15s">
-        <div class="w-11 h-11 bg-paper-2 border border-stone rounded-xl flex items-center justify-center mb-6 text-xl">🔍</div>
-        <h3 class="font-display font-bold text-[20px] tracking-tight text-ink mb-3">SEO Services</h3>
-        <p class="text-[14px] font-light text-dim leading-relaxed mb-5">Climb Google rankings with proven strategies. Long-term organic growth that compounds over time.</p>
-        <div class="flex flex-wrap gap-2"><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">On-Page SEO</span><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">Link Building</span><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">Local SEO</span></div>
-      </div>
-      <div class="crd rounded-2xl p-8 reveal" style="transition-delay:.20s">
-        <div class="w-11 h-11 bg-paper-2 border border-stone rounded-xl flex items-center justify-center mb-6 text-xl">📱</div>
-        <h3 class="font-display font-bold text-[20px] tracking-tight text-ink mb-3">Social Media Management</h3>
-        <p class="text-[14px] font-light text-dim leading-relaxed mb-5">Content, scheduling, and community management across Instagram, Facebook, LinkedIn & more.</p>
-        <div class="flex flex-wrap gap-2"><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">Instagram</span><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">Facebook</span><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">LinkedIn</span></div>
-      </div>
-      <div class="crd rounded-2xl p-8 reveal" style="transition-delay:.25s">
-        <div class="w-11 h-11 bg-paper-2 border border-stone rounded-xl flex items-center justify-center mb-6 text-xl">🎨</div>
-        <h3 class="font-display font-bold text-[20px] tracking-tight text-ink mb-3">Graphic Design</h3>
-        <p class="text-[14px] font-light text-dim leading-relaxed mb-5">Logos, banners, packaging, and social creatives that captivate, convert, and elevate your brand.</p>
-        <div class="flex flex-wrap gap-2"><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">Branding</span><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">Print</span><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">Digital</span></div>
-      </div>
-      <div class="crd rounded-2xl p-8 reveal" style="transition-delay:.30s">
-        <div class="w-11 h-11 bg-paper-2 border border-stone rounded-xl flex items-center justify-center mb-6 text-xl">🎬</div>
-        <h3 class="font-display font-bold text-[20px] tracking-tight text-ink mb-3">Video Editing</h3>
-        <p class="text-[14px] font-light text-dim leading-relaxed mb-5">Raw footage into polished, engaging videos — reels, ads, and corporate content that resonates.</p>
-        <div class="flex flex-wrap gap-2"><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">Reels</span><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">Video Ads</span><span class="text-[11.5px] font-medium text-mid bg-paper-2 border border-stone px-3 py-1 rounded-full">Corporate</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="py-24 lg:py-32 bg-paper-2 border-y border-stone" id="process">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="text-center max-w-xl mx-auto mb-20 reveal">
-      <div class="flex items-center justify-center gap-2 mb-4"><span class="w-5 h-px bg-ink"></span><span class="text-[11.5px] font-bold text-ink uppercase tracking-widest">How We Work</span><span class="w-5 h-px bg-ink"></span></div>
-      <h2 class="font-display font-extrabold text-[38px] sm:text-[48px] tracking-tightest text-ink leading-[1.02] mb-5">Our Proven 5-Step<br/>Growth Process</h2>
-      <p class="text-[16px] font-light text-dim leading-relaxed">A battle-tested framework that consistently delivers results for every client, every time.</p>
-    </div>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-      <div class="reveal text-center group" style="transition-delay:.05s">
-        <div class="w-16 h-16 rounded-2xl bg-white border border-stone group-hover:bg-ink group-hover:border-ink transition-all duration-300 flex items-center justify-center mx-auto mb-5"><span class="font-display font-black text-[22px] text-stone group-hover:text-white transition-colors">01</span></div>
-        <h4 class="font-display font-bold text-[16px] tracking-tight text-ink mb-2">Discovery</h4>
-        <p class="text-[13px] font-light text-mid leading-relaxed">Deep dive into your business, goals, and competitors.</p>
-      </div>
-      <div class="reveal text-center group" style="transition-delay:.10s">
-        <div class="w-16 h-16 rounded-2xl bg-white border border-stone group-hover:bg-ink group-hover:border-ink transition-all duration-300 flex items-center justify-center mx-auto mb-5"><span class="font-display font-black text-[22px] text-stone group-hover:text-white transition-colors">02</span></div>
-        <h4 class="font-display font-bold text-[16px] tracking-tight text-ink mb-2">Strategy</h4>
-        <p class="text-[13px] font-light text-mid leading-relaxed">Custom digital roadmap aligned with your KPIs.</p>
-      </div>
-      <div class="reveal text-center group" style="transition-delay:.15s">
-        <div class="w-16 h-16 rounded-2xl bg-white border border-stone group-hover:bg-ink group-hover:border-ink transition-all duration-300 flex items-center justify-center mx-auto mb-5"><span class="font-display font-black text-[22px] text-stone group-hover:text-white transition-colors">03</span></div>
-        <h4 class="font-display font-bold text-[16px] tracking-tight text-ink mb-2">Creation</h4>
-        <p class="text-[13px] font-light text-mid leading-relaxed">Design, develop, and produce all assets and campaigns.</p>
-      </div>
-      <div class="reveal text-center group" style="transition-delay:.20s">
-        <div class="w-16 h-16 rounded-2xl bg-white border border-stone group-hover:bg-ink group-hover:border-ink transition-all duration-300 flex items-center justify-center mx-auto mb-5"><span class="font-display font-black text-[22px] text-stone group-hover:text-white transition-colors">04</span></div>
-        <h4 class="font-display font-bold text-[16px] tracking-tight text-ink mb-2">Launch</h4>
-        <p class="text-[13px] font-light text-mid leading-relaxed">Execute with precision targeting and live tracking.</p>
-      </div>
-      <div class="reveal text-center col-span-2 sm:col-span-1" style="transition-delay:.25s">
-        <div class="w-16 h-16 rounded-2xl bg-ink flex items-center justify-center mx-auto mb-5"><span class="font-display font-black text-[22px] text-white">05</span></div>
-        <h4 class="font-display font-bold text-[16px] tracking-tight text-ink mb-2">Optimise</h4>
-        <p class="text-[13px] font-light text-mid leading-relaxed">Analyse, refine, and scale. Monthly reports always.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTS -->
-<section class="py-24 lg:py-32 bg-ink relative overflow-hidden">
-  <div class="absolute inset-0 opacity-5" style="background-image:linear-gradient(rgba(255,255,255,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px);background-size:56px 56px"></div>
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div class="reveal-l">
-        <div class="flex items-center gap-2 mb-5"><span class="w-5 h-px bg-white/30"></span><span class="text-[11.5px] font-bold text-white/40 uppercase tracking-widest">Proven Results</span></div>
-        <h2 class="font-display font-extrabold text-[38px] sm:text-[52px] tracking-tightest text-white leading-[1.02] mb-6">Numbers That<br/>Speak For Us</h2>
-        <p class="text-[16px] font-light text-white/45 leading-relaxed mb-10">We don't just promise results — we deliver them. Across 200+ clients in Mumbai & beyond, our track record is undeniable.</p>
-        <a href="#contact" class="inline-flex items-center gap-2 bg-white text-ink font-semibold text-[14.5px] px-7 py-3.5 rounded-full hover:bg-paper-2 transition-all">Get Your Free Audit <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-      <div class="reveal-r grid grid-cols-2 gap-4">
-        <div class="bg-white/5 border border-white/8 rounded-2xl p-8 text-center hover:bg-white/8 transition-colors">
-          <div class="font-display font-black text-[52px] leading-none tracking-tightest text-white mb-2" data-counter="200" data-suffix="+">200+</div>
-          <div class="text-[13px] text-white/40 font-light">Clients Served</div>
-        </div>
-        <div class="bg-white/5 border border-white/8 rounded-2xl p-8 text-center hover:bg-white/8 transition-colors">
-          <div class="font-display font-black text-[52px] leading-none tracking-tightest text-white mb-2">5<span class="text-white/35">×</span></div>
-          <div class="text-[13px] text-white/40 font-light">Avg. ROI</div>
-        </div>
-        <div class="bg-white/5 border border-white/8 rounded-2xl p-8 text-center hover:bg-white/8 transition-colors">
-          <div class="font-display font-black text-[52px] leading-none tracking-tightest text-white mb-2" data-counter="347" data-suffix="%">347%</div>
-          <div class="text-[13px] text-white/40 font-light">Traffic Growth</div>
-        </div>
-        <div class="bg-white/5 border border-white/8 rounded-2xl p-8 text-center hover:bg-white/8 transition-colors">
-          <div class="font-display font-black text-[52px] leading-none tracking-tightest text-white mb-2" data-counter="98" data-suffix="%">98%</div>
-          <div class="text-[13px] text-white/40 font-light">Client Retention</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section class="py-24 lg:py-32 bg-white" id="work">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16 reveal">
-      <div>
-        <div class="flex items-center gap-2 mb-4"><span class="w-5 h-px bg-ink"></span><span class="text-[11.5px] font-bold text-ink uppercase tracking-widest">Our Work</span></div>
-        <h2 class="font-display font-extrabold text-[38px] sm:text-[48px] tracking-tightest text-ink leading-[1.02]">Case Studies &<br/>Portfolio</h2>
-      </div>
-      <p class="text-[15px] font-light text-dim max-w-xs leading-relaxed">Real results for real businesses across Mumbai & Vasai-Virar.</p>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] sm:col-span-2 sm:aspect-[16/7] lg:col-span-2 cursor-pointer reveal">
-        <div class="absolute inset-0 flex items-center justify-center text-[64px] transition-transform duration-500 group-hover:scale-105" style="background:linear-gradient(135deg,#0f172a,#1e3a5f)">🏗️</div>
-        <div class="absolute inset-0 p-7 sm:p-9 flex flex-col justify-end" style="background:linear-gradient(to top,rgba(0,0,0,.80) 0%,rgba(0,0,0,.15) 60%,transparent 100%)">
-          <div class="text-[11px] font-semibold text-white/50 uppercase tracking-widest mb-2">Real Estate · SEO + Web Design</div>
-          <div class="font-display font-bold text-[22px] sm:text-[28px] text-white tracking-tight mb-1">UrbanNest Properties</div>
-          <div class="text-[13px] text-white/55 font-light">↑ 420% organic leads · Page 1 Google in 4 months</div>
-        </div>
-        <div class="absolute top-5 right-5 w-9 h-9 bg-white/10 backdrop-blur rounded-full flex items-center justify-center text-white text-sm opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">↗</div>
-      </div>
-      <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer reveal" style="transition-delay:.10s">
-        <div class="absolute inset-0 flex items-center justify-center text-[64px] transition-transform duration-500 group-hover:scale-105" style="background:linear-gradient(135deg,#0f2a1a,#1a4a2e)">🍽️</div>
-        <div class="absolute inset-0 p-7 flex flex-col justify-end" style="background:linear-gradient(to top,rgba(0,0,0,.80),transparent 70%)">
-          <div class="text-[11px] font-semibold text-white/50 uppercase tracking-widest mb-2">F&B · Social Media</div>
-          <div class="font-display font-bold text-[20px] text-white tracking-tight mb-1">Spice Route Restaurant</div>
-          <div class="text-[13px] text-white/55 font-light">10K followers in 60 days</div>
-        </div>
-        <div class="absolute top-5 right-5 w-9 h-9 bg-white/10 backdrop-blur rounded-full flex items-center justify-center text-white text-sm opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">↗</div>
-      </div>
-      <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer reveal" style="transition-delay:.15s">
-        <div class="absolute inset-0 flex items-center justify-center text-[64px] transition-transform duration-500 group-hover:scale-105" style="background:linear-gradient(135deg,#2a0f0f,#4a1a1a)">💊</div>
-        <div class="absolute inset-0 p-7 flex flex-col justify-end" style="background:linear-gradient(to top,rgba(0,0,0,.80),transparent 70%)">
-          <div class="text-[11px] font-semibold text-white/50 uppercase tracking-widest mb-2">Healthcare · Google Ads</div>
-          <div class="font-display font-bold text-[20px] text-white tracking-tight mb-1">MedCare Clinic</div>
-          <div class="text-[13px] text-white/55 font-light">3× patient bookings · CPA down 60%</div>
-        </div>
-        <div class="absolute top-5 right-5 w-9 h-9 bg-white/10 backdrop-blur rounded-full flex items-center justify-center text-white text-sm opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">↗</div>
-      </div>
-      <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] sm:col-span-2 sm:aspect-[16/7] lg:col-span-2 cursor-pointer reveal" style="transition-delay:.20s">
-        <div class="absolute inset-0 flex items-center justify-center text-[64px] transition-transform duration-500 group-hover:scale-105" style="background:linear-gradient(135deg,#0f0f2a,#1a1a4a)">🎓</div>
-        <div class="absolute inset-0 p-7 sm:p-9 flex flex-col justify-end" style="background:linear-gradient(to top,rgba(0,0,0,.80) 0%,rgba(0,0,0,.15) 60%,transparent 100%)">
-          <div class="text-[11px] font-semibold text-white/50 uppercase tracking-widest mb-2">Education · Full Digital Suite</div>
-          <div class="font-display font-bold text-[22px] sm:text-[28px] text-white tracking-tight mb-1">EduSpark Learning</div>
-          <div class="text-[13px] text-white/55 font-light">↑ 280% enrollments · 6.2× ROAS on ads</div>
-        </div>
-        <div class="absolute top-5 right-5 w-9 h-9 bg-white/10 backdrop-blur rounded-full flex items-center justify-center text-white text-sm opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">↗</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="py-24 lg:py-32 bg-paper-2 border-y border-stone" id="testimonials">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="text-center max-w-xl mx-auto mb-16 reveal">
-      <div class="flex items-center justify-center gap-2 mb-4"><span class="w-5 h-px bg-ink"></span><span class="text-[11.5px] font-bold text-ink uppercase tracking-widest">Client Love</span><span class="w-5 h-px bg-ink"></span></div>
-      <h2 class="font-display font-extrabold text-[38px] sm:text-[48px] tracking-tightest text-ink leading-[1.02] mb-5">What Our Clients<br/>Say About Us</h2>
-      <p class="text-[15px] font-light text-dim leading-relaxed">200+ verified reviews from businesses across Mumbai & Vasai-Virar.</p>
-    </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
-      <div class="bg-ink rounded-2xl p-8 flex flex-col justify-between sm:row-span-2 reveal">
-        <div>
-          <div class="font-display font-black text-[60px] text-white/10 leading-none mb-4">"</div>
-          <div class="text-yellow-400 text-sm mb-5 tracking-wider">★★★★★</div>
-          <p class="text-[15px] font-light text-white/65 leading-relaxed">WebProArts completely transformed our online presence. Within 3 months our website traffic tripled and Google Ads campaigns generated leads at half the previous cost. They're not just an agency — they're a true growth partner. Highly recommend to any business in Mumbai looking to scale fast!</p>
-        </div>
-        <div class="flex items-center gap-3 mt-8 pt-6 border-t border-white/10">
-          <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-lg">👨‍💼</div>
-          <div><div class="text-[14px] font-semibold text-white">Rahul Mehta</div><div class="text-[12px] text-white/40">CEO, UrbanNest Properties · Mumbai</div></div>
-        </div>
-      </div>
-      <div class="bg-white crd rounded-2xl p-8 flex flex-col justify-between reveal" style="transition-delay:.10s">
-        <div><div class="text-yellow-400 text-sm mb-4 tracking-wider">★★★★★</div><p class="text-[14.5px] font-light text-dim leading-relaxed">Our Instagram went from 800 to 12K followers in just 2 months! Incredibly creative team, delivers on time every time. Best investment for our restaurant.</p></div>
-        <div class="flex items-center gap-3 mt-6"><div class="w-10 h-10 bg-paper-2 border border-stone rounded-full flex items-center justify-center text-lg">👩‍🍳</div><div><div class="text-[14px] font-semibold text-ink">Priya Sharma</div><div class="text-[12px] text-mid">Owner, Spice Route · Virar</div></div></div>
-      </div>
-      <div class="bg-white crd rounded-2xl p-8 flex flex-col justify-between reveal" style="transition-delay:.15s">
-        <div><div class="text-yellow-400 text-sm mb-4 tracking-wider">★★★★★</div><p class="text-[14.5px] font-light text-dim leading-relaxed">The website they built is stunning and loads fast. SEO results in under 60 days. Professional team, clear communication. Renewed contract for the third year!</p></div>
-        <div class="flex items-center gap-3 mt-6"><div class="w-10 h-10 bg-paper-2 border border-stone rounded-full flex items-center justify-center text-lg">👨‍⚕️</div><div><div class="text-[14px] font-semibold text-ink">Dr. Vijay Patel</div><div class="text-[12px] text-mid">Director, MedCare Clinic · Vasai</div></div></div>
-      </div>
-      <div class="bg-white crd rounded-2xl p-8 flex flex-col justify-between reveal" style="transition-delay:.20s">
-        <div><div class="text-yellow-400 text-sm mb-4 tracking-wider">★★★★★</div><p class="text-[14.5px] font-light text-dim leading-relaxed">Excellent service, transparent reporting, real results. Google Ads ROAS went from 1.8× to 5.4× in 6 weeks. Deep expertise. 10/10 recommend!</p></div>
-        <div class="flex items-center gap-3 mt-6"><div class="w-10 h-10 bg-paper-2 border border-stone rounded-full flex items-center justify-center text-lg">👩‍💻</div><div><div class="text-[14px] font-semibold text-ink">Sneha Kulkarni</div><div class="text-[12px] text-mid">Founder, EduSpark · Mumbai</div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="py-24 lg:py-32 bg-white" id="pricing">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="text-center max-w-xl mx-auto mb-16 reveal">
-      <div class="flex items-center justify-center gap-2 mb-4"><span class="w-5 h-px bg-ink"></span><span class="text-[11.5px] font-bold text-ink uppercase tracking-widest">Pricing Plans</span><span class="w-5 h-px bg-ink"></span></div>
-      <h2 class="font-display font-extrabold text-[38px] sm:text-[48px] tracking-tightest text-ink leading-[1.02] mb-5">Simple, Transparent<br/>Pricing</h2>
-      <p class="text-[15px] font-light text-dim leading-relaxed">No hidden fees. All plans include monthly reports & dedicated support.</p>
-    </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="rounded-2xl p-9 border border-stone hover:border-ink hover:-translate-y-1 transition-all duration-300 reveal">
-        <div class="text-[12px] font-bold text-mid uppercase tracking-widest mb-6">Starter</div>
-        <div class="font-display font-black text-[52px] tracking-tightest text-ink leading-none mb-1"><span class="text-[22px] font-bold align-top mt-2 inline-block">₹</span>9,999</div>
-        <div class="text-[13px] text-mid mb-8 pb-8 border-b border-stone font-light">per month · billed monthly</div>
-        <ul class="space-y-4 mb-10">
-          <li class="flex items-start gap-3 text-[14px] text-dim font-light"><svg class="w-4 h-4 text-ink mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Custom Website (5 pages)</li>
-          <li class="flex items-start gap-3 text-[14px] text-dim font-light"><svg class="w-4 h-4 text-ink mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Basic SEO Setup</li>
-          <li class="flex items-start gap-3 text-[14px] text-dim font-light"><svg class="w-4 h-4 text-ink mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Social Media (2 platforms)</li>
-          <li class="flex items-start gap-3 text-[14px] text-dim font-light"><svg class="w-4 h-4 text-ink mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>8 Social Posts/Month</li>
-          <li class="flex items-start gap-3 text-[14px] text-dim font-light"><svg class="w-4 h-4 text-ink mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Monthly Report</li>
-        </ul>
-        <button class="w-full py-3.5 rounded-full border border-stone hover:border-ink hover:bg-ink hover:text-white text-ink font-semibold text-[14px] transition-all">Get Started</button>
-      </div>
-      <div class="relative rounded-2xl p-9 bg-ink hover:-translate-y-1 transition-all duration-300 reveal" style="transition-delay:.10s">
-        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-white text-ink text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full">Most Popular</div>
-        <div class="text-[12px] font-bold text-white/40 uppercase tracking-widest mb-6">Growth</div>
-        <div class="font-display font-black text-[52px] tracking-tightest text-white leading-none mb-1"><span class="text-[22px] font-bold align-top mt-2 inline-block">₹</span>24,999</div>
-        <div class="text-[13px] text-white/35 mb-8 pb-8 border-b border-white/10 font-light">per month · billed monthly</div>
-        <ul class="space-y-4 mb-10">
-          <li class="flex items-start gap-3 text-[14px] text-white/65 font-light"><svg class="w-4 h-4 text-white mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Custom Website (10 pages)</li>
-          <li class="flex items-start gap-3 text-[14px] text-white/65 font-light"><svg class="w-4 h-4 text-white mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Full SEO (On-Page + Off-Page)</li>
-          <li class="flex items-start gap-3 text-[14px] text-white/65 font-light"><svg class="w-4 h-4 text-white mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Google Ads Management</li>
-          <li class="flex items-start gap-3 text-[14px] text-white/65 font-light"><svg class="w-4 h-4 text-white mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Social Media (3 platforms)</li>
-          <li class="flex items-start gap-3 text-[14px] text-white/65 font-light"><svg class="w-4 h-4 text-white mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>20 Posts + 4 Reels/Month</li>
-          <li class="flex items-start gap-3 text-[14px] text-white/65 font-light"><svg class="w-4 h-4 text-white mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>10 Graphic Design Creatives</li>
-          <li class="flex items-start gap-3 text-[14px] text-white/65 font-light"><svg class="w-4 h-4 text-white mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Dedicated Account Manager</li>
-        </ul>
-        <button class="w-full py-3.5 rounded-full bg-white text-ink font-semibold text-[14px] hover:bg-paper-2 transition-colors">Get Started →</button>
-      </div>
-      <div class="rounded-2xl p-9 border border-stone hover:border-ink hover:-translate-y-1 transition-all duration-300 reveal sm:col-span-2 lg:col-span-1" style="transition-delay:.20s">
-        <div class="text-[12px] font-bold text-mid uppercase tracking-widest mb-6">Enterprise</div>
-        <div class="font-display font-black text-[40px] tracking-tightest text-ink leading-none mb-1 mt-2">Custom</div>
-        <div class="text-[13px] text-mid mb-8 pb-8 border-b border-stone font-light">Tailored to your business</div>
-        <ul class="space-y-4 mb-10">
-          <li class="flex items-start gap-3 text-[14px] text-dim font-light"><svg class="w-4 h-4 text-ink mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Everything in Growth</li>
-          <li class="flex items-start gap-3 text-[14px] text-dim font-light"><svg class="w-4 h-4 text-ink mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>E-Commerce Website</li>
-          <li class="flex items-start gap-3 text-[14px] text-dim font-light"><svg class="w-4 h-4 text-ink mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Video Production</li>
-          <li class="flex items-start gap-3 text-[14px] text-dim font-light"><svg class="w-4 h-4 text-ink mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Unlimited Creatives</li>
-          <li class="flex items-start gap-3 text-[14px] text-dim font-light"><svg class="w-4 h-4 text-ink mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Priority 24/7 Support</li>
-        </ul>
-        <button class="w-full py-3.5 rounded-full border border-stone hover:border-ink hover:bg-ink hover:text-white text-ink font-semibold text-[14px] transition-all">Talk to Sales</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="py-24 lg:py-32 bg-paper-2 border-y border-stone" id="about">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div class="relative rounded-3xl bg-ink overflow-hidden min-h-[380px] sm:min-h-[460px] flex items-center justify-center reveal-l">
-        <div class="absolute inset-0 opacity-15" style="background:radial-gradient(circle at 35% 45%,#fff,transparent 60%)"></div>
-        <span class="text-[80px] relative z-10">🏆</span>
-        <div class="absolute top-6 right-6 bg-white rounded-2xl p-4 flex items-center gap-3" style="box-shadow:0 8px 40px rgba(0,0,0,.12)">
-          <div class="w-9 h-9 bg-paper-2 border border-stone rounded-lg flex items-center justify-center text-base">🎯</div>
-          <div><div class="font-display font-black text-[20px] text-ink tracking-tight leading-none">5+ Yrs</div><div class="text-[11px] text-mid mt-0.5">Experience</div></div>
-        </div>
-        <div class="absolute bottom-6 left-6 bg-white rounded-2xl p-4 flex items-center gap-3" style="box-shadow:0 8px 40px rgba(0,0,0,.12)">
-          <div class="w-9 h-9 bg-paper-2 border border-stone rounded-lg flex items-center justify-center text-base">📍</div>
-          <div><div class="font-display font-black text-[18px] text-ink tracking-tight leading-none">Vasai-Virar</div><div class="text-[11px] text-mid mt-0.5">#1 Agency in region</div></div>
-        </div>
-      </div>
-      <div class="reveal-r">
-        <div class="flex items-center gap-2 mb-5"><span class="w-5 h-px bg-ink"></span><span class="text-[11.5px] font-bold text-ink uppercase tracking-widest">About WebProArts</span></div>
-        <h2 class="font-display font-extrabold text-[38px] sm:text-[48px] tracking-tightest text-ink leading-[1.02] mb-5">Your Digital Growth<br/>Partner in Mumbai</h2>
-        <p class="text-[16px] font-light text-dim leading-relaxed mb-10">As the top digital marketing agency in Mumbai and the Vasai-Virar region, we've helped 200+ businesses transform their online presence into a genuine competitive advantage.</p>
-        <div class="space-y-4">
-          <div class="flex gap-4 p-5 bg-white border border-stone rounded-2xl hover:border-ink hover:translate-x-1 transition-all duration-200">
-            <div class="w-10 h-10 bg-paper-2 border border-stone rounded-xl flex items-center justify-center text-lg shrink-0">🧠</div>
-            <div><div class="font-semibold text-[14.5px] text-ink mb-1">Data-Driven Strategies</div><div class="text-[13px] font-light text-dim leading-relaxed">Every decision backed by analytics, not guesswork. We track what matters and optimise relentlessly.</div></div>
-          </div>
-          <div class="flex gap-4 p-5 bg-white border border-stone rounded-2xl hover:border-ink hover:translate-x-1 transition-all duration-200">
-            <div class="w-10 h-10 bg-paper-2 border border-stone rounded-xl flex items-center justify-center text-lg shrink-0">🤝</div>
-            <div><div class="font-semibold text-[14.5px] text-ink mb-1">Dedicated Partnership</div><div class="text-[13px] font-light text-dim leading-relaxed">A dedicated account manager — not a ticket queue. Real humans, real communication, real results.</div></div>
-          </div>
-          <div class="flex gap-4 p-5 bg-white border border-stone rounded-2xl hover:border-ink hover:translate-x-1 transition-all duration-200">
-            <div class="w-10 h-10 bg-paper-2 border border-stone rounded-xl flex items-center justify-center text-lg shrink-0">⚡</div>
-            <div><div class="font-semibold text-[14.5px] text-ink mb-1">Fast Execution</div><div class="text-[13px] font-light text-dim leading-relaxed">Most campaigns go live in 7 days. No waiting, no excuses — just rapid, measurable results.</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="py-24 lg:py-32 bg-white" id="faq">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="grid lg:grid-cols-[2fr_3fr] gap-16 items-start">
-      <div class="reveal-l">
-        <div class="flex items-center gap-2 mb-5"><span class="w-5 h-px bg-ink"></span><span class="text-[11.5px] font-bold text-ink uppercase tracking-widest">FAQ</span></div>
-        <h2 class="font-display font-extrabold text-[38px] sm:text-[48px] tracking-tightest text-ink leading-[1.02] mb-6">Questions?<br/>We've Got<br/>Answers.</h2>
-        <p class="text-[15px] font-light text-dim leading-relaxed mb-8">Can't find what you're looking for? Reach out directly.</p>
-        <a href="#contact" class="inline-flex items-center gap-2 bg-ink text-white font-semibold text-[14px] px-6 py-3.5 rounded-full hover:bg-ink-3 transition-colors">Ask Us Anything</a>
-      </div>
-      <div class="space-y-3 reveal-r">
-        <div class="faq-item open border border-stone rounded-2xl overflow-hidden hover:border-ink transition-colors">
-          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left gap-4">
-            <span class="font-semibold text-[15px] text-ink">How long before I see results?</span>
-            <span class="faq-icon w-7 h-7 bg-ink rounded-full flex items-center justify-center text-white text-xl shrink-0">+</span>
-          </button>
-          <div class="faq-body"><div class="px-6 pb-6 text-[14px] font-light text-dim leading-relaxed">For Google Ads, results appear within the first week. SEO shows measurable improvement in 60–90 days, with significant ranking gains in 4–6 months. Social media growth is visible within 30 days with the right strategy.</div></div>
-        </div>
-        <div class="faq-item border border-stone rounded-2xl overflow-hidden hover:border-ink transition-colors">
-          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left gap-4">
-            <span class="font-semibold text-[15px] text-ink">Do you work with small businesses?</span>
-            <span class="faq-icon w-7 h-7 bg-paper-2 border border-stone rounded-full flex items-center justify-center text-ink text-xl shrink-0">+</span>
-          </button>
-          <div class="faq-body"><div class="px-6 pb-6 text-[14px] font-light text-dim leading-relaxed">Absolutely! We specialise in helping small and medium businesses in Vasai-Virar and Mumbai. Our Starter plan is designed for businesses taking their first digital steps, starting at ₹9,999/month.</div></div>
-        </div>
-        <div class="faq-item border border-stone rounded-2xl overflow-hidden hover:border-ink transition-colors">
-          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left gap-4">
-            <span class="font-semibold text-[15px] text-ink">What's included in your monthly reports?</span>
-            <span class="faq-icon w-7 h-7 bg-paper-2 border border-stone rounded-full flex items-center justify-center text-ink text-xl shrink-0">+</span>
-          </button>
-          <div class="faq-body"><div class="px-6 pb-6 text-[14px] font-light text-dim leading-relaxed">Website traffic, keyword rankings, ad performance (impressions, clicks, conversions, ROAS), social media growth, and a clear summary of work done and next plans. Full transparency, always.</div></div>
-        </div>
-        <div class="faq-item border border-stone rounded-2xl overflow-hidden hover:border-ink transition-colors">
-          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left gap-4">
-            <span class="font-semibold text-[15px] text-ink">Can I cancel my plan anytime?</span>
-            <span class="faq-icon w-7 h-7 bg-paper-2 border border-stone rounded-full flex items-center justify-center text-ink text-xl shrink-0">+</span>
-          </button>
-          <div class="faq-body"><div class="px-6 pb-6 text-[14px] font-light text-dim leading-relaxed">Yes. We work on monthly agreements with no long-term lock-in on Starter and Growth plans. We're confident you'll stay because of results, not contracts.</div></div>
-        </div>
-        <div class="faq-item border border-stone rounded-2xl overflow-hidden hover:border-ink transition-colors">
-          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left gap-4">
-            <span class="font-semibold text-[15px] text-ink">Do you offer a free consultation?</span>
-            <span class="faq-icon w-7 h-7 bg-paper-2 border border-stone rounded-full flex items-center justify-center text-ink text-xl shrink-0">+</span>
-          </button>
-          <div class="faq-body"><div class="px-6 pb-6 text-[14px] font-light text-dim leading-relaxed">Yes! A free 30-minute strategy call where we analyse your digital presence, identify growth opportunities, and outline a custom roadmap — at no cost. Book via the contact form below.</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="py-24 lg:py-36 bg-ink relative overflow-hidden">
-  <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-8 pointer-events-none" style="background:radial-gradient(circle,white,transparent);transform:translate(35%,-35%)"></div>
-  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-5 pointer-events-none" style="background:radial-gradient(circle,white,transparent);transform:translate(-35%,35%)"></div>
-  <div class="max-w-3xl mx-auto px-5 sm:px-8 text-center relative z-10 reveal">
-    <div class="inline-flex items-center gap-2 border border-white/15 text-white/45 text-[11px] font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-8">🚀 Ready to Scale?</div>
-    <h2 class="font-display font-extrabold text-[44px] sm:text-[60px] lg:text-[72px] tracking-tightest text-white leading-[0.94] mb-6">Let's Grow<br/>Your Brand<br/><span class="text-white/25">Together.</span></h2>
-    <p class="text-[16.5px] font-light text-white/40 leading-relaxed mb-12 max-w-xl mx-auto">Book a free 30-min strategy session. We'll audit your digital presence and show you exactly how to 3× your results.</p>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-      <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-ink font-bold text-[15px] px-9 py-4 rounded-full hover:bg-paper-2 transition-all">Get Free Consultation <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="tel:+91" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/15 text-white/65 font-medium text-[15px] px-9 py-4 rounded-full hover:border-white/30 hover:text-white transition-all">📞 Call Us Now</a>
-    </div>
-    <div class="flex flex-wrap items-center justify-center gap-6 text-[13px] text-white/30">
-      <span class="flex items-center gap-2"><svg class="w-4 h-4 text-white/35" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>No Commitment</span>
-      <span class="flex items-center gap-2"><svg class="w-4 h-4 text-white/35" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Free Audit Included</span>
-      <span class="flex items-center gap-2"><svg class="w-4 h-4 text-white/35" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 13l4 4L19 7"/></svg>Results Guaranteed</span>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="py-24 lg:py-32 bg-paper-2 border-t border-stone" id="contact">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="max-w-xl mb-16 reveal">
-      <div class="flex items-center gap-2 mb-4"><span class="w-5 h-px bg-ink"></span><span class="text-[11.5px] font-bold text-ink uppercase tracking-widest">Get In Touch</span></div>
-      <h2 class="font-display font-extrabold text-[38px] sm:text-[48px] tracking-tightest text-ink leading-[1.02] mb-5">Start Your Growth<br/>Journey Today</h2>
-      <p class="text-[15px] font-light text-dim leading-relaxed">We'll respond within 2 hours during business hours.</p>
-    </div>
-    <div class="grid lg:grid-cols-[1fr_1.5fr] gap-10">
-      <div class="space-y-4 reveal-l">
-        <div class="flex gap-4 p-5 bg-white border border-stone rounded-2xl"><div class="w-11 h-11 bg-paper-2 border border-stone rounded-xl flex items-center justify-center text-xl shrink-0">📍</div><div><div class="text-[11px] font-bold text-mid uppercase tracking-wider mb-1">Location</div><div class="text-[14.5px] font-medium text-ink">Vasai-Virar, Mumbai, Maharashtra</div></div></div>
-        <div class="flex gap-4 p-5 bg-white border border-stone rounded-2xl"><div class="w-11 h-11 bg-paper-2 border border-stone rounded-xl flex items-center justify-center text-xl shrink-0">🌐</div><div><div class="text-[11px] font-bold text-mid uppercase tracking-wider mb-1">Website</div><div class="text-[14.5px] font-medium text-ink">webproarts.in</div></div></div>
-        <div class="flex gap-4 p-5 bg-white border border-stone rounded-2xl"><div class="w-11 h-11 bg-paper-2 border border-stone rounded-xl flex items-center justify-center text-xl shrink-0">📧</div><div><div class="text-[11px] font-bold text-mid uppercase tracking-wider mb-1">Email</div><div class="text-[14.5px] font-medium text-ink">hello@webproarts.in</div></div></div>
-        <div class="flex gap-4 p-5 bg-white border border-stone rounded-2xl"><div class="w-11 h-11 bg-paper-2 border border-stone rounded-xl flex items-center justify-center text-xl shrink-0">⏰</div><div><div class="text-[11px] font-bold text-mid uppercase tracking-wider mb-1">Working Hours</div><div class="text-[14.5px] font-medium text-ink">Mon–Sat · 9 AM – 7 PM IST</div></div></div>
-        <div class="p-6 bg-ink rounded-2xl text-center"><div class="text-[28px] mb-3">🎯</div><div class="font-display font-bold text-white text-[18px] tracking-tight mb-2">Free Audit Worth ₹5,000</div><div class="text-[13px] text-white/45 font-light leading-relaxed">Every inquiry includes a complimentary digital audit covering your website, SEO, and ad accounts.</div></div>
-      </div>
-      <div class="bg-white border border-stone rounded-3xl p-8 sm:p-10 reveal-r">
-        <h3 class="font-display font-bold text-[22px] tracking-tight text-ink mb-8">Send Us a Message</h3>
-        <div class="grid sm:grid-cols-2 gap-5 mb-5">
-          <div><label class="block text-[11px] font-bold text-mid uppercase tracking-wider mb-2">First Name</label><input type="text" placeholder="Rahul" class="w-full px-4 py-3.5 border border-stone rounded-xl text-[14.5px] text-ink bg-paper-2 placeholder:text-mist focus:outline-none focus:border-ink focus:bg-white transition-all font-body" style="font-family:'Plus Jakarta Sans',sans-serif"/></div>
-          <div><label class="block text-[11px] font-bold text-mid uppercase tracking-wider mb-2">Last Name</label><input type="text" placeholder="Sharma" class="w-full px-4 py-3.5 border border-stone rounded-xl text-[14.5px] text-ink bg-paper-2 placeholder:text-mist focus:outline-none focus:border-ink focus:bg-white transition-all" style="font-family:'Plus Jakarta Sans',sans-serif"/></div>
-        </div>
-        <div class="mb-5"><label class="block text-[11px] font-bold text-mid uppercase tracking-wider mb-2">Email</label><input type="email" placeholder="rahul@yourbusiness.com" class="w-full px-4 py-3.5 border border-stone rounded-xl text-[14.5px] text-ink bg-paper-2 placeholder:text-mist focus:outline-none focus:border-ink focus:bg-white transition-all" style="font-family:'Plus Jakarta Sans',sans-serif"/></div>
-        <div class="mb-5"><label class="block text-[11px] font-bold text-mid uppercase tracking-wider mb-2">Phone</label><input type="tel" placeholder="+91 98765 43210" class="w-full px-4 py-3.5 border border-stone rounded-xl text-[14.5px] text-ink bg-paper-2 placeholder:text-mist focus:outline-none focus:border-ink focus:bg-white transition-all" style="font-family:'Plus Jakarta Sans',sans-serif"/></div>
-        <div class="mb-5"><label class="block text-[11px] font-bold text-mid uppercase tracking-wider mb-2">Service</label><select class="w-full px-4 py-3.5 border border-stone rounded-xl text-[14.5px] text-ink bg-paper-2 focus:outline-none focus:border-ink focus:bg-white transition-all appearance-none" style="font-family:'Plus Jakarta Sans',sans-serif;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%238a8882%22 stroke-width=%222%22%3E%3Cpolyline points=%226,9 12,15 18,9%22/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 14px center"><option>Select a service...</option><option>Website Design & Development</option><option>Google Ads Management</option><option>SEO Services</option><option>Social Media Management</option><option>Graphic Design</option><option>Video Editing</option><option>Full Growth Package</option></select></div>
-        <div class="mb-7"><label class="block text-[11px] font-bold text-mid uppercase tracking-wider mb-2">Tell Us About Your Goals</label><textarea rows="4" placeholder="I want to grow my business by..." class="w-full px-4 py-3.5 border border-stone rounded-xl text-[14.5px] text-ink bg-paper-2 placeholder:text-mist focus:outline-none focus:border-ink focus:bg-white transition-all resize-none" style="font-family:'Plus Jakarta Sans',sans-serif"></textarea></div>
-        <button class="w-full py-4 bg-ink text-white font-bold text-[14.5px] rounded-xl hover:bg-ink-3 transition-colors tracking-wide" style="font-family:'Plus Jakarta Sans',sans-serif">Send Message & Get Free Audit →</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-ink pt-20 pb-10">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/8 mb-10">
-      <div class="sm:col-span-2 lg:col-span-1">
-        <div class="flex items-center gap-2.5 mb-5">
-          <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center"><span class="font-display font-black text-ink text-sm">W</span></div>
-          <span class="font-display font-bold text-white text-[17px] tracking-tight">WebPro<span class="text-white/30">Arts</span></span>
-        </div>
-        <p class="text-[14px] font-light text-white/40 leading-relaxed mb-6 max-w-xs">Mumbai's leading digital marketing agency. We turn your online presence into a powerful growth engine.</p>
-        <div class="flex gap-2.5">
-          <a href="#" class="w-9 h-9 bg-white/8 rounded-lg flex items-center justify-center text-white/45 hover:bg-white hover:text-ink transition-all text-sm font-bold">f</a>
-          <a href="#" class="w-9 h-9 bg-white/8 rounded-lg flex items-center justify-center text-white/45 hover:bg-white hover:text-ink transition-all text-[10px] font-bold">in</a>
-          <a href="#" class="w-9 h-9 bg-white/8 rounded-lg flex items-center justify-center text-white/45 hover:bg-white hover:text-ink transition-all text-[10px] font-bold">yt</a>
-          <a href="#" class="w-9 h-9 bg-white/8 rounded-lg flex items-center justify-center text-white/45 hover:bg-white hover:text-ink transition-all text-[10px] font-bold">ig</a>
-        </div>
-      </div>
-      <div>
-        <div class="font-display font-bold text-white text-[15px] tracking-tight mb-5">Services</div>
-        <ul class="space-y-3">
-          <li><a href="#services" class="text-[13.5px] text-white/40 hover:text-white/75 transition-colors font-light">Website Design</a></li>
-          <li><a href="#services" class="text-[13.5px] text-white/40 hover:text-white/75 transition-colors font-light">Google Ads</a></li>
-          <li><a href="#services" class="text-[13.5px] text-white/40 hover:text-white/75 transition-colors font-light">SEO Services</a></li>
-          <li><a href="#services" class="text-[13.5px] text-white/40 hover:text-white/75 transition-colors font-light">Social Media</a></li>
-          <li><a href="#services" class="text-[13.5px] text-white/40 hover:text-white/75 transition-colors font-light">Graphic Design</a></li>
-          <li><a href="#services" class="text-[13.5px] text-white/40 hover:text-white/75 transition-colors font-light">Video Editing</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="font-display font-bold text-white text-[15px] tracking-tight mb-5">Company</div>
-        <ul class="space-y-3">
-          <li><a href="#about" class="text-[13.5px] text-white/40 hover:text-white/75 transition-colors font-light">About Us</a></li>
-          <li><a href="#work" class="text-[13.5px] text-white/40 hover:text-white/75 transition-colors font-light">Portfolio</a></li>
-          <li><a href="#testimonials" class="text-[13.5px] text-white/40 hover:text-white/75 transition-colors font-light">Testimonials</a></li>
-          <li><a href="#pricing" class="text-[13.5px] text-white/40 hover:text-white/75 transition-colors font-light">Pricing</a></li>
-          <li><a href="#faq" class="text-[13.5px] text-white/40 hover:text-white/75 transition-colors font-light">FAQ</a></li>
-          <li><a href="#contact" class="text-[13.5px] text-white/40 hover:text-white/75 transition-colors font-light">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="font-display font-bold text-white text-[15px] tracking-tight mb-5">Contact</div>
-        <ul class="space-y-3">
-          <li><span class="text-[13.5px] text-white/40 font-light">webproarts.in</span></li>
-          <li><span class="text-[13.5px] text-white/40 font-light">hello@webproarts.in</span></li>
-          <li><span class="text-[13.5px] text-white/40 font-light">Vasai-Virar, Mumbai</span></li>
-          <li><span class="text-[13.5px] text-white/40 font-light">Mon–Sat · 9AM–7PM IST</span></li>
-        </ul>
-        <div class="mt-6 p-4 bg-white/5 border border-white/8 rounded-xl"><div class="text-[11px] text-white/30 font-bold uppercase tracking-widest mb-1">Google Partner</div><div class="text-[13px] text-white/55 font-medium">🏅 Certified Agency</div></div>
-      </div>
-    </div>
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="text-[13px] text-white/25 font-light">© 2025 WebProArts. All rights reserved. Made with care in Mumbai.</div>
-      <div class="flex gap-6">
-        <a href="#" class="text-[13px] text-white/25 hover:text-white/55 transition-colors font-light">Privacy Policy</a>
-        <a href="#" class="text-[13px] text-white/25 hover:text-white/55 transition-colors font-light">Terms</a>
-        <a href="#" class="text-[13px] text-white/25 hover:text-white/55 transition-colors font-light">Sitemap</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-  // Scroll reveals
-  const obs = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('in'); }), {threshold:.10});
-  document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => obs.observe(el));
-
-  // Nav shadow
-  window.addEventListener('scroll', () => {
-    document.getElementById('nav').style.boxShadow = window.scrollY > 30 ? '0 4px 30px rgba(0,0,0,.07)' : 'none';
-  });
-
-  // Mobile menu
-  function toggleMobile() {
-    const m = document.getElementById('mobile-menu');
-    const open = document.getElementById('h-open');
-    const close = document.getElementById('h-close');
-    const isOpen = m.classList.contains('open');
-    m.classList.toggle('open');
-    open.classList.toggle('hidden', !isOpen);
-    close.classList.toggle('hidden', isOpen);
-  }
-
-  // FAQ
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      const ic = i.querySelector('.faq-icon');
-      ic.style.background = '#f0efec'; ic.style.color = '#0a0a0a'; ic.style.borderColor = '#e8e7e3';
+    var swiper = new Swiper(".serviceSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: { delay: 4000, disableOnInteraction: false },
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: { nextEl: ".srv-next", prevEl: ".srv-prev" },
+        breakpoints: {
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 30 }
+        }
     });
-    if (!isOpen) {
-      item.classList.add('open');
-      const ic = item.querySelector('.faq-icon');
-      ic.style.background = '#0a0a0a'; ic.style.color = '#fff'; ic.style.borderColor = '#0a0a0a';
-    }
-  }
-
-  // Animated counters
-  const cobs = new IntersectionObserver(e => {
-    e.forEach(el => {
-      if (!el.isIntersecting || el.target.dataset.done) return;
-      el.target.dataset.done = '1';
-      el.target.querySelectorAll('[data-counter]').forEach(num => {
-        const target = +num.dataset.counter;
-        const suffix = num.dataset.suffix || '';
-        let cur = 0;
-        const step = target / 55;
-        const t = setInterval(() => {
-          cur = Math.min(cur + step, target);
-          num.textContent = Math.floor(cur) + suffix;
-          if (cur >= target) clearInterval(t);
-        }, 18);
-      });
-    });
-  }, {threshold:.3});
-  document.querySelectorAll('section').forEach(s => { if(s.querySelector('[data-counter]')) cobs.observe(s); });
 </script>
+
+<section class="py-24 bg-white relative overflow-hidden">
+    <div class="absolute top-1/2 left-0 w-72 h-72 bg-[#28b8d9]/5 rounded-full blur-[100px] -translate-x-1/2"></div>
+
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="relative order-2 lg:order-1">
+                <div class="relative z-10 bg-[#04131a] p-2 rounded-[2.5rem] shadow-[0_50px_100px_rgba(0,0,0,0.15)] overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" 
+                         class="rounded-[2rem] opacity-90 group-hover:scale-105 transition-transform duration-1000" 
+                         alt="Growth Dashboard">
+                    
+                    <div class="absolute top-6 left-6 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-xl text-white text-[10px] font-bold tracking-widest uppercase">
+                        SaaS Engine v2.0
+                    </div>
+                </div>
+
+                <div class="absolute -top-10 -right-6 z-20 bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 hidden md:block animate-float">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 brand-gradient rounded-xl flex items-center justify-center shadow-lg">
+                            <img src="https://cdn-icons-png.flaticon.com/512/10473/10473619.png" class="w-8 h-8" alt="SEO icon">
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">SEO Authority</p>
+                            <p class="text-xl font-display font-bold text-navy-950">98/100 Score</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute -bottom-8 -left-8 z-20 bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 hidden md:block">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center font-bold">
+                            &lt;/&gt;
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Dev Performance</p>
+                            <div class="flex gap-1">
+                                <div class="w-8 h-1.5 bg-emerald-400 rounded-full"></div>
+                                <div class="w-8 h-1.5 bg-emerald-400 rounded-full"></div>
+                                <div class="w-8 h-1.5 bg-emerald-400 rounded-full"></div>
+                                <div class="w-4 h-1.5 bg-slate-100 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-1 lg:order-2">
+                <div class="text-[#28b8d9] font-black text-[10px] uppercase tracking-[0.3em] mb-4">Integrated Systems</div>
+                <h2 class="font-display text-4xl md:text-5xl font-extrabold text-navy-950 leading-tight mb-8">
+                    One Ecosystem. <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#16598a] to-[#28b8d9]">Infinite Growth.</span>
+                </h2>
+                
+                <p class="text-slate-500 font-medium mb-12 leading-relaxed">
+                    We sync SEO, design, and development into a single high-velocity workflow. No more disconnected strategies—just a unified engine that scales your revenue.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div class="flex flex-col gap-4">
+                        <img src="https://cdn-icons-png.flaticon.com/512/11521/11521404.png" class="w-12 h-12" alt="Marketing">
+                        <div>
+                            <h4 class="font-bold text-navy-950 mb-1">Growth Marketing</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Precision-targeted campaigns that find your ideal buyers.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <img src="https://cdn-icons-png.flaticon.com/512/13191/13191295.png" class="w-12 h-12" alt="Web Dev">
+                        <div>
+                            <h4 class="font-bold text-navy-950 mb-1">SaaS Dev Engine</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Clean code built for speed, ranking, and high conversion.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" class="w-12 h-12" alt="Social">
+                        <div>
+                            <h4 class="font-bold text-navy-950 mb-1">Social Ecosystem</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Turning scrolling eyes into loyal brand advocates.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <img src="https://cdn-icons-png.flaticon.com/512/11496/11496730.png" class="w-12 h-12" alt="SEO">
+                        <div>
+                            <h4 class="font-bold text-navy-950 mb-1">Advanced SEO</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">The art of dominating search results through data.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<style>
+    /* Gradient for text readability on images */
+    .work-gradient { 
+        background: linear-gradient(to top, rgba(4,19,26,0.98) 0%, rgba(4,19,26,0.4) 60%, transparent 100%); 
+    }
+    
+    /* Project Card Hover zoom effect */
+    .project-card:hover .project-img { transform: scale(1.1); }
+    
+    /* Reveal animation for the extra grid */
+    .hidden-grid { display: none; }
+    .hidden-grid.active { display: grid; animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cyan Pagination for Slider */
+    .workSwiper .swiper-pagination-bullet-active { background: #28b8d9 !important; width: 24px; border-radius: 12px; transition: 0.3s; }
+</style>
+
+<section id="work" class="py-24 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6 text-center md:text-left">
+            <div class="max-w-xl">
+                <div class="text-[#28b8d9] font-black text-[10px] uppercase tracking-[0.3em] mb-4">Our Portfolio</div>
+                <h2 class="font-display text-4xl md:text-5xl font-extrabold text-navy-950 leading-tight">
+                    Selected <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#16598a] to-[#28b8d9]">Work.</span>
+                </h2>
+            </div>
+            <p class="text-slate-400 font-medium text-sm max-w-xs">High-impact digital transformations delivered across Mumbai and Virar-Vasai.</p>
+        </div>
+
+        <div class="swiper workSwiper !pb-20">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                    <div class="group project-card relative h-[420px] md:h-[480px] rounded-[2.5rem] overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="project-img absolute inset-0 w-full h-full object-cover transition-transform duration-700" alt="E-com">
+                        <div class="work-gradient absolute inset-0 flex flex-col justify-end items-center md:items-start p-8 text-center md:text-left">
+                            <span class="text-[#28b8d9] text-[10px] font-bold uppercase tracking-widest mb-2">Website • SaaS</span>
+                            <h3 class="text-white font-display text-2xl font-bold mb-5 tracking-tight">FinTech Platform</h3>
+                            <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center group-hover:bg-[#28b8d9] group-hover:text-white transition-all shadow-lg">
+                                <svg class="w-5 h-5 text-navy-950" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="group project-card relative h-[420px] md:h-[480px] rounded-[2.5rem] overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=800" class="project-img absolute inset-0 w-full h-full object-cover transition-transform duration-700" alt="Social">
+                        <div class="work-gradient absolute inset-0 flex flex-col justify-end items-center md:items-start p-8 text-center md:text-left">
+                            <span class="text-[#28b8d9] text-[10px] font-bold uppercase tracking-widest mb-2">Social Media • Marketing</span>
+                            <h3 class="text-white font-display text-2xl font-bold mb-5 tracking-tight">Viral Growth Hack</h3>
+                            <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center group-hover:bg-[#28b8d9] group-hover:text-white transition-all shadow-lg">
+                                <svg class="w-5 h-5 text-navy-950" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="group project-card relative h-[420px] md:h-[480px] rounded-[2.5rem] overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" class="project-img absolute inset-0 w-full h-full object-cover transition-transform duration-700" alt="SEO">
+                        <div class="work-gradient absolute inset-0 flex flex-col justify-end items-center md:items-start p-8 text-center md:text-left">
+                            <span class="text-[#28b8d9] text-[10px] font-bold uppercase tracking-widest mb-2">SEO • Growth</span>
+                            <h3 class="text-white font-display text-2xl font-bold mb-5 tracking-tight">Real Estate Authority</h3>
+                            <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center group-hover:bg-[#28b8d9] group-hover:text-white transition-all shadow-lg">
+                                <svg class="w-5 h-5 text-navy-950" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="mt-8 text-center">
+            <button id="showMoreBtn" onclick="toggleProjects()" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-slate-50 border border-slate-200 text-navy-950 font-bold px-12 py-5 rounded-2xl hover:bg-white hover:shadow-2xl hover:border-transparent transition-all group">
+                <span id="btnText">Explore All Projects</span>
+                <div class="w-6 h-6 brand-gradient text-white rounded-full flex items-center justify-center group-hover:rotate-180 transition-transform duration-500">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+            </button>
+        </div>
+
+        <div id="extraProjects" class="hidden-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            <div class="group project-card relative h-[350px] rounded-[2rem] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600" class="project-img w-full h-full object-cover transition-transform duration-700">
+                <div class="work-gradient absolute inset-0 flex flex-col justify-end items-center p-6 text-center">
+                    <p class="text-white font-bold">Brand Visual Identity</p>
+                </div>
+            </div>
+            <div class="group project-card relative h-[350px] rounded-[2rem] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=600" class="project-img w-full h-full object-cover transition-transform duration-700">
+                <div class="work-gradient absolute inset-0 flex flex-col justify-end items-center p-6 text-center">
+                    <p class="text-white font-bold">App UI Development</p>
+                </div>
+            </div>
+            <div class="group project-card relative h-[350px] rounded-[2rem] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600" class="project-img w-full h-full object-cover transition-transform duration-700">
+                <div class="work-gradient absolute inset-0 flex flex-col justify-end items-center p-6 text-center">
+                    <p class="text-white font-bold">B2B Marketing Engine</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    // Initialize Work Swiper
+    var workSwiper = new Swiper(".workSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        centeredSlides: false,
+        pagination: { el: ".swiper-pagination", clickable: true },
+        breakpoints: {
+            768: { slidesPerView: 2, spaceBetween: 30 },
+            1024: { slidesPerView: 3, spaceBetween: 30 }
+        }
+    });
+
+    // Toggle Functionality
+    function toggleProjects() {
+        const extraArea = document.getElementById('extraProjects');
+        const btnText = document.getElementById('btnText');
+        
+        if (extraArea.classList.contains('active')) {
+            extraArea.classList.remove('active');
+            btnText.innerText = "Explore All Projects";
+            // Scroll back up smoothly
+            document.getElementById('work').scrollIntoView({ behavior: 'smooth' });
+        } else {
+            extraArea.classList.add('active');
+            btnText.innerText = "Show Less";
+        }
+    }
+</script>
+
+
+
+
+
+
+    <footer class="bg-saas-black text-white pt-32 pb-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-8 h-8 brand-gradient rounded-lg flex items-center justify-center">
+                            <span class="font-display font-bold text-sm">W</span>
+                        </div>
+                        <span class="font-display font-bold text-xl">WebPro<span class="text-brand-400">Arts</span></span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-10">
+                        The art of digital scale. Serving Mumbai and Vasai-Virar with high-performance tech solutions.
+                    </p>
+                    <div class="flex gap-5">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-500 transition-all opacity-50 hover:opacity-100">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-500 transition-all opacity-50 hover:opacity-100">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-display font-bold text-lg mb-8">Solutions</h4>
+                    <ul class="space-y-5 text-slate-500 text-sm">
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Enterprise Web Apps</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">E-Commerce Ecosystems</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Technical SEO</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Performance Marketing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-display font-bold text-lg mb-8">Company</h4>
+                    <ul class="space-y-5 text-slate-500 text-sm">
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Our Portfolio</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Growth Blog</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Client Testimonials</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Partner Program</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-display font-bold text-lg mb-8">Contact</h4>
+                    <div class="space-y-6 text-slate-500 text-sm leading-relaxed">
+                        <p>📍 Mumbai Head Office: Vasai-Virar, MH India</p>
+                        <p>📧 hello@webproarts.in</p>
+                        <div class="p-5 bg-white/5 border border-white/10 rounded-2xl">
+                            <p class="text-xs font-black text-brand-400 uppercase tracking-widest mb-1">Status</p>
+                            <p class="text-white font-bold">🟢 Accepting Inquiries</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-16 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-slate-500 text-xs">© 2026 WebProArts. All rights reserved. Made in Mumbai.</p>
+                <div class="flex gap-8 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>

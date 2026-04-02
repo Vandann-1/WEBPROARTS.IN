@@ -1,0 +1,232 @@
+<!-- <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebProArts — Mumbai's Digital Growth Partner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        display: ['Bricolage Grotesque', 'sans-serif'], 
+                        body: ['Plus Jakarta Sans', 'sans-serif'] 
+                    },
+                    colors: { 
+                        navy: { 900: '#071e2b', 950: '#04131a' },
+                        brand: { 400: '#28b8d9', 600: '#16598a' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        .font-display { font-family: 'Bricolage Grotesque', sans-serif; }
+        .brand-gradient { background: linear-gradient(135deg, #16598a 0%, #28b8d9 100%); }
+        .typed-cursor { color: #28b8d9; }
+        .work-gradient { background: linear-gradient(to top, rgba(4,19,26,0.98) 0%, rgba(4,19,26,0.4) 60%, transparent 100%); }
+        
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { display: flex; width: max-content; animation: marquee 30s linear infinite; }
+        
+        .swiper-pagination-bullet-active { background: #28b8d9 !important; width: 24px !important; border-radius: 12px !important; }
+    </style>
+</head>
+<body class="bg-white text-slate-900">
+
+    <header class="w-full bg-white border-b border-slate-100 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="/" class="flex items-center shrink-0">
+                <img src="logo-webproarts.png" alt="WebProArts" class="h-12 lg:h-16 w-auto object-contain">
+            </a>
+            <nav class="hidden lg:flex items-center gap-10">
+                <a href="#services" class="text-[15px] font-bold text-slate-700 hover:text-brand-400 transition-colors">Services</a>
+                <a href="#work" class="text-[15px] font-bold text-slate-700 hover:text-brand-400 transition-colors">Case Studies</a>
+                <a href="#about" class="text-[15px] font-bold text-slate-700 hover:text-brand-400 transition-colors">About</a>
+                <a href="#contact" class="bg-brand-600 text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-brand-400 transition-all">Contact Now</a>
+            </nav>
+            <button class="lg:hidden p-2 text-brand-600" onclick="toggleMobile()"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-slate-50 p-6 space-y-4">
+            <a href="#services" class="block font-bold text-slate-700">Services</a>
+            <a href="#work" class="block font-bold text-slate-700">Our Work</a>
+            <a href="#contact" class="block w-full text-center bg-brand-600 text-white py-4 rounded-xl font-bold">Enquire Now</a>
+        </div>
+    </header>
+
+    <section class="relative pt-12 pb-20 overflow-hidden bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div>
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-600/5 border border-brand-600/10 text-brand-600 text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+                    <span class="w-2 h-2 bg-brand-400 rounded-full animate-pulse"></span> Scale Your Brand in 2026
+                </div>
+                <h1 class="font-display text-5xl md:text-7xl font-extrabold text-navy-950 leading-[1.05] mb-4 tracking-tighter min-h-[140px] md:min-h-[160px]">
+                    Scale your Impact <br> through <span id="typed-text" class="text-transparent bg-clip-text brand-gradient"></span>
+                </h1>
+                <p class="text-lg text-slate-500 mb-8 max-w-lg font-medium leading-relaxed">
+                    Move beyond vanity metrics. We deploy <span class="text-navy-950 font-bold">growth-first systems</span> to turn your brand into a 24/7 revenue engine.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center gap-6">
+                    <button onclick="toggleModal(true)" class="w-full sm:w-auto px-10 py-5 bg-brand-600 text-white font-bold rounded-2xl shadow-xl hover:bg-brand-400 transition-all">Get Free Audit</button>
+                    <span class="text-[13px] font-bold text-slate-400 italic">"The Partner your thoughts need."</span>
+                </div>
+            </div>
+            <div class="relative flex justify-end">
+                <div class="relative z-10 w-full max-w-[550px]">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000" class="rounded-[40px] shadow-2xl border border-slate-100" alt="Growth Data">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-slate-100 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">↑</div>
+                        <div><p class="text-[10px] font-black text-slate-400 uppercase">Conversion</p><p class="text-xl font-black text-navy-950">+84%</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-navy-950 py-10 overflow-hidden border-y border-white/5">
+        <div class="animate-marquee flex items-center">
+            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">Google Partner</span>
+            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">Meta Certified</span>
+            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">SaaS Development</span>
+            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">SEO Experts</span>
+            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">Mumbai Growth</span>
+            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">Google Partner</span>
+            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">Meta Certified</span>
+        </div>
+    </div>
+
+    <section id="services" class="py-24 bg-slate-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-extrabold text-navy-950">Our <span class="text-brand-400">Core Services</span></h2>
+            </div>
+            <div class="swiper serviceSwiper !pb-12">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white p-10 rounded-[2.5rem] border border-slate-100 h-full hover:border-brand-400 transition-all shadow-sm">
+                            <h3 class="font-display text-2xl font-bold text-navy-950 mb-4">Website Design</h3>
+                            <p class="text-slate-500 leading-relaxed">Custom UI/UX and SaaS platforms built with Next.js & React.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-navy-950 p-10 rounded-[2.5rem] shadow-2xl h-full text-white">
+                            <h3 class="font-display text-2xl font-bold mb-4">Digital Marketing</h3>
+                            <p class="text-slate-300 leading-relaxed">ROI-focused Google Ads and SEO to dominate your market.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white p-10 rounded-[2.5rem] border border-slate-100 h-full hover:border-brand-400 transition-all shadow-sm">
+                            <h3 class="font-display text-2xl font-bold text-navy-950 mb-4">Social Media</h3>
+                            <p class="text-slate-500 leading-relaxed">Viral strategy and community management to scale your brand.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-16 text-center md:text-left flex-col md:flex-row gap-6">
+                <h2 class="font-display text-4xl md:text-5xl font-extrabold text-navy-950">Selected <span class="text-brand-400">Work.</span></h2>
+                <button onclick="toggleProjects()" class="text-brand-600 font-bold border-b-2 border-brand-400">Explore All Projects</button>
+            </div>
+            <div class="swiper workSwiper !pb-20">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="group relative h-[450px] rounded-[2.5rem] overflow-hidden shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=800" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="work-gradient absolute inset-0 flex flex-col justify-end p-8 text-center md:text-left items-center md:items-start">
+                                <span class="text-brand-400 text-xs font-bold uppercase mb-2">Web Development</span>
+                                <h3 class="text-white font-display text-2xl font-bold">FinTech Ecosystem</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="group relative h-[450px] rounded-[2.5rem] overflow-hidden shadow-xl text-center md:text-left items-center md:items-start">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="work-gradient absolute inset-0 flex flex-col justify-end p-8 text-center md:text-left items-center md:items-start">
+                                <span class="text-brand-400 text-xs font-bold uppercase mb-2">SEO Growth</span>
+                                <h3 class="text-white font-display text-2xl font-bold">Real Estate Ranking</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy-950 text-white pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <img src="logo-webproarts.png" class="h-10 mb-6 brightness-200">
+                    <p class="text-slate-500 text-sm">We connect your thoughts to digital reality. Mumbai & Virar-Vasai.</p>
+                </div>
+                <div><h4 class="font-bold mb-6">Services</h4>
+                    <ul class="text-slate-500 text-sm space-y-4"><li>SEO</li><li>Web Design</li><li>Social Media</li></ul>
+                </div>
+                <div><h4 class="font-bold mb-6">Company</h4>
+                    <ul class="text-slate-500 text-sm space-y-4"><li>About</li><li>Work</li><li>Careers</li></ul>
+                </div>
+                <div><h4 class="font-bold mb-6">Contact</h4>
+                    <p class="text-slate-500 text-sm">hello@webproarts.in</p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-slate-600 text-xs gap-4">
+                <p>© 2026 WebProArts. Made in Mumbai.</p>
+                <div class="flex gap-6 uppercase font-bold"><a>Privacy</a><a>Terms</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="enquireModal" class="fixed inset-0 z-[250] hidden flex items-center justify-center px-4">
+        <div onclick="toggleModal(false)" class="absolute inset-0 bg-navy-950/60 backdrop-blur-sm"></div>
+        <div class="relative bg-white w-full max-w-[440px] rounded-[32px] shadow-2xl p-10 transform scale-95 opacity-0 transition-all duration-300" id="modalBox">
+            <button onclick="toggleModal(false)" class="absolute top-6 right-6 text-slate-300 hover:text-navy-950"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="3"></path></svg></button>
+            <h3 class="font-display text-2xl font-bold text-navy-950 mb-1 text-center">Enquire Now</h3>
+            <form class="space-y-3 mt-6">
+                <div class="grid grid-cols-2 gap-3">
+                    <input type="text" placeholder="First" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm outline-none focus:border-brand-400">
+                    <input type="text" placeholder="Last" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm outline-none focus:border-brand-400">
+                </div>
+                <input type="text" placeholder="Subject" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm outline-none focus:border-brand-400">
+                <textarea rows="3" placeholder="Message" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm outline-none focus:border-brand-400"></textarea>
+                <button type="submit" class="w-full bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-400 transition-all shadow-lg shadow-brand-600/20">Send Message →</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Typing Effect
+        document.addEventListener('DOMContentLoaded', () => {
+            new Typed('#typed-text', {
+                strings: ['Digital Marketing.', 'Website Design.', 'Social Media.', 'SEO Growth.'],
+                typeSpeed: 60, backSpeed: 40, loop: true, cursorChar: '|'
+            });
+        });
+
+        // Sliders
+        new Swiper(".serviceSwiper", { slidesPerView: 1, spaceBetween: 20, loop: true, pagination: { el: ".swiper-pagination", clickable: true }, breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } } });
+        new Swiper(".workSwiper", { slidesPerView: 1, spaceBetween: 20, loop: true, pagination: { el: ".swiper-pagination", clickable: true }, breakpoints: { 768: { slidesPerView: 2 } } });
+
+        // Toggles
+        function toggleMobile() { document.getElementById('mobile-nav').classList.toggle('hidden'); }
+        function toggleModal(show) {
+            const m = document.getElementById('enquireModal'); const b = document.getElementById('modalBox');
+            if(show) { m.classList.remove('hidden'); setTimeout(() => { b.classList.remove('scale-95', 'opacity-0'); b.classList.add('scale-100', 'opacity-100'); }, 20); document.body.style.overflow = 'hidden'; }
+            else { b.classList.replace('scale-100', 'scale-95'); b.classList.replace('opacity-100', 'opacity-0'); setTimeout(() => m.classList.add('hidden'), 300); document.body.style.overflow = 'auto'; }
+        }
+    </script>
+</body>
+</html> -->
