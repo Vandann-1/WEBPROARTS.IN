@@ -58,8 +58,8 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = ""
-EMAIL_HOST_PASSWORD = ""
+EMAIL_HOST_USER = "webproarts@gmail.com"
+EMAIL_HOST_PASSWORD = "sleh wioe xfgw nwxl"
 
 DEFAULT_FROM_EMAIL = "Slotify <coderspamm13@gmail.com>"
 
