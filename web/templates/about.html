@@ -1,232 +1,276 @@
-<!-- <!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebProArts — Mumbai's Digital Growth Partner</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>About Us | WebPro Arts Digital Agency</title>
     
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { 
-                        display: ['Bricolage Grotesque', 'sans-serif'], 
-                        body: ['Plus Jakarta Sans', 'sans-serif'] 
-                    },
-                    colors: { 
-                        navy: { 900: '#071e2b', 950: '#04131a' },
-                        brand: { 400: '#28b8d9', 600: '#16598a' }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-        .font-display { font-family: 'Bricolage Grotesque', sans-serif; }
-        .brand-gradient { background: linear-gradient(135deg, #16598a 0%, #28b8d9 100%); }
-        .typed-cursor { color: #28b8d9; }
-        .work-gradient { background: linear-gradient(to top, rgba(4,19,26,0.98) 0%, rgba(4,19,26,0.4) 60%, transparent 100%); }
-        
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .animate-marquee { display: flex; width: max-content; animation: marquee 30s linear infinite; }
-        
-        .swiper-pagination-bullet-active { background: #28b8d9 !important; width: 24px !important; border-radius: 12px !important; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        .animate-float { animation: float 5s ease-in-out infinite; }
+        .count-up { display: inline-block; }
     </style>
 </head>
-<body class="bg-white text-slate-900">
+<body class="bg-white text-slate-900 selection:bg-[#28b8d9] selection:text-white">
 
-    <header class="w-full bg-white border-b border-slate-100 z-50">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <a href="/" class="flex items-center shrink-0">
-                <img src="logo-webproarts.png" alt="WebProArts" class="h-12 lg:h-16 w-auto object-contain">
-            </a>
-            <nav class="hidden lg:flex items-center gap-10">
-                <a href="#services" class="text-[15px] font-bold text-slate-700 hover:text-brand-400 transition-colors">Services</a>
-                <a href="#work" class="text-[15px] font-bold text-slate-700 hover:text-brand-400 transition-colors">Case Studies</a>
-                <a href="#about" class="text-[15px] font-bold text-slate-700 hover:text-brand-400 transition-colors">About</a>
-                <a href="#contact" class="bg-brand-600 text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-brand-400 transition-all">Contact Now</a>
-            </nav>
-            <button class="lg:hidden p-2 text-brand-600" onclick="toggleMobile()"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round"></path></svg></button>
-        </div>
-        <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-slate-50 p-6 space-y-4">
-            <a href="#services" class="block font-bold text-slate-700">Services</a>
-            <a href="#work" class="block font-bold text-slate-700">Our Work</a>
-            <a href="#contact" class="block w-full text-center bg-brand-600 text-white py-4 rounded-xl font-bold">Enquire Now</a>
-        </div>
-    </header>
+<header class="w-full bg-white border-b border-slate-100 sticky top-0 z-[200]">
+    <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+        <a href="/" class="flex items-center">
+            <img src="{% static 'img/logo-webproarts.png' %}" alt="WebPro Arts" class="h-10 md:h-14 w-auto object-contain">
+        </a>
 
-    <section class="relative pt-12 pb-20 overflow-hidden bg-white">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <div>
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-600/5 border border-brand-600/10 text-brand-600 text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-                    <span class="w-2 h-2 bg-brand-400 rounded-full animate-pulse"></span> Scale Your Brand in 2026
-                </div>
-                <h1 class="font-display text-5xl md:text-7xl font-extrabold text-navy-950 leading-[1.05] mb-4 tracking-tighter min-h-[140px] md:min-h-[160px]">
-                    Scale your Impact <br> through <span id="typed-text" class="text-transparent bg-clip-text brand-gradient"></span>
-                </h1>
-                <p class="text-lg text-slate-500 mb-8 max-w-lg font-medium leading-relaxed">
-                    Move beyond vanity metrics. We deploy <span class="text-navy-950 font-bold">growth-first systems</span> to turn your brand into a 24/7 revenue engine.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center gap-6">
-                    <button onclick="toggleModal(true)" class="w-full sm:w-auto px-10 py-5 bg-brand-600 text-white font-bold rounded-2xl shadow-xl hover:bg-brand-400 transition-all">Get Free Audit</button>
-                    <span class="text-[13px] font-bold text-slate-400 italic">"The Partner your thoughts need."</span>
-                </div>
-            </div>
-            <div class="relative flex justify-end">
-                <div class="relative z-10 w-full max-w-[550px]">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000" class="rounded-[40px] shadow-2xl border border-slate-100" alt="Growth Data">
-                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-slate-100 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">↑</div>
-                        <div><p class="text-[10px] font-black text-slate-400 uppercase">Conversion</p><p class="text-xl font-black text-navy-950">+84%</p></div>
+        <nav class="hidden lg:flex items-center gap-10">
+            <a href="/" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9]">Services</a>
+            <a href="#work" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9]">Case Studies</a>
+            <a href="#" class="text-[15px] font-bold text-[#28b8d9]">About Us</a>
+            <a href="#contact" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all">Contact Now</a>
+        </nav>
+
+        <button class="lg:hidden p-2 text-[#16598a]" onclick="toggleMenu()">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round"></path></svg>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 absolute w-full left-0 p-6 space-y-4 shadow-xl">
+        <a href="/" class="block font-bold text-slate-700">Services</a>
+        <a href="{% url 'about' %}" class="block font-bold text-[#28b8d9]">About Us</a>
+        <a href="#contact" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold">Get Started</a>
+    </div>
+</header>
+
+<section id="about" class="relative py-12 md:py-28 overflow-hidden bg-white">
+    <div class="absolute top-0 left-0 w-[300px] h-[300px] bg-[#28b8d9]/10 rounded-full blur-[80px] -z-10 -translate-x-1/2"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
+        
+        <div class="relative order-first lg:order-last w-full">
+            <div class="swiper aboutSwiper rounded-[2.5rem] md:rounded-[4rem] shadow-2xl border border-slate-100 overflow-hidden bg-slate-50 aspect-[4/3] md:aspect-auto md:h-[600px]">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="w-full h-full object-cover" alt="Growth Strategy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#04131a]/95 via-transparent p-8 md:p-12 flex flex-col justify-end">
+                            <h4 class="text-white text-2xl md:text-3xl font-bold">The Visionary Edge</h4>
+                            <p class="text-white/60 text-sm">Experience born from true conviction.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="w-full h-full object-cover" alt="Web Development">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#04131a]/95 via-transparent p-8 md:p-12 flex flex-col justify-end">
+                            <h4 class="text-white text-2xl md:text-3xl font-bold">Modern Engineering</h4>
+                            <p class="text-white/60 text-sm">Responsive architectures for the digital age.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800" class="w-full h-full object-cover" alt="Creative Design">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#04131a]/95 via-transparent p-8 md:p-12 flex flex-col justify-end">
+                            <h4 class="text-white text-2xl md:text-3xl font-bold">Creative Storytelling</h4>
+                            <p class="text-white/60 text-sm">Turning brand identities into revenue engines.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide relative">
+                        <img src="https://th.bing.com/th/id/OIP.B4sU6UOf2aQbbVEGJDckBAHaE8?w=254&h=184&c=7&r=0&o=7&pid=1.7&rm=3" class="w-full h-full object-cover" alt="Collaboration">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#04131a]/95 via-transparent p-8 md:p-12 flex flex-col justify-end">
+                            <h4 class="text-white text-2xl md:text-3xl font-bold">Strategic Partnership</h4>
+                            <p class="text-white/60 text-sm">Your growth is our primary mission.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800" class="w-full h-full object-cover" alt="Tech Excellence">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#04131a]/95 via-transparent p-8 md:p-12 flex flex-col justify-end">
+                            <h4 class="text-white text-2xl md:text-3xl font-bold">Deep-Tech SEO</h4>
+                            <p class="text-white/60 text-sm">Optimized for maximum digital visibility.</p>
+                        </div>
                     </div>
                 </div>
+                <div class="swiper-pagination !bottom-8 !left-auto !right-8 !w-auto"></div>
+            </div>
+
+            <div class="absolute -bottom-6 -left-4 md:-bottom-8 md:-left-8 bg-white p-5 md:p-8 rounded-3xl shadow-2xl border border-slate-50 z-20 flex items-center gap-4 animate-float">
+                <div class="w-1.5 h-12 bg-gradient-to-b from-[#16598a] to-[#28b8d9] rounded-full"></div>
+                <div>
+                    <p class="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Our Mission</p>
+                    <p class="text-sm md:text-lg font-bold text-slate-900 leading-tight">Amplify & Scale.</p>
+                </div>
             </div>
         </div>
-    </section>
 
-    <div class="bg-navy-950 py-10 overflow-hidden border-y border-white/5">
-        <div class="animate-marquee flex items-center">
-            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">Google Partner</span>
-            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">Meta Certified</span>
-            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">SaaS Development</span>
-            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">SEO Experts</span>
-            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">Mumbai Growth</span>
-            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">Google Partner</span>
-            <span class="mx-12 text-2xl font-display font-extrabold text-white/20 uppercase">Meta Certified</span>
-        </div>
+<div class="text-center lg:text-left mt-4 lg:mt-0">
+    <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#28b8d9]/10 border border-[#28b8d9]/20 text-[#16598a] text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+        WebPro Arts Journey
     </div>
 
-    <section id="services" class="py-24 bg-slate-50 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16">
-                <h2 class="font-display text-4xl md:text-5xl font-extrabold text-navy-950">Our <span class="text-brand-400">Core Services</span></h2>
-            </div>
-            <div class="swiper serviceSwiper !pb-12">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide h-auto">
-                        <div class="bg-white p-10 rounded-[2.5rem] border border-slate-100 h-full hover:border-brand-400 transition-all shadow-sm">
-                            <h3 class="font-display text-2xl font-bold text-navy-950 mb-4">Website Design</h3>
-                            <p class="text-slate-500 leading-relaxed">Custom UI/UX and SaaS platforms built with Next.js & React.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto">
-                        <div class="bg-navy-950 p-10 rounded-[2.5rem] shadow-2xl h-full text-white">
-                            <h3 class="font-display text-2xl font-bold mb-4">Digital Marketing</h3>
-                            <p class="text-slate-300 leading-relaxed">ROI-focused Google Ads and SEO to dominate your market.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto">
-                        <div class="bg-white p-10 rounded-[2.5rem] border border-slate-100 h-full hover:border-brand-400 transition-all shadow-sm">
-                            <h3 class="font-display text-2xl font-bold text-navy-950 mb-4">Social Media</h3>
-                            <p class="text-slate-500 leading-relaxed">Viral strategy and community management to scale your brand.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-    </section>
+    <h2 class="text-4xl md:text-6xl font-extrabold text-[#04131a] leading-[1.1] mb-8 tracking-tighter">
+        Creative ideas that help your <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#16598a] to-[#28b8d9]">brand stand out</span> online.
+    </h2>
 
-    <section id="work" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-16 text-center md:text-left flex-col md:flex-row gap-6">
-                <h2 class="font-display text-4xl md:text-5xl font-extrabold text-navy-950">Selected <span class="text-brand-400">Work.</span></h2>
-                <button onclick="toggleProjects()" class="text-brand-600 font-bold border-b-2 border-brand-400">Explore All Projects</button>
-            </div>
-            <div class="swiper workSwiper !pb-20">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="group relative h-[450px] rounded-[2.5rem] overflow-hidden shadow-xl">
-                            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=800" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="work-gradient absolute inset-0 flex flex-col justify-end p-8 text-center md:text-left items-center md:items-start">
-                                <span class="text-brand-400 text-xs font-bold uppercase mb-2">Web Development</span>
-                                <h3 class="text-white font-display text-2xl font-bold">FinTech Ecosystem</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="group relative h-[450px] rounded-[2.5rem] overflow-hidden shadow-xl text-center md:text-left items-center md:items-start">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="work-gradient absolute inset-0 flex flex-col justify-end p-8 text-center md:text-left items-center md:items-start">
-                                <span class="text-brand-400 text-xs font-bold uppercase mb-2">SEO Growth</span>
-                                <h3 class="text-white font-display text-2xl font-bold">Real Estate Ranking</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-navy-950 text-white pt-24 pb-12">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-1">
-                    <img src="logo-webproarts.png" class="h-10 mb-6 brightness-200">
-                    <p class="text-slate-500 text-sm">We connect your thoughts to digital reality. Mumbai & Virar-Vasai.</p>
-                </div>
-                <div><h4 class="font-bold mb-6">Services</h4>
-                    <ul class="text-slate-500 text-sm space-y-4"><li>SEO</li><li>Web Design</li><li>Social Media</li></ul>
-                </div>
-                <div><h4 class="font-bold mb-6">Company</h4>
-                    <ul class="text-slate-500 text-sm space-y-4"><li>About</li><li>Work</li><li>Careers</li></ul>
-                </div>
-                <div><h4 class="font-bold mb-6">Contact</h4>
-                    <p class="text-slate-500 text-sm">hello@webproarts.in</p>
-                </div>
-            </div>
-            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-slate-600 text-xs gap-4">
-                <p>© 2026 WebProArts. Made in Mumbai.</p>
-                <div class="flex gap-6 uppercase font-bold"><a>Privacy</a><a>Terms</a></div>
-            </div>
-        </div>
-    </footer>
-
-    <div id="enquireModal" class="fixed inset-0 z-[250] hidden flex items-center justify-center px-4">
-        <div onclick="toggleModal(false)" class="absolute inset-0 bg-navy-950/60 backdrop-blur-sm"></div>
-        <div class="relative bg-white w-full max-w-[440px] rounded-[32px] shadow-2xl p-10 transform scale-95 opacity-0 transition-all duration-300" id="modalBox">
-            <button onclick="toggleModal(false)" class="absolute top-6 right-6 text-slate-300 hover:text-navy-950"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="3"></path></svg></button>
-            <h3 class="font-display text-2xl font-bold text-navy-950 mb-1 text-center">Enquire Now</h3>
-            <form class="space-y-3 mt-6">
-                <div class="grid grid-cols-2 gap-3">
-                    <input type="text" placeholder="First" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm outline-none focus:border-brand-400">
-                    <input type="text" placeholder="Last" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm outline-none focus:border-brand-400">
-                </div>
-                <input type="text" placeholder="Subject" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm outline-none focus:border-brand-400">
-                <textarea rows="3" placeholder="Message" class="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-sm outline-none focus:border-brand-400"></textarea>
-                <button type="submit" class="w-full bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-400 transition-all shadow-lg shadow-brand-600/20">Send Message →</button>
-            </form>
-        </div>
+    <div class="text-slate-600 text-base md:text-lg leading-relaxed space-y-6 mb-12 max-w-2xl mx-auto lg:mx-0">
+        <p>
+            Eleven years ago, a spark of inspiration planted the seed for a creative path that has now blossomed into a dream I live every day. I firmly believe that true growth is born from experience—a conviction that has driven me to continuously learn, collaborate, and experiment with independent techniques to master <span class="font-bold text-[#16598a]">thoughtful design</span>.
+        </p>
+        <p>
+            This journey led to the creation of <span class="text-[#04131a] font-bold">WebPro Arts</span>, a premier digital marketing agency in Mumbai and Vasai-Virar. We engineer visually stunning, responsive architectures that prioritize intuitive UX while leveraging deep-tech SEO, scroll-stopping cinematic storytelling, and performance-based social media strategies to turn brand identities into 24/7 revenue engines.
+        </p>
+        <p class="text-sm border-l-4 border-[#28b8d9] pl-4 italic">
+            Whether through data-driven Google Ads or high-impact video editing, we are committed to delivering measurable results that elevate your brand.
+        </p>
     </div>
 
-    <script>
-        // Typing Effect
-        document.addEventListener('DOMContentLoaded', () => {
-            new Typed('#typed-text', {
-                strings: ['Digital Marketing.', 'Website Design.', 'Social Media.', 'SEO Growth.'],
-                typeSpeed: 60, backSpeed: 40, loop: true, cursorChar: '|'
-            });
+    <button class="w-full sm:w-auto px-12 py-5 bg-[#16598a] text-white font-bold rounded-2xl shadow-xl shadow-[#16598a]/20 hover:bg-[#28b8d9] transition-all transform active:scale-95 duration-300">
+        Know More About Us
+    </button>
+</div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const aboutSwiper = new Swiper('.aboutSwiper', {
+            loop: true,
+            effect: 'fade', // Smooth fade transition
+            fadeEffect: {
+                crossFade: true
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
         });
+    });
+</script>
 
-        // Sliders
-        new Swiper(".serviceSwiper", { slidesPerView: 1, spaceBetween: 20, loop: true, pagination: { el: ".swiper-pagination", clickable: true }, breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } } });
-        new Swiper(".workSwiper", { slidesPerView: 1, spaceBetween: 20, loop: true, pagination: { el: ".swiper-pagination", clickable: true }, breakpoints: { 768: { slidesPerView: 2 } } });
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-20">
+            <h3 class="text-xs font-black text-[#28b8d9] uppercase tracking-[0.4em] mb-4 text-nowrap">Integrated IT & Digital Ecosystem</h3>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-[#04131a]">Tailored For Modern Brands</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white p-10 rounded-[3rem] border border-slate-100 hover:border-[#28b8d9] transition-all shadow-sm hover:shadow-2xl hover:-translate-y-2 group">
+                <div class="w-16 h-16 rounded-full bg-[#16598a]/10 flex items-center justify-center mb-8 group-hover:bg-[#16598a] transition-all duration-500 mx-auto lg:mx-0 text-white">
+                    <svg class="w-8 h-8 text-[#16598a] group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h4 class="font-bold text-xl text-[#04131a] mb-4 text-center lg:text-left">SEO Domination</h4>
+                <p class="text-sm text-slate-500 leading-relaxed text-center lg:text-left">We implement powerful meta-strategies and technical audits that boost search rankings and secure authority.</p>
+            </div>
+            <div class="bg-white p-10 rounded-[3rem] border border-slate-100 hover:border-[#28b8d9] transition-all shadow-sm hover:shadow-2xl hover:-translate-y-2 group">
+                <div class="w-16 h-16 rounded-full bg-[#28b8d9]/10 flex items-center justify-center mb-8 group-hover:bg-[#28b8d9] transition-all duration-500 mx-auto lg:mx-0">
+                    <svg class="w-8 h-8 text-[#28b8d9] group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A2.406 2.406 0 015 13V9a2.406 2.406 0 01.436-.683M5.436 13.683l1.496 4.275m0 0a2.406 2.406 0 01-.436.683M5.436 8.317l1.496-4.275m0 0a2.406 2.406 0 014.36-.683" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h4 class="font-bold text-xl text-[#04131a] mb-4 text-center lg:text-left">Brand Amplified</h4>
+                <p class="text-sm text-slate-500 leading-relaxed text-center lg:text-left">Our mission is simple: amplify your digital footprint, drive engagement, and deliver measurable ROI growth.</p>
+            </div>
+            <div class="bg-white p-10 rounded-[3rem] border border-slate-100 hover:border-[#16598a] transition-all shadow-sm hover:shadow-2xl hover:-translate-y-2 group">
+                <div class="w-16 h-16 rounded-full bg-[#16598a]/10 flex items-center justify-center mb-8 group-hover:bg-[#16598a] transition-all duration-500 mx-auto lg:mx-0">
+                    <svg class="w-8 h-8 text-[#16598a] group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h4 class="font-bold text-xl text-[#04131a] mb-4 text-center lg:text-left">Innovative Tech</h4>
+                <p class="text-sm text-slate-500 leading-relaxed text-center lg:text-left">We design modern digital experiences using React and Next.js, empowering businesses with high-end architecture.</p>
+            </div>
+            <div class="bg-white p-10 rounded-[3rem] border border-slate-100 hover:border-[#28b8d9] transition-all shadow-sm hover:shadow-2xl hover:-translate-y-2 group">
+                <div class="w-16 h-16 rounded-full bg-[#28b8d9]/10 flex items-center justify-center mb-8 group-hover:bg-[#28b8d9] transition-all duration-500 mx-auto lg:mx-0 text-white">
+                    <svg class="w-8 h-8 text-[#28b8d9] group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h4 class="font-bold text-xl text-[#04131a] mb-4 text-center lg:text-left">Results Driven</h4>
+                <p class="text-sm text-slate-500 leading-relaxed text-center lg:text-left">Every campaign is fueled by data-driven campaigns, ensuring marketing investment translates into business outcomes.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        // Toggles
-        function toggleMobile() { document.getElementById('mobile-nav').classList.toggle('hidden'); }
-        function toggleModal(show) {
-            const m = document.getElementById('enquireModal'); const b = document.getElementById('modalBox');
-            if(show) { m.classList.remove('hidden'); setTimeout(() => { b.classList.remove('scale-95', 'opacity-0'); b.classList.add('scale-100', 'opacity-100'); }, 20); document.body.style.overflow = 'hidden'; }
-            else { b.classList.replace('scale-100', 'scale-95'); b.classList.replace('opacity-100', 'opacity-0'); setTimeout(() => m.classList.add('hidden'), 300); document.body.style.overflow = 'auto'; }
-        }
-    </script>
+<footer class="bg-black text-white pt-20 pb-8 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+            <div>
+                <h2 class="text-2xl font-black tracking-tighter mb-6 uppercase">WebPro <span class="text-[#28b8d9]">Arts</span></h2>
+                <p class="text-slate-400 text-sm leading-relaxed max-w-xs">By optimizing content and leveraging relevant keywords, we secure your prominent position online.</p>
+            </div>
+            <div class="border-t border-white/10 lg:border-none pt-8 lg:pt-0">
+                <div class="flex justify-between items-center lg:block cursor-pointer" onclick="toggleFooterAcc(this)">
+                    <h4 class="text-xs font-black uppercase tracking-[0.3em] text-white mb-0 lg:mb-8">Services</h4>
+                    <span class="lg:hidden text-slate-500"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12" stroke-width="2"></path></svg></span>
+                </div>
+                <ul class="hidden lg:block mt-8 lg:mt-0 space-y-4 text-sm text-slate-400 font-medium">
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Graphics Design</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Website Design</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Video Editing</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Digital Marketing</a></li>
+                </ul>
+            </div>
+            <div class="border-t border-white/10 lg:border-none pt-8 lg:pt-0">
+                <div class="flex justify-between items-center lg:block cursor-pointer" onclick="toggleFooterAcc(this)">
+                    <h4 class="text-xs font-black uppercase tracking-[0.3em] text-white mb-0 lg:mb-8">Connect</h4>
+                    <span class="lg:hidden text-slate-500"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12" stroke-width="2"></path></svg></span>
+                </div>
+                <div class="hidden lg:block mt-8 lg:mt-0 space-y-5 text-sm text-slate-400">
+                    <p class="leading-relaxed">📍 Office no-2, Shastri Nagar, Vasai West, Mumbai 401202</p>
+                    <p class="text-[#28b8d9] font-bold">📧 webproarts@gmail.com</p>
+                    <p>📞 +91 95616 35544</p>
+                </div>
+            </div>
+            <div class="border-t border-white/10 lg:border-none pt-8 lg:pt-0">
+                <h4 class="text-xs font-black uppercase tracking-[0.3em] text-white mb-8">Newsletter</h4>
+                <form class="relative group">
+                    <input type="email" placeholder="Your Email" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-sm focus:border-[#28b8d9] outline-none">
+                    <button class="absolute right-2 top-2 bottom-2 bg-[#28b8d9] text-white font-extrabold px-6 rounded-lg text-[10px] uppercase">Join</button>
+                </form>
+            </div>
+        </div>
+        <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold text-slate-600 uppercase tracking-widest">
+            <p>© 2026 WEBPRO ARTS. ALL RIGHTS RESERVED.</p>
+            <div class="flex gap-8">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+    function toggleFooterAcc(header) {
+        if (window.innerWidth >= 1024) return;
+        const list = header.nextElementSibling;
+        const icon = header.querySelector('span');
+        list.classList.toggle('hidden');
+        icon.style.transform = list.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(45deg)';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        new Swiper(".aboutSwiper", { effect: "fade", autoplay: { delay: 4000 }, loop: true, speed: 1000 });
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const goal = parseInt(target.getAttribute('data-target'));
+                    let current = 0;
+                    const increment = goal / 40;
+                    const update = () => {
+                        if (current < goal) {
+                            current += increment;
+                            target.innerText = Math.ceil(current);
+                            setTimeout(update, 25);
+                        } else { target.innerText = goal; }
+                    };
+                    update();
+                    counterObserver.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.count-up').forEach(c => counterObserver.observe(c));
+    });
+</script>
 </body>
-</html> -->
+</html>

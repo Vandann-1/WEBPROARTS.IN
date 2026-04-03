@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Social Media Marketing | Web Pro Arts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .bg-social { background-image: radial-gradient(#28b8d915 1px, transparent 1px); background-size: 35px 35px; }
+        .glow-blue { box-shadow: 0 0 50px -10px rgba(40, 184, 217, 0.3); }
+    </style>
+</head>
+<body class="bg-[#fafbfd] text-slate-900">
+
+    <header class="w-full bg-white/90 backdrop-blur-md border-b border-slate-100 sticky top-0 z-[100]">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="/" class="flex items-center">
+                <img src="{% static 'img/logo-webproarts.png' %}" alt="WebProArts" class="h-12 lg:h-16 w-auto object-contain mix-blend-multiply">
+            </a>
+            <nav class="hidden lg:flex items-center gap-10">
+                <a href="/" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9]">Home</a>
+                <a href="{% url 'about' %}" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9]">About</a>
+                <a href="{% url 'blogs' %}" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9]">Blog</a>
+                <a href="#contact" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all">Boost Socials</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="relative py-24 md:py-36 overflow-hidden bg-social">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div>
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#28b8d9]/10 border border-[#28b8d9]/20 text-[#16598a] text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+                    Social Growth Engines
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-[#04131a] mb-8 tracking-tighter leading-tight">
+                    Turn Followers into <span class="text-[#28b8d9]">Loyal Customers.</span>
+                </h1>
+                <p class="text-slate-500 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+                    We don't just chase likes. We engineer high-impact social funnels that drive real traffic, real leads, and real revenue for brands in Mumbai & beyond.
+                </p>
+                <div class="flex gap-6">
+                    <div class="flex flex-col">
+                        <span class="text-3xl font-black text-[#16598a]">10x</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Reach Potential</span>
+                    </div>
+                    <div class="w-px h-10 bg-slate-200"></div>
+                    <div class="flex flex-col">
+                        <span class="text-3xl font-black text-[#28b8d9]">95%</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Retention Rate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -top-10 -right-10 w-64 h-64 bg-[#28b8d9]/10 rounded-full blur-[80px]"></div>
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200" class="rounded-[4rem] shadow-2xl border-4 border-white glow-blue" alt="Social Media Strategy">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black text-[#04131a] tracking-tight">Technical Social Framework</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <div class="flex flex-col md:flex-row gap-8 items-center bg-slate-50 p-8 rounded-[3rem] border border-slate-100 hover:border-[#28b8d9]/30 transition-all">
+                    <div class="w-full md:w-1/2 overflow-hidden rounded-3xl">
+                        <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=800" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500" alt="Organic Reach">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h4 class="text-2xl font-bold mb-4">Organic Growth</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Building a community that cares. We manage daily engagement, hashtag research, and consistent storytelling to grow your brand without a dollar in ad spend.</p>
+                        <ul class="text-[11px] font-bold text-[#16598a] space-y-2 uppercase tracking-wider">
+                            <li><i class="fas fa-check-circle mr-2 text-[#28b8d9]"></i> Engagement Optimization</li>
+                            <li><i class="fas fa-check-circle mr-2 text-[#28b8d9]"></i> Hashtag Ecosystems</li>
+                            <li><i class="fas fa-check-circle mr-2 text-[#28b8d9]"></i> Brand Voice Scaling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 items-center bg-slate-50 p-8 rounded-[3rem] border border-slate-100 hover:border-[#16598a]/30 transition-all">
+                    <div class="w-full md:w-1/2 overflow-hidden rounded-3xl">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500" alt="Meta Ads">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h4 class="text-2xl font-bold mb-4">Paid Performance</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Advanced Meta & LinkedIn ads. We build "Lookalike" audiences and remarketing funnels that follow potential leads until they convert into buyers.</p>
+                        <ul class="text-[11px] font-bold text-[#16598a] space-y-2 uppercase tracking-wider">
+                            <li><i class="fas fa-check-circle mr-2 text-[#28b8d9]"></i> Precision Targeting</li>
+                            <li><i class="fas fa-check-circle mr-2 text-[#28b8d9]"></i> Retargeting Funnels</li>
+                            <li><i class="fas fa-check-circle mr-2 text-[#28b8d9]"></i> ROI Dashboarding</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 items-center bg-slate-50 p-8 rounded-[3rem] border border-slate-100 hover:border-[#28b8d9]/30 transition-all">
+                    <div class="w-full md:w-1/2 overflow-hidden rounded-3xl">
+                        <img src="data:image/webp;base64,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" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500" alt="Reels Production">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h4 class="text-2xl font-bold mb-4">Viral Short-Form</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Reels, TikToks, and Shorts engineered for the algorithm. We combine cinematic editing with high-retention hooks to make your brand go viral.</p>
+                        <ul class="text-[11px] font-bold text-[#16598a] space-y-2 uppercase tracking-wider">
+                            <li><i class="fas fa-check-circle mr-2 text-[#28b8d9]"></i> Trend Identification</li>
+                            <li><i class="fas fa-check-circle mr-2 text-[#28b8d9]"></i> Cinematic Transitions</li>
+                            <li><i class="fas fa-check-circle mr-2 text-[#28b8d9]"></i> High-Retention Scripting</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 items-center bg-slate-50 p-8 rounded-[3rem] border border-slate-100 hover:border-[#16598a]/30 transition-all">
+                    <div class="w-full md:w-1/2 overflow-hidden rounded-3xl">
+                        <img src="https://images.unsplash.com/photo-1590402494587-44b71d7772f6?q=80&w=800" class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500" alt="LinkedIn Marketing">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h4 class="text-2xl font-bold mb-4">LinkedIn B2B</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Establish yourself as an industry leader. We optimize executive profiles and build thought-leadership content that attracts high-ticket clients.</p>
+                        <ul class="text-[11px] font-bold text-[#16598a] space-y-2 uppercase tracking-wider">
+                            <li><i class="fas fa-check-circle mr-2 text-[#28b8d9]"></i> Profile Authority</li>
+                            <li><i class="fas fa-check-circle mr-2 text-[#28b8d9]"></i> Corporate Branding</li>
+                            <li><i class="fas fa-check-circle mr-2 text-[#28b8d9]"></i> Executive Storytelling</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#04131a] text-white pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-6xl font-black mb-8 leading-tight">Ready to Win the <br><span class="text-[#28b8d9]">Social Game?</span></h2>
+            <div class="flex flex-wrap justify-center gap-6 mb-20">
+                <a href="#contact" class="px-10 py-5 bg-[#28b8d9] text-black font-black rounded-2xl hover:scale-105 transition-all">Get a Free Audit</a>
+                <a href="https://wa.me/919561635544" class="px-10 py-5 border border-white/20 rounded-2xl font-black hover:bg-white hover:text-black transition-all">WhatsApp Now</a>
+            </div>
+            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold text-slate-500 tracking-[0.4em] uppercase">
+                <p>© 2026 WEB PRO ARTS AGENCY</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

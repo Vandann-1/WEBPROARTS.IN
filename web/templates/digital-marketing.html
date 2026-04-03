@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing Types & Strategy | Web Pro Arts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .bg-mesh {
+            background-color: #ffffff;
+            background-image: radial-gradient(at 0% 0%, rgba(40, 184, 217, 0.05) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(22, 89, 138, 0.05) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-mesh text-slate-900">
+
+    <header class="w-full bg-white/90 backdrop-blur-md border-b border-slate-100 sticky top-0 z-[100]">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="/" class="flex items-center">
+                <img src="{% static 'img/logo-webproarts.png' %}" alt="WebProArts" class="h-12 lg:h-16 w-auto object-contain mix-blend-multiply">
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-10">
+                <a href="/" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">Home</a>
+                <a href="{% url 'about' %}" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">About</a>
+                <a href="{% url 'blogs' %}" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">Blog</a>
+                <a href="#contact" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all">Contact Us</a>
+            </nav>
+
+            <button class="lg:hidden p-2 text-[#16598a]" onclick="toggleMenu()">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <section class="py-20 md:py-32">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#28b8d9]/10 border border-[#28b8d9]/20 text-[#16598a] text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+                Marketing Intelligence
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-[#04131a] mb-8 tracking-tighter leading-tight">
+                Mastering the <span class="text-[#28b8d9]">Digital Landscape</span>
+            </h1>
+            <p class="text-slate-500 text-lg md:text-xl leading-relaxed">
+                We synchronize multiple marketing disciplines to build a high-converting digital engine for your brand. Here is how we categorize our core strategies.
+            </p>
+        </div>
+    </section>
+
+    <section class="pb-32">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:border-[#28b8d9]/30 transition-all group">
+                <div class="w-14 h-14 bg-[#28b8d9]/10 rounded-2xl flex items-center justify-center mb-8 text-[#16598a] group-hover:bg-[#28b8d9] group-hover:text-white transition-all">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-[#04131a] mb-4">Search Engine Optimization (SEO)</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-8">
+                    The "Findable" Pillar. We optimize your digital meta-architecture to ensure Google ranks your business above the competition.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#28b8d9] mt-2 flex-shrink-0"></span>
+                        <p class="text-xs text-slate-600"><strong class="text-slate-900">Technical SEO:</strong> Core Web Vitals, speed optimization, and site mapping.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#28b8d9] mt-2 flex-shrink-0"></span>
+                        <p class="text-xs text-slate-600"><strong class="text-slate-900">On-Page Strategy:</strong> Content optimization, H1/H2 tags, and keyword density.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#28b8d9] mt-2 flex-shrink-0"></span>
+                        <p class="text-xs text-slate-600"><strong class="text-slate-900">Local Authority:</strong> Ranking for Mumbai/Vasai local search queries.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:border-[#16598a]/30 transition-all group">
+                <div class="w-14 h-14 bg-[#16598a]/10 rounded-2xl flex items-center justify-center mb-8 text-[#16598a] group-hover:bg-[#16598a] group-hover:text-white transition-all">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-[#04131a] mb-4">Paid Media (PPC)</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-8">
+                    The "Visible" Pillar. Capturing high-intent buyers through data-driven Google Ads and performance search marketing.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#16598a] mt-2 flex-shrink-0"></span>
+                        <p class="text-xs text-slate-600"><strong class="text-slate-900">Search Ads:</strong> Strategic bidding for absolute top-of-page visibility.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#16598a] mt-2 flex-shrink-0"></span>
+                        <p class="text-xs text-slate-600"><strong class="text-slate-900">Remarketing:</strong> Re-engaging users who previously visited your site.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#16598a] mt-2 flex-shrink-0"></span>
+                        <p class="text-xs text-slate-600"><strong class="text-slate-900">Conversion Focus:</strong> Landing page optimization to reduce Cost-Per-Click.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:border-[#28b8d9]/30 transition-all group">
+                <div class="w-14 h-14 bg-[#28b8d9]/10 rounded-2xl flex items-center justify-center mb-8 text-[#16598a] group-hover:bg-[#28b8d9] group-hover:text-white transition-all">
+                    <i class="fas fa-share-alt text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-[#04131a] mb-4">Social Media Marketing</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-8">
+                    The "Relatable" Pillar. Building community and authority on Instagram, LinkedIn, and Meta platforms.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#28b8d9] mt-2 flex-shrink-0"></span>
+                        <p class="text-xs text-slate-600"><strong class="text-slate-900">Organic Growth:</strong> Engaging daily posts and brand community management.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#28b8d9] mt-2 flex-shrink-0"></span>
+                        <p class="text-xs text-slate-600"><strong class="text-slate-900">Paid Social:</strong> Highly-targeted lead generation ads on Meta/LinkedIn.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#28b8d9] mt-2 flex-shrink-0"></span>
+                        <p class="text-xs text-slate-600"><strong class="text-slate-900">Viral Strategy:</strong> Scroll-stopping trends tailored to your niche.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:border-[#16598a]/30 transition-all group">
+                <div class="w-14 h-14 bg-[#16598a]/10 rounded-2xl flex items-center justify-center mb-8 text-[#16598a] group-hover:bg-[#16598a] group-hover:text-white transition-all">
+                    <i class="fas fa-play text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-[#04131a] mb-4">Content & Video Strategy</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-8">
+                    The "Storytelling" Pillar. High-impact video editing and copywriting that converts followers into customers.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#16598a] mt-2 flex-shrink-0"></span>
+                        <p class="text-xs text-slate-600"><strong class="text-slate-900">Short-Form Video:</strong> Pro-level reels and shorts for maximum reach.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#16598a] mt-2 flex-shrink-0"></span>
+                        <p class="text-xs text-slate-600"><strong class="text-slate-900">Copywriting:</strong> Persuasive sales text for websites and ad creative.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#16598a] mt-2 flex-shrink-0"></span>
+                        <p class="text-xs text-slate-600"><strong class="text-slate-900">Brand Stories:</strong> Cinematic narratives that humanize your brand.</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-[#000000] text-white pt-16 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
+                
+                <div class="lg:col-span-1">
+                    <div class="mb-6">
+                        <img src="{% static 'img/logo-webproarts.png' %}" alt="Logo" class="h-10 w-auto invert brightness-200 contrast-200">
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">
+                        By optimizing content and leveraging relevant keywords, we secure your brand's prominent position in the digital landscape.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#28b8d9] transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#16598a] transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 space-y-6">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Contact Information</h4>
+                    <div class="flex flex-col gap-4 text-sm text-slate-400">
+                        <div class="flex items-center gap-4">
+                            <span class="text-[#28b8d9]"><i class="fas fa-map-marker-alt"></i></span>
+                            <span>Office no-2, Shastri Nagar, Vasai West, Mumbai 401202</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="text-[#28b8d9]"><i class="fas fa-envelope"></i></span>
+                            <span>webproarts@gmail.com</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="text-[#28b8d9]"><i class="fas fa-phone-alt"></i></span>
+                            <span>+91 95616 35544</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-white mb-6">Stay Updated</h4>
+                    <div class="relative">
+                        <input type="email" placeholder="Your Email" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#28b8d9] transition-all">
+                        <button class="bg-[#28b8d9] text-black font-black px-4 py-2 rounded-lg text-[10px] mt-4 w-full">SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em]">
+                <p>© 2026 WEB PRO ARTS. ALL RIGHTS RESERVED.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if(menu) menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

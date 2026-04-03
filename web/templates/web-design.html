@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-End Web Design & Development | Web Pro Arts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .bg-dot { background-image: radial-gradient(#28b8d933 1px, transparent 1px); background-size: 40px 40px; }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(40, 184, 217, 0.1); }
+    </style>
+</head>
+<body class="bg-[#fafbfd] text-slate-900">
+
+    <header class="w-full bg-white/90 backdrop-blur-md border-b border-slate-100 sticky top-0 z-[100]">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="/" class="flex items-center">
+                <img src="{% static 'img/logo-webproarts.png' %}" alt="WebProArts" class="h-12 lg:h-16 w-auto object-contain mix-blend-multiply">
+            </a>
+            <nav class="hidden lg:flex items-center gap-10">
+                <a href="/" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9]">Home</a>
+                <a href="{% url 'about' %}" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9]">About</a>
+                <a href="{% url 'blogs' %}" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9]">Blog</a>
+                <a href="#contact" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all">Start Project</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="relative py-24 md:py-36 overflow-hidden bg-dot">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#16598a]/10 border border-[#16598a]/20 text-[#16598a] text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+                    UI/UX Architecture
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-[#04131a] mb-8 tracking-tighter leading-tight">
+                    Websites that <span class="text-[#28b8d9]">Convert</span> & Inspire.
+                </h1>
+                <p class="text-slate-500 text-lg md:text-xl leading-relaxed mb-10">
+                    We don't just build pages; we engineer digital experiences. Our design philosophy merges technical performance with cinematic visuals.
+                </p>
+                <div class="flex gap-4">
+                    <div class="flex items-center gap-3 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="w-10 h-10 bg-[#28b8d9]/20 rounded-full flex items-center justify-center text-[#16598a]">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <p class="text-xs font-bold">Ultra Fast Loading</p>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="w-10 h-10 bg-[#28b8d9]/20 rounded-full flex items-center justify-center text-[#16598a]">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <p class="text-xs font-bold">Mobile First Design</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1200" class="rounded-[3rem] shadow-2xl border-8 border-white" alt="Modern Web Design">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black text-[#04131a] tracking-tight">Technical Layers</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="p-10 rounded-[3rem] bg-slate-50 hover-lift">
+                    <img src="https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=600" class="w-full h-48 object-cover rounded-3xl mb-8" alt="UI Design">
+                    <h4 class="text-2xl font-bold mb-4">UI/UX Design</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">User behavior analysis and wireframing. We create intuitive interfaces that guide visitors toward your "Call to Action" naturally.</p>
+                    <ul class="text-xs font-bold text-[#16598a] space-y-2">
+                        <li># User Journey Mapping</li>
+                        <li># Wireframing & Prototyping</li>
+                        <li># Visual Storytelling</li>
+                    </ul>
+                </div>
+
+                <div class="p-10 rounded-[3rem] bg-slate-50 hover-lift">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600" class="w-full h-48 object-cover rounded-3xl mb-8" alt="Development">
+                    <h4 class="text-2xl font-bold mb-4">Responsive Dev</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Pixel-perfect implementation across all devices. We use modern frameworks to ensure your site is fast, secure, and infinitely scalable.</p>
+                    <ul class="text-xs font-bold text-[#16598a] space-y-2">
+                        <li># Tailwind CSS / React / Django</li>
+                        <li># Core Web Vitals Optimization</li>
+                        <li># Secure API Integration</li>
+                    </ul>
+                </div>
+
+                <div class="p-10 rounded-[3rem] bg-slate-50 hover-lift">
+                    <img src="https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=600" class="w-full h-48 object-cover rounded-3xl mb-8" alt="Ecommerce">
+                    <h4 class="text-2xl font-bold mb-4">E-Commerce</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Robust online stores built to sell. Integrated payment gateways, inventory management, and seamless checkout experiences.</p>
+                    <ul class="text-xs font-bold text-[#16598a] space-y-2">
+                        <li># Custom Checkout Funnels</li>
+                        <li># Payment Gateway Integration</li>
+                        <li># Inventory Dashboards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#04131a] text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-black mb-10 leading-tight">Our Design <br><span class="text-[#28b8d9]">Architecture.</span></h2>
+                    <div class="space-y-12">
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full border border-[#28b8d9] flex items-center justify-center font-bold text-[#28b8d9] flex-shrink-0">1</div>
+                            <div>
+                                <h5 class="text-xl font-bold mb-2">Discovery & Planning</h5>
+                                <p class="text-slate-400 text-sm leading-relaxed">We analyze your brand, competition, and target audience to map out the perfect sitemap and technology stack.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full border border-[#28b8d9] flex items-center justify-center font-bold text-[#28b8d9] flex-shrink-0">2</div>
+                            <div>
+                                <h5 class="text-xl font-bold mb-2">Visual Crafting</h5>
+                                <p class="text-slate-400 text-sm leading-relaxed">Designing the moodboards and high-fidelity mockups. We ensure the "Look and Feel" matches your brand identity exactly.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full border border-[#28b8d9] flex items-center justify-center font-bold text-[#28b8d9] flex-shrink-0">3</div>
+                            <div>
+                                <h5 class="text-xl font-bold mb-2">Launch & Scale</h5>
+                                <p class="text-slate-400 text-sm leading-relaxed">Final deployment with full SEO indexing and speed testing. We don't just launch; we monitor for growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-[#28b8d9]/10 blur-[100px] -z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1551288049-bbbda546697c?q=80&w=1200" class="rounded-[4rem] border border-white/10" alt="Work Process">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#000000] text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-[10px] font-black uppercase tracking-[0.5em] text-[#28b8d9] mb-4">Let's Build Your Dream</p>
+            <h2 class="text-3xl md:text-5xl font-black mb-12">Ready to start your project?</h2>
+            <div class="flex flex-col md:flex-row justify-center gap-6 mb-20">
+                <a href="mailto:webproarts@gmail.com" class="px-10 py-5 bg-[#16598a] rounded-2xl font-bold hover:bg-[#28b8d9] transition-all">Email Us Now</a>
+                <a href="tel:+919561635544" class="px-10 py-5 border border-white/20 rounded-2xl font-bold hover:bg-white hover:text-black transition-all">Call +91 95616 35544</a>
+            </div>
+            <div class="pt-10 border-t border-white/5 flex justify-between items-center text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                <p>© 2026 WEB PRO ARTS</p>
+                <div class="flex gap-8">
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

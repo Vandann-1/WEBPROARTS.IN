@@ -23,3 +23,18 @@ def contact(request):
     return render(request, 'contact.html')
 
 
+def blogs(request):
+    return render(request, 'blog.html')
+
+
+def digital_marketing(request):
+    return render(request, 'digital-marketing.html')
+
+def web_design(request):
+    return render(request, 'web-design.html')
+
+def video_Editing(request):
+    return render(request, 'video-editing.html')
+
+def social_media(request):
+    return render(request, 'social-media.html')

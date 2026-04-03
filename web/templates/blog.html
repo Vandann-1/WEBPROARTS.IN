@@ -1,0 +1,147 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Web Pro Arts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .bg-mesh {
+            background-color: #ffffff;
+            background-image: radial-gradient(at 0% 0%, rgba(40, 184, 217, 0.1) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(22, 89, 138, 0.1) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-mesh min-h-screen flex flex-col">
+
+    <header class="w-full bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-[100]">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="/" class="flex items-center">
+                <img src="{% static 'img/logo-webproarts.png' %}" alt="Web Pro Arts" class="h-12 lg:h-16 w-auto object-contain mix-blend-multiply">
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-10">
+                <a href="/" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">Home</a>
+                <a href="{% url 'about' %}" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">About Us</a>
+                <a href="{% url 'blogs' %}" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">Blog</a>
+                <a href="#contact" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all shadow-lg shadow-[#16598a]/10">Notify Me</a>
+            </nav>
+
+            <button class="lg:hidden p-2 text-[#16598a]" onclick="toggleMenu()">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round"></path></svg>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 p-6 space-y-4">
+            <a href="/" class="block font-bold text-slate-700">Home</a>
+            <a href="{% url 'about' %}" class="block font-bold text-slate-700">About Us</a>
+            <a href="{% url 'blogs' %}" class="block font-bold text-slate-700">Blog</a>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#28b8d9]/10 border border-[#28b8d9]/20 text-[#16598a] text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+                Something Big is Brewing
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold text-[#04131a] mb-6 tracking-tighter">
+                Our New Digital Experience is <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#16598a] to-[#28b8d9]">Coming Soon</span>
+            </h1>
+            
+            <p class="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto mb-12">
+                We are currently crafting a performance-driven platform to help your brand scale. Stay tuned for our high-end digital solutions.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-12">
+                <div class="bg-white p-6 rounded-3xl shadow-xl border border-slate-100">
+                    <span id="days" class="block text-3xl md:text-5xl font-black text-[#16598a]">00</span>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Days</span>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-xl border border-slate-100">
+                    <span id="hours" class="block text-3xl md:text-5xl font-black text-[#16598a]">00</span>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Hours</span>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-xl border border-slate-100">
+                    <span id="minutes" class="block text-3xl md:text-5xl font-black text-[#16598a]">00</span>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Mins</span>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-xl border border-slate-100">
+                    <span id="seconds" class="block text-3xl md:text-5xl font-black text-[#28b8d9]">00</span>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Secs</span>
+                </div>
+            </div>
+
+            <form class="max-w-md mx-auto relative group">
+                <input type="email" placeholder="Enter your email for early access" class="w-full px-6 py-5 rounded-2xl bg-white border border-slate-200 focus:outline-none focus:border-[#28b8d9] shadow-lg transition-all text-sm">
+                <button class="md:absolute right-2 top-2 bottom-2 bg-[#16598a] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#28b8d9] transition-all mt-4 md:mt-0 w-full md:w-auto">
+                    Join Waitlist
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-[#000000] text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <img src="{% static 'img/logo-webproarts.png' %}" class="h-10 mb-6 brightness-200 grayscale invert opacity-80" alt="Logo">
+                    <p class="text-slate-400 text-sm">Securing your brand's prominent position in the digital landscape.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest mb-6">Socials</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#28b8d9] transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#0077b5] transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="lg:col-span-2">
+                    <h4 class="text-xs font-black uppercase tracking-widest mb-6">Contact</h4>
+                    <p class="text-slate-400 text-sm leading-loose">
+                        📍 Office no-2, Shastri Nagar, Vasai West, Mumbai 401202<br>
+                        📧 webproarts@gmail.com | 📞 +91 95616 35544
+                    </p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 text-center text-[10px] text-slate-500 font-bold tracking-widest uppercase">
+                © 2026 WEB PRO ARTS. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Simple Countdown Logic
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 30); // Set for 30 days from now
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = d.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = s.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>

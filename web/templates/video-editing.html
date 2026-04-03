@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Hub | Web Pro Arts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .bg-subtle-grid { 
+            background-image: radial-gradient(#28b8d915 1px, transparent 1px); 
+            background-size: 20px 20px; 
+        }
+        .img-mask { border-radius: 4rem 1rem 4rem 1rem; }
+    </style>
+</head>
+<body class="bg-white text-slate-900">
+
+    <header class="w-full bg-white/90 backdrop-blur-md border-b border-slate-100 sticky top-0 z-[100]">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="/" class="flex items-center">
+                <img src="{% static 'img/logo-webproarts.png' %}" alt="WebProArts" class="h-12 lg:h-16 w-auto object-contain mix-blend-multiply">
+            </a>
+            <nav class="hidden lg:flex items-center gap-10">
+                <a href="/" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">Home</a>
+                <a href="#details" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">How it Works</a>
+                <a href="#contact" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all shadow-lg shadow-[#16598a]/10">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="py-20 bg-subtle-grid border-b border-slate-50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="inline-block px-4 py-1.5 mb-6 text-[10px] font-black tracking-[0.4em] text-[#16598a] bg-[#28b8d9]/10 rounded-full uppercase">Transparency & Excellence</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-[#04131a] mb-8 tracking-tighter">Everything you need <br>to <span class="text-[#28b8d9]">know.</span></h1>
+            <p class="text-slate-500 text-lg md:text-xl leading-relaxed">We believe in informed decisions. Below is the full breakdown of how Web Pro Arts builds, scales, and delivers digital success.</p>
+        </div>
+    </section>
+
+    <section id="details" class="py-24 space-y-32">
+        
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1">
+                <div class="w-12 h-12 bg-[#28b8d9]/10 rounded-2xl flex items-center justify-center text-[#16598a] mb-6">
+                    <i class="fas fa-brain text-xl"></i>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black text-[#04131a] mb-6 tracking-tight">Phase 01: Deep Strategy & Research</h2>
+                <p class="text-slate-600 text-lg leading-relaxed mb-8">Before a single pixel is moved or a line of code is written, we dive deep into your market. We identify your competitors' weaknesses and find the "Growth Gaps" that will give your brand an unfair advantage.</p>
+                <ul class="space-y-4 text-slate-500 font-bold text-sm">
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-[#28b8d9]"></i> Competitor Architecture Analysis</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-[#28b8d9]"></i> High-Intent Keyword Mapping</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-[#28b8d9]"></i> Conversion Funnel Optimization</li>
+                </ul>
+            </div>
+            <div class="order-1 lg:order-2">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="w-full h-[500px] object-cover img-mask shadow-2xl" alt="Strategy">
+            </div>
+        </div>
+
+        <div class="bg-slate-50 py-24">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800" class="w-full h-[500px] object-cover img-mask shadow-2xl" alt="Development">
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-[#16598a]/10 rounded-2xl flex items-center justify-center text-[#16598a] mb-6">
+                        <i class="fas fa-code text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-black text-[#04131a] mb-6 tracking-tight">Phase 02: Technical Craftsmanship</h2>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-8">Our development team builds high-performance, responsive assets using modern tech stacks. Whether it's a website or a cinematic video ad, the quality is ultra-sharp and optimized for every device.</p>
+                    <ul class="space-y-4 text-slate-500 font-bold text-sm">
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-[#16598a]"></i> Pixel-Perfect Responsive UI</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-[#16598a]"></i> 4K Cinematic Color Grading</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check text-[#16598a]"></i> Lightning Fast Loading Speeds</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <div class="w-12 h-12 bg-[#28b8d9]/10 rounded-2xl flex items-center justify-center text-[#16598a] mb-6">
+                    <i class="fas fa-rocket text-xl"></i>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black text-[#04131a] mb-6 tracking-tight">Phase 03: Scaling & Growth</h2>
+                <p class="text-slate-600 text-lg leading-relaxed mb-8">Launch is just the beginning. We use data-driven Google Ads and aggressive Social Media campaigns to scale your brand reach, ensuring a consistent return on investment.</p>
+                <div class="grid grid-cols-2 gap-6 pt-4">
+                    <div class="p-6 bg-white border border-slate-100 rounded-3xl shadow-sm">
+                        <p class="text-2xl font-black text-[#16598a]">100%</p>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Growth Focused</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-100 rounded-3xl shadow-sm">
+                        <p class="text-2xl font-black text-[#28b8d9]">24/7</p>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Analytics Tracking</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="w-full h-[500px] object-cover img-mask shadow-2xl" alt="Growth">
+            </div>
+        </div>
+    </section>
+
+
+    <section id="video-production" class="py-24 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#28b8d9]/10 border border-[#28b8d9]/20 text-[#16598a] text-[10px] font-black uppercase tracking-[0.3em] mb-6">
+                    Motion Graphics & Editing
+                </div>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-[#04131a] tracking-tighter leading-tight">
+                    Cinematic stories that <br><span class="text-[#28b8d9]">stop the scroll.</span>
+                </h2>
+            </div>
+            <div class="pb-2">
+                <p class="text-slate-500 text-sm md:text-base max-w-xs leading-relaxed">
+                    From raw 4K footage to viral social assets, we engineer every frame for maximum engagement.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative group">
+            <div class="absolute -top-20 -right-20 w-96 h-96 bg-[#28b8d9]/5 rounded-full blur-[100px] -z-10"></div>
+            
+            <div class="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl border-[12px] border-white bg-slate-100 aspect-video lg:h-[600px] w-full">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJndXBrbWtxZ3RybXNwa2V2Ym9oZmlkZnd0dnBqenJ6Znd0dnBqeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKSjPqcKUIXGCpW/giphy.gif" 
+                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                     alt="Web Pro Arts Video Editing">
+                
+                <div class="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/10 transition-all">
+                    <div class="w-20 h-20 md:w-28 md:h-28 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white fill-current" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-8 left-8 bg-white/90 backdrop-blur-md p-6 rounded-3xl shadow-xl hidden md:block border border-white/50">
+                    <div class="flex items-center gap-4">
+                        <div class="flex flex-col">
+                            <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Resolution</span>
+                            <span class="text-sm font-bold text-[#16598a]">4K ULTRA HD</span>
+                        </div>
+                        <div class="w-px h-8 bg-slate-200"></div>
+                        <div class="flex flex-col">
+                            <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Color Space</span>
+                            <span class="text-sm font-bold text-[#16598a]">DCI-P3</span>
+                        </div>
+                        <div class="w-px h-8 bg-slate-200"></div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
+                            <span class="text-[10px] font-black text-slate-900 uppercase">Live Edit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute -top-6 -right-6 md:top-12 md:-right-12 bg-[#16598a] text-white p-8 rounded-[2.5rem] shadow-2xl hidden lg:block rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                <p class="text-[10px] font-black uppercase tracking-widest opacity-60 mb-2">Total Views</p>
+                <p class="text-3xl font-black text-[#28b8d9]">1.2M+</p>
+                <p class="text-[9px] font-bold mt-1 text-white/80">Generated for Clients</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+            <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100 flex flex-col items-center text-center hover:bg-[#28b8d9]/5 transition-colors group">
+                <i class="fas fa-magic text-[#16598a] mb-3 group-hover:scale-110 transition-transform"></i>
+                <span class="text-[10px] font-black text-slate-900 uppercase tracking-widest">Color Grading</span>
+            </div>
+            <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100 flex flex-col items-center text-center hover:bg-[#28b8d9]/5 transition-colors group">
+                <i class="fas fa-waveform-lines text-[#16598a] mb-3 group-hover:scale-110 transition-transform"></i>
+                <span class="text-[10px] font-black text-slate-900 uppercase tracking-widest">Sound Design</span>
+            </div>
+            <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100 flex flex-col items-center text-center hover:bg-[#28b8d9]/5 transition-colors group">
+                <i class="fas fa-layer-group text-[#16598a] mb-3 group-hover:scale-110 transition-transform"></i>
+                <span class="text-[10px] font-black text-slate-900 uppercase tracking-widest">VFX Effects</span>
+            </div>
+            <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100 flex flex-col items-center text-center hover:bg-[#28b8d9]/5 transition-colors group">
+                <i class="fas fa-closed-captioning text-[#16598a] mb-3 group-hover:scale-110 transition-transform"></i>
+                <span class="text-[10px] font-black text-slate-900 uppercase tracking-widest">Dynamic Subs</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer class="bg-black text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10 mb-16">
+                <h2 class="text-3xl md:text-5xl font-black max-w-xl text-center md:text-left">Ready to start the <span class="text-[#28b8d9]">Journey?</span></h2>
+                <a href="#contact" class="px-12 py-5 bg-[#16598a] text-white font-bold rounded-2xl hover:bg-[#28b8d9] transition-all whitespace-nowrap">Contact Us Today</a>
+            </div>
+            <div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                <p>© 2026 WEB PRO ARTS STUDIO</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
