@@ -193,8 +193,12 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
             <div>
-                <h2 class="text-2xl font-black tracking-tighter mb-6 uppercase">WebPro <span class="text-[#28b8d9]">Arts</span></h2>
-                <p class="text-slate-400 text-sm leading-relaxed max-w-xs">By optimizing content and leveraging relevant keywords, we secure your prominent position online.</p>
+                  <div class="mb-6 flex justify-center lg:justify-start">
+<img src="{% static 'img/logo.jpeg' %}" 
+     alt="Web Pro Arts Logo" 
+            class="h-12 w-auto block">
+                  </div>
+                                  <p class="text-slate-400 text-sm leading-relaxed max-w-xs">By optimizing content and leveraging relevant keywords, we secure your prominent position online.</p>
             </div>
             <div class="border-t border-white/10 lg:border-none pt-8 lg:pt-0">
                 <div class="flex justify-between items-center lg:block cursor-pointer" onclick="toggleFooterAcc(this)">
@@ -230,8 +234,8 @@
         <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold text-slate-600 uppercase tracking-widest">
             <p>© 2026 WEBPRO ARTS. ALL RIGHTS RESERVED.</p>
             <div class="flex gap-8">
-                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="{% url 'privacy_policy' %}" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="{% url 'terms_of_service' %}" class="hover:text-white transition-colors">Terms of Service</a>
             </div>
         </div>
     </div>

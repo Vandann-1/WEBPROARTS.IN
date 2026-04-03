@@ -23,6 +23,48 @@ def contact(request):
     return render(request, 'contact.html')
 
 
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.core.mail import send_mail
+
+@csrf_exempt
+def contact_form(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        first_name = data.get("first_name")
+        last_name = data.get("last_name")
+        email = data.get("email")
+        subject = data.get("subject")
+        message = data.get("message")
+
+        full_message = f"""
+New Inquiry from WebProArts Website
+
+Name: {first_name} {last_name}
+Client Email: {email}
+Service: {subject}
+
+Message:
+{message}
+"""
+
+        send_mail(
+            subject=f"New Client Inquiry - {subject}",
+            message=full_message,
+            from_email="webproarts@gmail.com",
+            recipient_list=["webproarts@gmail.com"],  # ✅ ALL emails go here
+        )
+
+        return JsonResponse({"status": "success"})
+
+    return JsonResponse({"error": "Invalid request"}, status=400)
+
+
+
+
 def blogs(request):
     return render(request, 'blog.html')
 
@@ -38,3 +80,9 @@ def video_Editing(request):
 
 def social_media(request):
     return render(request, 'social-media.html')
+
+def policy(request):
+    return render(request, 'policy.html')
+
+def term(request):
+    return render(request, 'term.html')
