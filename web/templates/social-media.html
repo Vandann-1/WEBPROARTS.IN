@@ -134,6 +134,233 @@
         </div>
     </section>
 
+
+
+
+
+
+
+    <section class="smm-specialist-section">
+    <div class="smm-flex-container">
+        
+        <div class="smm-sidebar">
+            <h2>Social Media Specialization</h2>
+            <button class="smm-nav-btn active" onclick="updateSMM('custom', event)">Customized Strategies</button>
+            <button class="smm-nav-btn" onclick="updateSMM('platform', event)">Platform Expertise</button>
+            <button class="smm-nav-btn" onclick="updateSMM('content', event)">Content Creation</button>
+            <button class="smm-nav-btn" onclick="updateSMM('engage', event)">Audience Engagement</button>
+            <button class="smm-nav-btn" onclick="updateSMM('data', event)">Data-Driven Approach</button>
+            <button class="smm-nav-btn" onclick="updateSMM('paid', event)">Paid Advertising</button>
+        </div>
+
+        <div class="smm-main-display" id="smm-card">
+            <div class="smm-image-holder">
+                <img src="https://martech.org/wp-content/uploads/2014/11/social-media-networks-icons-ss-1920.jpg" id="smm-active-img" alt="Social Media Strategy">
+            </div>
+            <div class="smm-text-holder">
+                <h3 id="smm-display-title">Customized Strategies</h3>
+                <div id="smm-display-desc" class="long-text">
+                    Every business is unique, and so are our social media plans. We tailor our strategies to match your brand’s voice, goals, and audience. Our process begins with a deep dive into your brand's DNA—analyzing your current market position and objectives.
+                </div>
+                <ul id="smm-display-features" class="feature-grid">
+                    <li>Brand Voice Development</li>
+                    <li>Competitor Benchmarking</li>
+                    <li>Content Pillar Identification</li>
+                    <li>Strategy Refinement</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+.smm-specialist-section {
+    background-color: #f4f7f6; 
+    padding: 80px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.smm-flex-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex; 
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* Sidebar Styling */
+.smm-sidebar {
+    flex: 1; 
+    background-color: #0056b3; 
+    padding: 40px 25px;
+    border-radius: 15px;
+    min-height: 550px;
+    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.2);
+}
+
+.smm-sidebar h2 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 35px;
+    font-weight: 700;
+}
+
+.smm-nav-btn {
+    width: 100%;
+    padding: 16px 22px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 35px; 
+    background-color: #ffffff;
+    color: #333;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.smm-nav-btn.active {
+    background-color: #d1e9ff;
+    color: #0056b3;
+    transform: translateX(10px);
+}
+
+/* Content Area Styling */
+.smm-main-display {
+    flex: 2.5; 
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.smm-image-holder {
+    width: 100%;
+    height: 320px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.smm-image-holder img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.smm-text-holder {
+    padding: 45px;
+}
+
+.smm-text-holder h3 {
+    font-size: 2.2rem;
+    color: #0056b3;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.long-text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 35px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.feature-grid li {
+    background: #f8fbff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border-left: 5px solid #0056b3;
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 500;
+}
+
+@media (max-width: 992px) {
+    .smm-flex-container { flex-direction: column; }
+    .smm-sidebar { min-height: auto; }
+}
+</style>
+
+<script>
+const smmData = {
+    custom: {
+        title: "Customized Social Media Strategies",
+        desc: "A 'one-size-fits-all' approach never works in the ever-evolving world of social media. We understand that a luxury real estate brand requires a completely different digital footprint than a high-tech SaaS startup. Our process begins with a deep dive into your brand's DNA—analyzing your current market position, your competitors' strengths, and your specific business objectives. <br><br>Whether you want to drive high-intent leads or build massive brand awareness, we architect a custom roadmap designed to achieve those goals. We identify 3-5 core themes that represent your brand and build all content around them to ensure consistency. This ensures that every post, story, and reel contributes to a unified brand message. We don't just post content for the sake of posting; we create strategic touchpoints that guide your followers through a journey—from initial discovery to loyal advocacy.",
+        features: ["Brand Voice Development", "Competitor Benchmarking", "Content Pillar Identification", "Quarterly Strategy Refinement"]
+    },
+    platform: {
+        title: "Multi-Platform Mastery & Expertise",
+        desc: "Each social media platform has its own unique 'language' and user behavior. A post that performs well on LinkedIn's professional environment might fail completely on the fast-paced, visual-first world of Instagram. Our expertise lies in understanding these nuances and adapting your brand's message for each specific channel. We help you maximize your presence on Facebook, Instagram, LinkedIn, and YouTube.<br><br>We stay ahead of the curve by constantly monitoring algorithm changes and new feature releases. This means your brand is always an early adopter, giving you a competitive edge. We manage the technical aspects of each platform, from optimal posting times to hashtag sets and community standards, so you don't have to worry about the logistics and can focus on your business.",
+        features: ["Platform-Specific Content", "Algorithm Trend Monitoring", "B2B vs B2C Optimization", "Cross-Platform Syncing"]
+    },
+    content: {
+        title: "High-Impact Content Creation",
+        desc: "In a world of infinite scrolling, only the most visually stunning and intellectually stimulating content survives. Our creative team is obsessed with 'The Hook'—that first split second that stops a user from scrolling past your brand. We don't just produce 'posts'; we produce digital assets that represent the quality of your business.<br><br>Our content creation covers everything from viral-style Reels and TikToks to professional LinkedIn carousels and YouTube scripts. We focus on a 'Value-First' approach, creating content that either educates, entertains, or inspires your audience. By using high-quality lighting and professional editing software, we ensure your brand looks premium and professional at all times.",
+        features: ["Short-Form Video (Reels)", "Professional Graphic Design", "High-Conversion Copywriting", "Custom Photography Styling"]
+    },
+    engage: {
+        title: "Community Building & Audience Engagement",
+        desc: "Social media is meant to be social. Many brands make the mistake of using these platforms as a one-way megaphone. We believe that true brand growth happens in the comments section. Our Audience Engagement service focuses on building a thriving community around your brand. We go beyond just 'posting and ghosting'; we actively monitor your channels to respond to comments and messages.<br><br>By humanizing your brand through active engagement, we build immense trust. When a customer receives a thoughtful, timely response, they are 70% more likely to choose your brand over a competitor. We manage the 'Social Listening' aspect of your business, tracking what people are saying about you even when they don't tag you, allowing us to protect your reputation.",
+        features: ["24/7 Comment Monitoring", "Proactive Outreach", "Reputation Management", "Influencer Collaboration"]
+    },
+    data: {
+        title: "Data-Driven Approach & ROI Focus",
+        desc: "If you can't measure it, you can't improve it. We remove the guesswork from social media by using a strictly data-driven approach. While 'vanity metrics' like likes and followers are nice, we focus on the metrics that actually impact your revenue: Reach, Engagement Rate, Click-Through Rate (CTR), and Conversion Rate.<br><br>We use advanced analytics tools to track user behavior—identifying which types of content lead to the most website visits and sales. This allows us to double down on high-performing topics and pivot away from low-interest areas. Our goal is to ensure you get the best possible Return on Investment (ROI). By seeing the data in black and white, you can make informed decisions about your marketing budget.",
+        features: ["Monthly ROI Audits", "Conversion Path Tracking", "A/B Testing Analytics", "Competitor Growth Reports"]
+    },
+    paid: {
+        title: "Strategic Paid Advertising (Social Ads)",
+        desc: "Organic reach is limited by algorithms, but Paid Advertising allows you to skip the line and put your message directly in front of your ideal customer. We specialize in high-performance social media advertising across Meta, LinkedIn, and YouTube. Our focus is on 'Precision Targeting'—ensuring that your ad spend isn't wasted.<br><br>Our paid strategy is split into three phases: Awareness, Consideration, and Conversion. We use Retargeting ads to 'follow' users who visited your site but didn't take action, gently reminding them of the value you offer. We handle the entire technical setup, including Pixel installation and API conversion tracking, to ensure every dollar is accounted for.",
+        features: ["Pixel & API Tracking", "Retargeting Loops", "High-CTR Creative Dev", "Budget Optimization"]
+    }
+};
+
+function updateSMM(key, event) {
+    // 1. Get Data
+    const data = smmData[key];
+    const card = document.getElementById('smm-card');
+    
+    // 2. Fade Out effect
+    card.style.opacity = 0;
+
+    setTimeout(() => {
+        // 3. Update Text and Title
+        document.getElementById('smm-display-title').innerText = data.title;
+        document.getElementById('smm-display-desc').innerHTML = data.desc;
+        
+        // 4. Update Feature List
+        const list = document.getElementById('smm-display-features');
+        list.innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
+        
+        // 5. Fade In effect
+        card.style.opacity = 1;
+    }, 200);
+
+    // 6. Update Active Button State
+    document.querySelectorAll('.smm-nav-btn').forEach(btn => btn.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+}
+</script>
+
+
+
+
+
+
     <footer class="bg-[#04131a] text-white pt-24 pb-12">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-6xl font-black mb-8 leading-tight">Ready to Win the <br><span class="text-[#28b8d9]">Social Game?</span></h2>

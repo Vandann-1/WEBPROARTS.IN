@@ -145,6 +145,260 @@
         </div>
     </section> -->
 
+
+
+
+
+
+   <section class="web-services-section">
+    <div class="services-container">
+        <div class="services-sidebar">
+            <h2>Our Web Development Services</h2>
+            <button class="service-btn active" onclick="showContent('dynamic')">Dynamic Website</button>
+            <button class="service-btn" onclick="showContent('wordpress')">WordPress Development</button>
+            <button class="service-btn" onclick="showContent('ecomm')">E-Commerce (WooCommerce)</button>
+            <button class="service-btn" onclick="showContent('business')">Business & Profile Website</button>
+            <button class="service-btn" onclick="showContent('product')">Product-Based Solutions</button>
+            <button class="service-btn" onclick="showContent('stock')">Stock & Inventory Systems</button>
+        </div>
+
+        <div class="services-main-content" id="content-display">
+            <div class="image-wrapper">
+                <img src="https://fiverr-res.cloudinary.com/videos/so_1.628465,t_main1,q_auto,f_auto/enu8yu24yxbq7n12sywi/built-web-application-with-html-css-javascript-react-website.png" alt="Website Design">
+            </div>
+            <div class="text-wrapper">
+                <h3 id="service-title">Dynamic Website Development</h3>
+                <p id="service-desc">We build high-performance dynamic websites that allow for real-time content updates. Perfect for news portals, blogs, and interactive platforms that require a database-driven approach.</p>
+                
+                <div class="info-details">
+                    <h4>Key Features:</h4>
+                    <ul id="service-features">
+                        <li>User Authentication & Dashboards</li>
+                        <li>Real-time Database Integration</li>
+                        <li>Admin Panel for easy management</li>
+                        <li>Fully SEO Optimized & Mobile Responsive</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.web-services-section {
+    background-color: #f9f9f9; /* Clean light background */
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+}
+
+/* Left Side Sidebar */
+.services-sidebar {
+    flex: 1;
+    background-color: #0056b3; /* Professional Blue */
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
+}
+
+.services-sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.service-btn {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 30px;
+    background-color: #fff;
+    color: #333;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.service-btn:hover, .service-btn.active {
+    background-color: #e0f0ff;
+    color: #0056b3;
+    transform: translateX(10px);
+}
+
+/* Right Side Content */
+.services-main-content {
+    flex: 2;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.image-wrapper img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.text-wrapper h3 {
+    font-size: 2rem;
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+.text-wrapper p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.info-details h4 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.info-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-details li {
+    padding: 8px 0;
+    color: #666;
+    border-bottom: 1px solid #eee;
+}
+
+.info-details li::before {
+    content: "✓ ";
+    color: #0056b3;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .services-container { flex-direction: column; }
+}
+</style>
+
+<script>
+const webData = {
+    dynamic: {
+        title: "Dynamic Website Development",
+        desc: "In today’s fast-paced digital world, a static website is often not enough. Our Dynamic Website Development services focus on building highly interactive, database-driven platforms that adapt to your user's needs in real-time. Unlike traditional sites, dynamic websites allow you to manage vast amounts of information through a custom-built administrative backend, meaning you can update content, products, or news without touching a single line of code. <br><br>We utilize modern frameworks like Node.js, PHP, or Python to ensure your site is fast, secure, and scalable. Whether you are building a custom social network, a real estate portal, or a complex membership site, we focus on the logic behind the UI. This includes seamless API integrations, user-specific dashboards, and sophisticated search filters that make navigating large data sets effortless for your visitors.",
+        features: [
+            "Custom Database Architecture (MySQL/MongoDB)",
+            "Scalable Infrastructure for high traffic",
+            "Real-time Data Processing & User Interaction",
+            "Advanced User Authentication & Security Protocols",
+            "Automated Backup & Cloud Hosting Setup"
+        ]
+    },
+    wordpress: {
+        title: "Professional WordPress Development",
+        desc: "WordPress powers over 40% of the web, but a professional business requires more than just a pre-made template. We offer 'Headless' or 'Custom' WordPress development that prioritizes performance and security. Most agencies install heavy plugins that slow down your site; we do the opposite. We write clean, optimized code and use lightweight builders like Elementor or Gutenberg only when necessary to ensure your site loads in under 2 seconds.<br><br>Our WordPress service is a complete end-to-end solution. This includes custom post types for your unique business needs (like portfolios, testimonials, or team members), advanced SEO optimization to help you rank on Google, and bulletproof security to prevent hacking attempts. We also provide a personalized training session so you feel 100% confident managing your blog, pages, and media library after the project is live.",
+        features: [
+            "Custom Theme & Plugin Development",
+            "Core Web Vitals Optimization (Green Score)",
+            "Advanced Security Hardening & Firewall",
+            "SEO-Ready Structure & Schema Markup",
+            "One-Click Staging & Production Workflow"
+        ]
+    },
+    ecomm: {
+        title: "E-Commerce & WooCommerce Solutions",
+        desc: "Building an online store is about more than just listing products; it's about building a high-conversion sales funnel. Our E-commerce solutions are designed to turn visitors into repeat customers. Using WooCommerce or custom-built carts, we focus on a 'Mobile-First' shopping experience. We understand that the checkout process is where most sales are lost, so we optimize the UI/UX to be as friction-free as possible.<br><br>From an administrative perspective, we give you total control over your business. This includes automated tax calculations, shipping zone management, and advanced inventory tracking that alerts you when stock is low. We also integrate sophisticated marketing tools such as abandoned cart recovery, product upsells, and loyalty programs to increase your Average Order Value (AOV). Your store will be equipped with secure payment gateways like Razorpay, Stripe, or PayPal, ensuring total peace of mind for both you and your customers.",
+        features: [
+            "Seamless Payment Gateway Integration",
+            "Multi-Currency & Multi-Language Support",
+            "Automated Invoice & Tax Generation",
+            "Advanced Analytics & Sales Reporting",
+            "Product Variation & Subscription Management"
+        ]
+    },
+    business: {
+        title: "Business & Profile Websites",
+        desc: "Your website is often the first impression a client has of your business. A clean, professional profile website acts as your 24/7 digital salesperson. We specialize in creating high-trust environments for professionals like lawyers, doctors, consultants, and corporate firms. We move beyond 'standard' templates to create a visual identity that aligns perfectly with your brand's values.<br><br>We focus heavily on lead generation. This means strategically placed Call-to-Action (CTA) buttons, integrated booking systems, and contact forms that sync directly with your CRM or Email. A business site needs to be reliable and fast; we ensure your uptime is 99.9% and that the site looks flawless on everything from a 27-inch iMac to a 5-inch smartphone. By showcasing your portfolio, client testimonials, and team expertise, we help you build the authority needed to close more deals.",
+        features: [
+            "Corporate Branding & Visual Identity",
+            "Integrated Appointment Scheduling",
+            "Lead Capture & CRM Integration",
+            "Interactive Project Portfolios",
+            "Multi-Level Content Protection"
+        ]
+    },
+    product: {
+        title: "Product-Based Solutions (SaaS)",
+        desc: "If you are launching a startup or a specific software product, you need a website that functions as a tool, not just a brochure. Our Product-Based Solutions focus on SaaS (Software as a Service) development, where user experience (UX) is the top priority. We build onboarding flows that guide your users through your product's features, ensuring they see the value of your software immediately.<br><br>We handle the technical complexities of product sites, including subscription-based billing (monthly/yearly), user role management (Admin/Editor/Viewer), and API connectivity. Our designs are modern, clean, and 'Product-Focused,' meaning we use high-quality UI mockups and interactive elements to explain what your software does. Whether you need a landing page for an app or a full-blown web application, we build it to be fast, responsive, and ready for your first 10,000 users.",
+        features: [
+            "Subscription Billing Integration (Stripe Billing)",
+            "User Onboarding & Interactive Tours",
+            "Feature Management & Version Control",
+            "API Documentation & Developer Portals",
+            "In-App Notification Systems"
+        ]
+    },
+    stock: {
+        title: "Stock & Inventory Management",
+        desc: "Manual inventory tracking is the fastest way to lose money in business. Our web-based Stock and Inventory Management systems are built to give you total visibility over your supply chain from any device, anywhere. We build custom logic that tracks every item from the moment it enters your warehouse to the moment it reaches the customer. <br><br>Our systems are designed for speed and accuracy. This includes barcode and QR code scanning capabilities, multi-location warehouse support, and automated reorder points so you never run out of your best-selling items. We also focus on 'Intelligence'—our systems provide detailed reports on stock turnover rates, profit margins per item, and vendor performance. Security is paramount; we use bank-level encryption and role-based access control to ensure that only authorized personnel can view or modify sensitive financial and inventory data.",
+        features: [
+            "Barcode & QR Code Scanning Support",
+            "Multi-Warehouse & Location Tracking",
+            "Real-time Low Stock Alerts (Email/SMS)",
+            "Detailed Vendor & Purchase Order Tracking",
+            "Cloud-Based Access with High-End Encryption"
+        ]
+    }
+};
+
+function showContent(key) {
+    const displayArea = document.getElementById('content-display');
+    
+    // Add a quick fade-out effect for smoothness
+    displayArea.style.opacity = 0;
+
+    setTimeout(() => {
+        // Update Title and Description
+        document.getElementById('service-title').innerText = webData[key].title;
+        document.getElementById('service-desc').innerHTML = webData[key].desc; // Use innerHTML for <br> tags
+        
+        // Update Features List
+        const list = document.getElementById('service-features');
+        list.innerHTML = ""; 
+        webData[key].features.forEach(feature => {
+            const li = document.createElement('li');
+            li.innerText = feature;
+            list.appendChild(li);
+        });
+
+        // Update Image (Optional: change image based on key)
+        // document.querySelector('.image-wrapper img').src = "your-path/" + key + ".jpg";
+
+        displayArea.style.opacity = 1;
+    }, 200);
+
+    // Update Button Active State
+    const buttons = document.querySelectorAll('.service-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+}
+</script>
+
+   
+
+
+
+
+
+
+
     <footer class="bg-[#000000] text-white pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <p class="text-[10px] font-black uppercase tracking-[0.5em] text-[#28b8d9] mb-4">Let's Build Your Dream</p>

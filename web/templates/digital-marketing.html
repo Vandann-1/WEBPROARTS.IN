@@ -216,6 +216,237 @@
 
 
 
+
+<section class="dm-services-section">
+    <div class="services-container">
+        
+        <div class="services-sidebar">
+            <h2>Digital Marketing Services</h2>
+            <button class="dm-btn active" onclick="showDMContent('seo', event)">Search Engine Optimization</button>
+            <button class="dm-btn" onclick="showDMContent('smm', event)">Social Media Marketing</button>
+            <button class="dm-btn" onclick="showDMContent('email', event)">Email Marketing</button>
+            <button class="dm-btn" onclick="showDMContent('ppc', event)">PPC Advertising</button>
+            <button class="dm-btn" onclick="showDMContent('google', event)">Google Ads</button>
+            <button class="dm-btn" onclick="showDMContent('meta', event)">Meta Ads</button>
+        </div>
+
+        <div class="services-main-content" id="dm-display-area">
+            <div class="image-wrapper">
+                <img src="https://www.firstwebsol.com/wp-content/uploads/2021/01/digital-marketing.jpg" id="dm-image" alt="Service Image">
+            </div>
+            <div class="text-wrapper">
+                <h3 id="dm-title">Search Engine Optimization (SEO)</h3>
+                <p id="dm-desc">
+                    SEO is the backbone of organic growth... (Your 250 words go here)
+                </p>
+                
+                <div class="info-details">
+                    <ul id="dm-features">
+                        </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+/* Main Section Container */
+.dm-services-section {
+    background-color: #f0f2f5; /* Light grey background like a clean dashboard */
+    padding: 60px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex; /* This creates the Sidebar + Content side-by-side */
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* LEFT SIDEBAR (The Blue Box) */
+.services-sidebar {
+    flex: 1; /* Takes up 1 part of the space */
+    background-color: #0056b3; /* Your brand blue */
+    padding: 30px 20px;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.services-sidebar h2 {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* SIDEBAR BUTTONS */
+.dm-btn {
+    width: 100%;
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 8px; /* Rounded corners like the screenshot */
+    background-color: #ffffff;
+    color: #333;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+/* When the button is ACTIVE (Clicked) */
+.dm-btn.active {
+    background-color: #e3f2fd; /* Light blue tint */
+    color: #0056b3;
+    font-weight: 700;
+    transform: scale(1.02); /* Slight pop-out effect */
+}
+
+/* RIGHT SIDE CONTENT (The Large White Area) */
+.services-main-content {
+    flex: 2.5; /* Takes up 2.5 parts of the space (Wider) */
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+.image-wrapper {
+    width: 100%;
+    height: 350px; /* Large image area */
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Keeps the "Website" graphic clean */
+    padding: 20px;
+}
+
+.text-wrapper {
+    padding: 40px;
+}
+
+.text-wrapper h3 {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.text-wrapper p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+}
+
+/* Feature List (Checkmarks) */
+.info-details ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Shows features in 2 columns */
+    gap: 15px;
+}
+
+.info-details li {
+    background: #f8f9fa;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #444;
+    border-left: 4px solid #0056b3;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .services-container {
+        flex-direction: column;
+    }
+    .services-sidebar {
+        width: 100%;
+    }
+    .info-details ul {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+const dmData = {
+    seo: {
+        title: "Search Engine Optimization (SEO)",
+        desc: "SEO is not just about keywords; it's about authority and user experience. In the modern landscape, Google rewards websites that provide genuine value. Our SEO strategy begins with a deep technical audit of your site to ensure it is crawlable and fast. We then perform exhaustive keyword research to identify 'buying intent' terms that your competitors are missing.<br><br>We focus on three pillars: Technical SEO, Content Strategy, and Authority Building. By optimizing your site’s metadata, internal linking, and mobile responsiveness, we build a foundation that lasts. We then craft high-quality content that answers your customers' questions, positioning you as a thought leader in your industry. Finally, through ethical white-hat link-building, we boost your domain authority, ensuring your brand stays on page one for the long term.",
+        features: ["Local & Global SEO Setup", "Core Web Vitals Technical Fixes", "Semantically Rich Content Writing", "Monthly Performance & Ranking Reports"]
+    },
+    smm: {
+        title: "Social Media Marketing (SMM)",
+        desc: "Social media is the digital storefront of your brand. Our SMM service goes beyond 'posting pictures.' We build community-driven strategies that help brands grow, engage, and convert audiences across Facebook, Instagram, LinkedIn, and Twitter. We analyze your audience demographics to determine the perfect voice, tone, and timing for your content.<br><br>Our approach includes a mix of educational content, brand storytelling, and interactive polls or live sessions. We don't just chase 'likes'; we chase 'meaningful engagement.' By fostering a two-way conversation between you and your followers, we turn passive observers into loyal brand advocates. We also provide full community management, ensuring that every comment and message is handled professionally to maintain your brand’s reputation.",
+        features: ["Custom Content Calendar Design", "Platform-Specific Graphics & Reels", "Audience Engagement & Community Management", "Social Listening & Trend Analysis"]
+    },
+    email: {
+        title: "Email Marketing & Automation",
+        desc: "Email marketing remains the highest ROI channel in digital marketing. While social media algorithms change, your email list is an asset you own. We help businesses build stronger connections with their audience through powerful automation and segmentation. We don't send 'spam'; we send personalized value that lands directly in the primary inbox.<br><br>Our strategy includes building lead magnets to grow your list, designing responsive templates that look great on mobile, and setting up complex 'drip campaigns.' These automated sequences nurture your leads from their first signup until they are ready to purchase. By segmenting your list based on user behavior (clicks, past purchases, interests), we ensure that every email is relevant, leading to higher open rates and consistent sales growth.",
+        features: ["Automated Welcome & Sales Funnels", "A/B Testing for Subject Lines", "Advanced List Segmentation", "Spam-Filter Optimization"]
+    },
+    ppc: {
+        title: "Pay-Per-Click Advertising (PPC)",
+        desc: "PPC is the fastest way to drive instant traffic and generate quality leads. Unlike organic methods, PPC gives you total control over who sees your brand and when. We manage sophisticated campaigns across search engines and display networks to ensure your budget is spent on clicks that actually lead to conversions. We focus on the 'Quality Score' to keep your Cost-Per-Click (CPC) low while keeping your ad position high.<br><br>Every campaign is data-driven. We constantly monitor bid prices, negative keywords, and landing page performance. Our goal is to maximize your Return on Ad Spend (ROAS). Whether you need immediate sales for an e-commerce product or high-value leads for a service-based business, our PPC management ensures that every dollar is tracked and optimized for the highest possible profit.",
+        features: ["Strategic Bid Management", "Landing Page UX Optimization", "Remarketing & Retargeting Campaigns", "Negative Keyword Filtering"]
+    },
+    google: {
+        title: "Google Ads (Search Engine Marketing)",
+        desc: "Google Ads is where customers go when they are ready to buy. We ensure your business is at the top of the search results at that exact moment. From simple Search ads to complex Shopping campaigns for e-commerce, we tailor every project to meet your unique business goals. We focus on 'High-Intent' keywords to ensure your ads aren't just seen, but clicked by motivated buyers.<br><br>Our team handles everything from keyword selection to writing high-converting ad copy. We also set up advanced conversion tracking so you can see exactly which ads are bringing in phone calls, form submissions, or sales. By constantly analyzing search term reports, we refine your targeting to eliminate wasted spend, ensuring your Google Ads account becomes a predictable revenue-generating machine.",
+        features: ["Google Shopping & Search Experts", "Conversion Tracking & Attribution", "High-CTR Ad Copywriting", "Competitor Keyword Conquesting"]
+    },
+    meta: {
+        title: "Meta Ads (Facebook & Instagram)",
+        desc: "Meta Ads offer the most sophisticated visual targeting in the world. We craft visual-first campaigns that build trust and drive desire. Because Facebook and Instagram are visual platforms, we focus heavily on 'Creative Excellence.' This means testing different image styles, video formats, and 'Hook' headlines to see what resonates most with your specific target audience.<br><br>We utilize Meta's advanced pixel tracking to build custom and lookalike audiences. This allows us to find users who are similar to your best customers. Our strategy involves a full-funnel approach: Awareness ads to introduce your brand, Consideration ads to explain your value, and Retargeting ads to close the sale for those who visited your site but didn't buy. We provide transparent reporting on reach, frequency, and most importantly, your bottom-line results.",
+        features: ["Lookalike & Custom Audience Setup", "Dynamic Product Ads (DPA)", "A/B Creative Testing", "Pixel & API Conversion Setup"]
+    }
+};
+
+function showDMContent(key) {
+    const displayArea = document.getElementById('dm-display-area');
+    displayArea.style.opacity = 0;
+
+    setTimeout(() => {
+        const data = dmData[key];
+        document.getElementById('dm-title').innerText = data.title;
+        document.getElementById('dm-desc').innerHTML = data.desc;
+        
+        const list = document.getElementById('dm-features');
+        list.innerHTML = ""; 
+        data.features.forEach(f => {
+            const li = document.createElement('li');
+            li.innerText = f;
+            list.appendChild(li);
+        });
+        displayArea.style.opacity = 1;
+    }, 200);
+
+    const buttons = document.querySelectorAll('.dm-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+}
+</script>
+
+
+
+
+
+
+
+
     <footer class="bg-[#000000] text-white pt-16 pb-8 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">

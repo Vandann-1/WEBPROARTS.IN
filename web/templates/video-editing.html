@@ -105,7 +105,7 @@
     </section>
 
 
-    <section id="video-production" class="py-24 bg-white overflow-hidden">
+    <!-- <section id="video-production" class="py-24 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
@@ -186,144 +186,225 @@
             </div>
         </div>
     </div>
+</section> -->
+
+<section class="video-prod-section">
+    <div class="video-container-box">
+        
+        <div class="video-sidebar-nav">
+            <h2>Video Production Services</h2>
+            <button class="v-nav-btn active" onclick="changeVideo('ani2d', event)">2D Animation Video</button>
+            <button class="v-nav-btn" onclick="changeVideo('promo', event)">Commercial & Explainer</button>
+            <button class="v-nav-btn" onclick="changeVideo('social', event)">Insta, Reels & YouTube</button>
+            <button class="v-nav-btn" onclick="changeVideo('wedding', event)">Wedding & Short Films</button>
+            <button class="v-nav-btn" onclick="changeVideo('logo', event)">Logo Animation & Intro</button>
+            <button class="v-nav-btn" onclick="changeVideo('music', event)">Invitation & Music Video</button>
+        </div>
+
+        <div class="video-display-card" id="video-display-area">
+            <div class="video-img-frame">
+                <img src="https://filmora.wondershare.net/images/images2022/advertising-landing/hero-banner.png" id="v-main-img" alt="Video Services">
+            </div>
+            <div class="video-content-body">
+                <h3 id="v-title">2D Animation Video Production</h3>
+                <div id="v-description" class="v-text-rich">
+                    2D animation is one of the most effective ways to simplify complex messages while keeping your audience visually engaged. Whether you are creating a children’s educational series or a corporate process video, our 2D animation services bring your vision to life with fluid motion and vibrant storytelling. We don't just 'move' characters; we give them personality and purpose. <br><br>Our production pipeline includes everything from initial concept development and professional scriptwriting to character design and final compositing. We focus heavily on the 'rhythm' of the animation to ensure it aligns perfectly with the voiceover and background score.
+                </div>
+                <ul id="v-features-list" class="v-grid-list">
+                    <li>Custom Character Design</li>
+                    <li>Storyboarding & Scripting</li>
+                    <li>Fluid Motion Graphics</li>
+                    <li>High-Quality Voiceovers</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
 </section>
 
-
-
-<div class="services-container">
-    <div class="video-card">
-        <div class="card-image"><img src="2d-animation.png" alt="2D Animation"></div>
-        <div class="card-content">
-            <h3>2d Animation Video</h3>
-            <p>We specialize in creating captivating 2D animation videos that bring ideas to life through vibrant visuals and smooth motion.</p>
-            <a href="#" class="read-more">Read More ↗</a>
-        </div>
-    </div>
-
-    <div class="video-card">
-        <div class="card-image"><img src="commercial.png" alt="Commercial Promo"></div>
-        <div class="card-content">
-            <h3>Commercial promo & Explainer video</h3>
-            <p>We specialize in creating engaging Commercial Promo and Explainer Videos that help brands communicate their message with impact and clarity.</p>
-            <a href="#" class="read-more">Read More ↗</a>
-        </div>
-    </div>
-
-    <div class="video-card">
-        <div class="card-image"><img src="social-media.png" alt="Social Media"></div>
-        <div class="card-content">
-            <h3>Insta, reels and & Youtube video</h3>
-            <p>We specialize in creating engaging and high-quality videos for Instagram, Reels, and YouTube that capture attention and build your brand presence online.</p>
-            <a href="#" class="read-more">Read More ↗</a>
-        </div>
-    </div>
-
-    <div class="video-card">
-        <div class="card-image"><img src="wedding.png" alt="Wedding Video"></div>
-        <div class="card-content">
-            <h3>Wedding & Short films video</h3>
-            <p>We specialize in creating beautifully edited wedding and short film videos that capture every emotion, moment, and story in the most.</p>
-            <a href="#" class="read-more">Read More ↗</a>
-        </div>
-    </div>
-
-    <div class="video-card">
-        <div class="card-image"><img src="logo-anim.png" alt="Logo Animation"></div>
-        <div class="card-content">
-            <h3>Logo Animation & Intro video</h3>
-            <p>A powerful animated logo instantly captures attention and builds a strong first impression for your business. Our creative team designs smooth.</p>
-            <a href="#" class="read-more">Read More ↗</a>
-        </div>
-    </div>
-
-    <div class="video-card">
-        <div class="card-image"><img src="music-video.png" alt="Music Video"></div>
-        <div class="card-content">
-            <h3>Invitation & Music video</h3>
-            <p>We specialize in creating captivating Invitation and Music Videos that bring your vision to life with creativity and style.</p>
-            <a href="#" class="read-more">Read More ↗</a>
-        </div>
-    </div>
-</div>
-
-
 <style>
-    /* Container for the 3x2 Grid */
-.services-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 25px;
-    padding: 40px;
-    background-color: #000; /* Dark background */
+/* Reset and Container */
+.video-prod-section {
+    background-color: #f4f7f6;
+    padding: 80px 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Individual Card */
-.video-card {
-    background-color: #0b0b0b; /* Slightly lighter black for the card body */
-    border: 1px solid #222;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+.video-container-box {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex !important; /* FORCES SIDE-BY-SIDE */
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
 }
 
-/* The White Box for images */
-.card-image {
+/* Sidebar Styling */
+.video-sidebar-nav {
+    flex: 1; /* Sidebar takes 30% */
+    background-color: #0056b3;
+    padding: 35px 20px;
+    border-radius: 15px;
+    min-width: 300px;
+    box-shadow: 0 10px 25px rgba(0, 86, 179, 0.15);
+}
+
+.video-sidebar-nav h2 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.v-nav-btn {
+    width: 100%;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 35px; /* Pill shape like your screenshot */
     background-color: #ffffff;
-    height: 220px;
+    color: #333;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: block;
+}
+
+.v-nav-btn.active {
+    background-color: #d1e9ff;
+    color: #0056b3;
+    transform: translateX(8px);
+}
+
+/* Content Area Styling */
+.video-display-card {
+    flex: 2.5; /* Content takes 70% */
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.06);
+    transition: opacity 0.3s ease;
+}
+
+.video-img-frame {
+    width: 100%;
+    height: 300px;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    border-bottom: 1px solid #eee;
 }
 
-.card-image img {
+.video-img-frame img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    padding: 10px;
 }
 
-/* The Text Section */
-.card-content {
-    padding: 20px;
-    text-align: left;
+.video-content-body {
+    padding: 40px;
 }
 
-.card-content h3 {
-    color: #ffffff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-
-.card-content p {
-    color: #a0a0a0; /* Grey text for description */
-    font-size: 0.9rem;
-    line-height: 1.6;
+.video-content-body h3 {
+    font-size: 2.2rem;
+    color: #0056b3;
     margin-bottom: 20px;
-    height: 60px; /* Keeps card heights consistent */
+    font-weight: 700;
 }
 
-/* Read More Button */
-.read-more {
-    color: #3ab0ff; /* Bright blue */
-    text-decoration: none;
-    font-size: 0.85rem;
+.v-text-rich {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.v-grid-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.v-grid-list li {
+    background: #f8fbff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border-left: 5px solid #0056b3;
+    font-size: 0.95rem;
     font-weight: 500;
-    display: inline-block;
 }
 
-.read-more:hover {
-    text-decoration: underline;
-}
-
-/* Responsive for Mobile */
-@media (max-width: 900px) {
-    .services-container {
-        grid-template-columns: repeat(1, 1fr); /* 1 column on phone */
+/* RESPONSIVE: Stack on Mobile */
+@media (max-width: 992px) {
+    .video-container-box {
+        flex-direction: column !important;
+    }
+    .video-sidebar-nav {
+        width: 100%;
+        min-width: unset;
     }
 }
 </style>
+
+<script>
+const vData = {
+    ani2d: {
+        title: "2D Animation Video Production",
+        desc: "2D animation is a powerful tool for simplifying complex brand messages. Our process includes character design, storyboarding, and custom motion graphics tailored for storytelling. <br><br>We focus on the rhythm of the animation to ensure it matches the voiceover perfectly, creating a professional 4K final export that works for any platform.",
+        features: ["Custom Character Design", "Storyboarding", "Motion Graphics", "Pro Voiceovers"]
+    },
+    promo: {
+        title: "Commercial & Explainer Videos",
+        desc: "In today's fast world, explainer videos are essential for clarity. We create high-conversion promos that explain your products and services in under 60 seconds. <br><br>Using premium stock footage and custom typography, we build authority for your brand and drive your viewers toward a clear call-to-action.",
+        features: ["Sales-Driven Scripts", "Demo Highlights", "Premium Stock Clips", "Action-Oriented Edit"]
+    },
+    social: {
+        title: "Insta, Reels & YouTube Content",
+        desc: "Social media video is all about the 'Scroll Stop.' We create vertical 9:16 content optimized for Reels and TikTok using fast transitions and bold captions. <br><br>We help you stay consistent with your brand aesthetic across YouTube and Instagram, ensuring maximum audience retention and engagement rates.",
+        features: ["Vertical 9:16 Editing", "Dynamic Captions", "Trending Audio Mix", "High-Retention Cuts"]
+    },
+    wedding: {
+        title: "Wedding & Short Films",
+        desc: "Capturing memories requires a cinematic eye. We treat every wedding or short film like a masterpiece, using advanced color grading and emotional sound design. <br><br>Our multi-cam edits ensure no moment is missed, weaving a narrative that lets you relive the laughter and joy for a lifetime.",
+        features: ["Cinematic Grading", "Multi-Cam Sync", "Emotional Audio Design", "4K Storytelling Edits"]
+    },
+    logo: {
+        title: "Logo Animation & Intro Branding",
+        desc: "Your logo is the heartbeat of your brand. We provide fluid logo animations that build a professional first impression in just 5 seconds. <br><br>These intro assets are perfect for YouTube and corporate presentations, including custom sound design to make your brand recognizable by ear as well as sight.",
+        features: ["Fluid Motion Branding", "Custom Logo SFX", "Transparent File Formats", "Presentation Ready"]
+    },
+    music: {
+        title: "Invitation & Music Video Production",
+        desc: "Creative videos require advanced VFX. For music videos, we focus on beat-sync editing. For invitations, we use interactive typography. <br><br>Our goal is to create a companion to your audio or event that elevates the entire experience for your audience using stylized color and high-end effects.",
+        features: ["Beat-Synced Rhythmic Edits", "Advanced VFX", "Stylized Grading", "Digital Invite Specialists"]
+    }
+};
+
+function changeVideo(key, event) {
+    const data = vData[key];
+    const card = document.getElementById('video-display-area');
+    
+    card.style.opacity = 0;
+
+    setTimeout(() => {
+        document.getElementById('v-title').innerText = data.title;
+        document.getElementById('v-description').innerHTML = data.desc;
+        
+        const list = document.getElementById('v-features-list');
+        list.innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
+        
+        card.style.opacity = 1;
+    }, 200);
+
+    document.querySelectorAll('.v-nav-btn').forEach(btn => btn.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+}
+</script>
 
 
     <footer class="bg-black text-white pt-20 pb-10">
