@@ -149,29 +149,81 @@
             <a href="{% url 'contact' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all shadow-lg shadow-[#16598a]/10">Contact Now</a>
         </nav>
 
-        <button class="lg:hidden p-2 text-[#16598a]" onclick="toggleMenu()" aria-label="Toggle Menu">
+        <button class="lg:hidden p-2 text-[#16598a] hover:bg-slate-50 rounded-lg transition-colors" onclick="toggleMenu()" aria-label="Open Menu">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round"></path></svg>
         </button>
     </div>
-
-    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 p-6 space-y-5 animate-in slide-in-from-top duration-300">
-        <div class="grid grid-cols-2 gap-4 pb-4 border-b border-slate-50">
-            <a href="{% url 'digital_marketing' %}" class="text-sm font-bold text-slate-600">Digital Marketing</a>
-            <a href="{% url 'web_design' %}" class="text-sm font-bold text-slate-600">Website Design</a>
-            <a href="{% url 'social_media' %}" class="text-sm font-bold text-slate-600">Social Media</a>
-            <a href="{% url 'video_editing' %}" class="text-sm font-bold text-slate-600">Video Editing</a>
-        </div>
-        <a href="{% url 'about' %}" class="block font-bold text-slate-700 hover:text-[#28b8d9]">About Us</a>
-        
-        <a href="{% url 'blogs' %}" class="block font-bold text-slate-700 hover:text-[#28b8d9]">Blog</a>
-        
-        <a href="{% url 'contact' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold shadow-md">Get Started</a>
-    </div>
 </header>
+
+<div id="sidebar-overlay" onclick="toggleMenu()" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[150] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+<div id="mobile-sidebar" class="fixed top-0 right-0 w-[85%] max-w-[360px] h-full bg-white z-[200] shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <div class="p-6 flex items-center justify-between border-b border-slate-50">
+        <img src="{% static 'img/logo-webproarts.png' %}" alt="Logo" class="h-10 w-auto">
+        <button onclick="toggleMenu()" class="p-2 text-slate-400 hover:text-red-500 transition-colors">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-6">
+        <div class="space-y-8">
+            <div>
+                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">Our Services</p>
+                <div class="grid gap-2">
+                    <a href="{% url 'digital_marketing' %}" class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 group">
+                        <img src="https://cdn-icons-png.flaticon.com/512/11521/11521404.png" class="w-8 h-8" alt="">
+                        <span class="font-bold text-slate-700 group-hover:text-[#28b8d9]">Digital Marketing</span>
+                    </a>
+                    <a href="{% url 'web_design' %}" class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 group">
+                        <img src="https://cdn-icons-png.flaticon.com/512/13191/13191295.png" class="w-8 h-8" alt="">
+                        <span class="font-bold text-slate-700 group-hover:text-[#28b8d9]">Website Design</span>
+                    </a>
+                    <a href="{% url 'social_media' %}" class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 group">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" class="w-8 h-8" alt="">
+                        <span class="font-bold text-slate-700 group-hover:text-[#28b8d9]">Social Media</span>
+                    </a>
+                    <a href="{% url 'video_editing' %}" class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 group">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4406/4406124.png" class="w-8 h-8" alt="">
+                        <span class="font-bold text-slate-700 group-hover:text-[#28b8d9]">Video Editing</span>
+                    </a>
+                </div>
+            </div>
+
+            <hr class="border-slate-100">
+
+            <div class="space-y-4">
+                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">Company</p>
+                <a href="#work" class="block px-3 font-bold text-slate-700 text-lg">Case Studies</a>
+                <a href="{% url 'about' %}" class="block px-3 font-bold text-slate-700 text-lg">About Us</a>
+                <a href="{% url 'blogs' %}" class="block px-3 font-bold text-slate-700 text-lg">Blog</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-6 border-t border-slate-50">
+        <a href="{% url 'contact' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold shadow-lg">Get Started Now</a>
+    </div>
+</div>
 
 <script>
     function toggleMenu() {
-        document.getElementById('mobile-menu').classList.toggle('hidden');
+        const sidebar = document.getElementById('mobile-sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const body = document.body;
+
+        if (sidebar.classList.contains('translate-x-full')) {
+            // Open Menu
+            sidebar.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100', 'pointer-events-auto');
+            body.style.overflow = 'hidden'; // Stop background scrolling
+        } else {
+            // Close Menu
+            sidebar.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100', 'pointer-events-auto');
+            body.style.overflow = ''; // Restore scrolling
+        }
     }
 </script>
 
