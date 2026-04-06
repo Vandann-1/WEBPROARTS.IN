@@ -24,9 +24,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g!acg391b1fg&xpkm0vdwm1+8f18qyvk-dtm$)4eaaupx$q^)9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+import os
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+if DEBUG:
+    SITE_URL = "http://127.0.0.1:8000"
+else:
+    SITE_URL = "https://webproarts.in"
+
+ALLOWED_HOSTS = [ '*' ]
 
 
 # Application definition
@@ -37,8 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'web'
+    ,
 ]
 
 MIDDLEWARE = [
@@ -72,7 +80,7 @@ ROOT_URLCONF = 'webproarts.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # ✅ MUST
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

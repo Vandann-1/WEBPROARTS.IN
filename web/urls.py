@@ -18,6 +18,6 @@ urlpatterns = [    path('admin/', admin.site.urls),
                 path("terms-of-service/",policy, name="terms_of_service"),
             
 
-                path('contact-frm/', contact_form, name='contact_form'),
+                path('contact-frm/', contact_form_view, name='contact_form_submit'),
 ]
                 

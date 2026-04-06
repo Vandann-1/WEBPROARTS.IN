@@ -9,68 +9,47 @@ def about(request):
     return render(request, 'about.html')
 
 def contact(request):
-    if request.method == "POST":
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']       
-        message = request.POST['message']
-        # send email
-        from django.core.mail import send_mail
-        subject = f"New message from {first_name} {last_name}"
-
-        message = f"Name: {first_name} {last_name}\nEmail: {email}\nMessage: {message}"
-        send_mail(subject, message, 'from@example.com', ['to@example.com'])
     return render(request, 'contact.html')
 
 
-
-from django.http import JsonResponse
 import json
-from django.core.mail import send_mail
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_protect
+from .models import ContactMessage
 
-def contact_form(request):
+@csrf_protect
+def contact_form_view(request):
     if request.method == "POST":
         try:
-            if not request.body:
-                return JsonResponse({"error": "Empty request body"}, status=400)
-
             data = json.loads(request.body)
+            
+            # Basic Validation
+            first_name = data.get('first_name')
+            last_name = data.get('last_name')
+            email = data.get('email')
+            subject = data.get('subject')
+            message = data.get('message', '')
 
-            first_name = data.get("first_name")
-            last_name = data.get("last_name")
-            email = data.get("email")
-            subject = data.get("subject")
-            message = data.get("message")
+            if not all([first_name, last_name, email, subject]):
+                return JsonResponse({"status": "error", "error": "All fields are required."}, status=400)
 
-            if not email or not message:
-                return JsonResponse({"error": "Missing required fields"}, status=400)
-
-            full_message = f"""
-New Inquiry from WebProArts Website
-
-Name: {first_name} {last_name}
-Email: {email}
-Service: {subject}
-
-Message:
-{message}
-"""
-
-            send_mail(
-                subject=f"New Client Inquiry - {subject}",
-                message=full_message,
-                from_email="webproarts@gmail.com",
-                recipient_list=["webproarts@gmail.com"],
-                fail_silently=False,
+            # Save to Database
+            ContactMessage.objects.create(
+                first_name=first_name,
+                last_name=last_name,
+                email=email,
+                subject=subject,
+                message=message
             )
 
-            return JsonResponse({"status": "success"})
+            return JsonResponse({"status": "success", "message": "Data saved successfully!"})
 
         except Exception as e:
-            print("ERROR:", e)  # 🔥 IMPORTANT
-            return JsonResponse({"error": str(e)}, status=500)
+            return JsonResponse({"status": "error", "error": str(e)}, status=500)
+            
+    return JsonResponse({"status": "error", "error": "Invalid request method"}, status=400)
 
-    return JsonResponse({"error": "Invalid request"}, status=400)
+
 
 
 def blogs(request):
