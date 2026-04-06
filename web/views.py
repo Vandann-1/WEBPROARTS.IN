@@ -55,7 +55,7 @@ Message:
             subject=f"New Client Inquiry - {subject}",
             message=full_message,
             from_email="webproarts@gmail.com",
-            recipient_list=["webproarts@gmail.com"],  # ✅ ALL emails go here
+            recipient_list=["webproarts@gmail.com"],  #  ALL emails go here
         )
 
         return JsonResponse({"status": "success"})
