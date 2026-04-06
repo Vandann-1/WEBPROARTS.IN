@@ -25,44 +25,52 @@ def contact(request):
 
 
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 import json
 from django.core.mail import send_mail
 
-@csrf_exempt
 def contact_form(request):
     if request.method == "POST":
-        data = json.loads(request.body)
+        try:
+            if not request.body:
+                return JsonResponse({"error": "Empty request body"}, status=400)
 
-        first_name = data.get("first_name")
-        last_name = data.get("last_name")
-        email = data.get("email")
-        subject = data.get("subject")
-        message = data.get("message")
+            data = json.loads(request.body)
 
-        full_message = f"""
+            first_name = data.get("first_name")
+            last_name = data.get("last_name")
+            email = data.get("email")
+            subject = data.get("subject")
+            message = data.get("message")
+
+            if not email or not message:
+                return JsonResponse({"error": "Missing required fields"}, status=400)
+
+            full_message = f"""
 New Inquiry from WebProArts Website
 
 Name: {first_name} {last_name}
-Client Email: {email}
+Email: {email}
 Service: {subject}
 
 Message:
 {message}
 """
 
-        send_mail(
-            subject=f"New Client Inquiry - {subject}",
-            message=full_message,
-            from_email="webproarts@gmail.com",
-            recipient_list=["webproarts@gmail.com"],  #  ALL emails go here
-        )
+            send_mail(
+                subject=f"New Client Inquiry - {subject}",
+                message=full_message,
+                from_email="webproarts@gmail.com",
+                recipient_list=["webproarts@gmail.com"],
+                fail_silently=False,
+            )
 
-        return JsonResponse({"status": "success"})
+            return JsonResponse({"status": "success"})
+
+        except Exception as e:
+            print("ERROR:", e)  # 🔥 IMPORTANT
+            return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Invalid request"}, status=400)
-
-
 
 
 def blogs(request):
