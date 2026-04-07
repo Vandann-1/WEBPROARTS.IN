@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase | WebProArts Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fraunces:wght@900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #04131a;
+            --text-2: #475569;
+            --brand-navy: #16598a;
+            --brand-aqua: #28b8d9;
+            --brand-aqua-light: #e0f7fa;
+        }
+
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); }
+        .section-eyebrow { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: var(--brand-aqua); display: block; margin-bottom: 12px; }
+        .section-title { font-family: 'Fraunces', serif; font-size: clamp(32px, 6vw, 64px); line-height: 1; font-weight: 900; color: var(--text); letter-spacing: -0.04em; }
+        .section-sub { margin-top: 20px; color: var(--text-2); font-size: 1.1rem; max-width: 600px; }
+
+        /* PROJECT LIST */
+        .proj-list { padding: 60px 0 0; }
+        .proj-item {
+            position: relative; padding: 48px 0; cursor: pointer;
+            border-bottom: 1px solid var(--border); overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .proj-item:first-child { border-top: 1px solid var(--border); }
+        .proj-item:hover { background-color: rgba(40, 184, 217, 0.03); }
+        
+        .proj-bg-num {
+            position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+            font-size: clamp(80px, 15vw, 150px); font-weight: 900; color: #f1f5f9;
+            line-height: 1; pointer-events: none; user-select: none; transition: color 0.3s; z-index: 0;
+        }
+        .proj-item:hover .proj-bg-num { color: var(--brand-aqua-light); opacity: 0.5; }
+
+        .proj-top { display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative; z-index: 1; }
+        .proj-name {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(24px, 4vw, 44px); font-weight: 900; line-height: 1;
+            color: var(--text); letter-spacing: -0.02em; transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .proj-item:hover .proj-name { transform: translateX(12px); color: var(--brand-navy); }
+        .proj-tagline { font-size: 1.05rem; color: var(--text-2); margin-top: 12px; max-width: 600px; line-height: 1.6; }
+        
+        .pb-dark { background: var(--brand-navy); color: white; padding: 12px 28px; border-radius: 14px; font-weight: 800; font-size: 13px; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.05em; }
+        .pb-dark:hover { background: var(--brand-aqua); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(22, 89, 138, 0.2); }
+
+        /* MODAL STYLE */
+        .proj-modal-overlay {
+            position: fixed; inset: 0; background: rgba(4, 19, 26, 0.85); backdrop-filter: blur(12px); z-index: 9999;
+            display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: 0.3s;
+        }
+        .proj-modal-overlay.show { opacity: 1; pointer-events: all; }
+        .proj-modal-box {
+            background: #ffffff; border-radius: 40px; width: 100%; max-width: 650px; max-height: 90vh; overflow-y: auto;
+            transform: translateY(30px); transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative;
+        }
+        .proj-modal-overlay.show .proj-modal-box { transform: translateY(0); }
+        
+        .dot-live { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; box-shadow: 0 0 10px #22c55e; }
+
+        @media (max-width: 768px) {
+            .proj-top { flex-direction: column; align-items: flex-start; }
+            .proj-right { width: 100%; margin-top: 20px; }
+            .pb-dark { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<section id="projects" class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="reveal">
+            <span class="section-eyebrow">Portfolio</span>
+            <h2 class="section-title">Case <span class="text-[#28b8d9]">Studies.</span></h2>
+            <p class="section-sub">Exploring the impact of design and strategy for industry-leading brands.</p>
+        </div>
+
+        <div class="proj-list">
+            <div id="project-container"></div>
+        </div>
+    </div>
+</section>
+
+<div class="proj-modal-overlay" id="proj-modal-overlay" onclick="closeModal(event)">
+    <div class="proj-modal-box" id="proj-modal-box">
+        <div class="p-8 md:p-14">
+            <div class="flex justify-between items-start mb-10">
+                <div>
+                    <div id="m-eyebrow" class="flex items-center gap-3 mb-3"></div>
+                    <h2 id="m-title" class="font-display text-5xl font-extrabold tracking-tight"></h2>
+                </div>
+                <button onclick="closeModal(null)" class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center hover:bg-red-50 hover:text-red-500 transition-colors">✕</button>
+            </div>
+            
+            <p id="m-desc" class="text-slate-600 leading-relaxed mb-10 text-xl"></p>
+            
+            <div class="space-y-10">
+                <div>
+                    <h4 class="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 mb-6 border-b border-slate-100 pb-2">Core Project Features</h4>
+                    <div id="m-features" class="grid gap-4"></div>
+                </div>
+            </div>
+
+            <div class="mt-14" id="m-actions"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+const companyData = [
+    {
+        id: "technorub",
+        num: "01",
+        name: "TechnoRub",
+        tagline: "Global industrial manufacturing showcase with high-precision cataloging.",
+        desc: "We developed a robust industrial platform for TechnoRub to streamline their global B2B interactions, featuring a high-performance product discovery engine.",
+        features: ["Smart Product Categorization", "Bulk Inquiry Management", "Technical Specification Sheets", "Global Client Portal"],
+        live: "https://technorub.com"
+    },
+    {
+        id: "thyskool",
+        num: "02",
+        name: "ThySkool",
+        tagline: "Revolutionizing digital learning with an intuitive student-first ecosystem.",
+        desc: "ThySkool bridges the gap between traditional learning and modern digital accessibility through a seamless educational interface.",
+        features: ["Interactive Student Dashboard", "On-Demand Course Access", "Progress Tracking Analytics", "Digital Certification Engine"],
+        live: "https://thyskool.com"
+    },
+    {
+        id: "ayurpancham",
+        num: "03",
+        name: "AyurPancham",
+        tagline: "Modern healthcare gateway for traditional Ayurvedic wellness.",
+        desc: "A digital transformation for healthcare, AyurPancham enables global access to Ayurvedic consultations and wellness products.",
+        features: ["Consultation Booking System", "Wellness E-commerce Store", "Patient Health Records", "Educational Wellness Content"],
+        live: "https://ayurpanchamhealthcare.in"
+    },
+    {
+        id: "ljimpex",
+        num: "04",
+        name: "LJ Impex Int.",
+        tagline: "International trade logistics and high-fidelity product showcase.",
+        desc: "Facilitating global commerce with a professional corporate presence that manages diverse import-export catalogs.",
+        features: ["Global Trade Catalog", "Multi-Language Support", "B2B Inquiry Pipeline", "Logistics Documentation Hub"],
+        live: "https://ljimpexint.com"
+    },
+    {
+        id: "chhail",
+        num: "05",
+        name: "Chhail Fashion",
+        tagline: "Premium luxury apparel shopping experience with visual storytelling.",
+        desc: "We built a high-conversion e-commerce platform for Chhail Fashion, focusing on visual aesthetics and frictionless user journeys.",
+        features: ["High-Definition Visual Gallery", "Inventory Management", "Secure Payment Ecosystem", "Mobile-First Shopping Flow"],
+        live: "https://chhailfashion.com"
+    },
+    {
+        id: "rameshelectrical",
+        num: "06",
+        name: "Ramesh Electricals",
+        tagline: "Digital service management for Mumbai's infrastructure experts.",
+        desc: "Digitizing one of Mumbai's leading service providers to handle high-volume residential and commercial project requests.",
+        features: ["Service Request Engine", "Client Portfolio Showcase", "Automated Billing Portal", "Local Search Optimization"],
+        live: "https://rameshelectricalandplumbing.in"
+    },
+    {
+        id: "mkcosmetics",
+        num: "07",
+        name: "MK Cosmetics",
+        tagline: "Direct-to-consumer beauty brand growth and social commerce.",
+        desc: "Focused on the aesthetics of the beauty industry, we created a conversion-driven store that thrives on social media integration.",
+        features: ["Social-Driven Product Feed", "Seamless Checkout Flow", "Brand Loyalty Integration", "Dynamic Offer Engine"],
+        live: "https://mkcosmetics.in"
+    },
+    {
+        id: "batindustries",
+        num: "08",
+        name: "Bat Industries",
+        tagline: "Industrial engineering portal showcasing heavy factory automation.",
+        desc: "A professional engineering gateway designed to attract massive corporate partnerships through technical precision.",
+        features: ["Automation Project Showcase", "Lead Generation CRM", "Resource Download Center", "Corporate Service Catalog"],
+        live: "https://batindustries.in"
+    }
+];
+
+function renderProjects() {
+    const container = document.getElementById('project-container');
+    container.innerHTML = companyData.map(post => `
+        <div class="proj-item" onclick="openModal('${post.id}')">
+            <div class="proj-bg-num">${post.num}</div>
+            <div class="proj-top">
+                <div class="proj-left">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">${post.num} / 08</span>
+                        <span class="dot-live"></span>
+                        <span class="text-[10px] font-black text-[#22c55e] tracking-widest uppercase">Live Platform</span>
+                    </div>
+                    <div class="proj-name">${post.name}</div>
+                    <p class="proj-tagline">${post.tagline}</p>
+                </div>
+                <div class="proj-right">
+                    <button class="pb-dark">View Case Study</button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function openModal(id) {
+    const p = companyData.find(x => x.id === id);
+    document.getElementById('m-title').innerText = p.name;
+    document.getElementById('m-desc').innerText = p.desc;
+    document.getElementById('m-eyebrow').innerHTML = `<span class="dot-live"></span><span class="text-[11px] font-black text-[#22c55e] uppercase tracking-widest">Industry Leader</span>`;
+    
+    document.getElementById('m-features').innerHTML = p.features.map(f => `
+        <div class="flex items-center gap-4 text-slate-700 font-bold text-lg">
+            <div class="w-2 h-2 rounded-full bg-[#28b8d9]"></div>
+            <span>${f}</span>
+        </div>
+    `).join('');
+
+    document.getElementById('m-actions').innerHTML = `<a href="${p.live}" target="_blank" class="w-full inline-block bg-[#16598a] text-white text-center py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-[#28b8d9] transition-all">Visit Live Website <i class="fas fa-external-link-alt ml-2"></i></a>`;
+    
+    document.getElementById('proj-modal-overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+    if (e && e.target !== document.getElementById('proj-modal-overlay')) return;
+    document.getElementById('proj-modal-overlay').classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+window.onload = renderProjects;
+</script>
+</body>
+</html>

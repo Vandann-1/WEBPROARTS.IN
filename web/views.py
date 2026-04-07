@@ -13,6 +13,7 @@ def about(request):
     return render(request, 'about.html')
 
 def contact(request):
+
     return render(request, 'contact.html')
 
 
@@ -79,6 +80,12 @@ def policy(request):
 
 def term(request):
     return render(request, 'term.html')
+
+
+def webdev(request):
+    return render(request, 'webdev.html')
+
+
 
 
 from django.shortcuts import render, Http404
