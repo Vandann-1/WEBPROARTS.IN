@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><title>Blog | Web Pro Arts</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8"><title>{{ post.title }}</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <style>body { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
 </head>
 <body class="bg-white">
-    <section class="py-24 max-w-7xl mx-auto px-6">
-        <h1 class="text-6xl font-black text-[#04131a] mb-20 tracking-tighter">Latest <span class="text-[#16598a]">Insights.</span></h1>
+    <article class="max-w-4xl mx-auto px-6 py-20">
+        <a href="{% url 'blogs' %}" class="text-[10px] font-black uppercase text-slate-400 mb-12 inline-block hover:text-[#28b8d9]">← Back to Hub</a>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {% for id, post in posts.items %}
-            <div class="group bg-slate-50 p-8 rounded-[3.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-500">
-                <img src="{{ post.image }}" class="h-64 w-full object-cover rounded-[2.5rem] mb-8">
-                <span class="text-[#28b8d9] font-black uppercase tracking-widest text-[10px]">{{ post.category }}</span>
-                <h3 class="text-2xl font-black text-[#04131a] mt-4 mb-4 leading-tight group-hover:text-[#16598a]">{{ post.title }}</h3>
-                <p class="text-slate-500 text-sm mb-8">{{ post.excerpt }}</p>
-                <a href="{% url 'blog_detail' id %}" class="text-[11px] font-black text-[#16598a] uppercase tracking-widest border-b-2 border-[#28b8d9] pb-1">Read Full Article →</a>
-            </div>
-            {% endfor %}
+        <span class="text-[#28b8d9] font-black uppercase text-[10px] tracking-widest">{{ post.category }}</span>
+        <h1 class="text-5xl md:text-7xl font-extrabold text-[#16598a] mt-6 mb-10 leading-tight tracking-tighter">{{ post.title }}</h1>
+        
+        <img src="{{ post.image }}" class="w-full h-[500px] object-cover rounded-[3.5rem] shadow-2xl mb-16 border-[10px] border-white">
+        
+        <div class="prose prose-xl prose-slate max-w-none prose-headings:text-[#16598a] prose-headings:font-black prose-strong:text-[#04131a] prose-p:leading-relaxed">
+            {{ post.content|safe }}
         </div>
-    </section>
-{% load static %}
+
+        <div class="mt-20 p-12 bg-[#04131a] rounded-[3rem] text-white">
+            <h4 class="text-2xl font-black mb-4">Web Pro Arts Editorial</h4>
+            <p class="text-slate-400">Expert strategies for modern digital brands. Scale your impact through video and design.</p>
+        </div>
+    </article>
+
     <footer class="bg-[#000000] text-white pt-16 pb-8 border-t border-white/5 font-sans">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 mb-16 items-start">
-            
+            {% load static %}
             <div class="flex flex-col items-center lg:items-start">
                 <div class="mb-6 flex justify-center lg:justify-start">
                     <img src="{% static 'img/logo.jpeg' %}" 

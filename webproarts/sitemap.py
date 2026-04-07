@@ -17,6 +17,8 @@ class StaticSitemap(Sitemap):
             'social_media',
             'privacy_policy',
             'terms_of_service',
+            'graphic_design',
+            'blog_detail',
         ]
 
     def location(self, item):

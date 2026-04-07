@@ -14,3 +14,19 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} - {self.subject}"
+
+class BlogPost(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True, blank=True) # webproarts.com/blog/your-post-title
+    content = models.TextField()
+    thumbnail = models.ImageField(upload_to='blog_thumbs/')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
+    
