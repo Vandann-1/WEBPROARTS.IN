@@ -70,7 +70,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "webproarts@gmail.com"
 EMAIL_HOST_PASSWORD = "sleh wioe xfgw nwxl"
 
-DEFAULT_FROM_EMAIL = "Slotify <coderspamm13@gmail.com>"
+DEFAULT_FROM_EMAIL = "webproarts@gmail.com"
 
 
 

@@ -96,38 +96,96 @@
                         <span class="text-[#28b8d9] font-black uppercase tracking-[0.3em] text-[10px]">Get In Touch</span>
                         <h1 class="text-4xl md:text-6xl font-black text-[#04131a] mt-4 tracking-tighter">Let’s Start Your <span class="text-[#16598a]">Project.</span></h1>
                     </div>
+<form id="contactForm" class="space-y-6">
+    {% csrf_token %}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex flex-col gap-2">
+            <label class="text-[11px] font-black uppercase text-slate-400 ml-1 tracking-widest">Full Name</label>
+            <input type="text" id="fullName" required placeholder="John Doe" class="form-input p-5 rounded-2xl bg-slate-50/50 text-sm">
+        </div>
+        <div class="flex flex-col gap-2">
+            <label class="text-[11px] font-black uppercase text-slate-400 ml-1 tracking-widest">Email Address</label>
+            <input type="email" id="email" required placeholder="hello@company.com" class="form-input p-5 rounded-2xl bg-slate-50/50 text-sm">
+        </div>
+    </div>
 
-                    <form action="#" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="flex flex-col gap-2">
-                                <label class="text-[11px] font-black uppercase text-slate-400 ml-1 tracking-widest">Full Name</label>
-                                <input type="text" placeholder="John Doe" class="form-input p-5 rounded-2xl bg-slate-50/50 text-sm">
-                            </div>
-                            <div class="flex flex-col gap-2">
-                                <label class="text-[11px] font-black uppercase text-slate-400 ml-1 tracking-widest">Email Address</label>
-                                <input type="email" placeholder="hello@company.com" class="form-input p-5 rounded-2xl bg-slate-50/50 text-sm">
-                            </div>
-                        </div>
+    <div class="flex flex-col gap-2">
+        <label class="text-[11px] font-black uppercase text-slate-400 ml-1 tracking-widest">Interested Service</label>
+        <select id="service" class="form-input p-5 rounded-2xl bg-slate-50/50 text-sm appearance-none cursor-pointer">
+            <option value="Video Editing">Video Editing & Production</option>
+            <option value="Social Media">Social Media Management</option>
+            <option value="Web Design">Website Design & Dev</option>
+            <option value="Branding">Full Digital Branding</option>
+        </select>
+    </div>
 
-                        <div class="flex flex-col gap-2">
-                            <label class="text-[11px] font-black uppercase text-slate-400 ml-1 tracking-widest">Interested Service</label>
-                            <select class="form-input p-5 rounded-2xl bg-slate-50/50 text-sm appearance-none cursor-pointer">
-                                <option>Video Editing & Production</option>
-                                <option>Social Media Management</option>
-                                <option>Website Design & Dev</option>
-                                <option>Full Digital Branding</option>
-                            </select>
-                        </div>
+    <div class="flex flex-col gap-2">
+        <label class="text-[11px] font-black uppercase text-slate-400 ml-1 tracking-widest">How can we help?</label>
+        <textarea id="message" rows="4" required placeholder="Tell us about your brand goals..." class="form-input p-5 rounded-3xl bg-slate-50/50 text-sm resize-none"></textarea>
+    </div>
 
-                        <div class="flex flex-col gap-2">
-                            <label class="text-[11px] font-black uppercase text-slate-400 ml-1 tracking-widest">How can we help?</label>
-                            <textarea rows="4" placeholder="Tell us about your brand goals..." class="form-input p-5 rounded-3xl bg-slate-50/50 text-sm resize-none"></textarea>
-                        </div>
+    <button type="submit" id="submitBtn" class="w-full py-6 bg-[#16598a] text-white font-black rounded-2xl shadow-xl shadow-[#16598a]/20 hover:bg-[#28b8d9] hover:-translate-y-1 transition-all uppercase tracking-widest text-xs">
+        <span id="btnText">Send Message</span>
+        <i class="fas fa-paper-plane ml-2"></i>
+    </button>
+</form>
 
-                        <button class="w-full py-6 bg-[#16598a] text-white font-black rounded-2xl shadow-xl shadow-[#16598a]/20 hover:bg-[#28b8d9] hover:-translate-y-1 transition-all uppercase tracking-widest text-xs">
-                            Send Message <i class="fas fa-paper-plane ml-2"></i>
-                        </button>
-                    </form>
+<div id="responseMsg" class="mt-4 text-center text-sm font-bold hidden"></div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const responseMsg = document.getElementById('responseMsg');
+
+    // Show loading state
+    btn.disabled = true;
+    btnText.innerText = "Sending...";
+
+    // Prepare data
+    const formData = {
+        full_name: document.getElementById('fullName').value,
+        email: document.getElementById('email').value,
+        service: document.getElementById('service').value,
+        message: document.getElementById('message').value,
+    };
+
+    // Get CSRF Token from the hidden input Django generates
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+fetch('/contact-submit/', {  // Make sure this matches the path in urls.py exactly
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken
+    },
+    body: JSON.stringify(formData)
+})
+    .then(response => response.json())
+    .then(data => {
+        responseMsg.classList.remove('hidden');
+        if (data.status === 'success') {
+            responseMsg.innerText = "Message sent! We'll be in touch.";
+            responseMsg.className = "mt-4 text-center text-sm font-bold text-green-500";
+            document.getElementById('contactForm').reset();
+        } else {
+            responseMsg.innerText = "Something went wrong. Try again.";
+            responseMsg.className = "mt-4 text-center text-sm font-bold text-red-500";
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        btn.disabled = false;
+        btnText.innerText = "Send Message";
+    });
+});
+</script>
+
+
                 </div>
 
                 <div class="lg:col-span-5 flex flex-col gap-8">

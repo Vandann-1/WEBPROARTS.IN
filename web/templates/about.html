@@ -29,7 +29,7 @@
             <a href="/" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9]">Services</a>
             <a href="#work" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9]">Case Studies</a>
             <a href="#" class="text-[15px] font-bold text-[#28b8d9]">About Us</a>
-            <a href="{% url 'contact' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all">Contact Now</a>
+            <a href="{% url 'contact_page' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all">Contact Now</a>
         </nav>
 
         <button class="lg:hidden p-2 text-[#16598a]" onclick="toggleMenu()">
@@ -39,7 +39,7 @@
     <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 absolute w-full left-0 p-6 space-y-4 shadow-xl">
         <a href="/" class="block font-bold text-slate-700">Services</a>
         <a href="{% url 'about' %}" class="block font-bold text-[#28b8d9]">About Us</a>
-        <a href="#contact" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold">Get Started</a>
+        <a href="{% url 'contact_page' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold">Get Started</a>
     </div>
 </header>
 
@@ -120,7 +120,7 @@
         </p>
     </div>
 
-<a href="{% url 'contact' %}" class="inline-flex items-center justify-center w-full sm:w-auto px-12 py-5 bg-[#16598a] text-white font-bold rounded-2xl shadow-xl shadow-[#16598a]/20 hover:bg-[#28b8d9] transition-all transform active:scale-95 duration-300">
+<a href="{% url 'contact_page' %}" class="inline-flex items-center justify-center w-full sm:w-auto px-12 py-5 bg-[#16598a] text-white font-bold rounded-2xl shadow-xl shadow-[#16598a]/20 hover:bg-[#28b8d9] transition-all transform active:scale-95 duration-300">
     Know More About Us
 </a>
 </div>

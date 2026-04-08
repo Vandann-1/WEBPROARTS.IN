@@ -19,46 +19,31 @@ def contact(request):
 
 import json
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_protect
-from .models import ContactMessage
+from django.views.decorators.csrf import csrf_exempt # Optional: use if having CSRF issues with JS
+from django.core.mail import send_mail
+from django.conf import settings
 
-@csrf_protect
-def contact_form_view(request):
+def contact_view(request):
     if request.method == "POST":
         try:
             data = json.loads(request.body)
             
-            # Basic Validation
-            first_name = data.get('first_name')
-            last_name = data.get('last_name')
-            email = data.get('email')
-            subject = data.get('subject')
-            message = data.get('message', '')
-
-            if not all([first_name, last_name, email, subject]):
-                return JsonResponse({"status": "error", "error": "All fields are required."}, status=400)
-
-            # Save to Database
-            ContactMessage.objects.create(
-                first_name=first_name,
-                last_name=last_name,
-                email=email,
-                subject=subject,
-                message=message
+            # Send the email
+            send_mail(
+                subject=f"New Lead: {data.get('service')}",
+                message=f"Name: {data.get('full_name')}\nEmail: {data.get('email')}\n\n{data.get('message')}",
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[settings.EMAIL_HOST_USER],
             )
-
-            return JsonResponse({"status": "success", "message": "Data saved successfully!"})
-
-        except Exception as e:
-            return JsonResponse({"status": "error", "error": str(e)}, status=500)
             
-    return JsonResponse({"status": "error", "error": "Invalid request method"}, status=400)
+            # MANDATORY: This must be a JsonResponse
+            return JsonResponse({'status': 'success'})
+            
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 
-
-
-
-
-
+    # Only return HTML for GET requests (initial page load)
+    return render(request, 'contact.html')
 
 def digital_marketing(request):
     return render(request, 'digital-marketing.html')
