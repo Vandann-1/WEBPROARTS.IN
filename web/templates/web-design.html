@@ -73,7 +73,7 @@
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#28b8d9] transition-all group-hover/blog:w-full"></span>
             </a>
 
-            <a href="{% url 'contact_page' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all shadow-lg shadow-[#16598a]/10">Contact Now</a>
+            <a href="{% url 'contact.html' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all shadow-lg shadow-[#16598a]/10">Contact Now</a>
         </nav>
 
         <button class="lg:hidden p-2 text-[#16598a] hover:bg-slate-50 rounded-lg transition-colors" onclick="toggleMenu()" aria-label="Open Menu">
@@ -128,7 +128,7 @@
     </div>
 
     <div class="p-6 border-t border-slate-50">
-        <a href="{% url 'contact_page' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold shadow-lg">Get Started Now</a>
+        <a href="{% url 'contact.html' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold shadow-lg">Get Started Now</a>
     </div>
 </div>
 
@@ -154,39 +154,220 @@
     }
 </script>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <section class="relative py-24 md:py-36 overflow-hidden bg-dot">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#16598a]/10 border border-[#16598a]/20 text-[#16598a] text-[10px] font-black uppercase tracking-[0.3em] mb-8">
-                    UI/UX Architecture
+<section class="web-pro-hero">
+    <div class="web-hero-grid">
+        
+        <div class="web-content-side">
+            <div class="web-el-badge">
+                <span class="web-active-dot"></span> FULL-STACK ARCHITECTURE
+            </div>
+            <h1 class="web-main-title">Systems that <br><span class="web-glow-text">Perform.</span></h1>
+            <p class="web-paragraph">
+                We don't just build pages; we engineer high-performance digital engines. 
+                At <strong>WEBPROARTS</strong>, our design philosophy merges technical 
+                rigor with cinematic visuals.
+            </p>
+            
+            <div class="web-capability-row">
+                <div class="cap-pill">
+                    <span class="cap-icon">⚡</span> <span>Core Web Vitals</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-[#04131a] mb-8 tracking-tighter leading-tight">
-                    Websites that <span class="text-[#28b8d9]">Convert</span> & Inspire.
-                </h1>
-                <p class="text-slate-500 text-lg md:text-xl leading-relaxed mb-10">
-                    We don't just build pages; we engineer digital experiences. Our design philosophy merges technical performance with cinematic visuals.
-                </p>
-                <div class="flex gap-4">
-                    <div class="flex items-center gap-3 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
-                        <div class="w-10 h-10 bg-[#28b8d9]/20 rounded-full flex items-center justify-center text-[#16598a]">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <p class="text-xs font-bold">Ultra Fast Loading</p>
-                    </div>
-                    <div class="flex items-center gap-3 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
-                        <div class="w-10 h-10 bg-[#28b8d9]/20 rounded-full flex items-center justify-center text-[#16598a]">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <p class="text-xs font-bold">Mobile First Design</p>
-                    </div>
+                <div class="cap-pill">
+                    <span class="cap-icon">🛡️</span> <span>Enterprise Security</span>
                 </div>
             </div>
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1200" class="rounded-[3rem] shadow-2xl border-8 border-white" alt="Modern Web Design">
+
+            <div class="web-cta-area">
+                <button class="web-primary-btn">Initialize Project</button>
+                <div class="web-build-tag">
+                    <strong>V3.0</strong>
+                    <span>PRODUCTION READY</span>
+                </div>
             </div>
         </div>
-    </section>
+
+        <div class="web-visual-side">
+            <div class="swiper webProSwiper">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide">
+                        <div class="web-brand-card react-theme">
+                            <div class="brand-logo-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.232 23 20.463">
+                                  <circle r="2.05" fill="#61dafb"/>
+                                  <g fill="none" stroke="#61dafb" stroke-width="1">
+                                    <ellipse rx="11" ry="4.2"/>
+                                    <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+                                    <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+                                  </g>
+                                </svg>
+                            </div>
+                            <div class="brand-meta">
+                                <span class="brand-label">ENGINEERING</span>
+                                <div class="brand-status">REACT.JS ARCHITECTURE</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="web-brand-card wp-theme">
+                            <div class="brand-logo-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+                                    <path d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.051-.181 2.986-.51-.102-.17-.195-.34-.273-.514l-2.555-7.181zm5.257-2.423c.03.62-.04 1.302-.33 1.967l-2.315 6.477c1.757-1.108 3.031-2.84 3.515-4.886.068-.29.103-.59.103-.898 0-1.166-.462-2.074-.973-2.66zm-5.415.856l2.31 6.321c.017.05.034.098.053.146 2.011-1.284 3.35-3.533 3.35-6.09 0-.46-.046-.907-.132-1.336l-5.581 1.019v-.06zm-6.115 1.545C4.316 14.56 3.7 16.346 3.7 18.25c0 .285.016.565.048.839L7.38 8.161c-.607.032-1.183.151-1.183.151.35.033.91.016.91.016.592.016.56.887.016.921 0 0-.214.017-.46.033l1.842 5.484 2.373-7.113-.377.017-.377.017c-.544.032-.576.887-.033.92 0 0 .224.017.48.017h.032c.624 0 .592.887.049.921 0 0-.176.016-.432.032l1.649 4.904 1.343-4.148c-.29-.016-.544-.032-.544-.032-.544-.033-.576-.887-.033-.921 0 0 .24-.016.512-.016.608 0 .576-.887.032-.921 0 0-.176-.016-.432-.016l-2.32-.033c.032.017.064.033.096.05l2.496 7.424 2.4-7.16c-.272-.017-.512-.033-.512-.033-.544-.032-.576-.887-.033-.92 0 0 .256-.017.512-.017.608 0 .576-.887.032-.921 0 0-.176-.016-.432-.032l1.04-.017c.56-.016.544-.887-.016-.92 0 0-.192-.017-.448-.033l1.696-5.056c-1.177-.611-2.51-.959-3.92-.959-4.321 0-7.854 3.33-8.147 7.58zm14.315-7.58c-1.41 0-2.743.348-3.92.959l1.696 5.056c-.256.016-.448.033-.448.033-.56.033-.576.904-.016.92l1.04.017c-.256.016-.432.032-.432.032-.544.034-.576.905-.032.921.272 0 .512.016.512.016-.544.033-.576.888-.033.92l2.4 7.16 2.496-7.424c.032-.017.064-.033.096-.05l-2.32.033c-.256 0-.432.016-.432.016-.544.034-.576.888-.032.921.272 0 .512.016.512.016-.544.034-.576.888-.033.921 0 0-.254.016-.544.032l1.343 4.148 1.649-4.904c-.256-.016-.432-.032-.432-.032-.543-.034-.575-.905.049-.921h.032c.256 0 .48-.017.48-.017.544-.033.511-.888-.033-.92l-.377-.017-.377-.017 2.373 7.113 1.842-5.484c-.246-.016-.46-.033-.46-.033-.544-.034-.576-.905.016-.921 0 0 .56.017.91-.016 0 0-.576-.119-1.183-.151l3.632 10.928c.032-.274.048-.554.048-.839 0-4.25-3.533-7.58-7.854-7.58zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/>
+                                </svg>
+                            </div>
+                            <div class="brand-meta">
+                                <span class="brand-label">CMS CONTROL</span>
+                                <div class="brand-status">CUSTOM WP ENGINEERING</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="web-brand-card shopify-theme">
+                            <div class="brand-logo-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+                                    <path d="M19.1 11.3l-2.4-5.3c-.2-.4-.6-.7-1.1-.7H8.4c-.5 0-.9.3-1.1.7L4.9 11.3c-.1.2-.1.4-.1.6 0 .3.1.7.3 1l3.5 6.3c.3.5.8.8 1.4.8h4c.6 0 1.1-.3 1.4-.8l3.5-6.3c.2-.3.3-.7.3-1 0-.2 0-.4-.1-.6zm-7.1 6.2c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                                </svg>
+                            </div>
+                            <div class="brand-meta">
+                                <span class="brand-label">E-COMMERCE</span>
+                                <div class="brand-status">SHOPIFY CORE STORES</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+/* Base Structure */
+.web-pro-hero {
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+}
+
+.web-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+    width: 100%;
+    align-items: center;
+}
+
+/* Content Side */
+.web-content-side { padding-right: 60px; }
+
+.web-el-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #f4f7fa;
+    padding: 12px 25px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: #16598a;
+    margin-bottom: 35px;
+}
+
+.web-active-dot { width: 8px; height: 8px; background: #28b8d9; border-radius: 50%; animation: pulse-web 2s infinite; }
+@keyframes pulse-web { 0% { opacity: 1; } 50% { opacity: 0.3; transform: scale(1.4); } 100% { opacity: 1; } }
+
+.web-main-title { font-size: 5.5rem; font-weight: 900; line-height: 1; color: #05161d; letter-spacing: -4px; margin-bottom: 35px; }
+.web-glow-text { color: #28b8d9; }
+.web-paragraph { font-size: 1.2rem; color: #555; line-height: 1.8; max-width: 600px; margin-bottom: 40px; }
+
+.web-capability-row { display: flex; gap: 20px; margin-bottom: 50px; }
+.cap-pill { background: #fff; border: 1px solid #eef2f6; padding: 15px 25px; border-radius: 18px; display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 0.85rem; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+
+.web-cta-area { display: flex; align-items: center; gap: 40px; }
+.web-primary-btn { background: #0d1b2a; color: #fff; padding: 22px 45px; border-radius: 100px; border: none; font-weight: 800; font-size: 1rem; cursor: pointer; transition: 0.4s; }
+.web-primary-btn:hover { background: #28b8d9; transform: translateY(-5px); }
+
+.web-build-tag { display: flex; flex-direction: column; line-height: 1; }
+.web-build-tag strong { font-size: 1.5rem; color: #000; font-weight: 900; }
+.web-build-tag span { font-size: 9px; font-weight: 800; color: #aaa; letter-spacing: 2px; }
+
+/* Brand Card Swiper */
+.webProSwiper {
+    width: 360px;
+    height: 500px;
+}
+
+.web-brand-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+}
+
+.brand-logo-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.brand-logo-container svg {
+    width: 160px; /* PROFESSIONAL SCALE */
+    height: 160px;
+}
+
+.brand-meta { margin-top: 30px; }
+.brand-label { font-size: 10px; font-weight: 900; letter-spacing: 5px; color: rgba(255,255,255,0.7); display: block; margin-bottom: 10px; }
+.brand-status { font-size: 14px; font-weight: 800; color: #fff; text-transform: uppercase; }
+
+/* BRAND THEMES */
+.react-theme { background: #20232a; }
+.wp-theme { background: #21759b; }
+.shopify-theme { background: #95BF47; }
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .web-hero-grid { grid-template-columns: 1fr; text-align: center; padding: 100px 20px; }
+    .web-content-side { padding-right: 0; margin-bottom: 60px; }
+    .web-capability-row { justify-content: center; }
+    .web-cta-area { flex-direction: column; }
+    .web-main-title { font-size: 3.5rem; }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new Swiper('.webProSwiper', {
+            effect: 'cards',
+            grabCursor: true,
+            loop: true,
+            autoplay: { delay: 3500 },
+            perSlideOffset: 12,
+            perSlideRotate: 2,
+        });
+    });
+</script>
 
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
@@ -200,9 +381,9 @@
                     <h4 class="text-2xl font-bold mb-4">UI/UX Design</h4>
                     <p class="text-slate-500 text-sm leading-relaxed mb-6">User behavior analysis and wireframing. We create intuitive interfaces that guide visitors toward your "Call to Action" naturally.</p>
                     <ul class="text-xs font-bold text-[#16598a] space-y-2">
-                        <li># User Journey Mapping</li>
-                        <li># Wireframing & Prototyping</li>
-                        <li># Visual Storytelling</li>
+                        <li> User Journey Mapping</li>
+                        <li> Wireframing & Prototyping</li>
+                        <li> Visual Storytelling</li>
                     </ul>
                 </div>
 
@@ -211,9 +392,9 @@
                     <h4 class="text-2xl font-bold mb-4">Responsive Dev</h4>
                     <p class="text-slate-500 text-sm leading-relaxed mb-6">Pixel-perfect implementation across all devices. We use modern frameworks to ensure your site is fast, secure, and infinitely scalable.</p>
                     <ul class="text-xs font-bold text-[#16598a] space-y-2">
-                        <li># Tailwind CSS / React / Django</li>
-                        <li># Core Web Vitals Optimization</li>
-                        <li># Secure API Integration</li>
+                        <li> Tailwind CSS / React / Django</li>
+                        <li> Core Web Vitals Optimization</li>
+                        <li> Secure API Integration</li>
                     </ul>
                 </div>
 
@@ -222,9 +403,9 @@
                     <h4 class="text-2xl font-bold mb-4">E-Commerce</h4>
                     <p class="text-slate-500 text-sm leading-relaxed mb-6">Robust online stores built to sell. Integrated payment gateways, inventory management, and seamless checkout experiences.</p>
                     <ul class="text-xs font-bold text-[#16598a] space-y-2">
-                        <li># Custom Checkout Funnels</li>
-                        <li># Payment Gateway Integration</li>
-                        <li># Inventory Dashboards</li>
+                        <li>Custom Checkout Funnels</li>
+                        <li> Payment Gateway Integration</li>
+                        <li> Inventory Dashboards</li>
                     </ul>
                 </div>
             </div>
@@ -273,249 +454,281 @@
 
 
 
-   <section class="web-services-section">
-    <div class="services-container">
-        <div class="services-sidebar">
-            <h2>Our Web Development Services</h2>
-            <button class="service-btn active" onclick="showContent('dynamic')">Dynamic Website</button>
-            <button class="service-btn" onclick="showContent('wordpress')">WordPress Development</button>
-            <button class="service-btn" onclick="showContent('ecomm')">E-Commerce (WooCommerce)</button>
-            <button class="service-btn" onclick="showContent('business')">Business & Profile Website</button>
-            <button class="service-btn" onclick="showContent('product')">Product-Based Solutions</button>
-            <button class="service-btn" onclick="showContent('stock')">Stock & Inventory Systems</button>
+<section class="web-master-section">
+    <div class="master-container">
+        
+        <div class="master-sidebar">
+            <div class="sidebar-header">
+                <h2>Engineering Lab</h2>
+                <p>Architecting high-performance digital systems.</p>
+            </div>
+            <div class="button-group">
+                <button class="web-master-btn active" onclick="updateWebView('dynamic', event)">Dynamic Website</button>
+                <button class="web-master-btn" onclick="updateWebView('wordpress', event)">WordPress Development</button>
+                <button class="web-master-btn" onclick="updateWebView('ecomm', event)">E-Commerce Solutions</button>
+                <button class="web-master-btn" onclick="updateWebView('business', event)">Business & Profile</button>
+                <button class="web-master-btn" onclick="updateWebView('product', event)">Product Solutions (SaaS)</button>
+                <button class="web-master-btn" onclick="updateWebView('stock', event)">Stock & Inventory</button>
+            </div>
         </div>
 
-        <div class="services-main-content" id="content-display">
-            <div class="image-wrapper">
-                <img src="https://fiverr-res.cloudinary.com/videos/so_1.628465,t_main1,q_auto,f_auto/enu8yu24yxbq7n12sywi/built-web-application-with-html-css-javascript-react-website.png" alt="Website Design">
+        <div class="master-content" id="web-master-display">
+            <div class="content-header">
+                <h3 id="w-title">Dynamic Website Development</h3>
+                <div class="status-badge">Technical Excellence</div>
             </div>
-            <div class="text-wrapper">
-                <h3 id="service-title">Dynamic Website Development</h3>
-                <p id="service-desc">We build high-performance dynamic websites that allow for real-time content updates. Perfect for news portals, blogs, and interactive platforms that require a database-driven approach.</p>
-                
-                <div class="info-details">
-                    <h4>Key Features:</h4>
-                    <ul id="service-features">
-                        <li>User Authentication & Dashboards</li>
-                        <li>Real-time Database Integration</li>
-                        <li>Admin Panel for easy management</li>
-                        <li>Fully SEO Optimized & Mobile Responsive</li>
-                    </ul>
+            
+            <div class="content-body">
+                <div class="main-text">
+                    <h4>I. Development Philosophy</h4>
+                    <p id="w-desc-main"></p>
+                    
+                    <h4>II. Strategic Architecture</h4>
+                    <p id="w-desc-strategy"></p>
+
+                    <h4>III. Technical Infrastructure</h4>
+                    <p id="w-desc-technical"></p>
+
+                    <h4>IV. Scalability & Future Roadmap</h4>
+                    <p id="w-desc-future"></p>
+                </div>
+
+                <div class="feature-grid-wrapper">
+                    <h4>V. Engineering Deliverables</h4>
+                    <ul id="w-features" class="feature-grid"></ul>
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 
 <style>
-.web-services-section {
-    background-color: #f9f9f9; /* Clean light background */
-    padding: 60px 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Scoped Styles - Mirrored from DM Master Section (Professional Blue) */
+.web-master-section {
+    background-color: #f4f7f9;
+    padding: 80px 20px;
+    font-family: 'Inter', 'Poppins', sans-serif;
 }
 
-.services-container {
-    max-width: 1200px;
+.web-master-section .master-container {
+    max-width: 1300px;
     margin: 0 auto;
     display: flex;
-    gap: 40px;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    min-height: 850px;
 }
 
-/* Left Side Sidebar */
-.services-sidebar {
-    flex: 1;
-    background-color: #078fc5; /* Professional Blue */
-    padding: 30px;
-    border-radius: 15px;
-    color: white;
+/* Sidebar Styling - Midnight Blue */
+.web-master-section .master-sidebar {
+    flex: 0 0 320px;
+    background-color: #0d1b2a; 
+    padding: 40px 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
-.services-sidebar h2 {
+.web-master-section .sidebar-header h2 {
     font-size: 1.5rem;
-    margin-bottom: 25px;
+    color: #4cc9f0; /* Sky Blue Accent */
+    margin-bottom: 10px;
 }
 
-.service-btn {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 30px;
-    background-color: #fff;
-    color: #333;
-    font-weight: 600;
-    text-align: left;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.service-btn:hover, .service-btn.active {
-    background-color: #e0f0ff;
-    color: #0056b3;
-    transform: translateX(10px);
-}
-
-/* Right Side Content */
-.services-main-content {
-    flex: 2;
-    background: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.image-wrapper img {
-    width: 100%;
-    border-radius: 10px;
+.web-master-section .sidebar-header p {
+    font-size: 0.85rem;
+    opacity: 0.7;
     margin-bottom: 30px;
 }
 
-.text-wrapper h3 {
-    font-size: 2rem;
-    color: #0056b3;
-    margin-bottom: 15px;
+.web-master-btn {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    color: #cbd5e0;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
 }
 
-.text-wrapper p {
-    color: #555;
-    line-height: 1.8;
+.web-master-btn:hover { background: rgba(255,255,255,0.1); }
+
+.web-master-btn.active {
+    background: #4cc9f0;
+    color: #0d1b2a;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+}
+
+/* Content Area Styling */
+.web-master-section .master-content {
+    flex: 1;
+    padding: 50px;
+    overflow-y: auto;
+}
+
+.web-master-section .content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#w-title {
+    font-size: 2.4rem;
+    color: #0d1b2a;
+    font-weight: 800;
+}
+
+.web-master-section .status-badge {
+    background: #e0f7fa;
+    color: #0077b6;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.web-master-section .main-text h4 {
+    color: #0077b6;
+    margin: 35px 0 12px 0;
     font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-left: 4px solid #4cc9f0;
+    padding-left: 15px;
+}
+
+.web-master-section .main-text p {
+    line-height: 2;
+    color: #4a5568;
     margin-bottom: 25px;
+    font-size: 1.1rem;
+    text-align: justify;
 }
 
-.info-details h4 {
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.info-details ul {
+/* Feature Grid */
+.web-master-section .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
     list-style: none;
     padding: 0;
+    margin-top: 20px;
 }
 
-.info-details li {
-    padding: 8px 0;
-    color: #666;
-    border-bottom: 1px solid #eee;
+.web-master-section .feature-grid li {
+    background: #f8fafc;
+    padding: 15px;
+    border-left: 4px solid #4cc9f0;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #2d3748;
 }
 
-.info-details li::before {
-    content: "✓ ";
-    color: #3075be;
-    font-weight: bold;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-    .services-container { flex-direction: column; }
+@media (max-width: 992px) {
+    .web-master-section .master-container { flex-direction: column; }
+    .web-master-section .master-sidebar { flex: none; width: 100%; }
 }
 </style>
 
 <script>
-const webData = {
+const webMasterData = {
     dynamic: {
         title: "Dynamic Website Development",
-        desc: "In today’s fast-paced digital world, a static website is often not enough. Our Dynamic Website Development services focus on building highly interactive, database-driven platforms that adapt to your user's needs in real-time. Unlike traditional sites, dynamic websites allow you to manage vast amounts of information through a custom-built administrative backend, meaning you can update content, products, or news without touching a single line of code. <br><br>We utilize modern frameworks like Node.js, PHP, or Python to ensure your site is fast, secure, and scalable. Whether you are building a custom social network, a real estate portal, or a complex membership site, we focus on the logic behind the UI. This includes seamless API integrations, user-specific dashboards, and sophisticated search filters that make navigating large data sets effortless for your visitors.",
-        features: [
-            "Custom Database Architecture (MySQL/MongoDB)",
-            "Scalable Infrastructure for high traffic",
-            "Real-time Data Processing & User Interaction",
-            "Advanced User Authentication & Security Protocols",
-            "Automated Backup & Cloud Hosting Setup"
-        ]
+        main: "At WEBPROARTS, we believe a static website is a relic of the past. Our Dynamic Website Development services focus on building highly interactive, database-driven platforms that evolve in real-time based on user interaction. We treat your website as a living organism. Whether you are launching a complex news portal, a social community, or an interactive data dashboard, we ensure the infrastructure is built to handle thousands of concurrent users while maintaining lightning-fast response times.",
+        strategy: "Our strategic approach centers on 'Data-Driven Logic.' We utilize modern back-end environments to ensure your content is fully decoupled from the code, allowing your team to manage information through custom-built administrative interfaces. This removes the technical bottleneck, empowering your marketing and editorial teams to push updates instantly. We focus on the user journey, implementing 'Single Page Application' (SPA) behaviors so that navigating your site feels fluid, without jarring page reloads.",
+        technical: "The technical stack for our dynamic builds often includes Node.js, Python/Django, or PHP-Laravel, depending on the specific project requirements. We implement robust RESTful or GraphQL APIs to ensure your data flows securely between the server and the front-end. We prioritize database normalization (MySQL/PostgreSQL) and implement caching layers like Redis to ensure that even the most complex queries return results in milliseconds. Security is baked in from day one, with protection against SQL injection and XSS attacks.",
+        future: "The future of dynamic sites is 'Predictive Personalization.' We are currently integrating AI layers that analyze a visitor's behavior in real-time to suggest content or products tailored specifically to them. Our roadmap includes full Progressive Web App (PWA) integration, allowing your dynamic website to function like a native mobile app—offline access, push notifications, and home screen installation—ensuring your brand is always just a tap away from your audience.",
+        features: ["Custom CRUD Architectures", "Real-Time Database Syncing", "Role-Based Access Control", "Advanced Search & Filtering", "Automated Cloud Backups", "Custom Admin Dashboards"]
     },
     wordpress: {
         title: "Professional WordPress Development",
-        desc: "WordPress powers over 40% of the web, but a professional business requires more than just a pre-made template. We offer 'Headless' or 'Custom' WordPress development that prioritizes performance and security. Most agencies install heavy plugins that slow down your site; we do the opposite. We write clean, optimized code and use lightweight builders like Elementor or Gutenberg only when necessary to ensure your site loads in under 2 seconds.<br><br>Our WordPress service is a complete end-to-end solution. This includes custom post types for your unique business needs (like portfolios, testimonials, or team members), advanced SEO optimization to help you rank on Google, and bulletproof security to prevent hacking attempts. We also provide a personalized training session so you feel 100% confident managing your blog, pages, and media library after the project is live.",
-        features: [
-            "Custom Theme & Plugin Development",
-            "Core Web Vitals Optimization (Green Score)",
-            "Advanced Security Hardening & Firewall",
-            "SEO-Ready Structure & Schema Markup",
-            "One-Click Staging & Production Workflow"
-        ]
+        main: "WordPress powers 40% of the web, but a WEBPROARTS build is far from 'standard.' We specialize in 'Enterprise-Grade WordPress,' where we prioritize security, speed, and long-term stability over easy shortcuts. We avoid heavy, bloated themes and buggy plugins that slow down your site and create security holes. Instead, we build clean, lightweight, and custom-coded themes that offer the ease-of-use WordPress is known for, with the performance of a custom-built site.",
+        strategy: "Our WordPress strategy focuses on 'Performance First.' We utilize lightweight builders like Gutenberg or Elementor only as a foundation, while writing custom hooks and functions to handle the heavy lifting. We implement a strict 'Plugin-Minimalism' policy, coding features directly into the theme whenever possible. This results in sites that achieve 'Green Zone' scores on Google PageSpeed Insights, which is critical for both user experience and SEO rankings.",
+        technical: "We implement advanced security hardening, including firewall integration, login protection, and database prefix obfuscation. We utilize 'Headless WordPress' architectures when maximum performance is required, using WordPress as a CMS while building the front-end in React or Next.js. Our technical setup includes local-to-staging-to-production workflows, ensuring that updates are tested in a safe environment before going live, preventing any downtime for your business.",
+        future: "We are moving toward 'AI-Driven CMS' environments. Our roadmap includes integrating AI content assistants directly into the WordPress editor to help your team optimize SEO and readability on the fly. We are also focusing on 'Full Site Editing' (FSE) capabilities that allow your team total visual control without breaking the underlying code structure. This ensures your WordPress site stays modern and flexible as your business grows over the next decade.",
+        features: ["Custom Theme Engineering", "Core Web Vitals Optimization", "Advanced Security Hardening", "ACF & Custom Post Types", "One-Click Staging Setup", "Automated Image Optimization"]
     },
     ecomm: {
-        title: "E-Commerce & WooCommerce Solutions",
-        desc: "Building an online store is about more than just listing products; it's about building a high-conversion sales funnel. Our E-commerce solutions are designed to turn visitors into repeat customers. Using WooCommerce or custom-built carts, we focus on a 'Mobile-First' shopping experience. We understand that the checkout process is where most sales are lost, so we optimize the UI/UX to be as friction-free as possible.<br><br>From an administrative perspective, we give you total control over your business. This includes automated tax calculations, shipping zone management, and advanced inventory tracking that alerts you when stock is low. We also integrate sophisticated marketing tools such as abandoned cart recovery, product upsells, and loyalty programs to increase your Average Order Value (AOV). Your store will be equipped with secure payment gateways like Razorpay, Stripe, or PayPal, ensuring total peace of mind for both you and your customers.",
-        features: [
-            "Seamless Payment Gateway Integration",
-            "Multi-Currency & Multi-Language Support",
-            "Automated Invoice & Tax Generation",
-            "Advanced Analytics & Sales Reporting",
-            "Product Variation & Subscription Management"
-        ]
+        title: "E-Commerce Solutions",
+        main: "Building an online store is about more than listing products; it's about building a conversion-optimized sales engine. For a project like ThinknShop, we focus on a 'Frictionless Checkout' experience. Our E-Commerce builds are designed to turn casual browsers into repeat customers. We understand that every millisecond of delay costs you sales, so we optimize every line of code to ensure your store remains fast, even during massive holiday traffic spikes.",
+        strategy: "Our strategy centers on 'The Conversion Funnel.' We optimize the UI/UX to lead users naturally from the homepage to the checkout. We implement 'Trust-Building' elements like clear shipping info, easy returns, and secure payment badges at critical points. We also integrate sophisticated marketing automation, such as abandoned cart recovery and personalized product recommendations, to maximize your Average Order Value (AOV) and Customer Lifetime Value (LTV).",
+        technical: "Whether using WooCommerce or a custom Django/Python cart, we implement bank-level security for transactions. We integrate major payment gateways (Razorpay, Stripe, PayPal) with seamless 3D-secure authentication. Our technical stack includes advanced inventory management systems that sync with your offline stock, automated tax calculation engines, and shipping API integrations. We also focus on 'Mobile-Commerce,' ensuring the checkout process is just as easy on a smartphone as it is on a desktop.",
+        future: "The future of E-Commerce is 'Social & Voice Commerce.' We are building systems that allow users to purchase products directly through social API integrations and voice-activated assistants. Our roadmap includes 'AR Product Visualizers,' where customers can see your products in their own space before buying. By staying at the cutting edge of retail tech, we ensure your store is prepared for the next generation of digital shoppers.",
+        features: ["Secure Payment Integration", "Multi-Currency & Language", "Abandoned Cart Recovery", "Inventory Management Systems", "Automated Tax & Shipping", "High-Conversion UX Audits"]
     },
     business: {
         title: "Business & Profile Websites",
-        desc: "Your website is often the first impression a client has of your business. A clean, professional profile website acts as your 24/7 digital salesperson. We specialize in creating high-trust environments for professionals like lawyers, doctors, consultants, and corporate firms. We move beyond 'standard' templates to create a visual identity that aligns perfectly with your brand's values.<br><br>We focus heavily on lead generation. This means strategically placed Call-to-Action (CTA) buttons, integrated booking systems, and contact forms that sync directly with your CRM or Email. A business site needs to be reliable and fast; we ensure your uptime is 99.9% and that the site looks flawless on everything from a 27-inch iMac to a 5-inch smartphone. By showcasing your portfolio, client testimonials, and team expertise, we help you build the authority needed to close more deals.",
-        features: [
-            "Corporate Branding & Visual Identity",
-            "Integrated Appointment Scheduling",
-            "Lead Capture & CRM Integration",
-            "Interactive Project Portfolios",
-            "Multi-Level Content Protection"
-        ]
+        main: "Your website is your 24/7 digital salesperson. For professionals and firms, a WEBPROARTS profile website acts as a 'Trust Hub.' We move beyond 'brochure-ware' to create high-conversion environments that establish your authority. We focus on 'Visual Credibility,' using clean design and high-quality typography to align your digital presence with your brand’s prestige. We ensure your first impression is one of absolute professionalism and reliability.",
+        strategy: "Our strategy for business sites is 'Lead Generation.' Every page is designed with a specific Call-to-Action (CTA) in mind. We integrate appointment scheduling, lead capture forms, and CRM connectivity to ensure that every visitor has a clear path to becoming a client. We focus on 'Social Proof'—strategically placing testimonials, case studies, and partner logos to build immediate authority. We don't just build sites; we build professional reputations.",
+        technical: "Business sites must be reliable. We provide high-performance cloud hosting with 99.9% uptime guarantees. We implement SSL certificates, automated daily backups, and malware scanning to protect your professional reputation. Our builds are fully 'Mobile-Responsive,' ensuring your site looks flawless on a 27-inch iMac or a 5-inch smartphone. We also focus on 'Technical SEO,' ensuring your firm appears at the top of search results for local and global queries.",
+        future: "We are moving toward 'Interactive Branding.' Our roadmap includes integrating AI-powered 'Expert Chatbots' that can answer basic client inquiries 24/7, booking consultations while you sleep. We are also exploring 'Dynamic Portfolios' that automatically update based on your latest projects from social media or internal systems. This ensures your business profile is always current, reflecting your latest achievements without manual effort.",
+        features: ["Corporate Brand Alignment", "Integrated Booking Systems", "Lead Capture & CRM Sync", "Interactive Portfolios", "Cloud Hosting & Security", "Technical SEO Foundation"]
     },
     product: {
         title: "Product-Based Solutions (SaaS)",
-        desc: "If you are launching a startup or a specific software product, you need a website that functions as a tool, not just a brochure. Our Product-Based Solutions focus on SaaS (Software as a Service) development, where user experience (UX) is the top priority. We build onboarding flows that guide your users through your product's features, ensuring they see the value of your software immediately.<br><br>We handle the technical complexities of product sites, including subscription-based billing (monthly/yearly), user role management (Admin/Editor/Viewer), and API connectivity. Our designs are modern, clean, and 'Product-Focused,' meaning we use high-quality UI mockups and interactive elements to explain what your software does. Whether you need a landing page for an app or a full-blown web application, we build it to be fast, responsive, and ready for your first 10,000 users.",
-        features: [
-            "Subscription Billing Integration (Stripe Billing)",
-            "User Onboarding & Interactive Tours",
-            "Feature Management & Version Control",
-            "API Documentation & Developer Portals",
-            "In-App Notification Systems"
-        ]
+        main: "If you are building a software product, your website *is* the product. We specialize in SaaS (Software as a Service) development, where user onboarding and interface logic are the top priorities. We build clean, modern, and 'Tool-First' environments that guide your users from signup to success. We handle the technical complexities so you can focus on your product-market fit and user growth.",
+        strategy: "Our SaaS strategy is 'Retention-Focused UX.' We analyze the 'User Journey' to remove friction at every step. This involves creating intuitive dashboards, clear progress indicators, and automated onboarding tours. We focus on 'Modular Scaling,' building the system in a way that allows you to add new features and user tiers easily as your product evolves. We ensure that your landing page and your application share a seamless visual identity.",
+        technical: "The technical backend of our SaaS solutions is built for 'Horizontal Scalability.' We use microservices or robust monolithic frameworks (like Django) to handle complex user permissions, subscription-based billing (Stripe Billing), and API connectivity. We implement 'Database Multi-Tenancy' to ensure user data is isolated and secure. Our code is built with 'DevOps' in mind, including CI/CD pipelines for rapid, safe deployment of new features.",
+        future: "The future of SaaS is 'AI-Native Applications.' We are integrating LLMs (Large Language Models) directly into product workflows to automate tasks for your users. Our roadmap includes 'No-Code Integration,' allowing your users to connect your product to thousands of other apps via Zapier or Pabbly. By making your product part of an interconnected ecosystem, we increase its value and make it an essential tool for your customers.",
+        features: ["Subscription Lifecycle Tools", "User Role & Permission Mgmt", "Onboarding Flow Architecture", "Stripe/PayPal API Billing", "In-App Notification Hubs", "Scalable DevOps Pipeline"]
     },
     stock: {
         title: "Stock & Inventory Management",
-        desc: "Manual inventory tracking is the fastest way to lose money in business. Our web-based Stock and Inventory Management systems are built to give you total visibility over your supply chain from any device, anywhere. We build custom logic that tracks every item from the moment it enters your warehouse to the moment it reaches the customer. <br><br>Our systems are designed for speed and accuracy. This includes barcode and QR code scanning capabilities, multi-location warehouse support, and automated reorder points so you never run out of your best-selling items. We also focus on 'Intelligence'—our systems provide detailed reports on stock turnover rates, profit margins per item, and vendor performance. Security is paramount; we use bank-level encryption and role-based access control to ensure that only authorized personnel can view or modify sensitive financial and inventory data.",
-        features: [
-            "Barcode & QR Code Scanning Support",
-            "Multi-Warehouse & Location Tracking",
-            "Real-time Low Stock Alerts (Email/SMS)",
-            "Detailed Vendor & Purchase Order Tracking",
-            "Cloud-Based Access with High-End Encryption"
-        ]
+        main: "Manual inventory tracking is a massive liability. Our custom Stock & Inventory systems are built to provide 'Total Visibility' over your supply chain. We build web-based tools that allow you to track every item across multiple warehouses from any device. We focus on 'Intelligence'—our systems don't just count items; they analyze turnover rates and profit margins, giving you the data needed to make smart purchasing decisions.",
+        strategy: "Our strategy is 'Efficiency through Automation.' We identify the bottlenecks in your current workflow and replace them with digital solutions. This includes 'Automated Reorder Points'—where the system alerts you (or your vendors) when stock is low—and 'Real-Time Syncing' across your E-Commerce and physical stores. We design the UI to be 'High-Speed,' allowing warehouse staff to update stock quickly using mobile devices or barcode scanners.",
+        technical: "We implement 'Barcode & QR Code Integration' using the device's camera or dedicated hardware. Our technical stack focuses on 'Data Integrity,' ensuring that concurrent updates from multiple locations never lead to inventory errors. We use high-end encryption to protect sensitive vendor pricing and financial data. Our systems are 'Cloud-Native,' providing you with 24/7 access to your inventory data without the need for expensive on-site servers.",
+        future: "The future is 'Autonomous Supply Chains.' We are developing predictive models that use historical sales data to forecast future stock needs with 90%+ accuracy. Our roadmap includes 'Blockchain Ledger Integration' for absolute transparency in high-value item tracking. By removing human error from the inventory loop, we help your business reduce overhead and eliminate the 'out-of-stock' scenarios that lead to lost revenue.",
+        features: ["Multi-Warehouse Support", "QR/Barcode Mobile Scanning", "Low Stock Smart Alerts", "Vendor & PO Tracking", "Real-Time Revenue Analytics", "Role-Based Security Access"]
     }
 };
 
-function showContent(key) {
-    const displayArea = document.getElementById('content-display');
-    
-    // Add a quick fade-out effect for smoothness
-    displayArea.style.opacity = 0;
+function updateWebView(key, event) {
+    const display = document.getElementById('web-master-display');
+    display.style.opacity = 0;
+    display.style.transform = "translateY(10px)";
 
     setTimeout(() => {
-        // Update Title and Description
-        document.getElementById('service-title').innerText = webData[key].title;
-        document.getElementById('service-desc').innerHTML = webData[key].desc; // Use innerHTML for <br> tags
+        const data = webMasterData[key];
+        document.getElementById('w-title').innerText = data.title;
+        document.getElementById('w-desc-main').innerHTML = data.main;
+        document.getElementById('w-desc-strategy').innerHTML = data.strategy;
+        document.getElementById('w-desc-technical').innerHTML = data.technical;
+        document.getElementById('w-desc-future').innerHTML = data.future;
         
-        // Update Features List
-        const list = document.getElementById('service-features');
+        const list = document.getElementById('w-features');
         list.innerHTML = ""; 
-        webData[key].features.forEach(feature => {
+        data.features.forEach(f => {
             const li = document.createElement('li');
-            li.innerText = feature;
+            li.innerText = f;
             list.appendChild(li);
         });
+        
+        display.style.opacity = 1;
+        display.style.transform = "translateY(0)";
+    }, 250);
 
-        // Update Image (Optional: change image based on key)
-        // document.querySelector('.image-wrapper img').src = "your-path/" + key + ".jpg";
-
-        displayArea.style.opacity = 1;
-    }, 200);
-
-    // Update Button Active State
-    const buttons = document.querySelectorAll('.service-btn');
+    const buttons = document.querySelectorAll('.web-master-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     event.currentTarget.classList.add('active');
 }
+
+// Initial Call
+window.addEventListener('DOMContentLoaded', () => {
+    updateWebView('dynamic', { currentTarget: document.querySelector('.web-master-btn') });
+});
 </script>
-
-   
-
 
 
 

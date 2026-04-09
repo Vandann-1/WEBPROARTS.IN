@@ -75,7 +75,7 @@
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#28b8d9] transition-all group-hover/blog:w-full"></span>
             </a>
 
-            <a href="{% url 'contact_page' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all shadow-lg shadow-[#16598a]/10">Contact Now</a>
+            <a href="{% url 'contact.html' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all shadow-lg shadow-[#16598a]/10">Contact Now</a>
         </nav>
 
         <button class="lg:hidden p-2 text-[#16598a] hover:bg-slate-50 rounded-lg transition-colors" onclick="toggleMenu()" aria-label="Open Menu">
@@ -130,7 +130,7 @@
     </div>
 
     <div class="p-6 border-t border-slate-50">
-        <a href="{% url 'contact_page' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold shadow-lg">Get Started Now</a>
+        <a href="{% url 'contact.html' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold shadow-lg">Get Started Now</a>
     </div>
 </div>
 
@@ -157,19 +157,274 @@
 </script>
 
 
-    <section class="py-20 md:py-32">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#28b8d9]/10 border border-[#28b8d9]/20 text-[#16598a] text-[10px] font-black uppercase tracking-[0.3em] mb-8">
-                Marketing Intelligence
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<section class="dm-master-hero">
+    <div class="dm-hero-grid">
+        
+        <div class="dm-visual-side">
+            <div class="swiper dmSwiper">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide">
+                        <div class="dm-tool-card g-ads">
+                            <div class="dm-card-top">
+                                <img src="https://cdn.simpleicons.org/googleads/ffffff" alt="Google Ads" class="real-logo">
+                                <span class="brand-name">Google Ads</span>
+                            </div>
+                            <div class="dm-card-mid">
+                                <div class="metric-label">CAMPAIGN PERFORMANCE</div>
+                                <div class="metric-value">+285% <small>ROI</small></div>
+                            </div>
+                            <div class="dm-card-foot">PRECISION SEARCH // PPC</div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="dm-tool-card m-business">
+                            <div class="dm-card-top">
+                                <img src="https://cdn.simpleicons.org/meta/ffffff" alt="Meta" class="real-logo">
+                                <span class="brand-name">Meta Business</span>
+                            </div>
+                            <div class="dm-card-mid">
+                                <div class="metric-label">SOCIAL ROAS</div>
+                                <div class="metric-value">4.2x <small>RETURN</small></div>
+                            </div>
+                            <div class="dm-card-foot">AUDIENCE DISCOVERY // SMM</div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="dm-tool-card g-analytics">
+                            <div class="dm-card-top">
+                                <img src="https://cdn.simpleicons.org/googleanalytics/ffffff" alt="Analytics" class="real-logo">
+                                <span class="brand-name">GA4 Intelligence</span>
+                            </div>
+                            <div class="dm-card-mid">
+                                <div class="metric-label">ORGANIC GROWTH</div>
+                                <div class="metric-value">TOP 1 <small>RANK</small></div>
+                            </div>
+                            <div class="dm-card-foot">DATA ARCHITECTURE // SEO</div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-[#04131a] mb-8 tracking-tighter leading-tight">
-                Mastering the <span class="text-[#28b8d9]">Digital Landscape</span>
-            </h1>
-            <p class="text-slate-500 text-lg md:text-xl leading-relaxed">
-                We synchronize multiple marketing disciplines to build a high-converting digital engine for your brand. Here is how we categorize our core strategies.
-            </p>
         </div>
-    </section>
+
+        <div class="dm-text-side">
+            <div class="dm-elite-badge">
+                <div class="pulse-icon"></div>
+                MARKETING INTELLIGENCE HUB
+            </div>
+            <h1>Digital <br><span class="dm-glow">Landscape.</span></h1>
+            <p class="dm-paragraph">
+                We synchronize multiple marketing disciplines to build a 
+                high-converting digital engine. At <strong>WEBPROARTS</strong>, we don't just 
+                manage accounts—we engineer market dominance.
+            </p>
+            <div class="dm-cta-group">
+                <button class="dm-primary-btn">Start My Audit</button>
+                <div class="dm-client-stats">
+                    <strong>2026</strong>
+                    <span>TECH STACK READY</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+/* Reset and Base */
+.dm-master-hero {
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+.dm-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+    align-items: center;
+}
+
+/* Swiper Styling */
+.dmSwiper {
+    width: 340px;
+    height: 480px;
+}
+
+.dm-tool-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+    color: white;
+}
+
+/* Authentic Brand Gradients */
+.g-ads { background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%); }
+.m-business { background: linear-gradient(135deg, #0668E1 0%, #003f8f 100%); }
+.g-analytics { background: linear-gradient(135deg, #E37400 0%, #ff9100 100%); }
+
+.dm-card-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.real-logo {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.brand-name {
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.5px;
+}
+
+.dm-card-mid {
+    margin-top: 40px;
+}
+
+.metric-label {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.metric-value {
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: -4px;
+    line-height: 1;
+}
+
+.metric-value small {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 5px;
+}
+
+.dm-card-foot {
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    opacity: 0.6;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 20px;
+}
+
+/* Text Area (Same to Same Styles) */
+.dm-text-side { padding-left: 80px; }
+
+.dm-elite-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #f0f4f8;
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: #16598a;
+    margin-bottom: 35px;
+}
+
+.pulse-icon {
+    width: 10px; height: 10px; background: #28b8d9; border-radius: 50%;
+    animation: dmPulse 2s infinite;
+}
+
+@keyframes dmPulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.6); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.dm-text-side h1 {
+    font-size: 6rem;
+    font-weight: 900;
+    line-height: 0.9;
+    color: #04131a;
+    margin-bottom: 35px;
+    letter-spacing: -4px;
+}
+
+.dm-glow { color: #28b8d9; }
+
+.dm-paragraph {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    max-width: 550px;
+    margin-bottom: 50px;
+}
+
+.dm-cta-group { display: flex; align-items: center; gap: 40px; }
+
+.dm-primary-btn {
+    background: #0d1b2a;
+    color: #fff;
+    border: none;
+    padding: 22px 45px;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.dm-primary-btn:hover { background: #28b8d9; transform: translateY(-5px); }
+
+.dm-client-stats { display: flex; flex-direction: column; line-height: 1; }
+.dm-client-stats strong { font-size: 1.5rem; color: #000; font-weight: 900; }
+.dm-client-stats span { font-size: 9px; font-weight: 800; color: #aaa; letter-spacing: 2px; }
+
+@media (max-width: 1100px) {
+    .dm-hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .dm-text-side { padding-left: 0; margin-top: 60px; }
+    .dmSwiper { margin: 0 auto; width: 300px; height: 420px; }
+    .dm-cta-group { flex-direction: column; }
+    .dm-text-side h1 { font-size: 4rem; }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const swiper = new Swiper('.dmSwiper', {
+            effect: 'cards',
+            grabCursor: true,
+            perSlideOffset: 14,
+            perSlideRotate: 2,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+    });
+</script>
 
     <section class="pb-32">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -325,7 +580,7 @@
 
     <!-- CTA -->
 <div class="text-center mt-16">
-    <a href="{% url 'contact_page' %}"
+    <a href="{% url 'contact.html' %}"
        class="inline-block px-8 py-4 bg-gradient-to-r from-[#06b6d4] to-[#3b82f6] text-white font-bold rounded-xl shadow-md hover:scale-105 transition">
          Start Growing Your Business
     </a>
@@ -335,32 +590,42 @@
 
 
 
-<section class="dm-services-section">
-    <div class="services-container">
+<section class="dm-master-section">
+    <div class="master-container">
         
-        <div class="services-sidebar">
-            <h2>Digital Marketing Services</h2>
-            <button class="dm-btn active" onclick="showDMContent('seo', event)">Search Engine Optimization</button>
-            <button class="dm-btn" onclick="showDMContent('smm', event)">Social Media Marketing</button>
-            <button class="dm-btn" onclick="showDMContent('email', event)">Email Marketing</button>
-            <button class="dm-btn" onclick="showDMContent('ppc', event)">PPC Advertising</button>
-            <button class="dm-btn" onclick="showDMContent('google', event)">Google Ads</button>
-            <button class="dm-btn" onclick="showDMContent('meta', event)">Meta Ads</button>
+        <div class="master-sidebar">
+            <div class="sidebar-header">
+                <h2>Digital Marketing Solutions</h2>
+                <p>Scaling brands through data-driven strategies.</p>
+            </div>
+            <div class="button-group">
+                <button class="master-btn active" onclick="updateMasterView('seo', event)">Search Engine Optimization</button>
+                <button class="master-btn" onclick="updateMasterView('smm', event)">Social Media Marketing</button>
+                <button class="master-btn" onclick="updateMasterView('email', event)">Email Marketing</button>
+                <button class="master-btn" onclick="updateMasterView('ppc', event)">PPC Advertising</button>
+                <button class="master-btn" onclick="updateMasterView('google', event)">Google Ads</button>
+                <button class="master-btn" onclick="updateMasterView('meta', event)">Meta Ads</button>
+            </div>
         </div>
 
-        <div class="services-main-content" id="dm-display-area">
-            <div class="image-wrapper">
-                <img src="https://www.firstwebsol.com/wp-content/uploads/2021/01/digital-marketing.jpg" id="dm-image" alt="Service Image">
+        <div class="master-content" id="master-display">
+            <div class="content-header">
+                <h3 id="m-title">Search Engine Optimization (SEO)</h3>
+                <div class="status-badge">Premium Service</div>
             </div>
-            <div class="text-wrapper">
-                <h3 id="dm-title">Search Engine Optimization (SEO)</h3>
-                <p id="dm-desc">
-                    SEO is the backbone of organic growth... (Your 250 words go here)
-                </p>
-                
-                <div class="info-details">
-                    <ul id="dm-features">
-                        </ul>
+            
+            <div class="content-body">
+                <div class="main-text">
+                    <h4>Overview & Philosophy</h4>
+                    <p id="m-desc-main"></p>
+                    
+                    <h4>Deep Strategy & Methodology</h4>
+                    <p id="m-desc-strategy"></p>
+                </div>
+
+                <div class="feature-grid-wrapper">
+                    <h4>Key Deliverables</h4>
+                    <ul id="m-features" class="feature-grid"></ul>
                 </div>
             </div>
         </div>
@@ -369,193 +634,217 @@
 </section>
 
 <style>
-/* Main Section Container */
-.dm-services-section {
-    background-color: #f0f2f5; /* Light grey background like a clean dashboard */
-    padding: 60px 20px;
-    font-family: 'Poppins', sans-serif;
+/* Base Styles */
+.dm-master-section {
+    background-color: #f4f7f9;
+    padding: 80px 20px;
+    font-family: 'Inter', 'Poppins', sans-serif;
 }
 
-.services-container {
-    max-width: 1200px;
+.master-container {
+    max-width: 1300px;
     margin: 0 auto;
-    display: flex; /* This creates the Sidebar + Content side-by-side */
-    gap: 30px;
-    align-items: flex-start;
-}
-
-/* LEFT SIDEBAR (The Blue Box) */
-.services-sidebar {
-    flex: 1; /* Takes up 1 part of the space */
-    background-color: #078fc5; /* Professional Blue */
-    padding: 30px 20px;
-    border-radius: 12px;
-    color: white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.services-sidebar h2 {
-    font-size: 1.4rem;
-    margin-bottom: 25px;
-    font-weight: 600;
-    line-height: 1.3;
-}
-
-/* SIDEBAR BUTTONS */
-.dm-btn {
-    width: 100%;
-    padding: 14px 20px;
-    margin-bottom: 12px;
-    border: none;
-    border-radius: 8px; /* Rounded corners like the screenshot */
-    background-color: #ffffff;
-    color: #333;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-align: left;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: block;
-}
-
-/* When the button is ACTIVE (Clicked) */
-.dm-btn.active {
-    background-color: #e3f2fd; /* Light blue tint */
-    color: #0056b3;
-    font-weight: 700;
-    transform: scale(1.02); /* Slight pop-out effect */
-}
-
-/* RIGHT SIDE CONTENT (The Large White Area) */
-.services-main-content {
-    flex: 2.5; /* Takes up 2.5 parts of the space (Wider) */
+    display: flex;
     background: #ffffff;
-    border-radius: 12px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    min-height: 850px; /* Ensures space for 1000+ words */
 }
 
-.image-wrapper {
-    width: 100%;
-    height: 350px; /* Large image area */
-    background-color: #fff;
-    border-bottom: 1px solid #eee;
+/* Sidebar Styling */
+.master-sidebar {
+    flex: 0 0 320px;
+    background-color: #0d1b2a;
+    padding: 40px 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
-.image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Keeps the "Website" graphic clean */
-    padding: 20px;
+.sidebar-header h2 {
+    font-size: 1.5rem;
+    color: #4cc9f0;
+    margin-bottom: 10px;
 }
 
-.text-wrapper {
-    padding: 40px;
-}
-
-.text-wrapper h3 {
-    font-size: 2.2rem;
-    color: #1a1a1a;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.text-wrapper p {
-    color: #555;
-    line-height: 1.8;
-    font-size: 1.05rem;
+.sidebar-header p {
+    font-size: 0.85rem;
+    opacity: 0.7;
     margin-bottom: 30px;
 }
 
-/* Feature List (Checkmarks) */
-.info-details ul {
+.master-btn {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    color: #cbd5e0;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.master-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.master-btn.active {
+    background: #4cc9f0;
+    color: #0d1b2a;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+}
+
+/* Content Area Styling */
+.master-content {
+    flex: 1;
+    padding: 50px;
+    overflow-y: auto;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#m-title {
+    font-size: 2.4rem;
+    color: #0d1b2a;
+    font-weight: 800;
+}
+
+.status-badge {
+    background: #e0f7fa;
+    color: #0077b6;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.main-text h4 {
+    color: #0077b6;
+    margin: 25px 0 10px 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.main-text p {
+    line-height: 1.9;
+    color: #4a5568;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Feature Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
     list-style: none;
     padding: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Shows features in 2 columns */
-    gap: 15px;
+    margin-top: 20px;
 }
 
-.info-details li {
-    background: #f8f9fa;
-    padding: 12px 15px;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    color: #444;
-    border-left: 4px solid #0056b3;
+.feature-grid li {
+    background: #f8fafc;
+    padding: 15px;
+    border-left: 4px solid #4cc9f0;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #2d3748;
 }
 
-/* Mobile Responsive */
-@media (max-width: 900px) {
-    .services-container {
-        flex-direction: column;
-    }
-    .services-sidebar {
-        width: 100%;
-    }
-    .info-details ul {
-        grid-template-columns: 1fr;
-    }
+/* Responsiveness */
+@media (max-width: 992px) {
+    .master-container { flex-direction: column; }
+    .master-sidebar { flex: none; width: 100%; }
+    .feature-grid { grid-template-columns: 1fr; }
 }
 </style>
 
 <script>
-const dmData = {
+const megaData = {
     seo: {
-        title: "Search Engine Optimization (SEO)",
-        desc: "SEO is not just about keywords; it's about authority and user experience. In the modern landscape, Google rewards websites that provide genuine value. Our SEO strategy begins with a deep technical audit of your site to ensure it is crawlable and fast. We then perform exhaustive keyword research to identify 'buying intent' terms that your competitors are missing.<br><br>We focus on three pillars: Technical SEO, Content Strategy, and Authority Building. By optimizing your site’s metadata, internal linking, and mobile responsiveness, we build a foundation that lasts. We then craft high-quality content that answers your customers' questions, positioning you as a thought leader in your industry. Finally, through ethical white-hat link-building, we boost your domain authority, ensuring your brand stays on page one for the long term.",
-        features: ["Local & Global SEO Setup", "Core Web Vitals Technical Fixes", "Semantically Rich Content Writing", "Monthly Performance & Ranking Reports"]
+        title: "Search Engine Optimization",
+        main: "Search Engine Optimization (SEO) is the foundational pillar of digital longevity. In an era where 93% of online experiences begin with a search engine, appearing on the first page of Google isn't a luxury—it's a necessity. Our approach to SEO moves beyond mere keyword stuffing. We treat your website as a living ecosystem, focusing on E-E-A-T (Experience, Expertise, Authoritativeness, and Trustworthiness). By aligning your site with Google’s sophisticated algorithms, we ensure that your brand doesn't just rank, but dominates. This involves a deep dive into user intent analysis, ensuring that when a user searches for a solution, your content provides the most comprehensive answer available.",
+        strategy: "Our 1000-word deep-dive strategy begins with Technical Excellence. We optimize Core Web Vitals, ensuring lightning-fast load times and seamless mobile responsiveness to reduce bounce rates. Next, we transition into Semantic Content Engineering. We don't just write for bots; we write for humans, using LSI keywords and structured data (Schema Markup) to help search engines understand the context of your services. The final stage is Authority Amplification. Through strategic, high-quality backlink acquisition and digital PR, we signal to the web that your site is a primary resource. This holistic loop creates a compounding effect: better rankings lead to more traffic, which leads to higher authority, permanently lowering your customer acquisition costs compared to paid channels.",
+        features: ["Technical SEO & Schema Integration", "Competitor Gap Analysis", "High-Authority Link Building", "Voice Search Optimization", "Local Map Pack Domination", "Content Decay Refreshing"]
     },
     smm: {
-        title: "Social Media Marketing (SMM)",
-        desc: "Social media is the digital storefront of your brand. Our SMM service goes beyond 'posting pictures.' We build community-driven strategies that help brands grow, engage, and convert audiences across Facebook, Instagram, LinkedIn, and Twitter. We analyze your audience demographics to determine the perfect voice, tone, and timing for your content.<br><br>Our approach includes a mix of educational content, brand storytelling, and interactive polls or live sessions. We don't just chase 'likes'; we chase 'meaningful engagement.' By fostering a two-way conversation between you and your followers, we turn passive observers into loyal brand advocates. We also provide full community management, ensuring that every comment and message is handled professionally to maintain your brand’s reputation.",
-        features: ["Custom Content Calendar Design", "Platform-Specific Graphics & Reels", "Audience Engagement & Community Management", "Social Listening & Trend Analysis"]
+        title: "Social Media Marketing",
+        main: "Social Media Marketing has evolved from simple post-scheduling into a complex discipline of psychological engagement and community architecture. Your brand’s presence on platforms like Instagram, LinkedIn, and TikTok serves as its digital pulse. We create a cohesive narrative that humanizes your corporation, turning cold followers into warm brand advocates. Our mission is to break through the 'infinite scroll' by creating thumb-stopping content that resonates with the specific sub-cultures of your target audience. We analyze social signals and sentiment to ensure your brand is always part of the right conversations at the right time.",
+        strategy: "The core of our SMM strategy is the 'Value-First' funnel. We categorize content into three buckets: Awareness (viral-potential reels and educational carousels), Consideration (behind-the-scenes stories and testimonials), and Conversion (direct-response social commerce). We utilize advanced social listening tools to monitor your competitors and industry trends, allowing us to pivot your strategy in real-time. By managing your community with a dedicated 'Human-Touch' approach, we ensure every comment, DM, and mention is an opportunity for brand loyalty. This isn't just about vanity metrics like likes; we focus on 'Shareability' and 'Save-Rate,' which are the true indicators of content value in the modern algorithm.",
+        features: ["Multi-Platform Content Calendars", "Influencer Partnership Management", "Social Commerce Store Setup", "Crisis Management & PR", "Viral Trend Integration", "Advanced Sentiment Analytics"]
     },
     email: {
         title: "Email Marketing & Automation",
-        desc: "Email marketing remains the highest ROI channel in digital marketing. While social media algorithms change, your email list is an asset you own. We help businesses build stronger connections with their audience through powerful automation and segmentation. We don't send 'spam'; we send personalized value that lands directly in the primary inbox.<br><br>Our strategy includes building lead magnets to grow your list, designing responsive templates that look great on mobile, and setting up complex 'drip campaigns.' These automated sequences nurture your leads from their first signup until they are ready to purchase. By segmenting your list based on user behavior (clicks, past purchases, interests), we ensure that every email is relevant, leading to higher open rates and consistent sales growth.",
-        features: ["Automated Welcome & Sales Funnels", "A/B Testing for Subject Lines", "Advanced List Segmentation", "Spam-Filter Optimization"]
+        main: "Email remains the only marketing channel where you have a direct, undistorted line to your customer. While social platforms can limit your reach, your email list is a proprietary asset that yields the highest ROI in the industry—often exceeding $42 for every $1 spent. Our Email Marketing service focuses on sophisticated lifecycle management. We don't believe in 'blasting' your list. Instead, we use precision segmentation to ensure that every subscriber receives content that is relevant to their specific stage in the buyer's journey, whether they are a new lead or a repeat VIP customer.",
+        strategy: "Our advanced automation strategy centers on the 'Behavioral Trigger' model. We design complex workflows that react to user actions in real-time. If a user abandons a cart on ThinknShop, they receive a tiered recovery sequence. If a reader finishes a BlogBeat article, they are invited into a niche-specific newsletter. We utilize A/B split testing on every element—from subject lines and 'From' names to CTA button colors and send times. Furthermore, we prioritize Deliverability Engineering, ensuring your emails bypass the 'Promotions' tab and land in the Primary Inbox. By cleaning your lists regularly and managing sender reputation, we protect your digital standing and maximize your conversion rates.",
+        features: ["Drip Campaign Automation", "Behavioral Trigger Sequences", "Hyper-Personalized Segmentation", "HTML & Plain Text Optimization", "List Hygiene & Scrubbing", "Detailed Revenue Attribution"]
     },
     ppc: {
-        title: "Pay-Per-Click Advertising (PPC)",
-        desc: "PPC is the fastest way to drive instant traffic and generate quality leads. Unlike organic methods, PPC gives you total control over who sees your brand and when. We manage sophisticated campaigns across search engines and display networks to ensure your budget is spent on clicks that actually lead to conversions. We focus on the 'Quality Score' to keep your Cost-Per-Click (CPC) low while keeping your ad position high.<br><br>Every campaign is data-driven. We constantly monitor bid prices, negative keywords, and landing page performance. Our goal is to maximize your Return on Ad Spend (ROAS). Whether you need immediate sales for an e-commerce product or high-value leads for a service-based business, our PPC management ensures that every dollar is tracked and optimized for the highest possible profit.",
-        features: ["Strategic Bid Management", "Landing Page UX Optimization", "Remarketing & Retargeting Campaigns", "Negative Keyword Filtering"]
+        title: "PPC Advertising",
+        main: "Pay-Per-Click (PPC) is the engine of immediate growth. In a competitive market, waiting for organic SEO can take months, but PPC allows you to jump to the front of the line instantly. We view PPC as a scientific experiment where data dictates every dollar spent. Our management focuses on the 'Total Profitability' of your account, not just the number of clicks. We align your ad copy with high-intent search terms to ensure that every visitor is a qualified lead. This precision-targeted approach ensures that your budget isn't wasted on 'window shoppers' but is invested in motivated buyers.",
+        strategy: "Our PPC strategy is built on the 'Continuous Optimization' loop. We begin with granular keyword expansion, identifying long-tail phrases that offer high conversion at a lower cost. We then focus on Landing Page Synergy—ensuring that the promise made in the ad is perfectly fulfilled on the website. By implementing 'Negative Keyword' lists, we aggressively filter out irrelevant traffic, saving up to 30% of your budget in the first month. We also deploy sophisticated Remarketing layers, following up with users who didn't convert on their first visit. This multi-touch approach ensures that your brand stays top-of-mind, significantly increasing the likelihood of a sale over time.",
+        features: ["Real-Time Bid Management", "Landing Page UX Audits", "Competitor Ad Monitoring", "ROAS-Focused Scaling", "Cross-Channel Attribution", "Ad Extension Optimization"]
     },
     google: {
-        title: "Google Ads (Search Engine Marketing)",
-        desc: "Google Ads is where customers go when they are ready to buy. We ensure your business is at the top of the search results at that exact moment. From simple Search ads to complex Shopping campaigns for e-commerce, we tailor every project to meet your unique business goals. We focus on 'High-Intent' keywords to ensure your ads aren't just seen, but clicked by motivated buyers.<br><br>Our team handles everything from keyword selection to writing high-converting ad copy. We also set up advanced conversion tracking so you can see exactly which ads are bringing in phone calls, form submissions, or sales. By constantly analyzing search term reports, we refine your targeting to eliminate wasted spend, ensuring your Google Ads account becomes a predictable revenue-generating machine.",
-        features: ["Google Shopping & Search Experts", "Conversion Tracking & Attribution", "High-CTR Ad Copywriting", "Competitor Keyword Conquesting"]
+        title: "Google Ads Management",
+        main: "Google Ads is the undisputed king of search intent. When someone searches for a product or service, they are expressing an immediate need. Our Google Ads management service ensures you are the answer to that need. We handle the full spectrum of the Google ecosystem, including Search, Display, Shopping, and YouTube Ads. Our goal is to create a 'Surround Sound' effect for your brand, where your potential customers see you across the web, building a sense of omnipresence and trust that competitors simply cannot match.",
+        strategy: "We utilize a 'Tiered Bidding' strategy that prioritizes high-conversion hours and locations. By analyzing historical data, we identify the exact times of day when your customers are most likely to buy and increase bids accordingly. Our 'Quality Score' optimization is a core focus; by improving ad relevance and landing page experience, we help you pay less than your competitors for the same top positions. For e-commerce projects like ThinknShop, we implement Performance Max (PMax) campaigns, leveraging Google’s AI to find customers across all channels. We back all of this with transparent, real-time dashboards so you can see exactly how many leads or sales every cent is generating.",
+        features: ["P-Max & Shopping Integration", "Local Services Ads Setup", "YouTube Video Ad Strategy", "Display Network Remarketing", "In-Market Audience Targeting", "Click-Fraud Protection"]
     },
     meta: {
-        title: "Meta Ads (Facebook & Instagram)",
-        desc: "Meta Ads offer the most sophisticated visual targeting in the world. We craft visual-first campaigns that build trust and drive desire. Because Facebook and Instagram are visual platforms, we focus heavily on 'Creative Excellence.' This means testing different image styles, video formats, and 'Hook' headlines to see what resonates most with your specific target audience.<br><br>We utilize Meta's advanced pixel tracking to build custom and lookalike audiences. This allows us to find users who are similar to your best customers. Our strategy involves a full-funnel approach: Awareness ads to introduce your brand, Consideration ads to explain your value, and Retargeting ads to close the sale for those who visited your site but didn't buy. We provide transparent reporting on reach, frequency, and most importantly, your bottom-line results.",
-        features: ["Lookalike & Custom Audience Setup", "Dynamic Product Ads (DPA)", "A/B Creative Testing", "Pixel & API Conversion Setup"]
+        title: "Meta Ads (FB & IG)",
+        main: "Meta Ads represent the pinnacle of interest-based and demographic targeting. While Google captures 'Intent,' Meta generates 'Discovery.' We help brands find customers who didn't even know they needed the product yet. By leveraging the Facebook Pixel and Conversions API, we track user behavior with surgical precision. Our Meta strategy is visual-first, utilizing high-production video and static imagery to evoke emotional responses. We understand that on Facebook and Instagram, you aren't just competing with other brands; you're competing with a user's friends and family for attention.",
+        strategy: "The Meta strategy we deploy is built on 'Rapid Creative Testing.' We run dozens of variations of ad copy, headlines, and visuals simultaneously to identify the 'Winners' early on. Once a winning creative is found, we scale the budget aggressively using 'Lookalike Audiences' (LALs)—finding millions of users who share the same characteristics as your current best customers. We also implement a 'Full-Funnel Retargeting' system, showing different ads to people who viewed a video versus those who added an item to a cart. This ensures a personalized experience that moves the user naturally toward a purchase. We focus on 'Contribution Margin,' ensuring that your Meta Ads are driving actual profit, not just top-line revenue.",
+        features: ["Pixel & API Implementation", "Dynamic Creative Optimization", "Lookalike Audience Scaling", "UGC Content Strategy", "Catalog & Shop Integration", "Frequency Cap Management"]
     }
 };
 
-function showDMContent(key) {
-    const displayArea = document.getElementById('dm-display-area');
-    displayArea.style.opacity = 0;
+function updateMasterView(key, event) {
+    const display = document.getElementById('master-display');
+    display.style.opacity = 0;
+    display.style.transform = "translateY(10px)";
 
     setTimeout(() => {
-        const data = dmData[key];
-        document.getElementById('dm-title').innerText = data.title;
-        document.getElementById('dm-desc').innerHTML = data.desc;
+        const data = megaData[key];
+        document.getElementById('m-title').innerText = data.title;
+        document.getElementById('m-desc-main').innerHTML = data.main;
+        document.getElementById('m-desc-strategy').innerHTML = data.strategy;
         
-        const list = document.getElementById('dm-features');
+        const list = document.getElementById('m-features');
         list.innerHTML = ""; 
         data.features.forEach(f => {
             const li = document.createElement('li');
             li.innerText = f;
             list.appendChild(li);
         });
-        displayArea.style.opacity = 1;
-    }, 200);
+        
+        display.style.opacity = 1;
+        display.style.transform = "translateY(0)";
+    }, 250);
 
-    const buttons = document.querySelectorAll('.dm-btn');
+    const buttons = document.querySelectorAll('.master-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     event.currentTarget.classList.add('active');
 }
+
+// Initialize with SEO
+window.onload = () => {
+    updateMasterView('seo', { currentTarget: document.querySelector('.master-btn') });
+};
 </script>
 
 

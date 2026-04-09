@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-g!acg391b1fg&xpkm0vdwm1+8f18qyvk-dtm$)4eaaupx$q^)9
 
 # SECURITY WARNING: don't run with debug turned on in production!
 import os
-DEBUG = True
+DEBUG = False if os.getenv('DJANGO_ENV') == 'production' else True
+'''where is "django_env" set?
+    - in .env file (for local development)
+    - in environment variables (for production) '''
 
 if DEBUG:
     SITE_URL = "http://127.0.0.1:8000"

@@ -74,7 +74,7 @@
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#28b8d9] transition-all group-hover/blog:w-full"></span>
             </a>
 
-            <a href="{% url 'contact_page' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all shadow-lg shadow-[#16598a]/10">Contact Now</a>
+            <a href="{% url 'contact.html' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all shadow-lg shadow-[#16598a]/10">Contact Now</a>
         </nav>
 
         <button class="lg:hidden p-2 text-[#16598a] hover:bg-slate-50 rounded-lg transition-colors" onclick="toggleMenu()" aria-label="Open Menu">
@@ -129,7 +129,7 @@
     </div>
 
     <div class="p-6 border-t border-slate-50">
-        <a href="{% url 'contact_page' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold shadow-lg">Get Started Now</a>
+        <a href="{% url 'contact.html' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold shadow-lg">Get Started Now</a>
     </div>
 </div>
 
@@ -156,13 +156,197 @@
 </script>
 
 
-    <section class="py-20 bg-subtle-grid border-b border-slate-50">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <span class="inline-block px-4 py-1.5 mb-6 text-[10px] font-black tracking-[0.4em] text-[#16598a] bg-[#28b8d9]/10 rounded-full uppercase">Transparency & Excellence</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-[#04131a] mb-8 tracking-tighter">Everything you need <br>to <span class="text-[#28b8d9]">know.</span></h1>
-            <p class="text-slate-500 text-lg md:text-xl leading-relaxed">We believe in informed decisions. Below is the full breakdown of how Web Pro Arts builds, scales, and delivers digital success.</p>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<section class="video-fixed-hero">
+    <div class="video-grid">
+        
+        <div class="video-visual">
+            <div class="swiper videoOnlySwiper">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide">
+                        <div class="v-mega-card premiere-brand">
+                            <div class="v-mega-logo-box">
+                                <svg viewBox="0 0 24 24" fill="#EA77FF" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v24h24V0H0zm14.85 18H9.15v-1.102h1.837V7.102H9.15V6h5.7c2.25 0 3.75 1.25 3.75 3.125 0 1.5-.975 2.55-2.4 2.925 1.575.3 2.7 1.425 2.7 3.225 0 1.725-1.125 2.725-3.3 2.725h-.75v-.102zm.675-6.675c.9 0 1.5-.525 1.5-1.35s-.6-1.35-1.5-1.35h-.9v2.7h.9zm.225 3.525c1.05 0 1.725-.6 1.725-1.5s-.675-1.5-1.725-1.5h-1.125v3h1.125z"/></svg>
+                            </div>
+                            <div class="v-mega-card-info">
+                                <span class="v-mega-label">TIMELINE ARCHITECTURE</span>
+                                <div class="v-mega-status">PREMIERE PRO MASTERED</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="v-mega-card ae-brand">
+                            <div class="v-mega-logo-box">
+                                <svg viewBox="0 0 24 24" fill="#D191FF" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v24h24V0H0zm14.85 18H9.15v-1.1h1.837V7.1h-1.837V6h5.7c2.25 0 3.75 1.25 3.75 3.125 0 1.5-.975 2.55-2.4 2.925 1.575.3 2.7 1.425 2.7 3.225 0 1.725-1.125 2.725-3.3 2.725h-.75v-.1z"/></svg>
+                            </div>
+                            <div class="v-mega-card-info">
+                                <span class="v-mega-label">MOTION DYNAMICS</span>
+                                <div class="v-mega-status">VFX & COMPOSITING</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="v-mega-card resolve-brand">
+                            <div class="v-mega-logo-box">
+                                <svg viewBox="0 0 24 24" fill="#4cc9f0" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18.25c-3.452 0-6.25-2.798-6.25-6.25S8.548 5.75 12 5.75s6.25 2.798 6.25 6.25-2.798 6.25-6.25 6.25z"/></svg>
+                            </div>
+                            <div class="v-mega-card-info">
+                                <span class="v-mega-label">COLOR SCIENCE</span>
+                                <div class="v-mega-status">CINEMATIC GRADING</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-    </section>
+
+        <div class="video-text">
+            <div class="video-badge">
+                <span class="v-pulse"></span> CINEMATIC PRODUCTION HUB
+            </div>
+            <h1 class="v-title">Visual Story <br><span class="v-highlight">Engineered.</span></h1>
+            <p class="v-desc">
+                We believe in informed decisions. Below is the breakdown of how 
+                <strong>WEBPROARTS</strong> utilizes industry-standard technology to build, 
+                scale, and deliver cinematic success.
+            </p>
+            <div class="v-action-row">
+                <button class="v-btn-main">Start My Production</button>
+                <div class="v-version">
+                    <strong>8K RAW</strong>
+                    <span>STUDIO READY</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+/* Section Base */
+.video-fixed-hero {
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+    width: 100%;
+    align-items: center;
+}
+
+/* Swiper Sizing */
+.videoOnlySwiper {
+    width: 360px;
+    height: 500px;
+}
+
+.v-mega-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+/* BIG LOGO SVG BOX */
+.v-mega-logo-box {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.v-mega-logo-box svg {
+    width: 150px; /* MASSIVE STUDIO LOGO */
+    height: 150px;
+}
+
+.v-mega-card-info { margin-top: 30px; }
+.v-mega-label { font-size: 10px; font-weight: 900; letter-spacing: 5px; color: rgba(255,255,255,0.7); display: block; margin-bottom: 10px; }
+.v-mega-status { font-size: 13px; font-weight: 800; color: #fff; text-transform: uppercase; }
+
+/* STUDIO BRAND COLORS */
+.premiere-brand { background: #00005B; }
+.ae-brand { background: #00005B; border: 1px solid #D191FF; }
+.resolve-brand { background: linear-gradient(135deg, #0d1b2a 0%, #001d3d 100%); }
+
+/* Right Side Text (Traditional WEBPROARTS Style) */
+.video-text { padding-left: 80px; }
+
+.video-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #f4f7fa;
+    padding: 12px 25px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: #16598a;
+    margin-bottom: 30px;
+}
+
+.v-pulse { width: 8px; height: 8px; background: #28b8d9; border-radius: 50%; animation: vp 2s infinite; }
+@keyframes vp { 0% { opacity: 1; } 50% { opacity: 0.3; transform: scale(1.4); } 100% { opacity: 1; } }
+
+.v-title { font-size: 5.5rem; font-weight: 900; line-height: 1; color: #05161d; letter-spacing: -4px; margin-bottom: 35px; }
+.v-highlight { color: #28b8d9; }
+.v-desc { font-size: 1.2rem; color: #666; line-height: 1.8; max-width: 500px; margin-bottom: 50px; }
+
+/* Buttons */
+.v-action-row { display: flex; align-items: center; gap: 40px; }
+.v-btn-main { background: #000; color: #fff; padding: 22px 45px; border-radius: 100px; border: none; font-weight: 800; font-size: 1rem; cursor: pointer; transition: 0.3s; }
+.v-btn-main:hover { background: #28b8d9; transform: translateY(-5px); }
+
+.v-version { display: flex; flex-direction: column; line-height: 1; }
+.v-version strong { font-size: 1.5rem; color: #000; font-weight: 900; }
+.v-version span { font-size: 9px; font-weight: 800; color: #aaa; letter-spacing: 2px; }
+
+/* Mobile */
+@media (max-width: 1100px) {
+    .video-grid { grid-template-columns: 1fr; text-align: center; }
+    .video-text { padding-left: 0; margin-top: 60px; }
+    .videoOnlySwiper { margin: 0 auto; width: 300px; height: 420px; }
+    .v-action-row { flex-direction: column; }
+    .v-title { font-size: 3.5rem; }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new Swiper('.videoOnlySwiper', {
+            effect: 'cards',
+            grabCursor: true,
+            loop: true,
+            autoplay: { delay: 3000 },
+            perSlideOffset: 12,
+            perSlideRotate: 3,
+        });
+    });
+</script>
 
     <section id="details" class="py-24 space-y-32">
         
@@ -312,34 +496,49 @@
     </div>
 </section> -->
 
-<section class="video-prod-section">
-    <div class="video-container-box">
+<section class="video-master-section">
+    <div class="master-container">
         
-        <div class="video-sidebar-nav">
-            <h2>Video Production Services</h2>
-            <button class="v-nav-btn active" onclick="changeVideo('ani2d', event)">2D Animation Video</button>
-            <button class="v-nav-btn" onclick="changeVideo('promo', event)">Commercial & Explainer</button>
-            <button class="v-nav-btn" onclick="changeVideo('social', event)">Insta, Reels & YouTube</button>
-            <button class="v-nav-btn" onclick="changeVideo('wedding', event)">Wedding & Short Films</button>
-            <button class="v-nav-btn" onclick="changeVideo('logo', event)">Logo Animation & Intro</button>
-            <button class="v-nav-btn" onclick="changeVideo('music', event)">Invitation & Music Video</button>
+        <div class="master-sidebar">
+            <div class="sidebar-header">
+                <h2>Production Studio</h2>
+                <p>Visual storytelling through cinematic engineering.</p>
+            </div>
+            <div class="button-group">
+                <button class="video-master-btn active" onclick="updateVideoView('ani2d', event)">2D Animation Video</button>
+                <button class="video-master-btn" onclick="updateVideoView('promo', event)">Commercial & Explainer</button>
+                <button class="video-master-btn" onclick="updateVideoView('social', event)">Insta, Reels & YouTube</button>
+                <button class="video-master-btn" onclick="updateVideoView('wedding', event)">Wedding & Short Films</button>
+                <button class="video-master-btn" onclick="updateVideoView('logo', event)">Logo Animation & Intro</button>
+                <button class="video-master-btn" onclick="updateVideoView('music', event)">Invitation & Music Video</button>
+            </div>
         </div>
 
-        <div class="video-display-card" id="video-display-area">
-            <div class="video-img-frame">
-                <img src="https://filmora.wondershare.net/images/images2022/advertising-landing/hero-banner.png" id="v-main-img" alt="Video Services">
-            </div>
-            <div class="video-content-body">
+        <div class="master-content" id="video-master-display">
+            <div class="content-header">
                 <h3 id="v-title">2D Animation Video Production</h3>
-                <div id="v-description" class="v-text-rich">
-                    2D animation is one of the most effective ways to simplify complex messages while keeping your audience visually engaged. Whether you are creating a children’s educational series or a corporate process video, our 2D animation services bring your vision to life with fluid motion and vibrant storytelling. We don't just 'move' characters; we give them personality and purpose. <br><br>Our production pipeline includes everything from initial concept development and professional scriptwriting to character design and final compositing. We focus heavily on the 'rhythm' of the animation to ensure it aligns perfectly with the voiceover and background score.
+                <div class="status-badge">Cinematic Excellence</div>
+            </div>
+            
+            <div class="content-body">
+                <div class="main-text">
+                    <h4>I. Creative Philosophy</h4>
+                    <p id="v-desc-main"></p>
+                    
+                    <h4>II. Strategic Storyboarding</h4>
+                    <p id="v-desc-strategy"></p>
+
+                    <h4>III. Technical Post-Production</h4>
+                    <p id="v-desc-technical"></p>
+
+                    <h4>IV. Distribution & Future Ready</h4>
+                    <p id="v-desc-future"></p>
                 </div>
-                <ul id="v-features-list" class="v-grid-list">
-                    <li>Custom Character Design</li>
-                    <li>Storyboarding & Scripting</li>
-                    <li>Fluid Motion Graphics</li>
-                    <li>High-Quality Voiceovers</li>
-                </ul>
+
+                <div class="feature-grid-wrapper">
+                    <h4>V. Studio Deliverables</h4>
+                    <ul id="v-features" class="feature-grid"></ul>
+                </div>
             </div>
         </div>
 
@@ -347,189 +546,230 @@
 </section>
 
 <style>
-/* Reset and Container */
-.video-prod-section {
-    background-color: #f4f7f6;
+/* Scoped Styles - Professional Blue Palette */
+.video-master-section {
+    background-color: #f4f7f9;
     padding: 80px 20px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', 'Poppins', sans-serif;
 }
 
-.video-container-box {
-    max-width: 1200px;
+.video-master-section .master-container {
+    max-width: 1300px;
     margin: 0 auto;
-    display: flex !important; /* FORCES SIDE-BY-SIDE */
-    flex-direction: row;
-    gap: 30px;
-    align-items: flex-start;
+    display: flex;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    min-height: 850px;
 }
 
-/* Sidebar Styling */
-.video-sidebar-nav {
-    flex: 1; /* Sidebar takes 30% */
-    background-color: #078fc5; /* Professional Blue */
-    padding: 35px 20px;
-    border-radius: 15px;
-    min-width: 300px;
-    box-shadow: 0 10px 25px rgba(0, 86, 179, 0.15);
+/* Sidebar - Midnight Blue */
+.video-master-section .master-sidebar {
+    flex: 0 0 320px;
+    background-color: #0d1b2a; 
+    padding: 40px 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
-.video-sidebar-nav h2 {
-    color: #ffffff;
-    font-size: 1.4rem;
+.video-master-section .sidebar-header h2 {
+    font-size: 1.5rem;
+    color: #4cc9f0; /* Sky Blue */
+    margin-bottom: 10px;
+}
+
+.video-master-section .sidebar-header p {
+    font-size: 0.85rem;
+    opacity: 0.7;
     margin-bottom: 30px;
-    font-weight: 700;
 }
 
-.v-nav-btn {
+.video-master-btn {
     width: 100%;
-    padding: 16px 20px;
+    padding: 16px;
     margin-bottom: 12px;
     border: none;
-    border-radius: 35px; /* Pill shape like your screenshot */
-    background-color: #ffffff;
-    color: #333;
-    font-weight: 600;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    color: #cbd5e0;
     text-align: left;
     cursor: pointer;
-    transition: 0.3s ease;
-    display: block;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
 }
 
-.v-nav-btn.active {
-    background-color: #d1e9ff;
-    color: #0056b3;
-    transform: translateX(8px);
-}
+.video-master-btn:hover { background: rgba(255,255,255,0.1); }
 
-/* Content Area Styling */
-.video-display-card {
-    flex: 2.5; /* Content takes 70% */
-    background-color: #ffffff;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 15px 45px rgba(0,0,0,0.06);
-    transition: opacity 0.3s ease;
-}
-
-.video-img-frame {
-    width: 100%;
-    height: 300px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid #eee;
-}
-
-.video-img-frame img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    padding: 10px;
-}
-
-.video-content-body {
-    padding: 40px;
-}
-
-.video-content-body h3 {
-    font-size: 2.2rem;
-    color: #0056b3;
-    margin-bottom: 20px;
+.video-master-btn.active {
+    background: #4cc9f0;
+    color: #0d1b2a;
     font-weight: 700;
+    box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
 }
 
-.v-text-rich {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #444;
+/* Content Area */
+.video-master-section .master-content {
+    flex: 1;
+    padding: 50px;
+    overflow-y: auto;
+}
+
+.video-master-section .content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
     margin-bottom: 30px;
 }
 
-.v-grid-list {
+#v-title {
+    font-size: 2.4rem;
+    color: #0d1b2a;
+    font-weight: 800;
+}
+
+.video-master-section .status-badge {
+    background: #e0f7fa;
+    color: #0077b6;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.video-master-section .main-text h4 {
+    color: #0077b6;
+    margin: 35px 0 12px 0;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-left: 4px solid #4cc9f0;
+    padding-left: 15px;
+}
+
+.video-master-section .main-text p {
+    line-height: 2;
+    color: #4a5568;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.video-master-section .feature-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
     list-style: none;
     padding: 0;
+    margin-top: 20px;
 }
 
-.v-grid-list li {
-    background: #f8fbff;
-    padding: 12px 15px;
-    border-radius: 8px;
-    border-left: 5px solid #0056b3;
+.video-master-section .feature-grid li {
+    background: #f8fafc;
+    padding: 15px;
+    border-left: 4px solid #4cc9f0;
+    font-weight: 600;
     font-size: 0.95rem;
-    font-weight: 500;
+    color: #2d3748;
 }
 
-/* RESPONSIVE: Stack on Mobile */
 @media (max-width: 992px) {
-    .video-container-box {
-        flex-direction: column !important;
-    }
-    .video-sidebar-nav {
-        width: 100%;
-        min-width: unset;
-    }
+    .video-master-section .master-container { flex-direction: column; }
+    .video-master-section .master-sidebar { flex: none; width: 100%; }
 }
 </style>
 
 <script>
-const vData = {
+const videoMasterData = {
     ani2d: {
         title: "2D Animation Video Production",
-        desc: "2D animation is a powerful tool for simplifying complex brand messages. Our process includes character design, storyboarding, and custom motion graphics tailored for storytelling. <br><br>We focus on the rhythm of the animation to ensure it matches the voiceover perfectly, creating a professional 4K final export that works for any platform.",
-        features: ["Custom Character Design", "Storyboarding", "Motion Graphics", "Pro Voiceovers"]
+        main: "At WEBPROARTS, we view 2D animation as the ultimate bridge between complex data and human emotion. In a digital world where attention spans are shrinking, animation allows us to simplify sophisticated brand messages into visually engaging narratives. Whether you are launching a SaaS product like BlogBeat or explaining a retail concept for ThinknShop, 2D animation provides a limitless canvas where we can defy physics to illustrate your value proposition.",
+        strategy: "Our strategic workflow begins with 'The Narrative Core.' We don't move a single pixel until the script is perfected to hit your conversion goals. We then move to Storyboarding, where we map out the visual rhythm to ensure the viewer's eye is always exactly where we want it. We develop custom characters and color palettes that are mathematically aligned with your brand's existing identity, ensuring the animation feels like a native extension of your website.",
+        technical: "Technical execution at WEBPROARTS involves high-fidelity vector animation and advanced compositing. We utilize professional-grade software to ensure fluid motion and zero 'jitter.' Our sound engineers layer custom SFX and high-end voiceovers to create a multi-sensory experience. We provide 4K exports in multiple aspect ratios (16:9, 9:16, 1:1) to ensure your animation looks sharp on everything from a conference room projector to a mobile phone screen.",
+        future: "The future of 2D animation is 'Interactive Storytelling.' We are moving toward 'Branching Narratives' where the viewer can choose their path within the video. Our roadmap includes integrating AI-driven animation workflows that allow for rapid content iteration, ensuring your brand can respond to market trends with high-quality animated responses within hours rather than weeks. This agility ensures your brand stays ahead in the fast-paced social economy.",
+        features: ["Custom Character Engineering", "Storyboarding & Scripting", "Fluid Motion Graphics", "High-Fidelity SFX Layering", "Multi-Language Voiceovers", "4K Ultra-HD Rendering"]
     },
     promo: {
         title: "Commercial & Explainer Videos",
-        desc: "In today's fast world, explainer videos are essential for clarity. We create high-conversion promos that explain your products and services in under 60 seconds. <br><br>Using premium stock footage and custom typography, we build authority for your brand and drive your viewers toward a clear call-to-action.",
-        features: ["Sales-Driven Scripts", "Demo Highlights", "Premium Stock Clips", "Action-Oriented Edit"]
+        main: "Commercial and Explainer videos are the heavy-hitters of the sales funnel. A high-quality explainer can increase conversion rates by up to 80%. At WEBPROARTS, we don't just 'explain'; we 'persuade.' We focus on the psychology of the buyer, identifying their pain points early and presenting your product as the hero of their story. We build authority for your brand through high-end cinematography and professional pacing.",
+        strategy: "Our 'Hook-Value-Action' strategy ensures maximum ROI. We capture attention in the first 5 seconds, deliver the core solution in the middle, and drive a clear, hard-hitting Call to Action (CTA) at the close. We analyze your target demographic to determine the perfect 'Tone of Voice'—whether it’s the corporate reliability needed for a law firm or the high-energy excitement needed for a new product launch on ThinknShop.",
+        technical: "We utilize premium stock footage libraries and high-end typography to create a polished, expensive look without the traditional film-studio cost. Our post-production pipeline includes surgical-level color grading and dynamic text overlays that reinforce your key selling points. We implement 'Visual Anchoring'—ensuring that your brand logo and primary CTA are reinforced throughout the video so the viewer never forgets who provided the solution.",
+        future: "The future is 'Personalized Commercials.' We are developing systems where video content can be dynamically altered to include the viewer's name or specific industry data. Our roadmap also includes 'Shoppable Explainer Videos'—where users can click on items within the video to purchase them immediately on ThinknShop. By removing the distance between the 'view' and the 'sale,' we maximize your marketing efficiency.",
+        features: ["Sales-Psychology Scripts", "High-End Typography", "Premium Stock Integration", "Cinematic Color Grading", "Dynamic Text Overlays", "Action-Oriented CTAs"]
     },
     social: {
         title: "Insta, Reels & YouTube Content",
-        desc: "Social media video is all about the 'Scroll Stop.' We create vertical 9:16 content optimized for Reels and TikTok using fast transitions and bold captions. <br><br>We help you stay consistent with your brand aesthetic across YouTube and Instagram, ensuring maximum audience retention and engagement rates.",
-        features: ["Vertical 9:16 Editing", "Dynamic Captions", "Trending Audio Mix", "High-Retention Cuts"]
+        main: "Social media video is a battle for the thumb. If you don't stop the scroll in the first 1.5 seconds, you've lost the customer. WEBPROARTS specializes in 'High-Retention Content' optimized for the unique algorithms of Instagram, TikTok, and YouTube. We understand the 'Language of Social'—the fast cuts, trending audio, and bold captions that signal to the algorithm that your content is worth promoting to thousands.",
+        strategy: "Our strategy is 'Pattern Interruption.' We use visual and auditory hooks that break the user's subconscious scrolling habit. For YouTube, we focus on the 'Thumbnail-Title-First 30 Seconds' loop to ensure your click-through rates and watch-time are in the top 1% of your niche. We help brands like BlogBeat turn long-form knowledge into snackable, viral vertical videos that drive traffic back to their core platform.",
+        technical: "We edit specifically for 9:16 vertical mobile viewing, ensuring all 'Safe Zones' are respected so your captions aren't hidden by the app UI. We utilize dynamic auto-captions with high-impact styling, which is critical since 80% of social users watch with sound off. Our audio engineers mix trending sounds with clear narration to ensure your content is 'Audio-Optimized' for the TikTok and Reel algorithms.",
+        future: "We are moving into 'Real-Time Content Feeds.' Our roadmap includes building custom AI editing presets for your brand, allowing for the creation of high-quality Reels in minutes. We are also exploring 'Social Search SEO' for video—optimizing your captions and audio metadata so your videos appear at the top when users search for topics on Instagram or YouTube, bypassing the traditional feed entirely.",
+        features: ["Vertical 9:16 Optimization", "High-Retention Fast Cuts", "Dynamic Auto-Captions", "Trending Audio Integration", "Social SEO Metadata", "Cross-Platform Formatting"]
     },
     wedding: {
         title: "Wedding & Short Films",
-        desc: "Capturing memories requires a cinematic eye. We treat every wedding or short film like a masterpiece, using advanced color grading and emotional sound design. <br><br>Our multi-cam edits ensure no moment is missed, weaving a narrative that lets you relive the laughter and joy for a lifetime.",
-        features: ["Cinematic Grading", "Multi-Cam Sync", "Emotional Audio Design", "4K Storytelling Edits"]
+        main: "At WEBPROARTS, we treat every wedding and short film as a cinematic legacy. Capturing a once-in-a-lifetime event requires more than just a camera; it requires a 'Director’s Eye' for emotion and detail. We don't just record events; we weave a narrative that captures the soul of the moment. We focus on the 'In-Between Moments'—the laughter, the tears, and the subtle glances that tell the real story of the day.",
+        strategy: "Our 'Cinematic Storytelling' strategy moves away from the traditional 'chronological edit.' Instead, we build the film around the emotional high-points, using audio from vows or speeches as the 'Narrative Glue.' This creates a deep emotional impact that makes you feel the day all over again. We work closely with our clients to understand their aesthetic—whether they want a classic vintage look or a modern high-fashion film style.",
+        technical: "We utilize multi-camera setups and 4K sensors to ensure every angle is covered in stunning detail. Our post-production involves professional 'Film-Emulation' color grading and 'Spatial Audio' design. We meticulously sync every cut to the beat of a custom-licensed soundtrack. We provide 'Highlight Trailers' for social media alongside full-length cinematic edits, ensuring you have the perfect format for both public sharing and private viewing.",
+        future: "The future is 'Immersive Memories.' We are exploring 360-degree 'VR Wedding Experiences' that allow you to stand back in the middle of your ceremony years later. Our roadmap also includes 'AI-Facial Recognition Tagging' for long-form event videos, allowing you to instantly find every shot that features a specific family member. We are making your memories smarter and more accessible than ever before.",
+        features: ["Cinematic Narrative Edits", "Professional Color Grading", "Multi-Cam Syncing", "Drone Aerial Cinematography", "Licensed Soundtrack Curation", "4K Ultra-HD Master File"]
     },
     logo: {
         title: "Logo Animation & Intro Branding",
-        desc: "Your logo is the heartbeat of your brand. We provide fluid logo animations that build a professional first impression in just 5 seconds. <br><br>These intro assets are perfect for YouTube and corporate presentations, including custom sound design to make your brand recognizable by ear as well as sight.",
-        features: ["Fluid Motion Branding", "Custom Logo SFX", "Transparent File Formats", "Presentation Ready"]
+        main: "Your logo is the heartbeat of your brand, and motion is its pulse. A static logo is a sign; an animated logo is an experience. WEBPROARTS provides fluid, high-end logo animations that build a professional first impression in the critical first 5 seconds of a video. We inject personality into your branding, showing your audience that you are a modern, high-tech, and detail-oriented business from the very first frame.",
+        strategy: "Our motion strategy focuses on 'Brand Energy.' If you are a high-speed tech company, we use sharp, energetic movements; if you are a luxury boutique, we use slow, graceful reveals. We ensure that the animation reflects the 'Story' of the logo—revealing the hidden meanings in your iconography through motion. These assets become a recurring 'Brand Signal' that builds massive recognition over time across YouTube, Social, and Presentations.",
+        technical: "We provide 'Transparent Master Files' (ProRes 4444 or Lottie), allowing you to overlay your logo on any background without a black box. Our designers include custom 'Motion SFX' (sound effects) that give your brand a unique 'Audio Signature.' This is the same principle used by giants like Netflix or Intel—where the sound is just as recognizable as the visual. We ensure the files are optimized for fast loading on websites and high-res playback in 4K.",
+        future: "We are moving toward 'Interactive Motion Branding.' Our roadmap includes 'SVG Logo Animations' that respond to a user’s mouse movement on your website. We are also creating 'Dynamic Intros' that change their color or background based on the specific video they are introducing. This level of technical sophistication ensures your WEBPROARTS branding system is always at the cutting edge of digital design.",
+        features: ["Fluid Motion Design", "Transparent File Formats", "Custom Audio Branding", "4K High-Res Playback", "Presentation & Web Optimized", "VFX Reveal Transitions"]
     },
     music: {
         title: "Invitation & Music Video Production",
-        desc: "Creative videos require advanced VFX. For music videos, we focus on beat-sync editing. For invitations, we use interactive typography. <br><br>Our goal is to create a companion to your audio or event that elevates the entire experience for your audience using stylized color and high-end effects.",
-        features: ["Beat-Synced Rhythmic Edits", "Advanced VFX", "Stylized Grading", "Digital Invite Specialists"]
+        main: "Creative videos require the highest level of artistic VFX. Whether it's a high-energy music video or a high-end digital invitation, WEBPROARTS focuses on 'Visual Rhythm.' We treat every frame as a piece of art, using stylized color and advanced effects to elevate the audio experience. For music videos, we create a visual companion that enhances the artist's message; for invitations, we create an 'Event Premiere' that builds massive anticipation.",
+        strategy: "Our strategy is 'Rhythmic Editing.' We sync every cut, transition, and effect to the BPM (Beats Per Minute) of the track. This creates a hypnotic viewing experience that feels 'locked-in' to the music. For digital invitations, we use 'Interactive Typography' that moves with the energy of the event, ensuring your guests feel the importance of the occasion before they even read the details. We focus on 'The Vibe' as the primary goal.",
+        technical: "We utilize advanced VFX suites for green-screen compositing, 3D environment building, and particle effects. Our post-production includes 'Stylized Grading'—creating unique looks like 'Cyberpunk,' 'Vintage Film,' or 'Dreamy Glow.' We handle the full technical export for VEVO, YouTube, and Apple Music, ensuring your video meets the strict technical standards of global streaming platforms while looking like a million-dollar production.",
+        future: "The future is 'AI-Augmented Visuals.' We are integrating AI generative art into our music video workflows to create surreal, impossible environments that would be too expensive to build traditionally. Our roadmap also includes 'AR Invitations'—where guests scan a physical card to see a 3D video invitation pop up on their phone. We are turning static moments into interactive, high-tech premieres.",
+        features: ["Beat-Synced Rhythmic Edits", "Advanced VFX & Compositing", "Stylized Artistic Grading", "Interactive Typography", "Streaming Platform Ready", "Digital Premiere Specialist"]
     }
 };
 
-function changeVideo(key, event) {
-    const data = vData[key];
-    const card = document.getElementById('video-display-area');
-    
-    card.style.opacity = 0;
+function updateVideoView(key, event) {
+    const display = document.getElementById('video-master-display');
+    display.style.opacity = 0;
+    display.style.transform = "translateY(10px)";
 
     setTimeout(() => {
+        const data = videoMasterData[key];
         document.getElementById('v-title').innerText = data.title;
-        document.getElementById('v-description').innerHTML = data.desc;
+        document.getElementById('v-desc-main').innerHTML = data.main;
+        document.getElementById('v-desc-strategy').innerHTML = data.strategy;
+        document.getElementById('v-desc-technical').innerHTML = data.technical;
+        document.getElementById('v-desc-future').innerHTML = data.future;
         
-        const list = document.getElementById('v-features-list');
-        list.innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
+        const list = document.getElementById('v-features');
+        list.innerHTML = ""; 
+        data.features.forEach(f => {
+            const li = document.createElement('li');
+            li.innerText = f;
+            list.appendChild(li);
+        });
         
-        card.style.opacity = 1;
-    }, 200);
+        display.style.opacity = 1;
+        display.style.transform = "translateY(0)";
+    }, 250);
 
-    document.querySelectorAll('.v-nav-btn').forEach(btn => btn.classList.remove('active'));
+    const buttons = document.querySelectorAll('.video-master-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
     event.currentTarget.classList.add('active');
 }
-</script>
 
+// Initial Call
+window.addEventListener('DOMContentLoaded', () => {
+    updateVideoView('ani2d', { currentTarget: document.querySelector('.video-master-btn') });
+});
+</script>
 
 <footer class="bg-[#000000] text-white pt-16 pb-8 border-t border-white/5 font-sans">
     <div class="max-w-7xl mx-auto px-6">

@@ -9,7 +9,7 @@ class StaticSitemap(Sitemap):
         return [
             'home',
             'about',
-            'contact_page',
+            'contact.html',
             'blogs',
             'digital_marketing',
             'web_design',

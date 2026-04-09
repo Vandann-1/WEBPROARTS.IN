@@ -75,7 +75,7 @@
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#28b8d9] transition-all group-hover/blog:w-full"></span>
             </a>
 
-            <a href="{% url 'contact_page' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all shadow-lg shadow-[#16598a]/10">Contact Now</a>
+            <a href="{% url 'contact.html' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all shadow-lg shadow-[#16598a]/10">Contact Now</a>
         </nav>
 
         <button class="lg:hidden p-2 text-[#16598a] hover:bg-slate-50 rounded-lg transition-colors" onclick="toggleMenu()" aria-label="Open Menu">
@@ -130,7 +130,7 @@
     </div>
 
     <div class="p-6 border-t border-slate-50">
-        <a href="{% url 'contact_page' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold shadow-lg">Get Started Now</a>
+        <a href="{% url 'contact.html' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold shadow-lg">Get Started Now</a>
     </div>
 </div>
 
@@ -155,19 +155,174 @@
 </script>
 
 
-    <section class="py-20 md:py-32">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#28b8d9]/10 border border-[#28b8d9]/20 text-[#16598a] text-[10px] font-black uppercase tracking-[0.3em] mb-8">
-                Visual Excellence
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<section class="creative-hero">
+    <div class="hero-grid">
+        
+        <div class="hero-visual-side">
+            <div class="swiper toolSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="tool-card ps">
+                            <div class="tool-icon">Ps</div>
+                            <p class="tool-label">PHOTO-MANIPULATION</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="tool-card ai">
+                            <div class="tool-icon">Ai</div>
+                            <p class="tool-label">VECTOR ARCHITECTURE</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="tool-card pr">
+                            <div class="tool-icon">Pr</div>
+                            <p class="tool-label">VIDEO ENGINEERING</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="tool-card aa">
+                            <div class="tool-icon">Aa</div>
+                            <p class="tool-label">TYPOGRAPHY DESIGN</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-[#04131a] mb-8 tracking-tighter leading-tight">
-                Design That <span class="text-[#28b8d9]">Demands Attention</span>
-            </h1>
-            <p class="text-slate-500 text-lg md:text-xl leading-relaxed">
-                We transform abstract concepts into powerful visual identities. At Web Pro Arts, we believe graphic design is not just art—it's a strategic tool for growth.
-            </p>
         </div>
-    </section>
+
+        <div class="hero-text-side">
+            <div class="studio-tag">WEBPROARTS // MULTIMEDIA HUB</div>
+            <h1>The Art of <br><span class="accent">Digital Craft.</span></h1>
+            <p class="hero-desc">
+                We bridge the gap between imagination and execution. Using industry-standard 
+                tools, we architect visual systems that don't just look good—they perform.
+            </p>
+            <div class="hero-btns">
+                <button class="btn-dark">Our Portfolio</button>
+                <div class="mini-tools">
+                    <span class="tool-hint">TOOLS:</span>
+                    <i class="pen-tip">✒️</i>
+                    <i class="layers-icon">叠</i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+/* Essential Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.creative-hero {
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+    align-items: center;
+}
+
+/* Swiper Styling */
+.hero-visual-side {
+    position: relative;
+    padding: 20px;
+}
+
+.toolSwiper {
+    width: 320px; /* Fixed width for card effect */
+    height: 450px;
+}
+
+.tool-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.tool-icon {
+    font-size: 6rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.tool-label {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    font-weight: 800;
+    opacity: 0.8;
+}
+
+/* REAL OG COLORS */
+.ps { background: #001E36; color: #31A8FF; border: 3px solid #31A8FF; }
+.ai { background: #330000; color: #FF9A00; border: 3px solid #FF9A00; }
+.pr { background: #00005B; color: #EA77FF; border: 3px solid #EA77FF; }
+.aa { background: #000000; color: #ffffff; border: 3px solid #444; }
+
+/* Text Side */
+.hero-text-side { padding-left: 60px; }
+.studio-tag { font-size: 11px; letter-spacing: 6px; color: #ccc; margin-bottom: 25px; font-weight: 900; }
+.hero-text-side h1 { font-size: 5.5rem; font-weight: 900; line-height: 0.95; color: #05161d; margin-bottom: 30px; letter-spacing: -3px; }
+.accent { color: #28b8d9; }
+.hero-desc { font-size: 1.2rem; color: #555; line-height: 1.8; max-width: 500px; margin-bottom: 40px; }
+
+.hero-btns { display: flex; align-items: center; gap: 40px; }
+.btn-dark { background: #000; color: #fff; border: none; padding: 22px 45px; border-radius: 100px; font-weight: 800; cursor: pointer; transition: 0.4s; }
+.btn-dark:hover { background: #28b8d9; transform: scale(1.05); }
+
+.mini-tools { display: flex; align-items: center; gap: 15px; color: #ddd; }
+.tool-hint { font-size: 10px; font-weight: 900; }
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; padding: 100px 20px; text-align: center; }
+    .hero-text-side { padding-left: 0; margin-top: 50px; }
+    .hero-btns { justify-content: center; }
+    .toolSwiper { width: 280px; height: 380px; }
+    .hero-text-side h1 { font-size: 3.5rem; }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    // This ensures Swiper loads ONLY after the DOM is fully ready
+    document.addEventListener('DOMContentLoaded', function () {
+        const swiper = new Swiper('.toolSwiper', {
+            effect: 'cards',
+            grabCursor: true,
+            perSlideOffset: 8, // Stacks cards closer together
+            perSlideRotate: 2, // Subtle rotation
+            rotate: true,
+            slideShadows: true,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+    });
+</script>
+
+
+
+
 
     <section class="pb-32">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -255,43 +410,49 @@
     </div>
 
     <div class="text-center mt-16">
-        <a href="{% url 'contact_page' %}"
+        <a href="{% url 'contact.html' %}"
            class="inline-block px-8 py-4 bg-gradient-to-r from-[#06b6d4] to-[#3b82f6] text-white font-bold rounded-xl shadow-md hover:scale-105 transition">
              Start Your Design Project
         </a>
     </div>
 </section>
 
-<section class="dm-services-section">
-    <div class="services-container">
+<section class="dm-master-section">
+    <div class="master-container">
         
-        <div class="services-sidebar">
-            <h2>Design & Creative Services</h2>
-            <button class="dm-btn active" onclick="showDMContent('logo', event)">Logo & Identity</button>
-            <button class="dm-btn" onclick="showDMContent('print', event)">Print & Layout</button>
-            <button class="dm-btn" onclick="showDMContent('social', event)">Social Media Assets</button>
-            <button class="dm-btn" onclick="showDMContent('illustration', event)">Custom Illustration</button>
-            <button class="dm-btn" onclick="showDMContent('motion', event)">Motion Graphics</button>
-            <button class="dm-btn" onclick="showDMContent('packaging', event)">Packaging Design</button>
+        <div class="master-sidebar">
+            <div class="sidebar-header">
+                <h2>Digital Marketing Solutions</h2>
+                <p>Scaling brands through data-driven strategies.</p>
+            </div>
+            <div class="button-group">
+                <button class="master-btn active" onclick="updateMasterView('seo', event)">Search Engine Optimization</button>
+                <button class="master-btn" onclick="updateMasterView('smm', event)">Social Media Marketing</button>
+                <button class="master-btn" onclick="updateMasterView('email', event)">Email Marketing</button>
+                <button class="master-btn" onclick="updateMasterView('ppc', event)">PPC Advertising</button>
+                <button class="master-btn" onclick="updateMasterView('google', event)">Google Ads</button>
+                <button class="master-btn" onclick="updateMasterView('meta', event)">Meta Ads</button>
+            </div>
         </div>
 
-        <div class="services-main-content" id="dm-display-area">
-            <div class="image-wrapper">
-                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" id="dm-image" alt="Service Image">
+        <div class="master-content" id="master-display">
+            <div class="content-header">
+                <h3 id="m-title">Search Engine Optimization (SEO)</h3>
+                <div class="status-badge">Premium Service</div>
             </div>
-            <div class="text-wrapper">
-                <h3 id="dm-title">Logo & Identity Design</h3>
-                <p id="dm-desc">
-                    Your logo is the heartbeat of your brand identity. We craft symbols that are not only visually stunning but strategically sound... (Select a service to learn more)
-                </p>
-                
-                <div class="info-details">
-                    <ul id="dm-features">
-                        <li>Iconic Logo Symbols</li>
-                        <li>Typography Selection</li>
-                        <li>Brand Color Theory</li>
-                        <li>Scalability Testing</li>
-                    </ul>
+            
+            <div class="content-body">
+                <div class="main-text">
+                    <h4>Overview & Philosophy</h4>
+                    <p id="m-desc-main"></p>
+                    
+                    <h4>Deep Strategy & Methodology</h4>
+                    <p id="m-desc-strategy"></p>
+                </div>
+
+                <div class="feature-grid-wrapper">
+                    <h4>Key Deliverables</h4>
+                    <ul id="m-features" class="feature-grid"></ul>
                 </div>
             </div>
         </div>
@@ -300,166 +461,224 @@
 </section>
 
 <style>
-.dm-services-section {
-    background-color: #f0f2f5;
-    padding: 60px 20px;
-    font-family: 'Poppins', sans-serif;
+/* Base Styles */
+.dm-master-section {
+    background-color: #f4f7f9;
+    padding: 80px 20px;
+    font-family: 'Inter', 'Poppins', sans-serif;
 }
-.services-container {
-    max-width: 1200px;
+
+.master-container {
+    max-width: 1300px;
     margin: 0 auto;
     display: flex;
-    gap: 30px;
-    align-items: flex-start;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    min-height: 850px; /* Ensures space for 1000+ words */
 }
-.services-sidebar {
-    flex: 1;
-    background-color: #16598a;
-    padding: 30px 20px;
-    border-radius: 12px;
-    color: white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+/* Sidebar Styling */
+.master-sidebar {
+    flex: 0 0 320px;
+    background-color: #0d1b2a;
+    padding: 40px 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
 }
-.services-sidebar h2 {
-    font-size: 1.4rem;
-    margin-bottom: 25px;
-    font-weight: 600;
-    line-height: 1.3;
+
+.sidebar-header h2 {
+    font-size: 1.5rem;
+    color: #4cc9f0;
+    margin-bottom: 10px;
 }
-.dm-btn {
+
+.sidebar-header p {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+.master-btn {
     width: 100%;
-    padding: 14px 20px;
-    margin-bottom: 12px;
+    padding: 16px;
+    margin-bottom: 10px;
     border: none;
-    border-radius: 8px;
-    background-color: #ffffff;
-    color: #333;
-    font-size: 0.95rem;
-    font-weight: 500;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    color: #cbd5e0;
     text-align: left;
     cursor: pointer;
     transition: all 0.3s ease;
-    display: block;
+    font-size: 0.95rem;
 }
-.dm-btn.active {
-    background-color: #28b8d9;
-    color: #ffffff;
+
+.master-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.master-btn.active {
+    background: #4cc9f0;
+    color: #0d1b2a;
     font-weight: 700;
-    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
 }
-.services-main-content {
-    flex: 2.5;
-    background: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+
+/* Content Area Styling */
+.master-content {
+    flex: 1;
+    padding: 50px;
+    overflow-y: auto;
 }
-.image-wrapper {
-    width: 100%;
-    height: 350px;
-    background-color: #fff;
-    border-bottom: 1px solid #eee;
-}
-.image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.text-wrapper {
-    padding: 40px;
-}
-.text-wrapper h3 {
-    font-size: 2.2rem;
-    color: #1a1a1a;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-.text-wrapper p {
-    color: #555;
-    line-height: 1.8;
-    font-size: 1.05rem;
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
     margin-bottom: 30px;
 }
-.info-details ul {
-    list-style: none;
-    padding: 0;
+
+#m-title {
+    font-size: 2.4rem;
+    color: #0d1b2a;
+    font-weight: 800;
+}
+
+.status-badge {
+    background: #e0f7fa;
+    color: #0077b6;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.main-text h4 {
+    color: #0077b6;
+    margin: 25px 0 10px 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.main-text p {
+    line-height: 1.9;
+    color: #4a5568;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Feature Grid */
+.feature-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
 }
-.info-details li {
-    background: #f8f9fa;
-    padding: 12px 15px;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    color: #444;
-    border-left: 4px solid #28b8d9;
+
+.feature-grid li {
+    background: #f8fafc;
+    padding: 15px;
+    border-left: 4px solid #4cc9f0;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #2d3748;
 }
-@media (max-width: 900px) {
-    .services-container { flex-direction: column; }
-    .services-sidebar { width: 100%; }
-    .info-details ul { grid-template-columns: 1fr; }
+
+/* Responsiveness */
+@media (max-width: 992px) {
+    .master-container { flex-direction: column; }
+    .master-sidebar { flex: none; width: 100%; }
+    .feature-grid { grid-template-columns: 1fr; }
 }
 </style>
 
 <script>
-const dmData = {
-    logo: {
-        title: "Logo & Identity Design",
-        desc: "A logo is more than just an image; it's the signature of your business. Our process starts with intensive sketching and conceptualization, moving into precise digital execution. We create adaptable identity systems that work perfectly across digital screens, embroidered apparel, and massive signage. We don't just give you a file; we give you a brand legacy.",
-        features: ["Primary & Secondary Logos", "Brand Style Guides", "Typography Pairing", "Custom Icons"]
+const megaData = {
+    seo: {
+        title: "Search Engine Optimization",
+        main: "Search Engine Optimization (SEO) is the foundational pillar of digital longevity. In an era where 93% of online experiences begin with a search engine, appearing on the first page of Google isn't a luxury—it's a necessity. Our approach to SEO moves beyond mere keyword stuffing. We treat your website as a living ecosystem, focusing on E-E-A-T (Experience, Expertise, Authoritativeness, and Trustworthiness). By aligning your site with Google’s sophisticated algorithms, we ensure that your brand doesn't just rank, but dominates. This involves a deep dive into user intent analysis, ensuring that when a user searches for a solution, your content provides the most comprehensive answer available.",
+        strategy: "Our 1000-word deep-dive strategy begins with Technical Excellence. We optimize Core Web Vitals, ensuring lightning-fast load times and seamless mobile responsiveness to reduce bounce rates. Next, we transition into Semantic Content Engineering. We don't just write for bots; we write for humans, using LSI keywords and structured data (Schema Markup) to help search engines understand the context of your services. The final stage is Authority Amplification. Through strategic, high-quality backlink acquisition and digital PR, we signal to the web that your site is a primary resource. This holistic loop creates a compounding effect: better rankings lead to more traffic, which leads to higher authority, permanently lowering your customer acquisition costs compared to paid channels.",
+        features: ["Technical SEO & Schema Integration", "Competitor Gap Analysis", "High-Authority Link Building", "Voice Search Optimization", "Local Map Pack Domination", "Content Decay Refreshing"]
     },
-    print: {
-        title: "Print & Layout Design",
-        desc: "Print is tactile and permanent. From minimalist business cards to multi-page corporate brochures, we handle the layout, typography, and prepress technicalities. We ensure your brand's physical presence matches its digital prestige, with a focus on paper stock advice and high-end finishes.",
-        features: ["Business Card Systems", "Brochure & Catalog Layout", "Stationery & Letterheads", "Event Signage"]
+    smm: {
+        title: "Social Media Marketing",
+        main: "Social Media Marketing has evolved from simple post-scheduling into a complex discipline of psychological engagement and community architecture. Your brand’s presence on platforms like Instagram, LinkedIn, and TikTok serves as its digital pulse. We create a cohesive narrative that humanizes your corporation, turning cold followers into warm brand advocates. Our mission is to break through the 'infinite scroll' by creating thumb-stopping content that resonates with the specific sub-cultures of your target audience. We analyze social signals and sentiment to ensure your brand is always part of the right conversations at the right time.",
+        strategy: "The core of our SMM strategy is the 'Value-First' funnel. We categorize content into three buckets: Awareness (viral-potential reels and educational carousels), Consideration (behind-the-scenes stories and testimonials), and Conversion (direct-response social commerce). We utilize advanced social listening tools to monitor your competitors and industry trends, allowing us to pivot your strategy in real-time. By managing your community with a dedicated 'Human-Touch' approach, we ensure every comment, DM, and mention is an opportunity for brand loyalty. This isn't just about vanity metrics like likes; we focus on 'Shareability' and 'Save-Rate,' which are the true indicators of content value in the modern algorithm.",
+        features: ["Multi-Platform Content Calendars", "Influencer Partnership Management", "Social Commerce Store Setup", "Crisis Management & PR", "Viral Trend Integration", "Advanced Sentiment Analytics"]
     },
-    social: {
-        title: "Social Media Asset Creation",
-        desc: "In a world of infinite scrolling, your content needs to be visually magnetic. We design platform-specific templates, high-impact carousels, and banner sets that maintain brand consistency while driving maximum engagement. Every asset is optimized for the correct aspect ratios and safe zones.",
-        features: ["Instagram Post Templates", "YouTube Thumbnail Kits", "Ad Creative Sets", "LinkedIn Page Branding"]
+    email: {
+        title: "Email Marketing & Automation",
+        main: "Email remains the only marketing channel where you have a direct, undistorted line to your customer. While social platforms can limit your reach, your email list is a proprietary asset that yields the highest ROI in the industry—often exceeding $42 for every $1 spent. Our Email Marketing service focuses on sophisticated lifecycle management. We don't believe in 'blasting' your list. Instead, we use precision segmentation to ensure that every subscriber receives content that is relevant to their specific stage in the buyer's journey, whether they are a new lead or a repeat VIP customer.",
+        strategy: "Our advanced automation strategy centers on the 'Behavioral Trigger' model. We design complex workflows that react to user actions in real-time. If a user abandons a cart on ThinknShop, they receive a tiered recovery sequence. If a reader finishes a BlogBeat article, they are invited into a niche-specific newsletter. We utilize A/B split testing on every element—from subject lines and 'From' names to CTA button colors and send times. Furthermore, we prioritize Deliverability Engineering, ensuring your emails bypass the 'Promotions' tab and land in the Primary Inbox. By cleaning your lists regularly and managing sender reputation, we protect your digital standing and maximize your conversion rates.",
+        features: ["Drip Campaign Automation", "Behavioral Trigger Sequences", "Hyper-Personalized Segmentation", "HTML & Plain Text Optimization", "List Hygiene & Scrubbing", "Detailed Revenue Attribution"]
     },
-    illustration: {
-        title: "Custom Brand Illustration",
-        desc: "Custom illustrations give your brand a unique voice that stock photos never can. Our artists create vector sets and character illustrations that humanize your brand and explain complex concepts simply. Perfect for SaaS websites, internal documents, and creative marketing campaigns.",
-        features: ["Vector Iconography", "Character Mascot Design", "Infographic Creation", "Editorial Illustration"]
+    ppc: {
+        title: "PPC Advertising",
+        main: "Pay-Per-Click (PPC) is the engine of immediate growth. In a competitive market, waiting for organic SEO can take months, but PPC allows you to jump to the front of the line instantly. We view PPC as a scientific experiment where data dictates every dollar spent. Our management focuses on the 'Total Profitability' of your account, not just the number of clicks. We align your ad copy with high-intent search terms to ensure that every visitor is a qualified lead. This precision-targeted approach ensures that your budget isn't wasted on 'window shoppers' but is invested in motivated buyers.",
+        strategy: "Our PPC strategy is built on the 'Continuous Optimization' loop. We begin with granular keyword expansion, identifying long-tail phrases that offer high conversion at a lower cost. We then focus on Landing Page Synergy—ensuring that the promise made in the ad is perfectly fulfilled on the website. By implementing 'Negative Keyword' lists, we aggressively filter out irrelevant traffic, saving up to 30% of your budget in the first month. We also deploy sophisticated Remarketing layers, following up with users who didn't convert on their first visit. This multi-touch approach ensures that your brand stays top-of-mind, significantly increasing the likelihood of a sale over time.",
+        features: ["Real-Time Bid Management", "Landing Page UX Audits", "Competitor Ad Monitoring", "ROAS-Focused Scaling", "Cross-Channel Attribution", "Ad Extension Optimization"]
     },
-    motion: {
-        title: "Motion Graphics",
-        desc: "Motion attracts the eye 5x faster than static images. We animate your logos, UI mockups, and marketing messages to create 'living' content. Whether it's for a YouTube intro or a high-converting Meta ad, our motion design is built to retain attention.",
-        features: ["Logo Animation", "Explainer Video Graphics", "Social Motion Templates", "UI Interaction Demos"]
+    google: {
+        title: "Google Ads Management",
+        main: "Google Ads is the undisputed king of search intent. When someone searches for a product or service, they are expressing an immediate need. Our Google Ads management service ensures you are the answer to that need. We handle the full spectrum of the Google ecosystem, including Search, Display, Shopping, and YouTube Ads. Our goal is to create a 'Surround Sound' effect for your brand, where your potential customers see you across the web, building a sense of omnipresence and trust that competitors simply cannot match.",
+        strategy: "We utilize a 'Tiered Bidding' strategy that prioritizes high-conversion hours and locations. By analyzing historical data, we identify the exact times of day when your customers are most likely to buy and increase bids accordingly. Our 'Quality Score' optimization is a core focus; by improving ad relevance and landing page experience, we help you pay less than your competitors for the same top positions. For e-commerce projects like ThinknShop, we implement Performance Max (PMax) campaigns, leveraging Google’s AI to find customers across all channels. We back all of this with transparent, real-time dashboards so you can see exactly how many leads or sales every cent is generating.",
+        features: ["P-Max & Shopping Integration", "Local Services Ads Setup", "YouTube Video Ad Strategy", "Display Network Remarketing", "In-Market Audience Targeting", "Click-Fraud Protection"]
     },
-    packaging: {
-        title: "Packaging & Product Design",
-        desc: "The unboxing experience is the climax of the customer journey. We design packaging that protects your product while exciting the consumer. We handle dielines, label design, and material selection to ensure your shelf presence is unmatched.",
-        features: ["Dieline Development", "Label & Sticker Design", "3D Packaging Mockups", "Sustainability Consulting"]
+    meta: {
+        title: "Meta Ads (FB & IG)",
+        main: "Meta Ads represent the pinnacle of interest-based and demographic targeting. While Google captures 'Intent,' Meta generates 'Discovery.' We help brands find customers who didn't even know they needed the product yet. By leveraging the Facebook Pixel and Conversions API, we track user behavior with surgical precision. Our Meta strategy is visual-first, utilizing high-production video and static imagery to evoke emotional responses. We understand that on Facebook and Instagram, you aren't just competing with other brands; you're competing with a user's friends and family for attention.",
+        strategy: "The Meta strategy we deploy is built on 'Rapid Creative Testing.' We run dozens of variations of ad copy, headlines, and visuals simultaneously to identify the 'Winners' early on. Once a winning creative is found, we scale the budget aggressively using 'Lookalike Audiences' (LALs)—finding millions of users who share the same characteristics as your current best customers. We also implement a 'Full-Funnel Retargeting' system, showing different ads to people who viewed a video versus those who added an item to a cart. This ensures a personalized experience that moves the user naturally toward a purchase. We focus on 'Contribution Margin,' ensuring that your Meta Ads are driving actual profit, not just top-line revenue.",
+        features: ["Pixel & API Implementation", "Dynamic Creative Optimization", "Lookalike Audience Scaling", "UGC Content Strategy", "Catalog & Shop Integration", "Frequency Cap Management"]
     }
 };
 
-function showDMContent(key, event) {
-    const displayArea = document.getElementById('dm-display-area');
-    displayArea.style.opacity = 0;
+function updateMasterView(key, event) {
+    const display = document.getElementById('master-display');
+    display.style.opacity = 0;
+    display.style.transform = "translateY(10px)";
 
     setTimeout(() => {
-        const data = dmData[key];
-        document.getElementById('dm-title').innerText = data.title;
-        document.getElementById('dm-desc').innerHTML = data.desc;
+        const data = megaData[key];
+        document.getElementById('m-title').innerText = data.title;
+        document.getElementById('m-desc-main').innerHTML = data.main;
+        document.getElementById('m-desc-strategy').innerHTML = data.strategy;
         
-        const list = document.getElementById('dm-features');
+        const list = document.getElementById('m-features');
         list.innerHTML = ""; 
         data.features.forEach(f => {
             const li = document.createElement('li');
             li.innerText = f;
             list.appendChild(li);
         });
-        displayArea.style.opacity = 1;
-    }, 200);
+        
+        display.style.opacity = 1;
+        display.style.transform = "translateY(0)";
+    }, 250);
 
-    const buttons = document.querySelectorAll('.dm-btn');
+    const buttons = document.querySelectorAll('.master-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     event.currentTarget.classList.add('active');
 }
+
+// Initialize with SEO
+window.onload = () => {
+    updateMasterView('seo', { currentTarget: document.querySelector('.master-btn') });
+};
 </script>
+
+
+
+
+
+
 
 <footer class="bg-[#000000] text-white pt-16 pb-8 border-t border-white/5 font-sans">
     <div class="max-w-7xl mx-auto px-6">

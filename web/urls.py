@@ -39,7 +39,7 @@ urlpatterns = [
     
     # RENAME or REMOVE the duplicates. 
     # Let's keep one clear path for the form submission.
-    path("contact-page/", contact, name="contact_page"), # The page itself
+    path("contact.html/", contact, name="contact.html"), # The page itself
     path("contact-submit/", contact_view, name="contact_form"), # The AJAX logic 
     
     path("digital-marketing/", digital_marketing, name="digital_marketing"),
