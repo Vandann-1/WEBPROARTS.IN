@@ -194,9 +194,44 @@ POSTS_DATA = {
         
 
 
+from django.http import JsonResponse
+from .bot_logic import get_bot_response
+
+# views.py
 
 
+import traceback
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .bot_logic import get_bot_response
 
+import traceback
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+# Replace 'yourapp' with your actual app name
+from .bot_logic import get_bot_response 
+
+@csrf_exempt
+def chat_api(request):
+    if request.method == "POST":
+        user_message = request.POST.get('message', '').strip()
+        
+        if not user_message:
+            return JsonResponse({'reply': "Please enter a message!"})
+
+        try:
+            reply = get_bot_response(user_message)
+            return JsonResponse({'reply': reply})
+        except Exception as e:
+            # THIS IS KEY: It prints the real error to your terminal
+            print("--- CRITICAL BOT ERROR ---")
+            print(traceback.format_exc()) 
+            print("--------------------------")
+            
+            # This returns the error message to your chat window so you can see it
+            return JsonResponse({'reply': f"System Error: {str(e)}"}, status=500)
+
+    return JsonResponse({'reply': "Method not allowed"}, status=405)
 
 
 
@@ -216,3 +251,5 @@ def blog_detail(request, post_id):
         raise Http404("Post not found")
     return render(request, 'blog_detail.html', {'post': post})
 
+def bot_page(request):
+    return render(request, 'bot_page.html')

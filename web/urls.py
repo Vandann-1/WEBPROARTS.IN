@@ -53,4 +53,6 @@ urlpatterns = [
     
     path('blogs/', blogs, name='blogs'), 
     path('blogs/<int:post_id>/', blog_detail, name='blog_detail'),
+    path('chat-bot/', chat_api, name='chat_bot'),\
+    path('support/chat-bot/', bot_page, name='bot_page'),
 ]

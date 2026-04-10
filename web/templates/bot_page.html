@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant | WebProArts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; overflow: hidden; }
+        .bg-webpro-navy { background-color: #1A2238; }
+        .text-webpro-blue { color: #4169E1; }
+        .bg-webpro-blue { background-color: #4169E1; }
+        
+        /* Smooth Fade In */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-msg { animation: fadeIn 0.3s ease forwards; }
+
+        /* Custom Scrollbar */
+        #chat-history::-webkit-scrollbar { width: 4px; }
+        #chat-history::-webkit-scrollbar-track { background: transparent; }
+        #chat-history::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#1A2238] h-screen flex flex-col">
+
+    <header class="bg-white/80 backdrop-blur-md border-b border-gray-100 py-3 px-6 flex justify-between items-center z-50">
+        <div class="flex items-center space-x-3">
+            <div class="w-9 h-9 bg-webpro-navy rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
+                <span class="font-bold">W</span>
+            </div>
+            <div>
+                <h1 class="font-bold text-sm tracking-tight leading-none">WebProArts <span class="text-webpro-blue">AI</span></h1>
+                <span class="text-[10px] text-gray-400 font-medium uppercase tracking-wider">Strategy Engine</span>
+            </div>
+        </div>
+        <a href="/" class="text-xs font-semibold px-4 py-2 border border-gray-200 rounded-full hover:bg-gray-50 transition-all">Exit</a>
+    </header>
+
+    <main class="flex-1 relative flex flex-col w-full max-w-5xl mx-auto overflow-hidden">
+        
+        <div id="welcome-screen" class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center animate-msg">
+            <div class="mb-6 relative">
+                <div class="absolute -inset-4 bg-blue-100/50 rounded-full blur-xl animate-pulse"></div>
+                <div class="relative w-16 h-16 bg-white rounded-2xl shadow-xl flex items-center justify-center text-webpro-blue">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+            </div>
+            <h2 class="text-3xl font-bold tracking-tight mb-3">Welcome to the <span class="text-webpro-blue">Future</span></h2>
+            <p class="text-gray-500 max-w-sm text-sm leading-relaxed">
+                I'm your WebProArts assistant. Ask me about Madhuri Pal's strategy, The Hook Method, or custom Django pricing.
+            </p>
+        </div>
+
+        <div id="chat-history" class="flex-1 overflow-y-auto px-4 py-10 space-y-8 scroll-smooth z-10 hidden">
+            </div>
+
+        <div class="w-full px-4 pb-8 pt-2">
+            <div class="max-w-3xl mx-auto relative">
+                
+                <div id="quick-tags" class="flex flex-wrap justify-center gap-2 mb-4 animate-msg">
+                    <button onclick="quickAction('Do you do Meta Ads?')" class="text-[11px] font-medium bg-white border border-gray-200 px-3 py-1.5 rounded-full hover:border-webpro-blue transition-colors shadow-sm">Meta Ads</button>
+                    <button onclick="quickAction('Tell me about your Django services')" class="text-[11px] font-medium bg-white border border-gray-200 px-3 py-1.5 rounded-full hover:border-webpro-blue transition-colors shadow-sm">Django Dev</button>
+                    <button onclick="quickAction('What are your hours?')" class="text-[11px] font-medium bg-white border border-gray-200 px-3 py-1.5 rounded-full hover:border-webpro-blue transition-colors shadow-sm">Timing</button>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-webpro-blue to-webpro-navy rounded-2xl opacity-10 group-focus-within:opacity-20 transition-opacity"></div>
+                    <div class="relative flex items-center bg-white border border-gray-200 rounded-2xl p-1.5 shadow-2xl transition-all focus-within:border-webpro-blue/50">
+                        <input type="text" id="userInput" 
+                            placeholder="Ask WebProArts anything..." 
+                            class="flex-1 bg-transparent border-none px-4 py-3 text-sm focus:outline-none"
+                            onkeypress="if(event.key === 'Enter') sendToBot()">
+                        
+                        <button onclick="sendToBot()" class="bg-webpro-navy text-white p-3 rounded-xl hover:bg-webpro-blue transition-all duration-300 shadow-lg">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <p class="text-center text-[9px] text-gray-400 mt-3 uppercase font-bold tracking-[0.2em]">End-to-End Encryption & AI Precision</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const chatHistory = document.getElementById('chat-history');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const inputField = document.getElementById('userInput');
+        const quickTags = document.getElementById('quick-tags');
+
+        function quickAction(text) {
+            inputField.value = text;
+            sendToBot();
+        }
+
+        async function sendToBot() {
+            const message = inputField.value.trim();
+            if (!message) return;
+
+            // UI Transitions
+            welcomeScreen.style.display = 'none';
+            quickTags.classList.add('hidden');
+            chatHistory.classList.remove('hidden');
+            inputField.value = '';
+
+            // User Bubble
+            appendMessage('user', message);
+            
+            // Bot Loading Placeholder
+            const loadingId = 'loading-' + Date.now();
+            appendMessage('bot', 'Processing request...', loadingId);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+
+            try {
+                const response = await fetch('/chat-bot/', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-CSRFToken': '{{ csrf_token }}' 
+                    },
+                    body: `message=${encodeURIComponent(message)}`
+                });
+                const data = await response.json();
+                
+                // Typing effect/Update
+                const botMsgElement = document.getElementById(loadingId);
+                botMsgElement.innerHTML = data.reply;
+            } catch (e) {
+                document.getElementById(loadingId).innerHTML = "System timeout. Please verify connection to the WebProArts server.";
+            }
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        function appendMessage(sender, text, id = null) {
+            const div = document.createElement('div');
+            div.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'} animate-msg`;
+            
+            const innerDiv = document.createElement('div');
+            innerDiv.className = sender === 'user' 
+                ? 'bg-webpro-navy text-white px-5 py-3.5 rounded-2xl rounded-tr-none max-w-[85%] shadow-lg text-sm font-medium' 
+                : 'bg-white border border-gray-100 text-gray-700 px-5 py-3.5 rounded-2xl rounded-tl-none max-w-[85%] shadow-sm text-sm leading-relaxed';
+            
+            if(id) innerDiv.id = id;
+            innerDiv.innerHTML = text.replace(/\n/g, '<br>');
+            
+            div.appendChild(innerDiv);
+            chatHistory.appendChild(div);
+        }
+    </script>
+</body>
+</html>
