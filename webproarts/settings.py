@@ -86,7 +86,7 @@ ROOT_URLCONF = 'webproarts.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # ✅ MUST
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  #  MUST
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
