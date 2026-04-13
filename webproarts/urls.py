@@ -14,15 +14,16 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # Sitemap - This generates the XML for Google
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, 
-         name='django.contrib.sitemaps.views.sitemap'),
 
-    # Robots.txt - Served as a template to use your SITE_URL variable
+
+# Change 'sitemap.xml' to 'sitemap-new.xml'
+    path('sitemap-new.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    
+    # Update robots.txt to point to the new name
     path('robots.txt', TemplateView.as_view(
         template_name="robots.txt",
         content_type="text/plain",
-        extra_context={"site_url": settings.SITE_URL}
+        extra_context={"site_url": "https://webproarts.in"}
     )),
 
     path('', include('web.urls')),
