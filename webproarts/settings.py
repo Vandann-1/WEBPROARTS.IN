@@ -24,18 +24,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g!acg391b1fg&xpkm0vdwm1+8f18qyvk-dtm$)4eaaupx$q^)9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# settings.py
 import os
-DEBUG = False if os.getenv('DJANGO_ENV') == 'production' else True
-'''where is "django_env" set?
-    - in .env file (for local development)
-    - in environment variables (for production) '''
+
+# Force the check to be case-insensitive just in case
+ENV_VALUE = os.getenv('DJANGO_ENV', 'development').lower()
+DEBUG = ENV_VALUE != 'production'
+
+print(f"DEBUG MODE IS: {DEBUG} for environment: {ENV_VALUE}")
+
 
 if DEBUG:
     SITE_URL = "http://127.0.0.1:8000"
 else:
     SITE_URL = "https://webproarts.in"
 
-ALLOWED_HOSTS = [ '*' ]
+    
+if DEBUG:
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+else:
+    ALLOWED_HOSTS = ['webproarts.in', 'www.webproarts.in', 'webproarts3.onrender.com']
 
 
 # Application definition

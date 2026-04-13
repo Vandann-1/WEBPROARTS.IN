@@ -1505,60 +1505,7 @@ function toggleFooterAcc(el) {
     //    setTimeout(() => { document.getElementById('idCardModal').style.display = 'flex'; }, 3000);
     // };
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Outfit:wght@500;800&display=swap" rel="stylesheet">
 
-<style>
-    .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .font-outfit { font-family: 'Outfit', sans-serif; }
-</style>
-
-<div id="idCardModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md transition-opacity duration-300">
-    
-    <div class="relative w-full max-w-lg bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-slate-100 transform transition-all scale-100">
-        
-        <button onclick="closeModal()" class="absolute top-5 right-6 text-slate-400 hover:text-slate-600 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-
-        <div class="p-8 md:p-10 text-center">
-            <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-orange-600 uppercase bg-orange-100 rounded-full font-jakarta">
-                ☀️ Limited Summer Offer
-            </span>
-
-            <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-slate-900 font-outfit leading-tight">
-                Design Your <span class="text-[#28b8d9]">Student ID</span> <br>in Seconds.
-            </h2>
-
-            <div class="relative mx-auto my-8 w-64 h-40 bg-gradient-to-br from-blue-700 to-indigo-900 rounded-xl shadow-lg border-4 border-white flex flex-col justify-between p-4 text-left overflow-hidden">
-                <div class="flex justify-between items-start">
-                    <div class="w-10 h-10 bg-white/20 rounded-full blur-[1px]"></div>
-                    <div class="text-[8px] text-white/70 font-jakarta uppercase tracking-tighter">WebProArts ID</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="h-2 w-20 bg-white/40 rounded"></div>
-                    <div class="h-2 w-12 bg-white/20 rounded"></div>
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none"></div>
-            </div>
-
-            <p class="mb-8 text-lg leading-relaxed text-slate-600 font-jakarta">
-                Get the <span class="font-bold text-slate-900">Premium ID Card Maker</span> tools this summer. Realistic textures, auto-QR codes, and high-res exports.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="{% url 'contact.html' %}" class="px-8 py-4 text-white bg-blue-600 hover:bg-blue-700 rounded-2xl font-bold text-lg shadow-lg shadow-blue-200 transition-all transform hover:-translate-y-1 font-jakarta">
-                    Start Designing — Free
-                </a>
-            </div>
-            
-            <p class="mt-4 text-sm text-slate-400 font-jakarta italic">
-                *No credit card required for basic templates
-            </p>
-        </div>
-    </div>
-</div>
 
 
 
