@@ -24,14 +24,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g!acg391b1fg&xpkm0vdwm1+8f18qyvk-dtm$)4eaaupx$q^)9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 # settings.py
 import os
 
-# Force the check to be case-insensitive just in case
-ENV_VALUE = os.getenv('DJANGO_ENV', 'development').lower()
-DEBUG = ENV_VALUE != 'production'
+# This captures 'production', 'PRODUCTION', or ' production '
+env_status = str(os.getenv('DJANGO_ENV')).strip().lower()
 
-print(f"DEBUG MODE IS: {DEBUG} for environment: {ENV_VALUE}")
+if env_status == 'production':
+    DEBUG = False
+else:
+    DEBUG = True
+
+# Debug print to check logs if it still fails
+print(f"--- SERVER STARTING | DJANGO_ENV: {env_status} | DEBUG: {DEBUG} ---")
 
 
 if DEBUG:
@@ -40,12 +46,25 @@ else:
     SITE_URL = "https://webproarts.in"
 
     
-if DEBUG:
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-else:
-    ALLOWED_HOSTS = ['webproarts.in', 'www.webproarts.in', 'webproarts3.onrender.com']
+# settings.py
 
+import os
 
+# Check if we are in production
+# If DJANGO_ENV is not set, it defaults to False (safe for production)
+DEBUG = os.getenv('DJANGO_ENV', 'production').lower() != 'production'
+
+# MUST include these to fix the 400 error locally and in production
+ALLOWED_HOSTS = [
+    '127.0.0.1', 
+    'localhost', 
+    'webproarts.in', 
+    'www.webproarts.in', 
+    '.onrender.com' # Catches your Render subdomains
+]
+
+# Add this for WhiteNoise (essential if DEBUG=False)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Application definition
 
 INSTALLED_APPS = [
