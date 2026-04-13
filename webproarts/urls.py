@@ -1,11 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
-from webproarts.sitemap import * # Ensure BlogSitemap is ready
+from webproarts.sitemap import*
 from django.views.generic import TemplateView
 from django.conf import settings
 
-# Include both static pages and blog posts for full SEO coverage
 sitemaps = {
     'static': StaticSitemap,
     'blog': BlogSitemap, 
@@ -14,17 +13,15 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    # 1. SITEMAP: Using the new name to bypass Google's old cache
+    path('sitemap-new.xml', sitemap, {'sitemaps': sitemaps}, 
+         name='django.contrib.sitemaps.views.sitemap'),
 
-
-# Change 'sitemap.xml' to 'sitemap-new.xml'
-    path('sitemap-new.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-
-    
-    # Update robots.txt to point to the new name
-    path('new-robots.txt', TemplateView.as_view(
+    # 2. ROBOTS.TXT: MUST be named 'robots.txt' so Google can find it
+    path('robots.txt', TemplateView.as_view(
         template_name="robots.txt",
         content_type="text/plain",
-        extra_context={"site_url": "https://webproarts.in"}
+        extra_context={"site_url": "https://www.webproarts.in"}
     )),
 
     path('', include('web.urls')),
