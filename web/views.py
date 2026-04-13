@@ -205,34 +205,36 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .bot_logic import get_bot_response
 
-import traceback
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-# Replace 'yourapp' with your actual app name
-from .bot_logic import get_bot_response 
+from django.http import JsonResponse
+from .bot_logic import get_bot_response
+import traceback
 
-@csrf_exempt
 def chat_api(request):
     if request.method == "POST":
         user_message = request.POST.get('message', '').strip()
         
         if not user_message:
-            return JsonResponse({'reply': "Please enter a message!"})
+            return JsonResponse({'reply': "Please type a message!"})
 
         try:
+            # Call our bot logic
             reply = get_bot_response(user_message)
             return JsonResponse({'reply': reply})
-        except Exception as e:
-            # THIS IS KEY: It prints the real error to your terminal
-            print("--- CRITICAL BOT ERROR ---")
-            print(traceback.format_exc()) 
-            print("--------------------------")
             
-            # This returns the error message to your chat window so you can see it
-            return JsonResponse({'reply': f"System Error: {str(e)}"}, status=500)
+        except Exception as e:
+            # Check for the 'Expired' error specifically
+            error_msg = str(e)
+            print(f"CRITICAL ERROR: {error_msg}")
+            
+            if "expired" in error_msg.lower() or "400" in error_msg:
+                friendly_reply = "System Maintenance: The API key has expired. Please update it in Render."
+            else:
+                friendly_reply = "I'm having trouble connecting. Please try again later!"
+                
+            return JsonResponse({'reply': friendly_reply}, status=200)
 
     return JsonResponse({'reply': "Method not allowed"}, status=405)
-
 
 
 def blog_detail(request, post_id):

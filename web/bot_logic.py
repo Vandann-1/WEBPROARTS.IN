@@ -3,10 +3,19 @@ import numpy as np
 from google import genai
 from sklearn.feature_extraction.text import TfidfVectorizer
 from dotenv import load_dotenv
+from google.genai import types
+import time
 
 load_dotenv()
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+
+# This looks for the variable you set in Render's Environment tab
+api_key = os.getenv("GEMINI_API_KEY")
+
+if not api_key:
+    print("WARNING: GEMINI_API_KEY not found in environment!")
+
+client = genai.Client(api_key=api_key)
 
 # Your Agency Data
 DOCS = [
@@ -71,43 +80,49 @@ DOCS = [
 vectorizer = TfidfVectorizer()
 docs_matrix = vectorizer.fit_transform(DOCS)
 
-from google import genai
-from google.genai import types
-from google.genai import types
+# --- 2. CLIENT INITIALIZATION ---
+client = genai.Client(api_key=os.getenv("AIzaSyCzdj7nVg2DI0fJ_pxoRauVlu5I8gPf--s"))
+
 def get_bot_response(user_query):
-    # 1. Search Logic
+    # --- RAG SEARCH LOGIC ---
     new_vector = vectorizer.transform([user_query])
     score = (docs_matrix * new_vector.T).toarray().flatten()
-    
-    # 2. Threshold Check: If the search score is very low, we have 'No Content'
     topid = np.argsort(score)[::-1]
     
-    # If the best match has a score of almost 0, we don't have the info
-    if score[topid[0]] < 0.1:
-        return ("I'm sorry, I don't have specific information about that in my database yet. "
-                "However, Madhuri Pal and the WebProArts team can definitely help you! "
-                "Would you like me to provide our contact details?")
-
-    # 3. If info is found, use Gemini to explain it
+    # Select context from top 3 matches
     context = ""
-    for i in topid[:3]: # Use top 3 results for better accuracy
+    for i in topid[:3]:
         if score[i] > 0.1:
             context += DOCS[i] + "\n"
+    
+    if not context:
+        context = "WebProArts is a digital growth agency by Madhuri Pal specializing in Ads and Web Design."
 
-        response = client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=user_query,
-                config=types.GenerateContentConfig(
-                    system_instruction=(
-                        "You are the WebProArts Strategy Expert. "
-                        f"Context: {context}. "
-                        "STRICT RESPONSE RULES: "
-                        "1. If a user asks 'Do you do X?' or 'Can you X?', you MUST start with 'Yes,' or 'No,' based on the context. "
-                        "2. Be extremely detailed. If they ask about Ads, explain the difference between Meta and Google. "
-                        "3. If they ask about Web Design, explain WordPress vs. Custom Coding. "
-                        "4. If info is missing, say: 'No, we don't have that specific data. Please contact Madhuri Pal for a custom quote.'"
-                    ),
-                    temperature=0.2 # Keeps it very focused on your data
+    # --- MODEL FALLBACK STACK (Fixes 503 Errors) ---
+    model_stack = ["gemini-1.5-flash", "gemini-1.5-flash-8b"]
+
+    for model_name in model_stack:
+        for attempt in range(2):
+            try:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=user_query,
+                    config=types.GenerateContentConfig(
+                        system_instruction=(
+                            f"Context: {context}. You are the WebProArts Strategy Expert. "
+                            "Start with Yes/No for service questions. Explain technical "
+                            "differences (Ads/Web) clearly. Be professional."
+                        ),
+                        temperature=0.2
+                    )
                 )
-            )
-        return response.text
+                return response.text
+            except Exception as e:
+                # If busy or expired, we'll see it in the logs
+                print(f"DEBUG: Attempt with {model_name} failed: {str(e)}")
+                if "503" in str(e) or "429" in str(e):
+                    time.sleep(1.5)
+                    continue
+                raise e # Real errors (like 400 Expired) go to the view
+
+    return "I'm a bit overwhelmed! Please try again in 5 seconds."
