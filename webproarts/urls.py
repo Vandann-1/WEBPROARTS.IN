@@ -18,9 +18,10 @@ urlpatterns = [
 
 # Change 'sitemap.xml' to 'sitemap-new.xml'
     path('sitemap-new.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
     
     # Update robots.txt to point to the new name
-    path('robots.txt', TemplateView.as_view(
+    path('new-robots.txt', TemplateView.as_view(
         template_name="robots.txt",
         content_type="text/plain",
         extra_context={"site_url": "https://webproarts.in"}
