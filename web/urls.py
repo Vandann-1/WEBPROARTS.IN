@@ -19,6 +19,7 @@ urlpatterns = [
     path("privacy-policy/", policy, name="privacy_policy"),
     path("terms-of-service/", policy, name="terms_of_service"),
     path('web-development-websites/', webdev, name='webdev'),
+    path("career/", career, name="career"),
     
     path('blogs/', blogs, name='blogs'), 
     path('blogs/<int:post_id>/', blog_detail, name='blog_detail'),

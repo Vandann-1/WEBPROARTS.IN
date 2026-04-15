@@ -255,3 +255,7 @@ def blog_detail(request, post_id):
 
 def bot_page(request):
     return render(request, 'bot_page.html')
+
+
+def career(req):
+    return render(req, 'career.html')
