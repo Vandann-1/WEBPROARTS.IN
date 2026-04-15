@@ -96,7 +96,7 @@ MIDDLEWARE = [
 import os
 from pathlib import Path
 
-# ... other settings ...
+# ... other settivvvvvvvvvvvvvvfdfffffdfdngs ...
 
 # SECURITY: Don't hardcode passwords in production code
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
