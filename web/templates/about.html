@@ -19,29 +19,145 @@
 </head>
 <body class="bg-white text-slate-900 selection:bg-[#28b8d9] selection:text-white">
 
-<header class="w-full bg-white border-b border-slate-100 sticky top-0 z-[200]">
-    <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+<header class="w-full bg-white border-b border-slate-100 sticky top-0 z-[100]">
+    <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
         <a href="/" class="flex items-center">
-            <img src="{% static 'img/logo-webproarts.png' %}" alt="WebPro Arts" class="h-10 md:h-14 w-auto object-contain">
+            <img src="{% static 'img/logo-webproarts.png' %}" alt="WebProArts" class="h-12 lg:h-16 w-auto object-contain">
         </a>
 
         <nav class="hidden lg:flex items-center gap-10">
-            <a href="/" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9]">Services</a>
-            <a href="#work" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9]">Case Studies</a>
-            <a href="#" class="text-[15px] font-bold text-[#28b8d9]">About Us</a>
-            <a href="{% url 'contact.html' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all">Contact Now</a>
+            <div class="relative group">
+                <button class="flex items-center gap-2 text-[15px] font-bold text-slate-700 group-hover:text-[#28b8d9] transition-colors py-8 focus:outline-none">
+                    Services
+                    <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+                
+                <div class="absolute top-full left-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100]">
+                    <div class="bg-white border border-slate-100 shadow-2xl rounded-3xl w-[600px] p-6 grid grid-cols-2 gap-4 mt-2">
+                        <a href="{% url 'digital_marketing' %}" class="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
+                            <img src="https://cdn-icons-png.flaticon.com/512/11521/11521404.png" class="w-12 h-12 object-contain" alt="Marketing">
+                            <div>
+                                <p class="font-bold text-navy-950 text-sm">Digital Marketing</p>
+                                <p class="text-[12px] text-slate-500">SEO & Ads Management</p>
+                            </div>
+                        </a>
+                        <a href="{% url 'web_design' %}" class="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
+                            <img src="https://cdn-icons-png.flaticon.com/512/13191/13191295.png" class="w-12 h-12 object-contain" alt="Web Design">
+                            <div>
+                                <p class="font-bold text-navy-950 text-sm">Website Design</p>
+                                <p class="text-[12px] text-slate-500">UI/UX & Development</p>
+                            </div>
+                        </a>
+                        <a href="{% url 'social_media' %}" class="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" class="w-12 h-12 object-contain" alt="Social Media">
+                            <div>
+                                <p class="font-bold text-navy-950 text-sm">Social Media</p>
+                                <p class="text-[12px] text-slate-500">Growth & Management</p>
+                            </div>
+                        </a>
+                        <a href="{% url 'video_editing' %}" class="flex items-center gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4406/4406124.png" class="w-12 h-12 object-contain" alt="Video Editing">
+                            <div>
+                                <p class="font-bold text-navy-950 text-sm">Video Editing</p>
+                                <p class="text-[12px] text-slate-500">Reels & Ads Production</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'career' %}" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">Careers</a>
+            <a href="/" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">Case Studies</a>
+            <a href="{% url 'about' %}" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors">About Us</a>
+            
+            <a href="{% url 'blogs' %}" class="text-[15px] font-bold text-slate-700 hover:text-[#28b8d9] transition-colors relative group/blog">
+                Blog
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#28b8d9] transition-all group-hover/blog:w-full"></span>
+            </a>
+
+            <a href="{% url 'contact.html' %}" class="bg-[#16598a] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#28b8d9] transition-all shadow-lg shadow-[#16598a]/10">Contact Now</a>
         </nav>
 
-        <button class="lg:hidden p-2 text-[#16598a]" onclick="toggleMenu()">
+        <button class="lg:hidden p-2 text-[#16598a] hover:bg-slate-50 rounded-lg transition-colors" onclick="toggleMenu()" aria-label="Open Menu">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round"></path></svg>
         </button>
     </div>
-    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 absolute w-full left-0 p-6 space-y-4 shadow-xl">
-        <a href="/" class="block font-bold text-slate-700">Services</a>
-        <a href="{% url 'about' %}" class="block font-bold text-[#28b8d9]">About Us</a>
-        <a href="{% url 'contact.html' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold">Get Started</a>
-    </div>
 </header>
+
+<div id="sidebar-overlay" onclick="toggleMenu()" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[150] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+<div id="mobile-sidebar" class="fixed top-0 right-0 w-[85%] max-w-[360px] h-full bg-white z-[200] shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <div class="p-6 flex items-center justify-between border-b border-slate-50">
+        <img src="{% static 'img/logo-webproarts.png' %}" alt="Logo" class="h-10 w-auto">
+        <button onclick="toggleMenu()" class="p-2 text-slate-400 hover:text-red-500 transition-colors">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-6">
+        <div class="space-y-8">
+            <div>
+                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">Our Services</p>
+                <div class="grid gap-2">
+                    <a href="{% url 'digital_marketing' %}" class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 group">
+                        <img src="https://cdn-icons-png.flaticon.com/512/11521/11521404.png" class="w-8 h-8" alt="">
+                        <span class="font-bold text-slate-700 group-hover:text-[#28b8d9]">Digital Marketing</span>
+                    </a>
+                    <a href="{% url 'web_design' %}" class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 group">
+                        <img src="https://cdn-icons-png.flaticon.com/512/13191/13191295.png" class="w-8 h-8" alt="">
+                        <span class="font-bold text-slate-700 group-hover:text-[#28b8d9]">Website Design</span>
+                    </a>
+                    <a href="{% url 'social_media' %}" class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 group">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" class="w-8 h-8" alt="">
+                        <span class="font-bold text-slate-700 group-hover:text-[#28b8d9]">Social Media</span>
+                    </a>
+                    <a href="{% url 'video_editing' %}" class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 group">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4406/4406124.png" class="w-8 h-8" alt="">
+                        <span class="font-bold text-slate-700 group-hover:text-[#28b8d9]">Video Editing</span>
+                    </a>
+                </div>
+            </div>
+
+            <hr class="border-slate-100">
+
+            <div class="space-y-4">
+                <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">Company</p>
+                <a href="/" class="block px-3 font-bold text-slate-700 text-lg">Case Studies</a>
+                <a href="{% url 'career' %}" class="block px-3 font-bold text-slate-700 text-lg">Careers</a>
+
+                <a href="{% url 'about' %}" class="block px-3 font-bold text-slate-700 text-lg">About Us</a>
+                <a href="{% url 'blogs' %}" class="block px-3 font-bold text-slate-700 text-lg">Blog</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-6 border-t border-slate-50">
+        <a href="{% url 'contact.html' %}" class="block w-full text-center bg-[#16598a] text-white py-4 rounded-xl font-bold shadow-lg">Get Started Now</a>
+    </div>
+</div>
+
+<script>
+    function toggleMenu() {
+        const sidebar = document.getElementById('mobile-sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const body = document.body;
+
+        if (sidebar.classList.contains('translate-x-full')) {
+            // Open Menu
+            sidebar.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100', 'pointer-events-auto');
+            body.style.overflow = 'hidden'; // Stop background scrolling
+        } else {
+            // Close Menu
+            sidebar.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100', 'pointer-events-auto');
+            body.style.overflow = ''; // Restore scrolling
+        }
+    }
+</script>
+
+
 
 <section id="about" class="relative py-12 md:py-28 overflow-hidden bg-white">
     <div class="absolute top-0 left-0 w-[300px] h-[300px] bg-[#28b8d9]/10 rounded-full blur-[80px] -z-10 -translate-x-1/2"></div>
@@ -211,11 +327,11 @@
                     </span>
                 </div>
                 <ul class="hidden lg:block mt-6 lg:mt-0 space-y-4 text-sm text-slate-400 accordion-content text-center lg:text-left">
-                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Graphics Design</a></li>
-                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Website Design</a></li>
-                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Video Editing</a></li>
-                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Social Media Marketing</a></li>
-                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Digital Marketing</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="{% url 'graphic_design' %}">Graphics Design</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="{% url 'web_design' %}">Website Design</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="{% url 'video_editing' %}">Video Editing</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="{% url 'social_media' %}">Social Media Marketing</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="{% url 'digital_marketing' %}">Digital Marketing</a></li>
                 </ul>
             </div>
 
@@ -246,9 +362,12 @@
                             <svg class="w-4 h-4 text-[#28b8d9]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                         </div>
                         <span>+91 95616 35544</span>
+
                     </a>
+                    
                 </div>
             </div>
+
 
             <div class="border-t border-white/5 lg:border-none pt-6 lg:pt-0 flex flex-col items-center lg:items-start">
                 <h4 class="text-xs font-black uppercase tracking-[0.2em] text-white mb-6">Subscribe Our Mail</h4>
@@ -302,6 +421,9 @@ function toggleFooterAcc(el) {
     }
 }
 </script>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
     function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }

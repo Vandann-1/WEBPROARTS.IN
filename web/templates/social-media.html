@@ -721,11 +721,11 @@ window.addEventListener('DOMContentLoaded', () => {
                     </span>
                 </div>
                 <ul class="hidden lg:block mt-6 lg:mt-0 space-y-4 text-sm text-slate-400 accordion-content text-center lg:text-left">
-                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Graphics Design</a></li>
-                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Website Design</a></li>
-                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Video Editing</a></li>
-                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Social Media Marketing</a></li>
-                    <li class="hover:text-[#28b8d9] transition-colors"><a href="#">Digital Marketing</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="{% url 'graphic_design' %}">Graphics Design</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="{% url 'web_design' %}">Website Design</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="{% url 'video_editing' %}">Video Editing</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="{% url 'social_media' %}">Social Media Marketing</a></li>
+                    <li class="hover:text-[#28b8d9] transition-colors"><a href="{% url 'digital_marketing' %}">Digital Marketing</a></li>
                 </ul>
             </div>
 
@@ -756,9 +756,12 @@ window.addEventListener('DOMContentLoaded', () => {
                             <svg class="w-4 h-4 text-[#28b8d9]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                         </div>
                         <span>+91 95616 35544</span>
+
                     </a>
+                    
                 </div>
             </div>
+
 
             <div class="border-t border-white/5 lg:border-none pt-6 lg:pt-0 flex flex-col items-center lg:items-start">
                 <h4 class="text-xs font-black uppercase tracking-[0.2em] text-white mb-6">Subscribe Our Mail</h4>
