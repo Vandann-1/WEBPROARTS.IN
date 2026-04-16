@@ -21,6 +21,8 @@ class StaticSitemap(Sitemap):
             'webdev',
             'blogs',
             'bot_pages',
+            'career',
+            
         ]
 
     def location(self, item):

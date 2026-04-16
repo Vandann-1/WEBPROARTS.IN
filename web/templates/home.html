@@ -8,8 +8,9 @@
     <title>WebProArts | Digital Marketing, Web Design & SEO Agency in Mumbai</title>
 
     <meta name="description" content="WebProArts is a digital marketing, web design, and SEO agency in Mumbai helping businesses grow online with modern strategies.">
-
-
+{% load static %}
+<link rel="manifest" href="{% static 'manifest.json' %}">
+<meta name="theme-color" content="#000000">
 
 
 
@@ -1796,6 +1797,11 @@ function toggleFooterAcc(el) {
     }
 </script>
 
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/static/service-worker.js");
+}
+</script>
 
 
 </body>
