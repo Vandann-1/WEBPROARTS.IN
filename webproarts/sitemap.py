@@ -22,6 +22,7 @@ class StaticSitemap(Sitemap):
             'blogs',
             'bot_pages',
             'career',
+            'portfolio',
             
         ]
 
