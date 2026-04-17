@@ -18,7 +18,7 @@ urlpatterns = [
     path("graphic-design/", garphic_design, name="graphic_design"),
     path("privacy-policy/", policy, name="privacy_policy"),
     path("terms-of-service/", policy, name="terms_of_service"),
-    path('web-development-websites/', webdev, name='webdev'),
+    path("portfolio/", webdev, name='portfolio'),
     path("career/", career, name="career"),
     
     path('blogs/', blogs, name='blogs'), 
