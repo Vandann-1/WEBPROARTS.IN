@@ -4,6 +4,8 @@ from django.contrib.sitemaps.views import sitemap
 from webproarts.sitemap import*
 from django.views.generic import TemplateView
 from django.conf import settings
+from django.conf import settings
+from django.conf.urls.static import static
 
 sitemaps = {
     'static': StaticSitemap,
@@ -28,3 +30,5 @@ urlpatterns = [
 
 
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])

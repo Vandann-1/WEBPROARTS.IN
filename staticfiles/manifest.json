@@ -1,8 +1,7 @@
 
 
-
 {
-  "name": "AAAA_TEST",
+  "name": "WebProArts",
   "short_name": "WebPro",
   "start_url": "/",
   "display": "standalone",
