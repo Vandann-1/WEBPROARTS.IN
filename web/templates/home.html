@@ -1833,5 +1833,124 @@ window.addEventListener('beforeinstallprompt', (e) => {
 });
 </script>
 
+
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div id="offerModal" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-slate-900/85 backdrop-blur-md p-4">
+    <div class="relative w-full max-w-md transform overflow-hidden rounded-[2.5rem] bg-white p-8 text-center shadow-[0_25px_70px_-15px_rgba(22,89,138,0.4)] transition-all scale-95 opacity-0 duration-500 border border-slate-100" id="modalContent">
+        
+        <button id="closeModal" class="absolute right-6 top-6 text-slate-300 hover:text-[#28b8d9] transition-colors">
+            <i class="fas fa-circle-xmark text-3xl"></i>
+        </button>
+
+        <div class="mb-8">
+            <div class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-slate-50 border-4 border-white shadow-sm">
+                <i class="fas fa-rocket text-4xl text-[#28b8d9] animate-bounce"></i>
+            </div>
+            <h2 class="text-3xl font-black tracking-tight text-slate-800 leading-tight">
+                20K MEGA <span class="text-[#16598a]">OFFER</span>
+            </h2>
+            <p class="text-slate-500 font-medium mt-1">Full-Stack Digital Growth Package</p>
+        </div>
+
+        <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-4 rounded-2xl bg-slate-50 p-4 border border-slate-100 hover:border-[#28b8d9]/30 transition-all">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#16598a] text-white shadow-lg shadow-[#16598a]/20">
+                    <i class="fas fa-globe text-xl"></i>
+                </div>
+                <div class="text-left">
+                    <p class="text-sm font-extrabold text-slate-800">Premium Website</p>
+                    <p class="text-xs text-slate-500">Corporate Design & SEO Ready</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 rounded-2xl bg-slate-50 p-4 border border-slate-100 hover:border-[#28b8d9]/30 transition-all">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#28b8d9] text-white shadow-lg shadow-[#28b8d9]/20">
+                    <i class="fas fa-bullhorn text-xl"></i>
+                </div>
+                <div class="text-left">
+                    <p class="text-sm font-extrabold text-slate-800">Social Media Branding</p>
+                    <p class="text-xs text-slate-500">Graphics & Profile Optimization</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 rounded-2xl bg-slate-50 p-4 border border-slate-100 hover:border-[#28b8d9]/30 transition-all">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white border border-slate-200 shadow-sm">
+                    <img src="https://th.bing.com/th/id/OIP.ntrCpi0guTE7CdkNT7AB_AHaEK?w=306&h=180&c=7&r=0&o=7&pid=1.7&rm=3" class="w-7" alt="GMB">
+                </div>
+                <div class="text-left">
+                    <p class="text-sm font-extrabold text-slate-800">Google Business (GMB)</p>
+                    <p class="text-xs text-slate-500">Local Ranking & Map Setup</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-8 p-4 rounded-2xl bg-slate-50 border border-dashed border-slate-200">
+            <span class="text-sm text-slate-400 line-through font-bold uppercase tracking-widest">Worth ₹45,000</span>
+            <div class="flex items-center justify-center gap-2">
+                <span class="text-4xl font-black text-slate-900">₹20,000</span>
+                <span class="text-sm font-bold text-[#16598a] bg-blue-50 px-2 py-1 rounded-md">LIMITED</span>
+            </div>
+        </div>
+
+        <button class="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#16598a] to-[#28b8d9] px-8 py-5 text-lg font-black text-white transition-all hover:shadow-xl hover:shadow-[#16598a]/30 active:scale-95">
+            <span class="relative z-10 flex items-center justify-center gap-2 uppercase tracking-wide">
+                Claim Offer Now <i class="fas fa-chevron-right text-sm"></i>
+            </span>
+            <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>
+        </button>
+
+        <p class="mt-5 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
+            <i class="far fa-clock text-[#28b8d9] mr-1"></i> Special promotion for 2026
+        </p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('offerModal');
+    const modalContent = document.getElementById('modalContent');
+    const closeBtn = document.getElementById('closeModal');
+
+    // AUTO-POPUP LOGIC (2 second delay)
+    setTimeout(() => {
+        if (!sessionStorage.getItem('webproarts_mega_offer')) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Trigger Fade/Scale Animation
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 50);
+        }
+    }, 2000);
+
+    const closePopup = () => {
+        modalContent.classList.remove('scale-100', 'opacity-100');
+        modalContent.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            sessionStorage.setItem('webproarts_mega_offer', 'true');
+        }, 300);
+    };
+
+    closeBtn.addEventListener('click', closePopup);
+    
+    // Close when clicking the dark background
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) closePopup();
+    });
+});
+</script>
+
+
+
+
+
+
 </body>
 </html>
