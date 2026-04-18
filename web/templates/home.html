@@ -1845,65 +1845,69 @@ window.addEventListener('beforeinstallprompt', (e) => {
             <i class="fas fa-circle-xmark text-3xl"></i>
         </button>
 
-        <div class="mb-8">
-            <div class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-slate-50 border-4 border-white shadow-sm">
-                <i class="fas fa-rocket text-4xl text-[#28b8d9] animate-bounce"></i>
+        <div class="mb-6">
+            <div class="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-orange-50 border-4 border-yellow-400 shadow-lg relative p-2 overflow-hidden">
+                <img src="https://img.freepik.com/premium-photo/pooja-thali-kalas_984354-5465.jpg?w=996" class="w-16 h-16 aspect-square object-cover rounded-full" alt="Akshaya Tritiya Offer">
+                <i class="fas fa-coins absolute -top-1 -right-1 text-yellow-500 animate-pulse text-xl"></i>
             </div>
+<div class="inline-block px-6 py-2 rounded-full bg-orange-100 text-orange-700 text-xs font-black uppercase tracking-[0.15em] mb-3 shadow-sm border border-orange-200">
+    ✨ Akshaya Tritiya Special ✨
+</div>
             <h2 class="text-3xl font-black tracking-tight text-slate-800 leading-tight">
                 20K MEGA <span class="text-[#16598a]">OFFER</span>
             </h2>
-            <p class="text-slate-500 font-medium mt-1">Full-Stack Digital Growth Package</p>
+            <p class="text-slate-500 font-medium mt-1 italic text-sm">Bring Prosperity to your Business</p>
         </div>
 
-        <div class="space-y-4 mb-8">
+        <div class="space-y-3 mb-8">
             <div class="flex items-center gap-4 rounded-2xl bg-slate-50 p-4 border border-slate-100 hover:border-[#28b8d9]/30 transition-all">
-                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#16598a] text-white shadow-lg shadow-[#16598a]/20">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#16598a] text-white shadow-lg">
                     <i class="fas fa-globe text-xl"></i>
                 </div>
                 <div class="text-left">
-                    <p class="text-sm font-extrabold text-slate-800">Premium Website</p>
+                    <p class="text-sm font-extrabold text-slate-800">dynamic Website</p>
                     <p class="text-xs text-slate-500">Corporate Design & SEO Ready</p>
                 </div>
             </div>
 
             <div class="flex items-center gap-4 rounded-2xl bg-slate-50 p-4 border border-slate-100 hover:border-[#28b8d9]/30 transition-all">
-                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#28b8d9] text-white shadow-lg shadow-[#28b8d9]/20">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#28b8d9] text-white shadow-lg">
                     <i class="fas fa-bullhorn text-xl"></i>
                 </div>
                 <div class="text-left">
-                    <p class="text-sm font-extrabold text-slate-800">Social Media Branding</p>
-                    <p class="text-xs text-slate-500">Graphics & Profile Optimization</p>
+                    <p class="text-sm font-extrabold text-slate-800">Social Media Marketing</p>
+                    <p class="text-xs text-slate-500">Daily Graphics & Growth</p>
                 </div>
             </div>
 
             <div class="flex items-center gap-4 rounded-2xl bg-slate-50 p-4 border border-slate-100 hover:border-[#28b8d9]/30 transition-all">
                 <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white border border-slate-200 shadow-sm">
-                    <img src="https://th.bing.com/th/id/OIP.ntrCpi0guTE7CdkNT7AB_AHaEK?w=306&h=180&c=7&r=0&o=7&pid=1.7&rm=3" class="w-7" alt="GMB">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.2MlY5EWUkBjIrOBSwEySmQHaGe?rs=1&pid=ImgDetMain&o=7&rm=3" class="w-7" alt="GMB">
                 </div>
                 <div class="text-left">
-                    <p class="text-sm font-extrabold text-slate-800">Google Business (GMB)</p>
+                    <p class="text-sm font-extrabold text-slate-800">Google My Business (GMB)</p>
                     <p class="text-xs text-slate-500">Local Ranking & Map Setup</p>
                 </div>
             </div>
         </div>
 
-        <div class="mb-8 p-4 rounded-2xl bg-slate-50 border border-dashed border-slate-200">
-            <span class="text-sm text-slate-400 line-through font-bold uppercase tracking-widest">Worth ₹45,000</span>
+        <div class="mb-8 p-4 rounded-2xl bg-yellow-50 border border-dashed border-yellow-300">
+            <span class="text-xs text-slate-400 line-through font-bold uppercase">Standard Price ₹45,000</span>
             <div class="flex items-center justify-center gap-2">
                 <span class="text-4xl font-black text-slate-900">₹20,000</span>
-                <span class="text-sm font-bold text-[#16598a] bg-blue-50 px-2 py-1 rounded-md">LIMITED</span>
+                <span class="text-[10px] font-bold text-white bg-orange-500 px-2 py-1 rounded-md animate-pulse">SHUBH MUHURAT</span>
             </div>
         </div>
 
         <button class="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#16598a] to-[#28b8d9] px-8 py-5 text-lg font-black text-white transition-all hover:shadow-xl hover:shadow-[#16598a]/30 active:scale-95">
             <span class="relative z-10 flex items-center justify-center gap-2 uppercase tracking-wide">
-                Claim Offer Now <i class="fas fa-chevron-right text-sm"></i>
+               <a href="{% url 'contact.html'%}" class="text-white no-underline">Claim Now</a> <i class="fas fa-arrow-right text-sm"></i>
             </span>
             <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>
         </button>
 
         <p class="mt-5 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
-            <i class="far fa-clock text-[#28b8d9] mr-1"></i> Special promotion for 2026
+            <i class="far fa-clock text-[#28b8d9] mr-1"></i> Shubh Muhurat Offer Ends Soon
         </p>
     </div>
 </div>
@@ -1914,13 +1918,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalContent = document.getElementById('modalContent');
     const closeBtn = document.getElementById('closeModal');
 
-    // AUTO-POPUP LOGIC (2 second delay)
     setTimeout(() => {
-        if (!sessionStorage.getItem('webproarts_mega_offer')) {
+        if (!sessionStorage.getItem('akshaya_offer_shown')) {
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            
-            // Trigger Fade/Scale Animation
             setTimeout(() => {
                 modalContent.classList.remove('scale-95', 'opacity-0');
                 modalContent.classList.add('scale-100', 'opacity-100');
@@ -1934,16 +1935,12 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             modal.classList.add('hidden');
             modal.classList.remove('flex');
-            sessionStorage.setItem('webproarts_mega_offer', 'true');
+            sessionStorage.setItem('akshaya_offer_shown', 'true');
         }, 300);
     };
 
-    closeBtn.addEventListener('click', closePopup);
-    
-    // Close when clicking the dark background
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) closePopup();
-    });
+    closeBtn.onclick = closePopup;
+    window.onclick = (e) => { if (e.target === modal) closePopup(); };
 });
 </script>
 
