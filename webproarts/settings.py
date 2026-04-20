@@ -103,9 +103,10 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
-DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_USER = "wpa2026.work@gmail.com"
+EMAIL_HOST_PASSWORD ="ojde bbqf pcaa syvo"
+DEFAULT_FROM_EMAIL = "wpa2026.work@gmail.com"
+
 
 
 ROOT_URLCONF = 'webproarts.urls'
