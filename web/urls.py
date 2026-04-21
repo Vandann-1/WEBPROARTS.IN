@@ -9,7 +9,7 @@ urlpatterns = [
     
     # Keeping contact.html without a slash to match your current link
     path("contact.html", contact, name="contact.html"), 
-    path("contact-submit/", contact_view, name="contact_form"), 
+    path("contact-submit/", contact_submit, name="contact_form"), 
     
     path("digital-marketing/", digital_marketing, name="digital_marketing"),
     path("web-design/", web_design, name="web_design"),

@@ -95,20 +95,22 @@ MIDDLEWARE = [
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
-# ... other settivvvvvvvvvvvvvvfdfffffdfdngs ...
+# Load environment variables from .env file
+load_dotenv()
+
+# ... other settings ...
 
 # SECURITY: Don't hardcode passwords in production code
+# Emails will print to your terminal instead of sending
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = True  # Must be True for 587
+EMAIL_USE_SSL = False # Must be False if TLS is True
 EMAIL_HOST_USER = "wpa2026.work@gmail.com"
-EMAIL_HOST_PASSWORD ="ojde bbqf pcaa syvo"
-DEFAULT_FROM_EMAIL = "wpa2026.work@gmail.com"
-
-
-
+EMAIL_HOST_PASSWORD="ojde bbqf pcaa syvo"
 ROOT_URLCONF = 'webproarts.urls'
 
 TEMPLATES = [

@@ -16,34 +16,54 @@ def contact(request):
 
     return render(request, 'contact.html')
 
-
 import json
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt # Optional: use if having CSRF issues with JS
 from django.core.mail import send_mail
+from django.http import JsonResponse
 from django.conf import settings
 
-def contact_view(request):
+import json
+from django.core.mail import send_mail
+from django.http import JsonResponse
+from django.conf import settings
+from django.views.decorators.csrf import ensure_csrf_cookie
+
+@ensure_csrf_cookie
+def contact_submit(request):
     if request.method == "POST":
         try:
+            # Check if body is empty
+            if not request.body:
+                return JsonResponse({'status': 'error', 'message': 'Empty request body'}, status=400)
+
             data = json.loads(request.body)
             
-            # Send the email
+            # Use .get() with defaults to avoid KeyErrors
+            full_name = data.get('full_name', 'No Name')
+            user_email = data.get('email', 'No Email')
+            service = data.get('service', 'General Inquiry')
+            message = data.get('message', '')
+
+            # SMTP Sending Logic
             send_mail(
-                subject=f"New Lead: {data.get('service')}",
-                message=f"Name: {data.get('full_name')}\nEmail: {data.get('email')}\n\n{data.get('message')}",
+                subject=f"Contact Form: {service}",
+                message=f"From: {full_name}\nEmail: {user_email}\n\nMessage:\n{message}",
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[settings.EMAIL_HOST_USER],
+                recipient_list=[settings.DEFAULT_FROM_EMAIL],
+                fail_silently=False,
             )
-            
-            # MANDATORY: This must be a JsonResponse
+
             return JsonResponse({'status': 'success'})
-            
+
+        except json.JSONDecodeError:
+            return JsonResponse({'status': 'error', 'message': 'Invalid JSON format'}, status=400)
         except Exception as e:
+            # This prints the REAL error (like Gmail auth) to your terminal
+            print(f"CRITICAL ERROR: {str(e)}") 
             return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 
-    # Only return HTML for GET requests (initial page load)
-    return render(request, 'contact.html')
+    return JsonResponse({'status': 'error', 'message': 'Only POST allowed'}, status=405)
+
+
 
 def digital_marketing(request):
     return render(request, 'digital-marketing.html')
