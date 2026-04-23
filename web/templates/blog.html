@@ -14,40 +14,73 @@
 </head>
 <body class="bg-white antialiased">
 
-    <section class="py-12 md:py-24 max-w-7xl mx-auto px-5 sm:px-8">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-[#04131a] mb-12 md:mb-20 tracking-tighter text-center md:text-left">
-            Latest <span class="text-[#16598a]">Insights.</span>
-        </h1>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+<section class="py-12 md:py-24 max-w-7xl mx-auto px-5 sm:px-8 overflow-hidden">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-[#04131a] mb-12 md:mb-20 tracking-tighter text-center md:text-left">
+        Latest <span class="text-[#16598a]">Insights.</span>
+    </h1>
+    
+    <div class="swiper blogSwiper !overflow-visible">
+        <div class="swiper-wrapper">
             {% for id, post in posts.items %}
-            <div class="blog-card group bg-slate-50 p-6 md:p-8 rounded-[2.5rem] md:rounded-[3.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl flex flex-col h-full">
-                
-                <div class="overflow-hidden rounded-[1.8rem] md:rounded-[2.5rem] mb-6 md:mb-8">
-                    <img src="{{ post.image }}" 
-                         alt="{{ post.title }}"
-                         class="h-56 md:h-64 w-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                </div>
+            <div class="swiper-slide h-auto !flex">
+                <div class="blog-card group bg-slate-50 p-6 md:p-8 rounded-[2.5rem] md:rounded-[3.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl flex flex-col h-full w-full transition-all duration-500">
+                    
+                    <div class="overflow-hidden rounded-[1.8rem] md:rounded-[2.5rem] mb-6 md:mb-8">
+                        <img src="{{ post.image }}" 
+                             alt="{{ post.title }}"
+                             class="h-56 md:h-64 w-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
 
-                <span class="text-[#28b8d9] font-black uppercase tracking-widest text-[10px]">{{ post.category }}</span>
-                
-                <h3 class="text-xl md:text-2xl font-black text-[#04131a] mt-4 mb-3 md:mb-4 leading-tight group-hover:text-[#16598a]">
-                    {{ post.title }}
-                </h3>
-                
-                <p class="text-slate-500 text-sm mb-6 md:mb-8 flex-grow">
-                    {{ post.excerpt }}
-                </p>
-                
-                <div class="mt-auto">
-                    <a href="{% url 'blog_detail' id %}" class="text-[11px] font-black text-[#16598a] uppercase tracking-widest border-b-2 border-[#28b8d9] pb-1 inline-block transition-all hover:border-[#16598a]">
-                        Read Full Article →
-                    </a>
+                    <span class="text-[#28b8d9] font-black uppercase tracking-widest text-[10px]">{{ post.category }}</span>
+                    
+                    <h3 class="text-xl md:text-2xl font-black text-[#04131a] mt-4 mb-3 md:mb-4 leading-tight group-hover:text-[#16598a]">
+                        {{ post.title }}
+                    </h3>
+                    
+                    <p class="text-slate-500 text-sm mb-6 md:mb-8 flex-grow">
+                        {{ post.excerpt }}
+                    </p>
+                    
+                    <div class="mt-auto">
+                        <a href="{% url 'blog_detail' id %}" class="text-[11px] font-black text-[#16598a] uppercase tracking-widest border-b-2 border-[#28b8d9] pb-1 inline-block transition-all hover:border-[#16598a]">
+                            Read Full Article →
+                        </a>
+                    </div>
                 </div>
-            </div>
+                </div>
             {% endfor %}
         </div>
-    </section>
+
+        <div class="swiper-pagination !static mt-12"></div>
+    </div>
+</section>
+
+
+<script>
+  var swiper = new Swiper(".blogSwiper", {
+    slidesPerView: 1.1, // Shows a peek of the next card on mobile
+    spaceBetween: 20,
+    grabCursor: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    breakpoints: {
+      // Tablet
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      // Desktop
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+      },
+    },
+  });
+</script>
+
 
     {% load static %}
 <footer class="bg-[#000000] text-white pt-16 pb-8 border-t border-white/5 font-sans">
